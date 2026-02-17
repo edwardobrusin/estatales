@@ -1,0 +1,289 @@
+Estado,Codigo,Actividad,Sector,Inversion,Inversion_Anterior
+Aguascalientes,111,Agricultura,Primaria,15.057724341858231,0.0
+Aguascalientes,112,Cría y explotación de animales,Primaria,8.907334491258786e-05,0.014024140346301998
+Aguascalientes,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Aguascalientes,336,Fabricación de equipo de transporte,Secundaria,328.20310137590064,226.94464584798715
+Aguascalientes,333,Fabricación de maquinaria y equipo,Secundaria,39.90072281575586,-4.234264358024453
+Aguascalientes,326,Industria del plástico y del hule,Secundaria,12.425967348452733,4.427213375728205
+Aguascalientes,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,52.70770869068444,2.8499247957978953
+Aguascalientes,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,6.075340391966824,0.5630908634185894
+Aguascalientes,488,Servicios relacionados con el transporte,Terciaria,4.352858275050799,0.0
+Baja California,112,Cría y explotación de animales,Primaria,2.955439771612006,0.0
+Baja California,111,Agricultura,Primaria,1.3525207805492465,1.2071093809298885
+Baja California,115,Servicios relacionados con las actividades agropecuarias y forestales,Primaria,1.0483266088228185,0.0
+Baja California,336,Fabricación de equipo de transporte,Secundaria,915.6559642481157,1221.586186369587
+Baja California,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,136.1091664023528,145.5283508998641
+Baja California,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,118.01782635025381,80.48356940963927
+Baja California,561,Servicios de apoyo a los negocios,Terciaria,82.32363341782629,24.397785890154093
+Baja California,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,74.12025773440936,40.90175657730117
+Baja California,488,Servicios relacionados con el transporte,Terciaria,44.48271180492916,53.761185802943785
+Baja California Sur,112,Cría y explotación de animales,Primaria,0.0,0.0
+Baja California Sur,114,"Pesca, caza y captura",Primaria,0.0,0.0
+Baja California Sur,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Baja California Sur,325,Industria química,Secundaria,275.45651271165235,-0.06835939589276047
+Baja California Sur,315,Fabricación de prendas de vestir,Secundaria,0.3128047473034561,0.0
+Baja California Sur,336,Fabricación de equipo de transporte,Secundaria,0.058671819916027546,-6.998171477840559
+Baja California Sur,721,Servicios de alojamiento temporal,Terciaria,593.398678844796,783.2706153010666
+Baja California Sur,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,6.622393101618932,0.6812647356299409
+Baja California Sur,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,4.859007647469121,-6.300066725943967
+Campeche,111,Agricultura,Primaria,0.0,0.0
+Campeche,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Campeche,114,"Pesca, caza y captura",Primaria,0.0,0.0
+Campeche,211,Extracción de petróleo y gas,Secundaria,34.634466480428635,98.69509088629671
+Campeche,221,"Generación, transmisión, distribución y comercialización de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final",Secundaria,17.717563252776614,0.0
+Campeche,213,Servicios relacionados con la minería,Secundaria,8.291525468894863,0.4479759570588235
+Campeche,541,"Servicios profesionales, científicos y técnicos",Terciaria,9.98234851752689,0.5215361186997791
+Campeche,561,Servicios de apoyo a los negocios,Terciaria,0.8213202765349711,-0.3866611479001555
+Campeche,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,0.774382415180104,2.3256726540074824
+Chiapas,111,Agricultura,Primaria,0.0,0.0
+Chiapas,112,Cría y explotación de animales,Primaria,0.0,0.0
+Chiapas,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Chiapas,325,Industria química,Secundaria,17.84232893830395,10.142826378541463
+Chiapas,237,Construcción de obras de ingeniería civil,Secundaria,8.393833860548964,67.99216915515541
+Chiapas,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,0.48396228,1.80081081
+Chiapas,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,18.320409444573677,-2.1340093140156697
+Chiapas,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,2.9738366711027724,1.78766012862618
+Chiapas,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,0.19975602074682336,-0.06839422920768362
+Chihuahua,111,Agricultura,Primaria,0.0,0.0
+Chihuahua,112,Cría y explotación de animales,Primaria,0.0,0.0596025964717835
+Chihuahua,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Chihuahua,336,Fabricación de equipo de transporte,Secundaria,327.7500388868624,709.1075058837669
+Chihuahua,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,117.3552907829362,87.72041753925514
+Chihuahua,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,102.82356438762719,145.8673455045299
+Chihuahua,531,Servicios inmobiliarios,Terciaria,76.61597486616874,0.26918094176470586
+Chihuahua,621,Servicios médicos de consulta externa y servicios relacionados,Terciaria,7.503579363804928,5.2639098044374215
+Chihuahua,513,"Edición de periódicos, revistas, libros, directorios, software y otros materiales",Terciaria,6.3507689703038155,10.811949574321932
+Ciudad de México,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Ciudad de México,115,Servicios relacionados con las actividades agropecuarias y forestales,Primaria,0.0,40.52405401948973
+Ciudad de México,114,"Pesca, caza y captura",Primaria,0.0,0.0
+Ciudad de México,336,Fabricación de equipo de transporte,Secundaria,2021.2791989827074,2667.2971897550133
+Ciudad de México,212,"Minería de minerales metálicos y no metálicos, excepto petróleo y gas",Secundaria,1094.668108930399,1966.9096471061785
+Ciudad de México,237,Construcción de obras de ingeniería civil,Secundaria,1024.32281034935,-2704.516678746858
+Ciudad de México,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,7213.916300864112,4296.061937471105
+Ciudad de México,561,Servicios de apoyo a los negocios,Terciaria,1722.3320067514862,66.79552419528295
+Ciudad de México,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,1618.7107941381635,338.6606262552415
+Coahuila,112,Cría y explotación de animales,Primaria,6.858636507992067,1.4024140346302
+Coahuila,111,Agricultura,Primaria,0.0,0.0
+Coahuila,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Coahuila,336,Fabricación de equipo de transporte,Secundaria,847.2068769254088,417.2617703801712
+Coahuila,312,Industria de las bebidas y del tabaco,Secundaria,175.82576625081953,113.65081689699238
+Coahuila,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,22.034052679493925,21.09916339877158
+Coahuila,531,Servicios inmobiliarios,Terciaria,44.44251497165311,0.0
+Coahuila,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,10.246237384831938,0.3850310525366957
+Coahuila,468,"Comercio al por menor de vehículos de motor, refacciones, combustibles y lubricantes",Terciaria,3.3158404849953453,0.11623752665958763
+Colima,111,Agricultura,Primaria,0.1686573376901209,0.1891259967276085
+Colima,112,Cría y explotación de animales,Primaria,0.0,0.0
+Colima,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Colima,237,Construcción de obras de ingeniería civil,Secundaria,242.84730053980525,160.30568766747956
+Colima,336,Fabricación de equipo de transporte,Secundaria,1.9787102286314786,47.962276886399664
+Colima,339,Otras industrias manufactureras,Secundaria,0.11596317351655938,0.0
+Colima,488,Servicios relacionados con el transporte,Terciaria,23.56468739860926,10.050330731512842
+Colima,721,Servicios de alojamiento temporal,Terciaria,5.724846561192037,4.8635317251169745
+Colima,435,"Comercio al por mayor de maquinaria, equipo y mobiliario para actividades agropecuarias, industriales, de servicios y comerciales, y de otra maquinaria y equipo de uso general",Terciaria,0.19967255462777309,0.2238259098805392
+Durango,111,Agricultura,Primaria,0.0,0.0
+Durango,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Durango,114,"Pesca, caza y captura",Primaria,0.0,0.0
+Durango,212,"Minería de minerales metálicos y no metálicos, excepto petróleo y gas",Secundaria,9.565154871098489,8.32532619075423
+Durango,322,Industria del papel,Secundaria,6.888030595496418,0.056089138386562584
+Durango,333,Fabricación de maquinaria y equipo,Secundaria,0.2687690947301141,1.1177445254234901
+Durango,468,"Comercio al por menor de vehículos de motor, refacciones, combustibles y lubricantes",Terciaria,1.1089594883378306,0.5620080097058823
+Durango,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,0.3666145105962425,1.3819202419444045
+Durango,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,0.3218477585119851,-0.1253023152385727
+México,111,Agricultura,Primaria,0.0,0.0038452985049048714
+México,113,Aprovechamiento forestal,Primaria,0.0,0.0
+México,114,"Pesca, caza y captura",Primaria,0.0,0.0
+México,336,Fabricación de equipo de transporte,Secundaria,885.5022791115796,1369.6318256641932
+México,237,Construcción de obras de ingeniería civil,Secundaria,810.0485298239179,89.9781646693786
+México,339,Otras industrias manufactureras,Secundaria,596.3527871891223,64.7688369310957
+México,525,Sociedades de inversión especializadas en fondos para el retiro y fondos de inversión,Terciaria,66.23072779432634,0.0
+México,437,Intermediación de comercio al por mayor,Terciaria,54.8566005884457,1.2848091050276558
+México,433,"Comercio al por mayor de productos farmacéuticos, de perfumería, artículos para el esparcimiento, electrodomésticos menores y aparatos de línea blanca",Terciaria,40.22625765651,46.838843989600406
+Guanajuato,111,Agricultura,Primaria,15.457289467778558,-0.3424241034485358
+Guanajuato,112,Cría y explotación de animales,Primaria,0.0,0.0
+Guanajuato,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Guanajuato,336,Fabricación de equipo de transporte,Secundaria,628.5401690589497,1555.994612034208
+Guanajuato,325,Industria química,Secundaria,154.04687253980845,79.65468008266954
+Guanajuato,331,Industrias metálicas básicas,Secundaria,31.330277640839135,49.41584575159387
+Guanajuato,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,42.4557294793691,6.138329898124614
+Guanajuato,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,37.76653011934958,42.20297798807809
+Guanajuato,434,"Comercio al por mayor de materias primas agropecuarias y forestales, para la industria, y materiales de desecho",Terciaria,28.52029274757966,14.79050497498644
+Guerrero,111,Agricultura,Primaria,0.0,0.0
+Guerrero,112,Cría y explotación de animales,Primaria,0.0,0.0245422456060285
+Guerrero,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Guerrero,325,Industria química,Secundaria,4.722796893929114,2.2399765950803032
+Guerrero,315,Fabricación de prendas de vestir,Secundaria,0.09384142419103682,0.0
+Guerrero,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,0.002965279569259829,0.09863245156092262
+Guerrero,721,Servicios de alojamiento temporal,Terciaria,103.02657409899786,8.469344172006593
+Guerrero,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,1.9392225829975815,0.8401750589195175
+Guerrero,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,0.18029249128050753,0.017531304388120623
+Hidalgo,111,Agricultura,Primaria,0.0,0.0
+Hidalgo,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Hidalgo,114,"Pesca, caza y captura",Primaria,0.0,0.0
+Hidalgo,336,Fabricación de equipo de transporte,Secundaria,40.40709454881454,60.42154267350532
+Hidalgo,236,Edificación,Secundaria,35.01621550480031,34.64033256161008
+Hidalgo,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,17.280082734416506,3.804590235144394
+Hidalgo,486,Transporte por ductos,Terciaria,23.868539674004317,26.28230237254901
+Hidalgo,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,5.950065555365772,0.4482698114820135
+Hidalgo,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,2.8801072013542606,2.7637870652202237
+Jalisco,111,Agricultura,Primaria,61.38466561561489,129.76585857223378
+Jalisco,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Jalisco,114,"Pesca, caza y captura",Primaria,0.0,0.0
+Jalisco,336,Fabricación de equipo de transporte,Secundaria,231.77485922478104,105.27242953792361
+Jalisco,339,Otras industrias manufactureras,Secundaria,204.75185279094575,12.572208032633538
+Jalisco,326,Industria del plástico y del hule,Secundaria,169.51778993712315,124.92451585437173
+Jalisco,721,Servicios de alojamiento temporal,Terciaria,109.47119375891609,135.62490770988174
+Jalisco,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,26.153047530673078,51.07400077747786
+Jalisco,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,22.996915703758315,2.7552226238366733
+Michoacán,111,Agricultura,Primaria,26.46106836176452,9.99612054888206
+Michoacán,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Michoacán,114,"Pesca, caza y captura",Primaria,0.0,0.0
+Michoacán,321,Industria de la madera,Secundaria,43.31507598548656,9.504337108110173
+Michoacán,339,Otras industrias manufactureras,Secundaria,0.9244306378190476,0.8340521321656518
+Michoacán,333,Fabricación de maquinaria y equipo,Secundaria,0.3882220305579334,0.37171809064406713
+Michoacán,488,Servicios relacionados con el transporte,Terciaria,85.14278135215837,77.43444136583216
+Michoacán,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,18.499425957136186,7.292164544791536
+Michoacán,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,6.741354914293624,0.6916833760265407
+Morelos,111,Agricultura,Primaria,1.1085394221351614,-6.126568747760767e-05
+Morelos,112,Cría y explotación de animales,Primaria,0.0,0.077132771904661
+Morelos,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Morelos,336,Fabricación de equipo de transporte,Secundaria,92.71327941916543,114.48071277043013
+Morelos,322,Industria del papel,Secundaria,7.877105809635763,18.163328064484038
+Morelos,339,Otras industrias manufactureras,Secundaria,4.6622057312839145,1.325794539637955
+Morelos,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,5.899764151285518,0.5353115216884351
+Morelos,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,2.3321601893345125,2.9058855198772813
+Morelos,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,0.6801921604900945,0.006177800931300964
+Nayarit,111,Agricultura,Primaria,0.11399633210448214,0.23144185900912823
+Nayarit,112,Cría y explotación de animales,Primaria,0.0,0.0
+Nayarit,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Nayarit,325,Industria química,Secundaria,52.30852791780116,16.273224788177256
+Nayarit,236,Edificación,Secundaria,0.3912861603377687,0.47404910741176476
+Nayarit,339,Otras industrias manufactureras,Secundaria,0.11596317351655938,0.0
+Nayarit,721,Servicios de alojamiento temporal,Terciaria,94.25449756348186,283.82814150641576
+Nayarit,531,Servicios inmobiliarios,Terciaria,22.319631409705842,0.7508470733000788
+Nayarit,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,0.6255441402417918,1.040521722930831
+Nuevo León,112,Cría y explotación de animales,Primaria,1.4778197361716419,0.4733147366876925
+Nuevo León,111,Agricultura,Primaria,0.0,0.015381194019619486
+Nuevo León,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Nuevo León,336,Fabricación de equipo de transporte,Secundaria,927.4577921156106,95.0066576869124
+Nuevo León,331,Industrias metálicas básicas,Secundaria,864.1524890575496,349.4628496896549
+Nuevo León,333,Fabricación de maquinaria y equipo,Secundaria,371.94469194290144,-932.9038026773582
+Nuevo León,436,"Comercio al por mayor de camiones y de partes y refacciones nuevas para automóviles, camionetas y camiones",Terciaria,1070.1183895140098,1044.1110197264982
+Nuevo León,435,"Comercio al por mayor de maquinaria, equipo y mobiliario para actividades agropecuarias, industriales, de servicios y comerciales, y de otra maquinaria y equipo de uso general",Terciaria,207.95475620052363,17.10902539310546
+Nuevo León,461,"Comercio al por menor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,145.0682807914597,4.085153404471554
+Oaxaca,111,Agricultura,Primaria,0.0,0.09760283912208437
+Oaxaca,112,Cría y explotación de animales,Primaria,0.0,0.0
+Oaxaca,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Oaxaca,221,"Generación, transmisión, distribución y comercialización de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final",Secundaria,27.017756310743355,7.584878085331174
+Oaxaca,236,Edificación,Secundaria,8.185532505149661,15.646441448604621
+Oaxaca,325,Industria química,Secundaria,3.812293585569062,1.8974402232673402
+Oaxaca,721,Servicios de alojamiento temporal,Terciaria,9.548434136727428,18.84181180737191
+Oaxaca,437,Intermediación de comercio al por mayor,Terciaria,5.922809762346521,0.0
+Oaxaca,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,0.5428795841459063,2.9951259612595713
+Puebla,112,Cría y explotación de animales,Primaria,21.025342887112497,0.0245422456060285
+Puebla,111,Agricultura,Primaria,0.09993433445492014,1.984665886040658
+Puebla,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Puebla,336,Fabricación de equipo de transporte,Secundaria,394.90649875721647,530.5216488894961
+Puebla,312,Industria de las bebidas y del tabaco,Secundaria,15.567415662674257,39.71587157948884
+Puebla,333,Fabricación de maquinaria y equipo,Secundaria,13.246548977398437,23.18596485306528
+Puebla,486,Transporte por ductos,Terciaria,68.96595117173635,0.0
+Puebla,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,7.645922353718207,0.5255290516783362
+Puebla,541,"Servicios profesionales, científicos y técnicos",Terciaria,2.7947071218547874,8.65731151642882
+Querétaro,115,Servicios relacionados con las actividades agropecuarias y forestales,Primaria,5.616610023104151,8.392737855843917
+Querétaro,111,Agricultura,Primaria,0.6185745983437727,3.652889430190301
+Querétaro,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Querétaro,326,Industria del plástico y del hule,Secundaria,247.81688491784237,210.48245643970318
+Querétaro,325,Industria química,Secundaria,163.66849520685614,-15.403916193274926
+Querétaro,336,Fabricación de equipo de transporte,Secundaria,102.35122492479027,427.75790334261876
+Querétaro,513,"Edición de periódicos, revistas, libros, directorios, software y otros materiales",Terciaria,164.33489215368064,-3.021980947115834
+Querétaro,518,"Provisión de infraestructura de servicios de cómputo, procesamiento de datos, hospedaje de páginas de internet y otros servicios relacionados",Terciaria,142.3945378198567,0.0
+Querétaro,517,Telecomunicaciones,Terciaria,18.796109634831666,1.0148801376114076
+Quintana Roo,111,Agricultura,Primaria,0.0,0.00017435628998938143
+Quintana Roo,112,Cría y explotación de animales,Primaria,0.0,0.0
+Quintana Roo,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Quintana Roo,325,Industria química,Secundaria,97.73166439484152,0.3357536182303731
+Quintana Roo,211,Extracción de petróleo y gas,Secundaria,2.259424104444474,14.398878317879976
+Quintana Roo,339,Otras industrias manufactureras,Secundaria,1.1555382972738129,1.9708021059993823
+Quintana Roo,721,Servicios de alojamiento temporal,Terciaria,629.3796842721707,710.7217479967113
+Quintana Roo,531,Servicios inmobiliarios,Terciaria,22.679729078850222,78.13097602295193
+Quintana Roo,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,6.448698605161573,0.5575717365132241
+San Luis Potosí,111,Agricultura,Primaria,0.0,0.0038452985049048714
+San Luis Potosí,113,Aprovechamiento forestal,Primaria,0.0,0.0
+San Luis Potosí,114,"Pesca, caza y captura",Primaria,0.0,0.0
+San Luis Potosí,336,Fabricación de equipo de transporte,Secundaria,343.2056832611674,409.40150247584245
+San Luis Potosí,326,Industria del plástico y del hule,Secundaria,62.18428652836458,40.255783071837186
+San Luis Potosí,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,34.27045689015655,4.4204726827236165
+San Luis Potosí,468,"Comercio al por menor de vehículos de motor, refacciones, combustibles y lubricantes",Terciaria,14.547570225738053,0.010042822067131939
+San Luis Potosí,486,Transporte por ductos,Terciaria,13.511897365781351,131.41151186274513
+San Luis Potosí,434,"Comercio al por mayor de materias primas agropecuarias y forestales, para la industria, y materiales de desecho",Terciaria,8.034881238582598,-2.714730735157878
+Sinaloa,112,Cría y explotación de animales,Primaria,0.0024132692033273723,0.0
+Sinaloa,114,"Pesca, caza y captura",Primaria,0.0,0.0
+Sinaloa,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Sinaloa,322,Industria del papel,Secundaria,2.865778699760815,6.474396864810577
+Sinaloa,315,Fabricación de prendas de vestir,Secundaria,1.1573775650227873,0.0
+Sinaloa,326,Industria del plástico y del hule,Secundaria,0.13069229756597459,1.3712986660199247
+Sinaloa,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,8.974585106519688,6.334754201422686
+Sinaloa,721,Servicios de alojamiento temporal,Terciaria,8.885095282003986,83.22701438635353
+Sinaloa,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,5.509071473621568,0.4296766353350461
+Sonora,111,Agricultura,Primaria,0.0,0.003906564192382479
+Sonora,112,Cría y explotación de animales,Primaria,0.0,0.0
+Sonora,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Sonora,212,"Minería de minerales metálicos y no metálicos, excepto petróleo y gas",Secundaria,45.29309772759457,76.2098198227275
+Sonora,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,27.371780266085285,24.707083775936862
+Sonora,325,Industria química,Secundaria,9.879152041996347,2.207982129837305
+Sonora,721,Servicios de alojamiento temporal,Terciaria,23.9186369307382,28.880730661375587
+Sonora,486,Transporte por ductos,Terciaria,7.553709447931004,37.69501329839725
+Sonora,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,6.787698644463585,0.5525303316082748
+Tabasco,111,Agricultura,Primaria,0.0,0.0
+Tabasco,112,Cría y explotación de animales,Primaria,0.0,0.0
+Tabasco,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Tabasco,211,Extracción de petróleo y gas,Secundaria,98.22408434060998,203.65909788119993
+Tabasco,312,Industria de las bebidas y del tabaco,Secundaria,7.287853393533645,7.680453880811552
+Tabasco,236,Edificación,Secundaria,4.1838471957405305,62.44725063589155
+Tabasco,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,4.696837909491214,0.365238789973538
+Tabasco,486,Transporte por ductos,Terciaria,3.9855381683589846,0.0
+Tabasco,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,2.6063201590625957,2.823707412562115
+Tamaulipas,111,Agricultura,Primaria,1.2600148837493126,0.0
+Tamaulipas,112,Cría y explotación de animales,Primaria,0.0,0.0
+Tamaulipas,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Tamaulipas,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,112.21522415178228,78.20426055505972
+Tamaulipas,336,Fabricación de equipo de transporte,Secundaria,81.19350444397071,65.42502595493742
+Tamaulipas,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,60.50434876530268,76.81856796384324
+Tamaulipas,486,Transporte por ductos,Terciaria,34.9860338426828,25.642468396776685
+Tamaulipas,561,Servicios de apoyo a los negocios,Terciaria,3.243408855132429,-1.4238148580177277
+Tamaulipas,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,2.9317908736254474,-2.365515699571846
+Tlaxcala,111,Agricultura,Primaria,0.060538883760901066,1.3214111118685026
+Tlaxcala,112,Cría y explotación de animales,Primaria,0.0,0.0
+Tlaxcala,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Tlaxcala,336,Fabricación de equipo de transporte,Secundaria,79.65423825639643,74.35210926446916
+Tlaxcala,327,Fabricación de productos a base de minerales no metálicos,Secundaria,36.86975485184238,-5.464007745862078
+Tlaxcala,325,Industria química,Secundaria,1.515877055963417,4.5965618613290395
+Tlaxcala,434,"Comercio al por mayor de materias primas agropecuarias y forestales, para la industria, y materiales de desecho",Terciaria,3.963822261012557,-4.075317129599587
+Tlaxcala,517,Telecomunicaciones,Terciaria,1.0329273508161938,-8.513214458807461
+Tlaxcala,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,0.543018443181498,0.033714826558357135
+Veracruz,112,Cría y explotación de animales,Primaria,13.44148439109902,1.304245052206086
+Veracruz,111,Agricultura,Primaria,0.0,0.003784032817427264
+Veracruz,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Veracruz,325,Industria química,Secundaria,41.8664217461086,55.173357842478225
+Veracruz,236,Edificación,Secundaria,7.756570643788623,6.474807532150239
+Veracruz,211,Extracción de petróleo y gas,Secundaria,6.638593659833664,54.71808943917729
+Veracruz,434,"Comercio al por mayor de materias primas agropecuarias y forestales, para la industria, y materiales de desecho",Terciaria,75.3504277871443,25.308099199297352
+Veracruz,488,Servicios relacionados con el transporte,Terciaria,69.76252245830351,73.86041608983194
+Veracruz,486,Transporte por ductos,Terciaria,57.42574264362186,160.41403698414794
+Yucatán,111,Agricultura,Primaria,0.0,0.0038452985049048714
+Yucatán,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Yucatán,114,"Pesca, caza y captura",Primaria,0.0,0.0
+Yucatán,336,Fabricación de equipo de transporte,Secundaria,12.19481846738184,12.00014314
+Yucatán,325,Industria química,Secundaria,11.783160020953371,1.0751076990967956
+Yucatán,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,7.172957203109183,0.0
+Yucatán,721,Servicios de alojamiento temporal,Terciaria,43.66794117323047,65.28608021915292
+Yucatán,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,7.197899393666125,0.614308167345854
+Yucatán,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,4.223180639723891,2.054734886965103
+Zacatecas,111,Agricultura,Primaria,0.0,0.0
+Zacatecas,112,Cría y explotación de animales,Primaria,0.0,0.0
+Zacatecas,113,Aprovechamiento forestal,Primaria,0.0,0.0
+Zacatecas,336,Fabricación de equipo de transporte,Secundaria,2.3759081994039324,13.529272605387892
+Zacatecas,221,"Generación, transmisión, distribución y comercialización de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final",Secundaria,2.1465964740450536,0.5483320169709265
+Zacatecas,213,Servicios relacionados con la minería,Secundaria,1.925297107248014,2.982009
+Zacatecas,531,Servicios inmobiliarios,Terciaria,6.96135977,3.61159771
+Zacatecas,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,0.9420005096536772,2.2177147518853726
+Zacatecas,468,"Comercio al por menor de vehículos de motor, refacciones, combustibles y lubricantes",Terciaria,0.6631680969990691,0.0

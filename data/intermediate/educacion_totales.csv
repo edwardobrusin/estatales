@@ -1,0 +1,129 @@
+ENTIDAD,Nivel_Agrupado,Matrícula Total,Egresados Total
+Aguascalientes,Doctorado,2645,1456
+Aguascalientes,Licenciatura,58904,12001
+Aguascalientes,Maestría,3163,1597
+Aguascalientes,Técnico Superior,7333,1896
+Baja California,Doctorado,1608,520
+Baja California,Licenciatura,142150,24675
+Baja California,Maestría,5868,2475
+Baja California,Técnico Superior,4416,1156
+Baja California Sur,Doctorado,272,67
+Baja California Sur,Licenciatura,25502,3896
+Baja California Sur,Maestría,820,359
+Baja California Sur,Técnico Superior,660,231
+Campeche,Doctorado,2628,115
+Campeche,Licenciatura,34254,5309
+Campeche,Maestría,12460,3235
+Campeche,Técnico Superior,1721,469
+Chiapas,Doctorado,4309,2397
+Chiapas,Licenciatura,104089,22096
+Chiapas,Maestría,11387,6263
+Chiapas,Técnico Superior,3830,731
+Chihuahua,Doctorado,791,215
+Chihuahua,Licenciatura,127080,19867
+Chihuahua,Maestría,5768,2568
+Chihuahua,Técnico Superior,12491,2068
+Ciudad de México,Doctorado,13350,3598
+Ciudad de México,Licenciatura,938130,121649
+Ciudad de México,Maestría,84129,36084
+Ciudad de México,Técnico Superior,4407,222
+Coahuila,Doctorado,1327,278
+Coahuila,Licenciatura,130069,23351
+Coahuila,Maestría,6281,2395
+Coahuila,Técnico Superior,9684,3098
+Colima,Doctorado,372,137
+Colima,Licenciatura,26725,5710
+Colima,Maestría,1698,1032
+Colima,Técnico Superior,739,241
+Durango,Doctorado,1256,684
+Durango,Licenciatura,55329,10688
+Durango,Maestría,4966,1668
+Durango,Técnico Superior,4224,1045
+Guanajuato,Doctorado,2283,596
+Guanajuato,Licenciatura,205158,32729
+Guanajuato,Maestría,10112,4669
+Guanajuato,Técnico Superior,11919,2917
+Guerrero,Doctorado,973,212
+Guerrero,Licenciatura,75199,14454
+Guerrero,Maestría,3743,1462
+Guerrero,Técnico Superior,3956,1269
+Hidalgo,Doctorado,945,184
+Hidalgo,Licenciatura,99695,19317
+Hidalgo,Maestría,4158,1852
+Hidalgo,Técnico Superior,14842,3765
+Jalisco,Doctorado,3794,1136
+Jalisco,Licenciatura,289840,52263
+Jalisco,Maestría,15885,7203
+Jalisco,Técnico Superior,5767,2123
+Michoacán,Doctorado,2589,1420
+Michoacán,Licenciatura,125816,21191
+Michoacán,Maestría,7334,4206
+Michoacán,Técnico Superior,2146,669
+Morelos,Doctorado,3516,442
+Morelos,Licenciatura,67839,13147
+Morelos,Maestría,5694,2022
+Morelos,Técnico Superior,3596,1036
+México,Doctorado,6891,3319
+México,Licenciatura,545470,93725
+México,Maestría,25961,10997
+México,Técnico Superior,19499,5615
+Nayarit,Doctorado,1054,446
+Nayarit,Licenciatura,42687,9103
+Nayarit,Maestría,2001,902
+Nayarit,Técnico Superior,4307,1514
+Nuevo León,Doctorado,2957,784
+Nuevo León,Licenciatura,282885,48146
+Nuevo León,Maestría,26504,7177
+Nuevo León,Técnico Superior,8562,2482
+Oaxaca,Doctorado,598,142
+Oaxaca,Licenciatura,86371,13349
+Oaxaca,Maestría,3303,864
+Oaxaca,Técnico Superior,1278,369
+Puebla,Doctorado,3503,1372
+Puebla,Licenciatura,313510,38849
+Puebla,Maestría,27975,10325
+Puebla,Técnico Superior,13718,4372
+Querétaro,Doctorado,1129,221
+Querétaro,Licenciatura,91372,18875
+Querétaro,Maestría,4022,1990
+Querétaro,Técnico Superior,10540,3368
+Quintana Roo,Doctorado,1673,495
+Quintana Roo,Licenciatura,48874,9148
+Quintana Roo,Maestría,2343,709
+Quintana Roo,Técnico Superior,4568,1051
+San Luis Potosí,Doctorado,1633,271
+San Luis Potosí,Licenciatura,85392,14849
+San Luis Potosí,Maestría,2684,1177
+San Luis Potosí,Técnico Superior,2459,734
+Sinaloa,Doctorado,1983,696
+Sinaloa,Licenciatura,161015,23639
+Sinaloa,Maestría,4960,2177
+Sinaloa,Técnico Superior,2247,440
+Sonora,Doctorado,1892,661
+Sonora,Licenciatura,118861,16940
+Sonora,Maestría,5520,2264
+Sonora,Técnico Superior,6716,1879
+Tabasco,Doctorado,614,260
+Tabasco,Licenciatura,98205,16151
+Tabasco,Maestría,3178,1327
+Tabasco,Técnico Superior,3166,822
+Tamaulipas,Doctorado,1114,197
+Tamaulipas,Licenciatura,139511,26794
+Tamaulipas,Maestría,6197,2053
+Tamaulipas,Técnico Superior,10035,2465
+Tlaxcala,Doctorado,366,73
+Tlaxcala,Licenciatura,38635,6693
+Tlaxcala,Maestría,1665,590
+Tlaxcala,Técnico Superior,1233,529
+Veracruz,Doctorado,3237,1177
+Veracruz,Licenciatura,245738,38696
+Veracruz,Maestría,11891,4853
+Veracruz,Técnico Superior,7349,2304
+Yucatán,Doctorado,692,165
+Yucatán,Licenciatura,84563,15859
+Yucatán,Maestría,2888,1248
+Yucatán,Técnico Superior,4133,1429
+Zacatecas,Doctorado,804,186
+Zacatecas,Licenciatura,47380,11193
+Zacatecas,Maestría,3334,1098
+Zacatecas,Técnico Superior,1312,431
