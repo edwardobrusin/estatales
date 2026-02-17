@@ -357,7 +357,7 @@ with col1:
     res = get_pib_metrics(DATA['pib'], "Total Nacional", state_id)
     if res:
         v, p, g, gn, r, t1, yr = res
-        render_card(f"Producto Interno Bruto ({yr})", format_mm_pesos(v), r, t1, p, g, gn)
+        render_card(f"PIB ({yr})", format_mm_pesos(v), r, t1, p, g, gn)
     else: st.warning("Sin datos PIB")
 
 with col2:
@@ -379,7 +379,7 @@ with col4:
     if res:
         v, p, g, gn, r, t1 = res
         # Se pone manual ya que el CSV de totales IED no guarda el periodo
-        render_card("Inv. Extranjera Directa (3T 2025)", format_mm_usd_ied(v), r, t1, p, g, gn)
+        render_card("IED (3T 2025)", format_mm_usd_ied(v), r, t1, p, g, gn)
     else: st.warning("Sin datos IED")
 
 # ==========================================
