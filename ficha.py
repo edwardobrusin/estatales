@@ -9,7 +9,7 @@ import textwrap
 # 1. CONFIGURACIÓN DE LA PÁGINA
 # ==========================================
 st.set_page_config(
-    page_title="Tablero Económico Estatal",
+    page_title="Ficha Técnica Estatal",
     page_icon="🇲🇽",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -18,6 +18,35 @@ st.set_page_config(
 # Estilos CSS
 st.markdown("""
 <style>
+    /* Diseño de menú estilo "Tabs" para los botones del Sidebar */
+    [data-testid="stSidebar"] .stButton button {
+        width: 100%;
+        border-radius: 0px 6px 6px 0px; /* Borde plano a la izquierda, curvo a la derecha */
+        border: none;
+        border-left: 4px solid transparent; /* Borde invisible por defecto */
+        justify-content: flex-start; /* Texto alineado a la izquierda */
+        text-align: left;
+        padding: 10px 15px;
+        background-color: transparent;
+        box-shadow: none;
+        margin-bottom: 2px;
+        transition: all 0.2s ease;
+    }
+
+    /* Efecto al pasar el mouse por los estados inactivos */
+    [data-testid="stSidebar"] .stButton button[kind="secondary"]:hover {
+        background-color: rgba(150, 150, 150, 0.1);
+        border-left: 4px solid #cccccc;
+    }
+
+    /* Estilo exacto de tu imagen para el estado ACTIVO */
+    [data-testid="stSidebar"] .stButton button[kind="primary"] {
+        background-color: #ffffff !important;
+        color: #0f172a !important; /* Texto oscuro */
+        border-left: 4px solid #0056b3 !important; /* Borde azul a la izquierda */
+        font-weight: 800 !important;
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.1) !important;
+    }
     .metric-container {
         background-color: #ffffff;
         border: 1px solid #e0e0e0;
@@ -132,7 +161,32 @@ if not DATA: st.stop()
 # ==========================================
 # 4. SIDEBAR
 # ==========================================
-selected_name = st.sidebar.selectbox("Selecciona Entidad Federativa", list(STATE_MAP.values()))
+st.sidebar.markdown("### Selecciona Entidad")
+
+# 1. Inicializamos la memoria para guardar el estado seleccionado
+if 'estado_seleccionado' not in st.session_state:
+    st.session_state['estado_seleccionado'] = 'Aguascalientes'
+
+# 2. Función que actualiza la memoria cuando haces clic
+def cambiar_estado(nuevo_estado):
+    st.session_state['estado_seleccionado'] = nuevo_estado
+
+# 3. Creamos un botón tipo bloque para cada estado
+for estado in list(STATE_MAP.values()):
+    # Pintamos de azul (primary) el seleccionado, y gris (secondary) los demás
+    btn_type = "primary" if st.session_state['estado_seleccionado'] == estado else "secondary"
+    
+    st.sidebar.button(
+        label=estado, 
+        key=f"btn_{estado}", 
+        use_container_width=True, # Hace que el botón abarque todo el ancho (cuadro)
+        type=btn_type, 
+        on_click=cambiar_estado, 
+        args=(estado,)
+    )
+
+# 4. Asignamos el estado elegido a las variables que usa el resto de tu código
+selected_name = st.session_state['estado_seleccionado']
 state_norm = NAME_NORMALIZER.get(selected_name, selected_name)
 state_id = NAME_TO_ID.get(state_norm)
 state_id_str = str(state_id).zfill(2)
@@ -156,14 +210,14 @@ st.markdown("---")
 
 def format_mm_pesos(val_millones):
     val = val_millones / 1000
-    return f"${val:,.2f} MM MXN"
+    return f"${val:,.2f} <span style='font-size: 0.5em;'>MM MXN</span>"
 
 def format_mm_usd(val_miles): 
     val = val_miles / 1000000 
-    return f"${val:,.2f} MM USD"
+    return f"${val:,.2f} <span style='font-size: 0.5em;'>MM USD</span>"
 
 def format_mm_usd_ied(val_millones): 
-    return f"${val_millones:,.2f} MM USD"
+    return f"${val_millones:,.2f} <span style='font-size: 0.5em;'>MM USD</span>"
 
 def render_card(title, val_str, rank, top1, part, growth, growth_nac):
     c_g = "metric-delta-pos" if growth >= 0 else "metric-delta-neg"
@@ -171,16 +225,22 @@ def render_card(title, val_str, rank, top1, part, growth, growth_nac):
     c_gn = "metric-delta-pos" if growth_nac >= 0 else "metric-delta-neg"
     i_gn = "▲" if growth_nac >= 0 else "▼"
     
+    title_html = title.replace(" (", "<br>(")
+    
     st.markdown(f"""
     <div class="metric-container">
-        <div class="metric-title">{title} <span class="metric-rank">#{rank}</span></div>
-        <div class="metric-sub">🥇 1er: {top1}</div>
-        <div class="metric-value">{val_str}</div>
-        <div class="metric-sub">Part. Nacional: <b>{part:.2f}%</b></div>
-        <hr>
-        <div class="metric-sub">
-            Crecimiento: <span class="{c_g}">{i_g} {growth:.2f}%</span>
-            <span style="color:#ccc">|</span> Nac: <span class="{c_gn}">{i_gn} {growth_nac:.2f}%</span>
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 5px;">
+            <div class="metric-title" style="margin-bottom: 0; line-height: 1.2;">{title_html}</div>
+            <div class="metric-rank" style="margin-left: 10px; flex-shrink: 0;">#{rank}</div>
+        </div>
+        <div class="metric-sub" style="margin-bottom: 2px;">#1 {top1}</div>
+        <div class="metric-value" style="margin: 2px 0;">{val_str}</div>
+        <div class="metric-sub" style="margin-bottom: 2px;">Participación Nacional: <b>{part:.2f}%</b></div>
+        <hr style="margin: 8px 0; border-top: 1px solid #eee;">
+        <div class="metric-sub" style="white-space: nowrap;">
+            <b style="line-height: 1.2;">Variación:</b><br>
+            Estatal: <span class="{c_g}">{i_g} {growth:.2f}%</span>
+            <span style="color:#ccc">|</span> Nacional: <span class="{c_gn}">{i_gn} {growth_nac:.2f}%</span>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -214,7 +274,7 @@ def get_pib_metrics(df, indicador, id_estado_int):
         top1_name = STATE_MAP.get(top1_row['Estado_ID'], "N/A")
     except: rank=0; top1_name="-"
         
-    return est_curr, part_nac, growth_est, growth_nac, rank, top1_name
+    return est_curr, part_nac, growth_est, growth_nac, rank, top1_name, max_period
 
 # --- Métricas Exportaciones ---
 def get_export_metrics(df, id_estado_str):
@@ -245,8 +305,15 @@ def get_export_metrics(df, id_estado_str):
         top1_row = df_agg[df_agg['Rank'] == 1].iloc[0]
         top1_name = STATE_MAP.get(int(top1_row['Estado_ID']), "N/A")
     except: rank=0; top1_name="-"
+    
+    # Lógica para definir el texto del trimestre (Ej. "1T-3T 2025" o "1T 2025")
+    num_trimestres = len(quarters_avail)
+    if num_trimestres <= 1:
+        trim_str = f"1T {max_year}"
+    else:
+        trim_str = f"1T-{num_trimestres}T {max_year}"
         
-    return est_curr, part_nac, growth_est, growth_nac, rank, top1_name, max_year
+    return est_curr, part_nac, growth_est, growth_nac, rank, top1_name, trim_str
 
 # --- Métricas IED (AGREGADO) ---
 def get_ied_metrics(df_tot, state_norm):
@@ -282,41 +349,43 @@ def get_ied_metrics(df_tot, state_norm):
 # ==========================================
 # SECCIÓN 1: RESUMEN EJECUTIVO
 # ==========================================
+
 st.header("1. Resumen Ejecutivo")
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
     res = get_pib_metrics(DATA['pib'], "Total Nacional", state_id)
     if res:
-        v, p, g, gn, r, t1 = res
-        render_card("PIB Total", format_mm_pesos(v), r, t1, p, g, gn)
+        v, p, g, gn, r, t1, yr = res
+        render_card(f"Producto Interno Bruto ({yr})", format_mm_pesos(v), r, t1, p, g, gn)
     else: st.warning("Sin datos PIB")
 
 with col2:
     res = get_pib_metrics(DATA['pib'], "Industrias manufactureras", state_id)
     if res:
-        v, p, g, gn, r, t1 = res
-        render_card("PIB Manufacturero", format_mm_pesos(v), r, t1, p, g, gn)
+        v, p, g, gn, r, t1, yr = res
+        render_card(f"PIB Manufacturero ({yr})", format_mm_pesos(v), r, t1, p, g, gn)
     else: st.warning("Sin datos Manufactura")
 
 with col3:
     res = get_export_metrics(DATA['export'], state_id_str)
     if res:
-        v, p, g, gn, r, t1, yr = res
-        render_card(f"Exportaciones ({yr})", format_mm_usd(v), r, t1, p, g, gn)
+        v, p, g, gn, r, t1, trim_str = res
+        render_card(f"Exportaciones ({trim_str})", format_mm_usd(v), r, t1, p, g, gn)
     else: st.warning("Sin datos Exportación")
 
 with col4:
     res = get_ied_metrics(DATA['ied_tot'], state_norm)
     if res:
         v, p, g, gn, r, t1 = res
-        render_card("IED (Acumulado)", format_mm_usd_ied(v), r, t1, p, g, gn)
+        # Se pone manual ya que el CSV de totales IED no guarda el periodo
+        render_card("Inv. Extranjera Directa (3T 2025)", format_mm_usd_ied(v), r, t1, p, g, gn)
     else: st.warning("Sin datos IED")
 
 # ==========================================
 # SECCIÓN 1.5: DETALLE IED (VERTICAL)
 # ==========================================
-st.markdown("###### Principales Sectores de Inversión (IED)")
+st.markdown("###### Principales Sectores de Inversión 3T 2025")
 df_ied_det = DATA['ied_det']
 df_ied_tot = DATA['ied_tot'] # Archivo con totales por sector
 
