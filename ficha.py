@@ -316,9 +316,17 @@ def get_export_metrics(df, id_estado_str):
     return est_curr, part_nac, growth_est, growth_nac, rank, top1_name, trim_str
 
 # --- Métricas IED (AGREGADO) ---
+# --- Métricas IED (AGREGADO) ---
 def get_ied_metrics(df_tot, state_norm):
     df_tot = df_tot.copy()
     df_tot['Estado_Norm'] = df_tot['Estado'].replace(NAME_NORMALIZER)
+    
+    try:
+        max_year = int(df_tot['Anio'].max())
+        max_trim = int(df_tot['Trimestre'].max())
+        trim_str = f"{max_trim}T {max_year}"
+    except:
+        trim_str = "N/A"
     
     # 1. Agrupar por Estado para tener el Gran Total (suma de sectores)
     df_agg = df_tot.groupby('Estado_Norm')[['Inversion', 'Inversion_Anterior']].sum().reset_index()
@@ -344,7 +352,7 @@ def get_ied_metrics(df_tot, state_norm):
     rank = int(row['Rank'].values[0])
     top1 = df_agg.sort_values('Inversion', ascending=False).iloc[0]['Estado_Norm']
     
-    return est_curr, part_nac, growth_est, growth_nac, rank, top1
+    return est_curr, part_nac, growth_est, growth_nac, rank, top1, trim_str
 
 # ==========================================
 # SECCIÓN 1: RESUMEN EJECUTIVO
@@ -377,15 +385,21 @@ with col3:
 with col4:
     res = get_ied_metrics(DATA['ied_tot'], state_norm)
     if res:
-        v, p, g, gn, r, t1 = res
-        # Se pone manual ya que el CSV de totales IED no guarda el periodo
-        render_card("IED (3T 2025)", format_mm_usd_ied(v), r, t1, p, g, gn)
+        v, p, g, gn, r, t1, trim_str = res
+        render_card(f"IED ({trim_str})", format_mm_usd_ied(v), r, t1, p, g, gn)
     else: st.warning("Sin datos IED")
 
 # ==========================================
 # SECCIÓN 1.5: DETALLE IED (VERTICAL)
 # ==========================================
-st.markdown("###### Principales Sectores de Inversión 3T 2025")
+try:
+    trim_ied = int(DATA['ied_tot']['Trimestre'].max())
+    anio_ied = int(DATA['ied_tot']['Anio'].max())
+    texto_periodo_ied = f"{trim_ied}T {anio_ied}"
+except:
+    texto_periodo_ied = ""
+
+st.markdown(f"###### Principales Sectores de Inversión {texto_periodo_ied}")
 df_ied_det = DATA['ied_det']
 df_ied_tot = DATA['ied_tot'] # Archivo con totales por sector
 
@@ -442,11 +456,12 @@ else:
 # SECCIÓN 2: ESTRUCTURA ECONÓMICA
 # ==========================================
 st.markdown("---")
-st.header("2. Estructura Económica")
 
 # --- PREPARACIÓN DE DATOS ---
 df_pib = DATA['pib']
 max_period = df_pib['Periodo'].max()
+
+st.header(f"2. Estructura Económica (PIB {max_period})")
 
 # 1. Datos Estatales (df_curr)
 df_curr = df_pib[(df_pib['Estado_ID'] == state_id) & (df_pib['Periodo'] == max_period)].copy()
@@ -614,6 +629,18 @@ with c3:
 # SECCIÓN 3: POBLACIÓN
 # ==========================================
 st.markdown("---")
+try:
+    anio_enoe = DATA['enoe']['Anio'].iloc[0]
+    # Convierte "trim3" a "3T"
+    trim_str = str(DATA['enoe']['Trimestre'].iloc[0]).replace('trim', '')
+    periodo_enoe = f"{trim_str}T {anio_enoe}"
+except:
+    periodo_enoe = ""
+
+try:
+    periodo_pob = DATA['pob']['Periodo'].max()
+except:
+    periodo_pob = ""
 st.header("3. Demografía y Mercado Laboral")
 
 # Función auxiliar para renderizar métricas con el estilo solicitado
@@ -675,7 +702,7 @@ if not df_enoe_est.empty and not df_enoe_nac.empty:
 
     # --- RENDERIZADO DE MÉTRICAS (6 Cuadros) ---
     with col_metrics:
-        # Fila 1: Población y PEA (Neutros)
+        st.markdown(f"<div style='text-align: center; color: #555; font-weight: 700; margin-bottom: 15px;'>Periodo: {periodo_enoe}</div>", unsafe_allow_html=True)
         r1c1, r1c2 = st.columns(2)
         with r1c1:
             part_pob = (est_pob/nac_pob*100) if nac_pob > 0 else 0
@@ -803,15 +830,16 @@ with col_chart:
         ))
         
         fig.update_layout(
-            title="Pirámide Poblacional", 
+            title=f"Pirámide Poblacional ({periodo_pob})", 
             barmode='overlay', 
             bargap=0.1, 
-            # Reemplazamos la lista estática por la lista ordenada de forma estricta
             yaxis={'categoryorder':'array', 'categoryarray': category_order}, 
             xaxis={'showticklabels':False, 'title': '% respecto al total poblacional'},
             legend=dict(orientation="h", yanchor="bottom", y=1.02, xanchor="right", x=1),
             uniformtext_minsize=8, 
-            uniformtext_mode='hide'
+            uniformtext_mode='hide',
+            height=450,  # <-- Altura forzada para que coincida con las 3 filas de tarjetas
+            margin=dict(t=50, b=30, l=0, r=0)  # <-- Reducción de márgenes en blanco
         )
         st.plotly_chart(fig, use_container_width=True)
 
@@ -819,7 +847,14 @@ with col_chart:
 # SECCIÓN 4: EDUCACIÓN
 # ==========================================
 st.markdown("---")
-st.header("4. Educación Superior")
+
+try:
+    ciclo_edu = DATA['edu_tot']['Ciclo'].iloc[0]
+    texto_ciclo = f" ({ciclo_edu})"
+except:
+    texto_ciclo = ""
+
+st.header(f"4. Educación Superior{texto_ciclo}")
 
 try:
     df_tot = DATA['edu_tot'].copy()
