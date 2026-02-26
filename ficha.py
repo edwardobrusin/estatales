@@ -123,6 +123,8 @@ def load_data():
         data['export'] = pd.read_csv(os.path.join(path, "exportaciones_entidad.csv"))
         data['pob'] = pd.read_csv(os.path.join(path, "poblacion_edad.csv"))
         data['enoe'] = pd.read_csv(os.path.join(path, "enoe_indicadores.csv"))
+        data['imss_sal'] = pd.read_csv(os.path.join(path, "salarios_imss.csv"))
+        data['imss_pue'] = pd.read_csv(os.path.join(path, "puestos_imss.csv"))
         
         # IED (Totales y Detalle)
         data['ied_tot'] = pd.read_csv(os.path.join(path, "ied_totales.csv"))
@@ -202,6 +204,9 @@ if 'gob_sedeco' in DATA and not DATA['gob_sedeco'].empty:
         sedeco = info_estado['SEDECO'].values[0]
         partido = info_estado['Partido'].values[0]
         st.markdown(f"**Gobernador/a:** {gobernador} &nbsp;&nbsp;|&nbsp;&nbsp; **SEDECO:** {sedeco} &nbsp;&nbsp;|&nbsp;&nbsp; **Partido:** {partido}")
+
+# --- NUEVA LEYENDA ---
+st.markdown("<p style='text-align: left; color: #888; font-size: 0.85rem; margin-top: -5px; margin-bottom: -20px;'><i>MMP: Miles de Millones de Pesos &nbsp;|&nbsp; MMD: Miles de Millones de Dólares</i></p>", unsafe_allow_html=True)
 st.markdown("---")
 
 # ==========================================
@@ -210,14 +215,14 @@ st.markdown("---")
 
 def format_mm_pesos(val_millones):
     val = val_millones / 1000
-    return f"${val:,.2f} <span style='font-size: 0.5em;'>MM MXN</span>"
+    return f"${val:,.2f} <span style='font-size: 0.5em;'>MMP</span>"
 
 def format_mm_usd(val_miles): 
     val = val_miles / 1000000 
-    return f"${val:,.2f} <span style='font-size: 0.5em;'>MM USD</span>"
+    return f"${val:,.2f} <span style='font-size: 0.5em;'>MMD</span>"
 
 def format_mm_usd_ied(val_millones): 
-    return f"${val_millones:,.2f} <span style='font-size: 0.5em;'>MM USD</span>"
+    return f"${val_millones:,.2f} <span style='font-size: 0.5em;'>MMD</span>"
 
 def render_card(title, val_str, rank, top1, part, growth, growth_nac):
     c_g = "metric-delta-pos" if growth >= 0 else "metric-delta-neg"
@@ -316,7 +321,6 @@ def get_export_metrics(df, id_estado_str):
     return est_curr, part_nac, growth_est, growth_nac, rank, top1_name, trim_str
 
 # --- Métricas IED (AGREGADO) ---
-# --- Métricas IED (AGREGADO) ---
 def get_ied_metrics(df_tot, state_norm):
     df_tot = df_tot.copy()
     df_tot['Estado_Norm'] = df_tot['Estado'].replace(NAME_NORMALIZER)
@@ -399,7 +403,7 @@ try:
 except:
     texto_periodo_ied = ""
 
-st.markdown(f"###### Principales Sectores de Inversión {texto_periodo_ied}")
+st.markdown(f"###### Inversión Extranjera Directa {texto_periodo_ied}")
 df_ied_det = DATA['ied_det']
 df_ied_tot = DATA['ied_tot'] # Archivo con totales por sector
 
@@ -413,31 +417,30 @@ if not df_ied_st_det.empty:
         row_tot = df_ied_st_tot[df_ied_st_tot['Sector'] == sector_name]
         total_sector_val = row_tot['Inversion'].sum() if not row_tot.empty else 0.0
         
-        # 2. Obtener Actividades (Top)
+        # 2. Obtener Actividades (Top) y filtrar las que son 0 o menores
         subset = df_ied_st_det[df_ied_st_det['Sector'] == sector_name].sort_values('Inversion', ascending=False)
+        subset = subset[subset['Inversion'] > 0] # <--- NUEVO: FILTRO PARA OMITIR CEROS
         
-        st.markdown(f"""
-        <div style="border-left: 5px solid {color_bar}; padding-left: 15px; margin-bottom: 20px; background-color: #f8f9fa; padding-top: 10px; padding-bottom: 10px; border-radius: 0 5px 5px 0;">
-            <div style="display:flex; justify-content:space-between; align-items:center;">
-                <h5 style="margin:0; color:#333;">{sector_name}</h5>
-                <span style="font-size:0.9rem; font-weight:700; color:{color_bar}; background:white; padding:2px 8px; border-radius:4px; border:1px solid #ddd;">
-                    Total: ${total_sector_val:,.2f} M
-                </span>
-            </div>
-            <hr style="margin:5px 0 10px 0; border-color:#e9ecef;">
-        """, unsafe_allow_html=True)
+        # Eliminamos sangrías en el HTML para evitar conflictos con Markdown
+        html_head = f"""<div style="border-left: 5px solid {color_bar}; padding-left: 15px; margin-bottom: 20px; background-color: #f8f9fa; padding-top: 10px; padding-bottom: 10px; border-radius: 0 5px 5px 0;">
+<div style="display:flex; justify-content:space-between; align-items:center;">
+<h5 style="margin:0; color:#333;">{sector_name}</h5>
+<span style="font-size:0.9rem; font-weight:700; color:{color_bar}; background:white; padding:2px 8px; border-radius:4px; border:1px solid #ddd;">
+Total: ${total_sector_val:,.2f} M
+</span>
+</div>
+<hr style="margin:5px 0 10px 0; border-color:#e9ecef;">"""
+        st.markdown(html_head, unsafe_allow_html=True)
         
         if not subset.empty:
             for _, r in subset.iterrows():
-                # Formato: Nombre ... $M (Sin porcentaje)
-                st.markdown(f"""
-                <div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 5px;">
-                    <span style="font-weight: 500;">• {r['Actividad']}</span>
-                    <span style="white-space: nowrap; font-weight:600;">
-                        ${r['Inversion']:,.2f} M
-                    </span>
-                </div>
-                """, unsafe_allow_html=True)
+                html_row = f"""<div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 5px;">
+<span style="font-weight: 500;">• {r['Actividad']}</span>
+<span style="white-space: nowrap; font-weight:600;">
+${r['Inversion']:,.2f} M
+</span>
+</div>"""
+                st.markdown(html_row, unsafe_allow_html=True)
         else:
             st.caption("Sin inversión registrada.")
         
@@ -532,7 +535,7 @@ with c1:
     <div style="border-left: 4px solid #28a745; padding-left: 12px; margin-bottom: 15px;">
         <div style="font-weight:700; color:#555;">SECTOR PRIMARIO</div>
         <div style="font-size:1.4rem; font-weight:800;">{format_mm_pesos(val_est)}</div>
-        <div style="font-size:0.85rem;">📊 Part. Nacional: <b>{part_nac:.2f}%</b></div>
+        <div style="font-size:0.85rem;">🇲🇽 Part. Nacional: <b>{part_nac:.2f}%</b></div>
         <div style="font-size:0.85rem;">👷 <b>{emp_part:.2f}%</b> del Empleo Estatal</div>
     </div>
     """, unsafe_allow_html=True)
@@ -570,7 +573,7 @@ with c2:
     <div style="border-left: 4px solid #007bff; padding-left: 12px; margin-bottom: 15px;">
         <div style="font-weight:700; color:#555;">SECTOR SECUNDARIO</div>
         <div style="font-size:1.4rem; font-weight:800;">{format_mm_pesos(val_est)}</div>
-        <div style="font-size:0.85rem;">📊 Part. Nacional: <b>{part_nac:.2f}%</b></div>
+        <div style="font-size:0.85rem;">🇲🇽 Part. Nacional: <b>{part_nac:.2f}%</b></div>
         <div style="font-size:0.85rem;">👷 <b>{emp_part:.2f}%</b> del Empleo Estatal</div>
     </div>
     """, unsafe_allow_html=True)
@@ -609,7 +612,7 @@ with c3:
     <div style="border-left: 4px solid #fd7e14; padding-left: 12px; margin-bottom: 15px;">
         <div style="font-weight:700; color:#555;">SECTOR TERCIARIO</div>
         <div style="font-size:1.4rem; font-weight:800;">{format_mm_pesos(val_est)}</div>
-        <div style="font-size:0.85rem;">📊 Part. Nacional: <b>{part_nac:.2f}%</b></div>
+        <div style="font-size:0.85rem;">🇲🇽 Part. Nacional: <b>{part_nac:.2f}%</b></div>
         <div style="font-size:0.85rem;">👷 <b>{emp_part:.2f}%</b> del Empleo Estatal</div>
     </div>
     """, unsafe_allow_html=True)
@@ -702,7 +705,7 @@ if not df_enoe_est.empty and not df_enoe_nac.empty:
 
     # --- RENDERIZADO DE MÉTRICAS (6 Cuadros) ---
     with col_metrics:
-        st.markdown(f"<div style='text-align: center; color: #555; font-weight: 700; margin-bottom: 15px;'>Periodo: {periodo_enoe}</div>", unsafe_allow_html=True)
+        st.markdown(f"<div style='text-align: center; color: #FFF; font-weight: 700; margin-bottom: 15px;'>Periodo: {periodo_enoe}</div>", unsafe_allow_html=True)
         r1c1, r1c2 = st.columns(2)
         with r1c1:
             part_pob = (est_pob/nac_pob*100) if nac_pob > 0 else 0
@@ -806,7 +809,7 @@ with col_chart:
             x=df_h['Valor_Plot'], 
             name='Hombres', 
             orientation='h', 
-            marker_color='#1f77b4',
+            marker_color='#007bff',
             text=df_h['Label_Text'],      # Texto visible
             textposition='inside',        # Posición dentro de la barra
             insidetextanchor='middle',
@@ -821,7 +824,7 @@ with col_chart:
             x=df_m['Valor_Plot'], 
             name='Mujeres', 
             orientation='h', 
-            marker_color='#e377c2',
+            marker_color='#28a745',
             text=df_m['Label_Text'],      # Texto visible
             textposition='inside',        # Posición dentro de la barra
             insidetextanchor='middle',
@@ -842,6 +845,216 @@ with col_chart:
             margin=dict(t=50, b=30, l=0, r=0)  # <-- Reducción de márgenes en blanco
         )
         st.plotly_chart(fig, use_container_width=True)
+
+# ==========================================
+# 3.5 GRÁFICAS HISTÓRICAS (IMSS)
+# ==========================================
+st.markdown("<br>", unsafe_allow_html=True) # Espacio para separar de la pirámide y métricas
+col_hist_izq, col_hist_der = st.columns(2)
+
+with col_hist_izq:
+    # --- Gráfica Histórica Puestos IMSS ---
+    import plotly.graph_objects as go
+    
+    df_pue = DATA['imss_pue'].copy()
+    col_pue = next((c for c in df_pue.columns if NAME_NORMALIZER.get(c, c) == state_norm), None)
+    
+    # 1. ESPÍA A SALARIOS: Calculamos cuántas líneas usará la gráfica de salarios
+    df_sal_temp = DATA['imss_sal'].copy()
+    col_sal_temp = next((c for c in df_sal_temp.columns if NAME_NORMALIZER.get(c, c) == state_norm), None)
+    num_lineas_target = 6 
+    
+    if col_sal_temp:
+        df_sal_temp[col_sal_temp] = pd.to_numeric(df_sal_temp[col_sal_temp].astype(str).str.replace(',', '').str.replace(' ', '').str.replace('$', '', regex=False), errors='coerce')
+        df_sal_temp[['Mes_Str', 'Año']] = df_sal_temp['Fecha'].str.split(' ', expand=True)
+        df_sal_temp['Date'] = pd.to_datetime(df_sal_temp['Año'] + '-' + df_sal_temp['Mes_Str'].str.lower().str.strip().map({'enero':1, 'febrero':2, 'marzo':3, 'abril':4, 'mayo':5, 'junio':6, 'julio':7, 'agosto':8, 'septiembre':9, 'octubre':10, 'noviembre':11, 'diciembre':12}).astype(str).str.zfill(2) + '-01')
+        df_sal_temp = df_sal_temp[df_sal_temp['Date'].dt.year >= 2000]
+        if not df_sal_temp.empty:
+            min_s = df_sal_temp[col_sal_temp].min()
+            max_s = df_sal_temp[col_sal_temp].max()
+            y_min_s = (min_s // 100) * 100
+            y_max_s = ((max_s // 100) + 1) * 100
+            num_lineas_target = len(range(int(y_min_s), int(y_max_s) + 1, 100))
+    
+    if col_pue:
+        df_pue[col_pue] = pd.to_numeric(df_pue[col_pue].astype(str).str.replace(',', '').str.replace(' ', ''), errors='coerce')
+        meses_map = {'enero':1, 'febrero':2, 'marzo':3, 'abril':4, 'mayo':5, 'junio':6, 'julio':7, 'agosto':8, 'septiembre':9, 'octubre':10, 'noviembre':11, 'diciembre':12}
+        df_pue['Mes_Num'] = df_pue['Mes'].str.lower().str.strip().map(meses_map)
+        df_pue['Date'] = pd.to_datetime(df_pue['Año'].astype(str) + '-' + df_pue['Mes_Num'].astype(str).str.zfill(2) + '-01')
+        df_pue = df_pue[df_pue['Año'] >= 2000].sort_values('Date').reset_index(drop=True)
+        
+        min_pue = df_pue[col_pue].min()
+        max_pue = df_pue[col_pue].max()
+        
+        # --- ALGORITMO MEJORADO: Saltos de 10k en 10k hasta 500k ---
+        allowed_steps = [i * 10000 for i in range(1, 51)] + [i * 100000 for i in range(6, 51)]
+        best_step = allowed_steps[0]
+        best_diff = float('inf')
+        
+        for S in allowed_steps:
+            temp_min = (min_pue // S) * S
+            temp_max = ((max_pue // S) + 1) * S
+            lines_count = int((temp_max - temp_min) / S) + 1
+            diff = abs(lines_count - num_lineas_target)
+            if diff < best_diff:
+                best_diff = diff
+                best_step = S
+                
+        y_min_pue = (min_pue // best_step) * best_step
+        y_max_pue = ((max_pue // best_step) + 1) * best_step
+        hitos_pue = list(range(int(y_min_pue), int(y_max_pue) + 1, best_step))
+        
+        val_curr = df_pue[col_pue].iloc[-1]
+        val_prev_m = df_pue[col_pue].iloc[-2] if len(df_pue) > 1 else val_curr
+        val_prev_y = df_pue[col_pue].iloc[-13] if len(df_pue) > 12 else val_curr
+        var_m = (val_curr - val_prev_m) / val_prev_m * 100 if val_prev_m else 0
+        var_y = (val_curr - val_prev_y) / val_prev_y * 100 if val_prev_y else 0
+        fecha_str = f"{df_pue['Mes'].iloc[-1].capitalize()} {df_pue['Año'].iloc[-1]}"
+        
+        # --- NUEVO: RANKING PUESTOS ---
+        excluir_pue = ['Año', 'Mes', 'Date', 'Mes_Num', 'Nacional', 'Total', '(Todo)']
+        state_cols_pue = [c for c in df_pue.columns if c not in excluir_pue]
+        last_row_pue = df_pue.iloc[-1][state_cols_pue].astype(str).str.replace(',', '').str.replace(' ', '')
+        last_row_pue = pd.to_numeric(last_row_pue, errors='coerce')
+        
+        rk_pue = int(last_row_pue.rank(ascending=False, method='min')[col_pue])
+        top1_pue = last_row_pue.idxmax()
+        rank_html_pue = f"<br>Rank: <b>#{rk_pue}</b>" if rk_pue == 1 else f"<br>Rank: <b>#{rk_pue}</b> <span style='font-size:11px; color:#666;'>(1º {top1_pue})</span>"
+        
+        fig_pue = px.line(df_pue, x='Date', y=col_pue)
+        fig_pue.update_traces(line_color='#007bff', line_width=2.5)
+        
+        valor_inicial_pue = df_pue[col_pue].iloc[0]
+        for hito in hitos_pue:
+            # Forzar dibujo de línea horizontal de extremo a extremo
+            fig_pue.add_hline(y=hito, line_color='rgba(255,255,255,0.2)', line_width=1, layer='below')
+            
+            if valor_inicial_pue < hito: 
+                cruce = df_pue[df_pue[col_pue] >= hito]
+                if not cruce.empty:
+                    primer_cruce = cruce.iloc[0]
+                    texto_etiqueta = f"{primer_cruce['Mes'][:3].capitalize()} {primer_cruce['Año']}"
+                    
+                    fig_pue.add_trace(go.Scatter(
+                        x=[primer_cruce['Date']], y=[primer_cruce[col_pue]], mode='markers+text',
+                        marker=dict(color='white', size=9, line=dict(color='#007bff', width=2)),
+                        text=[texto_etiqueta], textposition="top left",
+                        textfont=dict(color="#007bff", size=11, weight="bold"),
+                        showlegend=False, hoverinfo='skip',
+                        cliponaxis=False 
+                    ))
+        
+        ficha_pue_html = f"<b>{fecha_str}</b>{rank_html_pue}<br><span style='font-size:16px;'><b>{val_curr:,.0f}</b></span> puestos<br>Var Mensual: <span style='color:{'#28a745' if var_m >=0 else '#dc3545'}'>{var_m:+.2f}%</span><br>Var Anual: <span style='color:{'#28a745' if var_y >=0 else '#dc3545'}'>{var_y:+.2f}%</span>"
+        fig_pue.add_annotation(
+            x=0.02, y=0.95, xref='paper', yref='paper', text=ficha_pue_html, showarrow=False, align='left', 
+            bgcolor='rgba(255, 255, 255, 0.95)', bordercolor='#007bff', borderwidth=2, borderpad=8, font=dict(color='black', size=12)
+        )
+
+        fig_pue.update_layout(
+            title=dict(text="PUESTOS DE TRABAJO (IMSS)", font=dict(color='white', size=14), x=0.0),
+            xaxis_title="", yaxis_title="", height=450, margin=dict(t=50, b=20, l=10, r=10),
+            xaxis=dict(
+                showticklabels=True, tickformat="%Y", gridcolor='rgba(255,255,255,0.1)', tickfont=dict(color='#ccc'),
+                showline=False # Apagamos líneas de borde inferior nativas
+            ),
+            yaxis=dict(
+                range=[y_min_pue, y_max_pue], autorange=False, 
+                tickmode='array', tickvals=hitos_pue, 
+                showgrid=False, # --- Apagamos el grid nativo porque usamos add_hline ---
+                tickformat=",.0f", tickfont=dict(color='#ccc'),
+                showline=False, zeroline=False # --- Cero bordes laterales ---
+            ),
+            plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)'
+        )
+        st.plotly_chart(fig_pue, use_container_width=True)
+    else:
+        st.info("Datos históricos de puestos no disponibles.")
+
+with col_hist_der:
+    # --- Gráfica Histórica Salarios IMSS ---
+    df_sal = DATA['imss_sal'].copy()
+    col_sal = next((c for c in df_sal.columns if NAME_NORMALIZER.get(c, c) == state_norm), None)
+    
+    if col_sal:
+        df_sal[col_sal] = pd.to_numeric(df_sal[col_sal].astype(str).str.replace(',', '').str.replace(' ', '').str.replace('$', '', regex=False), errors='coerce')
+        df_sal[['Mes_Str', 'Año']] = df_sal['Fecha'].str.split(' ', expand=True)
+        meses_map = {'enero':1, 'febrero':2, 'marzo':3, 'abril':4, 'mayo':5, 'junio':6, 'julio':7, 'agosto':8, 'septiembre':9, 'octubre':10, 'noviembre':11, 'diciembre':12}
+        df_sal['Mes_Num'] = df_sal['Mes_Str'].str.lower().str.strip().map(meses_map)
+        df_sal['Date'] = pd.to_datetime(df_sal['Año'] + '-' + df_sal['Mes_Num'].astype(str).str.zfill(2) + '-01')
+        df_sal = df_sal[df_sal['Date'].dt.year >= 2000].sort_values('Date').reset_index(drop=True)
+        
+        min_sal = df_sal[col_sal].min()
+        max_sal = df_sal[col_sal].max()
+        
+        y_min_sal = (min_sal // 100) * 100
+        y_max_sal = ((max_sal // 100) + 1) * 100
+        hitos_sal = list(range(int(y_min_sal), int(y_max_sal) + 1, 100))
+        
+        val_curr = df_sal[col_sal].iloc[-1]
+        val_prev_m = df_sal[col_sal].iloc[-2] if len(df_sal) > 1 else val_curr
+        val_prev_y = df_sal[col_sal].iloc[-13] if len(df_sal) > 12 else val_curr
+        var_m = (val_curr - val_prev_m) / val_prev_m * 100 if val_prev_m else 0
+        var_y = (val_curr - val_prev_y) / val_prev_y * 100 if val_prev_y else 0
+        fecha_str = df_sal['Fecha'].iloc[-1].title()
+        
+        # --- NUEVO: RANKING SALARIOS ---
+        excluir_sal = ['Fecha', 'Año', 'Mes_Str', 'Mes_Num', 'Date', 'Nacional', 'Total', '(Todo)']
+        state_cols_sal = [c for c in df_sal.columns if c not in excluir_sal]
+        last_row_sal = df_sal.iloc[-1][state_cols_sal].astype(str).str.replace(',', '').str.replace(' ', '').str.replace('$', '', regex=False)
+        last_row_sal = pd.to_numeric(last_row_sal, errors='coerce')
+        
+        rk_sal = int(last_row_sal.rank(ascending=False, method='min')[col_sal])
+        top1_sal = last_row_sal.idxmax()
+        rank_html_sal = f"<br>Rank: <b>#{rk_sal}</b>" if rk_sal == 1 else f"<br>Rank: <b>#{rk_sal}</b> <span style='font-size:11px; color:#666;'>(1º {top1_sal})</span>"
+        
+        fig_sal = px.line(df_sal, x='Date', y=col_sal)
+        fig_sal.update_traces(line_color='#28a745', line_width=2.5)
+        
+        valor_inicial_sal = df_sal[col_sal].iloc[0]
+        for hito in hitos_sal:
+            # Forzar dibujo de línea horizontal de extremo a extremo
+            fig_sal.add_hline(y=hito, line_color='rgba(255,255,255,0.2)', line_width=1, layer='below')
+
+            if valor_inicial_sal < hito: 
+                cruce = df_sal[df_sal[col_sal] >= hito]
+                if not cruce.empty:
+                    primer_cruce = cruce.iloc[0]
+                    texto_etiqueta = f"{primer_cruce['Mes_Str'][:3].capitalize()} {primer_cruce['Año']}"
+                    
+                    fig_sal.add_trace(go.Scatter(
+                        x=[primer_cruce['Date']], y=[primer_cruce[col_sal]], mode='markers+text',
+                        marker=dict(color='white', size=9, line=dict(color='#28a745', width=2)),
+                        text=[texto_etiqueta], textposition="top left",
+                        textfont=dict(color="#28a745", size=11, weight="bold"),
+                        showlegend=False, hoverinfo='skip',
+                        cliponaxis=False 
+                    ))
+
+        ficha_sal_html = f"<b>{fecha_str}</b>{rank_html_sal}<br><span style='font-size:16px;'><b>${val_curr:,.2f}</b></span> MXN<br>Var Mensual: <span style='color:{'#28a745' if var_m >=0 else '#dc3545'}'>{var_m:+.2f}%</span><br>Var Anual: <span style='color:{'#28a745' if var_y >=0 else '#dc3545'}'>{var_y:+.2f}%</span>"
+        fig_sal.add_annotation(
+            x=0.02, y=0.95, xref='paper', yref='paper', text=ficha_sal_html, showarrow=False, align='left', 
+            bgcolor='rgba(255, 255, 255, 0.95)', bordercolor='#28a745', borderwidth=2, borderpad=8, font=dict(color='black', size=12)
+        )
+
+        fig_sal.update_layout(
+            title=dict(text="SALARIO BASE DE COTIZACIÓN (IMSS)", font=dict(color='white', size=14), x=0.0),
+            xaxis_title="", yaxis_title="", height=450, margin=dict(t=50, b=20, l=10, r=10),
+            xaxis=dict(
+                showticklabels=True, tickformat="%Y", gridcolor='rgba(255,255,255,0.1)', tickfont=dict(color='#ccc'),
+                showline=False # Apagamos líneas de borde inferior nativas
+            ),
+            yaxis=dict(
+                range=[y_min_sal, y_max_sal], autorange=False, 
+                tickmode='array', tickvals=hitos_sal, 
+                showgrid=False, # --- Apagamos el grid nativo porque usamos add_hline ---
+                tickformat="$ ,.0f", tickfont=dict(color='#ccc'),
+                showline=False, zeroline=False # --- Cero bordes laterales ---
+            ),
+            plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)'
+        )
+        st.plotly_chart(fig_sal, use_container_width=True)
+    else:
+        st.info("Datos históricos de salarios no disponibles.")
 
 # ==========================================
 # SECCIÓN 4: EDUCACIÓN
@@ -902,7 +1115,7 @@ try:
 <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px; border-bottom: 1px solid #dee2e6; padding-bottom: 15px;">
 <div style="min-width: 200px;">
 <div style="font-size:2rem; font-weight:800; color:#212529;">{total_alum:,.0f}</div>
-<div style="font-size:0.9rem; color:#666; text-transform: uppercase; font-weight:600;">Matrícula Total</div>
+<div style="font-size:0.9rem; color:#666; text-transform: uppercase; font-weight:600;">Matrícula</div>
 </div>
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
 <div style="background: white; padding: 8px 15px; border-radius: 6px; border: 1px solid #dee2e6;">
@@ -926,7 +1139,7 @@ try:
 <div style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
 <div style="min-width: 200px;">
 <div style="font-size:2rem; font-weight:800; color:#28a745;">{total_egresados:,.0f}</div>
-<div style="font-size:0.9rem; color:#666; text-transform: uppercase; font-weight:600;">Egresados (Anual)</div>
+<div style="font-size:0.9rem; color:#666; text-transform: uppercase; font-weight:600;">Egresados</div>
 </div>
 <div style="display: flex; gap: 10px; flex-wrap: wrap;">
 <div style="background: white; padding: 8px 15px; border-radius: 6px; border: 1px solid #dee2e6;">
@@ -1007,7 +1220,8 @@ except Exception as e:
 st.markdown("---")
 st.header("5. Productividad Laboral")
 
-df_saic = DATA['saic']
+# --- CORRECCIÓN AQUÍ ---
+df_saic = DATA['saic'].copy() 
 df_saic['Entidad_Norm'] = df_saic['Entidad'].str.strip().replace(NAME_NORMALIZER)
 df_saic['Rank'] = df_saic['Indicador_Productividad'].rank(ascending=False)
 
@@ -1038,7 +1252,7 @@ if not row.empty:
     colors = ['#d63384' if x == state_norm else '#e9ecef' for x in df_sorted['Entidad_Norm']]
     
     fig = px.bar(df_sorted, x='Entidad', y='Indicador_Productividad')
-    fig.update_traces(marker_color=colors)
+    fig.update_traces(marker_color=colors, hovertemplate="%{y:,.2f}<extra></extra>")
     
     fig.add_hline(y=avg, line_dash="dot", line_color="white", annotation_text="Promedio", annotation_font_color="white")
     
@@ -1057,7 +1271,8 @@ if not row.empty:
 st.markdown("---")
 st.header("6. Competitividad (IMCO)")
 
-df_g = DATA['imco_g']
+# --- CORRECCIÓN AQUÍ ---
+df_g = DATA['imco_g'].copy()
 df_g['Entidad_Norm'] = df_g['Entidad'].str.strip().replace(NAME_NORMALIZER)
 row = df_g[df_g['Entidad_Norm'] == state_norm]
 
@@ -1086,7 +1301,7 @@ if not row.empty:
     colors = ['#fd7e14' if x == state_norm else '#e9ecef' for x in df_sorted['Entidad_Norm']]
     
     fig = px.bar(df_sorted, x='Entidad', y='Valor')
-    fig.update_traces(marker_color=colors)
+    fig.update_traces(marker_color=colors, hovertemplate="%{y:,.2f}<extra></extra>")
     
     fig.add_hline(y=avg, line_dash="dot", line_color="white", annotation_text="Promedio", annotation_font_color="white")
     
@@ -1099,7 +1314,8 @@ if not row.empty:
     )
     st.plotly_chart(fig, use_container_width=True)
 
-df_d = DATA['imco_d']
+# --- CORRECCIÓN AQUÍ ---
+df_d = DATA['imco_d'].copy()
 df_d['Entidad_Norm'] = df_d['Entidad'].str.strip().replace(NAME_NORMALIZER)
 st_d = df_d[df_d['Entidad_Norm'] == state_norm].copy()
 
@@ -1181,18 +1397,22 @@ if not st_d.empty:
     c1, c2 = st.columns(2)
     with c1:
         st.markdown("**✅ Top 5 Fortalezas**")
-        # Menor puntaje = Mejor Rank (1)
         for _, r in st_d.sort_values('Puntaje_Fortaleza').head(5).iterrows():
             ch = r['Cambio_Ajustado']
-            ch_str = f"⬆️ {int(abs(ch))}" if ch > 0 else (f"⬇️ {int(abs(ch))}" if ch < 0 else "➖")
-            st.markdown(f"- **#{int(r['Rank'])}** {r['Indicador']} ({ch_str})")
+            if ch > 0: badge = f"<span style='background-color:#28a745; color:white; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; margin-left:5px;'>▲ {int(abs(ch))}</span>"
+            elif ch < 0: badge = f"<span style='background-color:#dc3545; color:white; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; margin-left:5px;'>▼ {int(abs(ch))}</span>"
+            else: badge = f"<span style='background-color:#007bff; color:white; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; margin-left:5px;'>=</span>"
+            
+            st.markdown(f"- **#{int(r['Rank'])}** {r['Indicador']} {badge}", unsafe_allow_html=True)
     with c2:
         st.markdown("**⚠️ Top 5 Áreas de oportunidad**")
-        # Mayor puntaje = Peor Rank (32)
         for _, r in st_d.sort_values('Puntaje_Fortaleza', ascending=False).head(5).iterrows():
             ch = r['Cambio_Ajustado']
-            ch_str = f"⬆️ {int(abs(ch))}" if ch > 0 else (f"⬇️ {int(abs(ch))}" if ch < 0 else "➖")
-            st.markdown(f"- **#{int(r['Rank'])}** {r['Indicador']} ({ch_str})")
+            if ch > 0: badge = f"<span style='background-color:#28a745; color:white; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; margin-left:5px;'>▲ {int(abs(ch))}</span>"
+            elif ch < 0: badge = f"<span style='background-color:#dc3545; color:white; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; margin-left:5px;'>▼ {int(abs(ch))}</span>"
+            else: badge = f"<span style='background-color:#007bff; color:white; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; margin-left:5px;'>=</span>"
+            
+            st.markdown(f"- **#{int(r['Rank'])}** {r['Indicador']} {badge}", unsafe_allow_html=True)
 
 # ==========================================
 # SECCIÓN 7: RATINGS
@@ -1225,68 +1445,105 @@ if "Tlaxcala" not in selected_name:
 # ==========================================
 st.markdown("---")
 if "Tlaxcala" in selected_name:
-    st.header("7. Top 10 Sectores Exportadores")
+    st.header("7. Principales Sectores de Exportación")
 else:
-    st.header("8. Top 10 Sectores Exportadores")
+    st.header("8. Principales Sectores de Exportación")
 
-df_e = DATA['export']
-df_e['Year'] = df_e['Periodo'].astype(str).str[:4]
+df_e = DATA['export'].copy()
+df_e['Year'] = df_e['Periodo'].astype(str).str[:4].astype(int)
+df_e['Quarter'] = df_e['Periodo'].astype(str).str[-2:]
 max_y = df_e['Year'].max()
 
-st_e = df_e[(df_e['Estado_ID'].astype(str).str.zfill(2) == state_id_str) & (df_e['Year'] == max_y) & (df_e['Sector'] != 'Total')]
+# Obtenemos los trimestres disponibles del año actual (ej. 1T, 2T, 3T)
+quarters_avail = df_e[df_e['Year'] == max_y]['Quarter'].unique()
 
-if not st_e.empty:
-    top10 = st_e.groupby('Sector')['Valor'].sum().reset_index().sort_values('Valor', ascending=False).head(10)
-    tot = top10['Valor'].sum()
-    top10['Part'] = (top10['Valor']/tot*100)
+# Filtro Actual y Previo
+st_e_curr = df_e[(df_e['Estado_ID'].astype(str).str.zfill(2) == state_id_str) & (df_e['Year'] == max_y) & (df_e['Sector'] != 'Total')]
+st_e_prev = df_e[(df_e['Estado_ID'].astype(str).str.zfill(2) == state_id_str) & (df_e['Year'] == (max_y - 1)) & (df_e['Quarter'].isin(quarters_avail)) & (df_e['Sector'] != 'Total')]
+
+if not st_e_curr.empty:
+    # Top 10 del año actual
+    top10 = st_e_curr.groupby('Sector')['Valor'].sum().reset_index().sort_values('Valor', ascending=False).head(10)
+    tot_curr = top10['Valor'].sum()
+    top10['Part'] = (top10['Valor']/tot_curr*100) if tot_curr > 0 else 0
     
-    nac_agg = df_e[(df_e['Year'] == max_y) & (df_e['Sector'] != 'Total')].groupby(['Sector', 'Estado_ID'])['Valor'].sum().reset_index()
+    # Unir valores del año anterior para esos mismos sectores
+    if not st_e_prev.empty:
+        prev_agg = st_e_prev.groupby('Sector')['Valor'].sum().reset_index().rename(columns={'Valor': 'Valor_Prev'})
+        top10 = top10.merge(prev_agg, on='Sector', how='left')
+    else:
+        top10['Valor_Prev'] = 0
+    top10['Valor_Prev'] = top10['Valor_Prev'].fillna(0)
+    
+    # Ranks Nacionales del Año Actual
+    nac_curr_agg = df_e[(df_e['Year'] == max_y) & (df_e['Sector'] != 'Total')].groupby(['Sector', 'Estado_ID'])['Valor'].sum().reset_index()
     rks = []
     for s in top10['Sector']:
-        d_s = nac_agg[nac_agg['Sector'] == s].copy()
+        d_s = nac_curr_agg[nac_curr_agg['Sector'] == s].copy()
         d_s['Rank'] = d_s['Valor'].rank(ascending=False)
         try: r = int(d_s[d_s['Estado_ID'].astype(str).str.zfill(2) == state_id_str]['Rank'].values[0])
         except: r = "-"
         rks.append(r)
     top10['Rank Nac'] = rks
 
-    max_val = top10['Valor'].max()
+    # Max val global para escalar el 100% de la barra
+    max_val_scale = max(top10['Valor'].max(), top10['Valor_Prev'].max())
     
-    html_export = """<div style="background-color: transparent; width: 100%; margin-top: 10px; font-family: sans-serif; color: #ffffff;">
-<div style="display: flex; width: 100%; margin-bottom: 20px; font-weight: bold; text-align: center; font-size: 0.95rem;">
-    <div style="width: 35%; text-align: right; padding-right: 15px; color: #ffffff;">Principales sectores de exportación, millones USD</div>
-    <div style="width: 35%;"></div>
-    <div style="width: 15%; color: #ffffff;">% en el total<br>estatal</div>
-    <div style="width: 15%; color: #ffffff;">Ranking<br>nacional</div>
+    # Lógica para la leyenda de trimestres (Ej. "1T-3T 2025")
+    q_len = len(quarters_avail)
+    q_prefix = f"1T-{q_len}T" if q_len > 1 else "1T"
+    label_curr = f"{q_prefix} {max_y}"
+    label_prev = f"{q_prefix} {max_y - 1}"
+    
+    # IMPORTANTE: Todo este HTML debe ir sin espacios iniciales para que Markdown no lo tome como código
+    html_export = f"""<div style="background-color: transparent; width: 100%; margin-top: 10px; font-family: sans-serif; color: #ffffff;">
+<div style="display: flex; justify-content: flex-start; margin-bottom:15px; font-size: 0.85rem;">
+<div style="display:flex; align-items:center; margin-right:15px;"><div style="width:12px; height:12px; background-color:#007bff; margin-right:5px; border-radius:2px;"></div> {label_curr}</div>
+<div style="display:flex; align-items:center;"><div style="width:12px; height:12px; background-color:#6c757d; margin-right:5px; border-radius:2px;"></div> {label_prev}</div>
+</div>
+<div style="display: flex; width: 100%; margin-bottom: 20px; font-weight: bold; text-align: center; font-size: 0.95rem; justify-content: flex-start; gap: 15px;">
+<div style="width: 25%; text-align: left; padding-left: 5px; color: #ffffff;">Sector</div>
+<div style="width: 40%; text-align: left; padding-left: 0px; color: #ffffff;">Millones de Dólares</div>
+<div style="width: 120px; color: #ffffff;">% en el total<br>estatal</div>
+<div style="width: 120px; color: #ffffff;">Ranking<br>nacional</div>
 </div>"""
     
     for _, r in top10.iterrows():
-        pct = (r['Valor'] / max_val) * 100 if max_val > 0 else 0
-        val_millions = r['Valor'] / 1000
+        pct_curr = (r['Valor'] / max_val_scale) * 100 if max_val_scale > 0 else 0
+        pct_prev = (r['Valor_Prev'] / max_val_scale) * 100 if max_val_scale > 0 else 0
+        
+        val_curr_m = r['Valor'] / 1000
+        val_prev_m = r['Valor_Prev'] / 1000
+        
         sector_wrapped = '<br>'.join(textwrap.wrap(r['Sector'], width=38))
         
-        html_export += f"""
-<div style="display: flex; width: 100%; align-items: stretch; margin-bottom: 12px;">
-    <div style="width: 35%; text-align: right; padding-right: 15px; font-size: 0.85rem; display: flex; align-items: center; justify-content: flex-end;">
-        <span style="display: inline-block; line-height: 1.2; color: #ffffff;">{sector_wrapped}</span>
-    </div>
-    <div style="width: 35%; border-left: 2px solid #e0e0e0; padding-left: 0; display: flex; align-items: center;">
-        <div style="background-color: #007bff; width: {pct}%; height: 26px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; color: white; font-weight: bold; font-size: 0.85rem; min-width: 50px; border-radius: 0 4px 4px 0; box-shadow: 1px 1px 3px rgba(0,0,0,0.1);">
-            {val_millions:,.0f}
-        </div>
-    </div>
-    <div style="width: 15%; display: flex; justify-content: center; align-items: center;">
-        <div style="border: 1px solid #dee2e6; background-color: #ffffff; border-radius: 6px; padding: 4px 0; width: 80%; font-weight: bold; font-size: 0.9rem; color: #212529; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-            {r['Part']:.1f}%
-        </div>
-    </div>
-    <div style="width: 15%; display: flex; justify-content: center; align-items: center;">
-        <div style="border: 1px solid #dee2e6; background-color: #ffffff; border-radius: 6px; padding: 4px 0; width: 80%; font-weight: bold; font-size: 0.9rem; color: #212529; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
-            {r['Rank Nac']}°
-        </div>
-    </div>
+        html_export += f"""<div style="display: flex; width: 100%; align-items: stretch; margin-bottom: 16px; justify-content: flex-start; gap: 15px;">
+<div style="width: 25%; text-align: left; padding-left: 5px; font-size: 0.85rem; display: flex; align-items: center; justify-content: flex-start;">
+<span style="display: inline-block; line-height: 1.2; color: #ffffff;">{sector_wrapped}</span>
+</div>
+<div style="width: 40%; border-left: 2px solid #e0e0e0; padding-left: 0; display: flex; flex-direction: column; justify-content: center; gap: 4px;">
+<div style="display:flex; align-items:center;">
+<div style="background-color: #007bff; width: {pct_curr}%; height: 20px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; color: white; font-weight: bold; font-size: 0.8rem; min-width: 45px; border-radius: 0 4px 4px 0; box-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
+{val_curr_m:,.0f}
+</div>
+</div>
+<div style="display:flex; align-items:center;">
+<div style="background-color: #6c757d; width: {pct_prev}%; height: 16px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; color: white; font-weight: 600; font-size: 0.75rem; min-width: 40px; border-radius: 0 4px 4px 0; opacity: 0.85;">
+{val_prev_m:,.0f}
+</div>
+</div>
+</div>
+<div style="width: 120px; display: flex; justify-content: center; align-items: center;">
+<div style="border: 1px solid #dee2e6; background-color: #ffffff; border-radius: 6px; padding: 4px 0; width: 100%; font-weight: bold; font-size: 0.9rem; color: #212529; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+{r['Part']:.1f}%
+</div>
+</div>
+<div style="width: 120px; display: flex; justify-content: center; align-items: center;">
+<div style="border: 1px solid #dee2e6; background-color: #ffffff; border-radius: 6px; padding: 4px 0; width: 100%; font-weight: bold; font-size: 0.9rem; color: #212529; text-align: center; box-shadow: 0 1px 2px rgba(0,0,0,0.05);">
+{r['Rank Nac']}°
+</div>
+</div>
 </div>"""
         
-    html_export += "\n</div>"
-    
+    html_export += "</div>"
     st.markdown(html_export, unsafe_allow_html=True)
