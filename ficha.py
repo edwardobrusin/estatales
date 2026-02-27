@@ -363,6 +363,7 @@ def get_ied_metrics(df_tot, state_norm):
 # ==========================================
 
 st.header("1. Resumen Ejecutivo")
+st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: PIB por Entidad Federativa (INEGI), Exportaciones por Entidad Federativa (INEGI) e IED (Secretaría de Economía)</div>", unsafe_allow_html=True)
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
@@ -394,16 +395,19 @@ with col4:
     else: st.warning("Sin datos IED")
 
 # ==========================================
-# SECCIÓN 1.5: DETALLE IED (VERTICAL)
+# SECCIÓN 2: DETALLE IED (VERTICAL)
 # ==========================================
+st.markdown("---") # Línea divisoria agregada
 try:
     trim_ied = int(DATA['ied_tot']['Trimestre'].max())
     anio_ied = int(DATA['ied_tot']['Anio'].max())
-    texto_periodo_ied = f"{trim_ied}T {anio_ied}"
+    texto_periodo_ied = f"({trim_ied}T {anio_ied})"
 except:
     texto_periodo_ied = ""
 
-st.markdown(f"###### Inversión Extranjera Directa {texto_periodo_ied}")
+# Cambiamos markdown por header y actualizamos el número
+st.header(f"2. Inversión Extranjera Directa {texto_periodo_ied}")
+st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: IED (Secretaría de Economía)</div>", unsafe_allow_html=True)
 df_ied_det = DATA['ied_det']
 df_ied_tot = DATA['ied_tot'] # Archivo con totales por sector
 
@@ -456,7 +460,7 @@ else:
     st.info("No hay detalle de sectores de IED disponible.")
 
 # ==========================================
-# SECCIÓN 2: ESTRUCTURA ECONÓMICA
+# SECCIÓN 3: ESTRUCTURA ECONÓMICA
 # ==========================================
 st.markdown("---")
 
@@ -464,7 +468,8 @@ st.markdown("---")
 df_pib = DATA['pib']
 max_period = df_pib['Periodo'].max()
 
-st.header(f"2. Estructura Económica (PIB {max_period})")
+st.header(f"3. Estructura Económica (PIB {max_period})")
+st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: PIB por Entidad Federativa (INEGI)</div>", unsafe_allow_html=True)
 
 # 1. Datos Estatales (df_curr)
 df_curr = df_pib[(df_pib['Estado_ID'] == state_id) & (df_pib['Periodo'] == max_period)].copy()
@@ -629,7 +634,7 @@ with c3:
         """, unsafe_allow_html=True)
 
 # ==========================================
-# SECCIÓN 3: POBLACIÓN
+# SECCIÓN 4: POBLACIÓN
 # ==========================================
 st.markdown("---")
 try:
@@ -644,7 +649,8 @@ try:
     periodo_pob = DATA['pob']['Periodo'].max()
 except:
     periodo_pob = ""
-st.header("3. Demografía y Mercado Laboral")
+st.header("4. Demografía y Mercado Laboral")
+st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: ENOE (INEGI), CPV (INEGI), Puestos de Trabajo (IMSS) y Cifras de Salario (IMSS)</div>", unsafe_allow_html=True)
 
 # Función auxiliar para renderizar métricas con el estilo solicitado
 def render_custom_metric(label, value, sub_text, color="#212529"):
@@ -847,7 +853,7 @@ with col_chart:
         st.plotly_chart(fig, use_container_width=True)
 
 # ==========================================
-# 3.5 GRÁFICAS HISTÓRICAS (IMSS)
+# 4.5 GRÁFICAS HISTÓRICAS (IMSS)
 # ==========================================
 st.markdown("<br>", unsafe_allow_html=True) # Espacio para separar de la pirámide y métricas
 col_hist_izq, col_hist_der = st.columns(2)
@@ -1057,7 +1063,7 @@ with col_hist_der:
         st.info("Datos históricos de salarios no disponibles.")
 
 # ==========================================
-# SECCIÓN 4: EDUCACIÓN
+# SECCIÓN 5: EDUCACIÓN
 # ==========================================
 st.markdown("---")
 
@@ -1067,7 +1073,8 @@ try:
 except:
     texto_ciclo = ""
 
-st.header(f"4. Educación Superior{texto_ciclo}")
+st.header(f"5. Educación Superior{texto_ciclo}")
+st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: Anuario Estadístico de la Población Escolar en Educación Superior (ANUIES)</div>", unsafe_allow_html=True)
 
 try:
     df_tot = DATA['edu_tot'].copy()
@@ -1215,10 +1222,11 @@ except Exception as e:
     st.error(f"Error procesando módulo de educación: {str(e)}")
 
 # ==========================================
-# SECCIÓN 5: PRODUCTIVIDAD
+# SECCIÓN 6: PRODUCTIVIDAD
 # ==========================================
 st.markdown("---")
-st.header("5. Productividad Laboral")
+st.header("6. Productividad Laboral")
+st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: Censos Económicos (INEGI)</div>", unsafe_allow_html=True)
 
 # --- CORRECCIÓN AQUÍ ---
 df_saic = DATA['saic'].copy() 
@@ -1266,10 +1274,11 @@ if not row.empty:
     st.plotly_chart(fig, use_container_width=True)
 
 # ==========================================
-# SECCIÓN 6: IMCO
+# SECCIÓN 7: IMCO
 # ==========================================
 st.markdown("---")
-st.header("6. Competitividad (IMCO)")
+st.header("7. Competitividad (IMCO)")
+st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: Índice de Competitividad Estatal (IMCO)</div>", unsafe_allow_html=True)
 
 # --- CORRECCIÓN AQUÍ ---
 df_g = DATA['imco_g'].copy()
@@ -1415,39 +1424,67 @@ if not st_d.empty:
             st.markdown(f"- **#{int(r['Rank'])}** {r['Indicador']} {badge}", unsafe_allow_html=True)
 
 # ==========================================
-# SECCIÓN 7: RATINGS
+# SECCIÓN 8: RATINGS
 # ==========================================
 if "Tlaxcala" not in selected_name:
     st.markdown("---")
-    st.header("7. Calificación Crediticia")
+    st.header("8. Calificación Crediticia")
+    
     df_r = DATA['ratings']
+    match = pd.DataFrame()
+    
+    # Texto por defecto (por si no hay datos o archivo)
+    fuente_str = "Calificación Crediticia (HR Ratings y/o Fitch Ratings)"
+    
     if not df_r.empty:
         col_ent = [c for c in df_r.columns if "Entidad" in c][0]
+        # Filtramos primero los datos para saber qué agencias existen para este estado
         match = df_r[df_r[col_ent].astype(str).apply(lambda x: NAME_NORMALIZER.get(x, x)) == state_norm].copy()
         
         if not match.empty:
-            match = match.rename(columns={
-                "Fecha Publicacion": "Fecha Publicación",
-                "Calificacion": "Calificación"
-            })
+            # Detectamos qué agencias están presentes en la columna 'Calificadora'
+            agencias = match['Calificadora'].astype(str).unique()
+            has_hr = any("HR" in ag for ag in agencias)
+            has_fitch = any("Fitch" in ag for ag in agencias)
             
-            columnas_deseadas = ["Calificadora", "Entidad", "Fecha Publicación", "Calificación", "Perspectiva"]
-            columnas_finales = [c for c in columnas_deseadas if c in match.columns]
-            
-            st.dataframe(match[columnas_finales], hide_index=True)
-        else: 
-            st.info("Sin calificación.")
+            # Definimos el texto de la fuente según lo encontrado
+            if has_hr and has_fitch:
+                fuente_str = "Calificación Crediticia (HR Ratings y Fitch Ratings)"
+            elif has_fitch:
+                fuente_str = "Calificación Crediticia (Fitch Ratings)"
+            elif has_hr:
+                fuente_str = "Calificación Crediticia (HR Ratings)"
+    
+    # Imprimimos la fuente dinámica justo debajo del título
+    st.markdown(f"<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: {fuente_str}</div>", unsafe_allow_html=True)
+    
+    # Renderizamos la tabla si hay datos
+    if not match.empty:
+        match = match.rename(columns={
+            "Fecha Publicacion": "Fecha Publicación",
+            "Calificacion": "Calificación"
+        })
+        
+        columnas_deseadas = ["Calificadora", "Entidad", "Fecha Publicación", "Calificación", "Perspectiva"]
+        columnas_finales = [c for c in columnas_deseadas if c in match.columns]
+        
+        st.dataframe(match[columnas_finales], hide_index=True)
+    elif not df_r.empty:
+        st.info("Sin calificación.")
     else: 
         st.info("Archivo no disponible.")
 
 # ==========================================
-# SECCIÓN 8: TOP EXPORTACIONES
+# SECCIÓN 9: TOP EXPORTACIONES
 # ==========================================
 st.markdown("---")
+st.markdown("---")
 if "Tlaxcala" in selected_name:
-    st.header("7. Principales Sectores de Exportación")
-else:
     st.header("8. Principales Sectores de Exportación")
+    st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: Exportaciones por Entidad Federativa (INEGI)</div>", unsafe_allow_html=True)
+else:
+    st.header("9. Principales Sectores de Exportación")
+    st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: Exportaciones por Entidad Federativa (INEGI)</div>", unsafe_allow_html=True)
 
 df_e = DATA['export'].copy()
 df_e['Year'] = df_e['Periodo'].astype(str).str[:4].astype(int)
