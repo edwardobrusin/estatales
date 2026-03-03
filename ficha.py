@@ -513,6 +513,12 @@ def get_ranked_list(lista_indicadores, total_compare, top_n=None):
     if top_n: return df_res.head(top_n)
     return df_res
 
+# --- CÁLCULO TOTAL PIB ESTATAL (Para Part. Estatal) ---
+val_prim_total = get_val(df_curr, HIERARCHY["Primario"]["Total"])
+val_sec_total = get_val(df_curr, HIERARCHY["Secundario"]["Total"])
+val_ter_total = get_val(df_curr, HIERARCHY["Terciario"]["Total"])
+pib_estatal_abs = val_prim_total + val_sec_total + val_ter_total
+
 # --- RENDERIZADO ---
 c1, c2, c3 = st.columns(3)
 
@@ -530,6 +536,8 @@ with c1:
     
     # Participación en el PIB Nacional del Sector
     part_nac = (val_est / val_nac_sec * 100) if val_nac_sec > 0 else 0
+    # Participación en el PIB Estatal
+    part_estatal = (val_est / pib_estatal_abs * 100) if pib_estatal_abs > 0 else 0
     
     # Empleo
     emp_part = 0
@@ -541,6 +549,7 @@ with c1:
         <div style="font-weight:700; color:#555;">SECTOR PRIMARIO</div>
         <div style="font-size:1.4rem; font-weight:800;">{format_mm_pesos(val_est)}</div>
         <div style="font-size:0.85rem;">🇲🇽 Part. Nacional: <b>{part_nac:.2f}%</b></div>
+        <div style="font-size:0.85rem;">📍 Part. Estatal: <b>{part_estatal:.2f}%</b></div>
         <div style="font-size:0.85rem;">👷 <b>{emp_part:.2f}%</b> del Empleo Estatal</div>
     </div>
     """, unsafe_allow_html=True)
@@ -549,10 +558,11 @@ with c1:
     act_df = get_ranked_list(meta["Actividades"], val_est, top_n=3)
     
     st.markdown("**Estructura:**")
-    for _, r in sub_df.iterrows():
+    # CAMBIO: Enumeración en lugar de bullets
+    for i, (_, r) in enumerate(sub_df.iterrows()):
         st.markdown(f"""
         <div style="margin-bottom:8px;">
-            <div style="font-weight:600; font-size:0.95rem;">• {r['Nombre']}</div>
+            <div style="font-weight:600; font-size:0.95rem;">{i+1}. {r['Nombre']}</div>
             <div style="color:#666; font-size:0.85rem; margin-left:15px;">${r['Valor']/1000:,.2f} MM ({r['Share']:.1f}%)</div>
         </div>
         """, unsafe_allow_html=True)
@@ -569,6 +579,8 @@ with c2:
     val_est = get_val(df_curr, meta["Total"])
     val_nac_sec = get_val(df_nac, meta["Total"])
     part_nac = (val_est / val_nac_sec * 100) if val_nac_sec > 0 else 0
+    # Participación en el PIB Estatal
+    part_estatal = (val_est / pib_estatal_abs * 100) if pib_estatal_abs > 0 else 0
     
     emp_part = 0
     if not df_enoe_est.empty and tot_emp > 0:
@@ -579,17 +591,21 @@ with c2:
         <div style="font-weight:700; color:#555;">SECTOR SECUNDARIO</div>
         <div style="font-size:1.4rem; font-weight:800;">{format_mm_pesos(val_est)}</div>
         <div style="font-size:0.85rem;">🇲🇽 Part. Nacional: <b>{part_nac:.2f}%</b></div>
+        <div style="font-size:0.85rem;">📍 Part. Estatal: <b>{part_estatal:.2f}%</b></div>
         <div style="font-size:0.85rem;">👷 <b>{emp_part:.2f}%</b> del Empleo Estatal</div>
     </div>
     """, unsafe_allow_html=True)
 
     sub_df = get_ranked_list(meta["Subsectores"], val_est, top_n=3)
-    st.markdown("**Principales Subsectores (Top 3):**")
-    for _, r in sub_df.iterrows():
+    # CAMBIO: Titulo simplificado
+    st.markdown("**Principales Subsectores:**")
+    
+    # CAMBIO: Enumeración en lugar de bullets
+    for i, (_, r) in enumerate(sub_df.iterrows()):
         is_manuf = "manufactureras" in r['Nombre'].lower()
         st.markdown(f"""
         <div style="margin-bottom:10px;">
-            <div style="font-weight:600; font-size:0.95rem;">• {r['Nombre']}</div>
+            <div style="font-weight:600; font-size:0.95rem;">{i+1}. {r['Nombre']}</div>
             <div style="color:#666; font-size:0.85rem; margin-left:15px;">${r['Valor']/1000:,.2f} MM ({r['Share']:.1f}%)</div>
         </div>
         """, unsafe_allow_html=True)
@@ -608,6 +624,8 @@ with c3:
     val_est = get_val(df_curr, meta["Total"])
     val_nac_sec = get_val(df_nac, meta["Total"])
     part_nac = (val_est / val_nac_sec * 100) if val_nac_sec > 0 else 0
+    # Participación en el PIB Estatal
+    part_estatal = (val_est / pib_estatal_abs * 100) if pib_estatal_abs > 0 else 0
     
     emp_part = 0
     if not df_enoe_est.empty and tot_emp > 0:
@@ -618,12 +636,14 @@ with c3:
         <div style="font-weight:700; color:#555;">SECTOR TERCIARIO</div>
         <div style="font-size:1.4rem; font-weight:800;">{format_mm_pesos(val_est)}</div>
         <div style="font-size:0.85rem;">🇲🇽 Part. Nacional: <b>{part_nac:.2f}%</b></div>
+        <div style="font-size:0.85rem;">📍 Part. Estatal: <b>{part_estatal:.2f}%</b></div>
         <div style="font-size:0.85rem;">👷 <b>{emp_part:.2f}%</b> del Empleo Estatal</div>
     </div>
     """, unsafe_allow_html=True)
 
     sub_df = get_ranked_list(meta["Subsectores"], val_est, top_n=3)
-    st.markdown("**Principales Subsectores (Top 3):**")
+    # CAMBIO: Titulo simplificado
+    st.markdown("**Principales Subsectores:**")
     for _, r in sub_df.iterrows():
         display_name = r['Nombre'][:37] + "..." if len(r['Nombre']) > 40 else r['Nombre']
         st.markdown(f"""
@@ -1583,4 +1603,5 @@ if not st_e_curr.empty:
 </div>"""
         
     html_export += "</div>"
+
     st.markdown(html_export, unsafe_allow_html=True)
