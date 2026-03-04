@@ -206,23 +206,21 @@ if 'gob_sedeco' in DATA and not DATA['gob_sedeco'].empty:
         st.markdown(f"**Gobernador/a:** {gobernador} &nbsp;&nbsp;|&nbsp;&nbsp; **SEDECO:** {sedeco} &nbsp;&nbsp;|&nbsp;&nbsp; **Partido:** {partido}")
 
 # --- NUEVA LEYENDA ---
-st.markdown("<p style='text-align: left; color: #888; font-size: 0.85rem; margin-top: -5px; margin-bottom: -20px;'><i>MMP: Miles de Millones de Pesos &nbsp;|&nbsp; MMD: Miles de Millones de Dólares</i></p>", unsafe_allow_html=True)
-st.markdown("---")
+st.markdown("<p style='text-align: left; color: #888; font-size: 0.85rem; margin-top: -5px; margin-bottom: -20px;'><i>MDP: Millones de Pesos &nbsp;|&nbsp; MDD: Millones de Dólares</i></p>", unsafe_allow_html=True)
 
 # ==========================================
 # 5. FUNCIONES LÓGICAS
 # ==========================================
 
 def format_mm_pesos(val_millones):
-    val = val_millones / 1000
-    return f"${val:,.2f} <span style='font-size: 0.5em;'>MMP</span>"
+    return f"${val_millones:,.2f} <span style='font-size: 0.5em;'>MDP</span>"
 
 def format_mm_usd(val_miles): 
-    val = val_miles / 1000000 
-    return f"${val:,.2f} <span style='font-size: 0.5em;'>MMD</span>"
+    val = val_miles / 1000 
+    return f"${val:,.2f} <span style='font-size: 0.5em;'>MDD</span>"
 
 def format_mm_usd_ied(val_millones): 
-    return f"${val_millones:,.2f} <span style='font-size: 0.5em;'>MMD</span>"
+    return f"${val_millones:,.2f} <span style='font-size: 0.5em;'>MDD</span>"
 
 def render_card(title, val_str, rank, top1, part, growth, growth_nac):
     c_g = "metric-delta-pos" if growth >= 0 else "metric-delta-neg"
@@ -242,10 +240,9 @@ def render_card(title, val_str, rank, top1, part, growth, growth_nac):
         <div class="metric-value" style="margin: 2px 0;">{val_str}</div>
         <div class="metric-sub" style="margin-bottom: 2px;">Participación Nacional: <b>{part:.2f}%</b></div>
         <hr style="margin: 8px 0; border-top: 1px solid #eee;">
-        <div class="metric-sub" style="white-space: nowrap;">
-            <b style="line-height: 1.2;">Variación:</b><br>
-            Estatal: <span class="{c_g}">{i_g} {growth:.2f}%</span>
-            <span style="color:#ccc">|</span> Nacional: <span class="{c_gn}">{i_gn} {growth_nac:.2f}%</span>
+        <div class="metric-sub">
+            <div style="margin-bottom: 3px;">Var. Estatal: <span class="{c_g}">{i_g} {growth:.2f}%</span></div>
+            <div>Var. Nacional: <span class="{c_gn}">{i_gn} {growth_nac:.2f}%</span></div>
         </div>
     </div>
     """, unsafe_allow_html=True)
@@ -363,7 +360,7 @@ def get_ied_metrics(df_tot, state_norm):
 # ==========================================
 
 st.header("1. Resumen Ejecutivo")
-st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: PIB por Entidad Federativa (INEGI), Exportaciones por Entidad Federativa (INEGI) e IED (Secretaría de Economía)</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: PIB por Entidad Federativa (INEGI), Exportaciones por Entidad Federativa (INEGI) e Inversión Extranjera Directa (Secretaría de Economía)</div>", unsafe_allow_html=True)
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
@@ -377,7 +374,7 @@ with col2:
     res = get_pib_metrics(DATA['pib'], "Industrias manufactureras", state_id)
     if res:
         v, p, g, gn, r, t1, yr = res
-        render_card(f"PIB Manufacturero ({yr})", format_mm_pesos(v), r, t1, p, g, gn)
+        render_card(f"PIB Manufactura ({yr})", format_mm_pesos(v), r, t1, p, g, gn)
     else: st.warning("Sin datos Manufactura")
 
 with col3:
@@ -407,7 +404,7 @@ except:
 
 # Cambiamos markdown por header y actualizamos el número
 st.header(f"2. Inversión Extranjera Directa {texto_periodo_ied}")
-st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: IED (Secretaría de Economía)</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: Inversión Extranjera Directa (Secretaría de Economía)</div>", unsafe_allow_html=True)
 df_ied_det = DATA['ied_det']
 df_ied_tot = DATA['ied_tot'] # Archivo con totales por sector
 
@@ -430,7 +427,7 @@ if not df_ied_st_det.empty:
 <div style="display:flex; justify-content:space-between; align-items:center;">
 <h5 style="margin:0; color:#333;">{sector_name}</h5>
 <span style="font-size:0.9rem; font-weight:700; color:{color_bar}; background:white; padding:2px 8px; border-radius:4px; border:1px solid #ddd;">
-Total: ${total_sector_val:,.2f} M
+Total: ${total_sector_val:,.2f} MDD
 </span>
 </div>
 <hr style="margin:5px 0 10px 0; border-color:#e9ecef;">"""
@@ -441,7 +438,7 @@ Total: ${total_sector_val:,.2f} M
                 html_row = f"""<div style="display: flex; justify-content: space-between; font-size: 0.9rem; margin-bottom: 5px;">
 <span style="font-weight: 500;">• {r['Actividad']}</span>
 <span style="white-space: nowrap; font-weight:600;">
-${r['Inversion']:,.2f} M
+${r['Inversion']:,.2f} MDD
 </span>
 </div>"""
                 st.markdown(html_row, unsafe_allow_html=True)
@@ -477,7 +474,7 @@ df_curr = df_pib[(df_pib['Estado_ID'] == state_id) & (df_pib['Periodo'] == max_p
 # 2. Datos Nacionales (df_nac) - Para calcular participaciones correctas
 df_nac = df_pib[(df_pib['Estado_ID'] == 0) & (df_pib['Periodo'] == max_period)].copy()
 
-# Definición de Jerarquías (Mantenemos tu estructura)
+# Definición de Jerarquías
 HIERARCHY = {
     "Primario": {
         "Total": "Actividades Primarias",
@@ -513,11 +510,18 @@ def get_ranked_list(lista_indicadores, total_compare, top_n=None):
     if top_n: return df_res.head(top_n)
     return df_res
 
-# --- CÁLCULO TOTAL PIB ESTATAL (Para Part. Estatal) ---
+# --- CÁLCULO TOTAL PIB ESTATAL (MODIFICADO) ---
+# Usamos "Total Nacional" que corresponde al PIB Total de la entidad en la base de datos
+pib_estatal_total = get_val(df_curr, "Total Nacional") 
+
+# Valores absolutos de los sectores
 val_prim_total = get_val(df_curr, HIERARCHY["Primario"]["Total"])
 val_sec_total = get_val(df_curr, HIERARCHY["Secundario"]["Total"])
 val_ter_total = get_val(df_curr, HIERARCHY["Terciario"]["Total"])
-pib_estatal_abs = val_prim_total + val_sec_total + val_ter_total
+
+# Cálculo de Impuestos (Diferencia)
+val_impuestos = pib_estatal_total - (val_prim_total + val_sec_total + val_ter_total)
+pct_impuestos = (val_impuestos / pib_estatal_total * 100) if pib_estatal_total > 0 else 0
 
 # --- RENDERIZADO ---
 c1, c2, c3 = st.columns(3)
@@ -534,10 +538,10 @@ with c1:
     val_est = get_val(df_curr, meta["Total"])
     val_nac_sec = get_val(df_nac, meta["Total"]) # Valor Nacional del mismo sector
     
-    # Participación en el PIB Nacional del Sector
+    # Participación Nacional
     part_nac = (val_est / val_nac_sec * 100) if val_nac_sec > 0 else 0
-    # Participación en el PIB Estatal
-    part_estatal = (val_est / pib_estatal_abs * 100) if pib_estatal_abs > 0 else 0
+    # Participación Estatal (Base: PIB Estatal Total)
+    part_estatal = (val_est / pib_estatal_total * 100) if pib_estatal_total > 0 else 0
     
     # Empleo
     emp_part = 0
@@ -558,11 +562,11 @@ with c1:
     act_df = get_ranked_list(meta["Actividades"], val_est, top_n=3)
     
     st.markdown("**Estructura:**")
-    # CAMBIO: Enumeración en lugar de bullets
-    for i, (_, r) in enumerate(sub_df.iterrows()):
+    # Bullets para Primario (Un solo subsector)
+    for _, r in sub_df.iterrows():
         st.markdown(f"""
         <div style="margin-bottom:8px;">
-            <div style="font-weight:600; font-size:0.95rem;">{i+1}. {r['Nombre']}</div>
+            <div style="font-weight:600; font-size:0.95rem;">• {r['Nombre']}</div>
             <div style="color:#666; font-size:0.85rem; margin-left:15px;">${r['Valor']/1000:,.2f} MM ({r['Share']:.1f}%)</div>
         </div>
         """, unsafe_allow_html=True)
@@ -579,8 +583,8 @@ with c2:
     val_est = get_val(df_curr, meta["Total"])
     val_nac_sec = get_val(df_nac, meta["Total"])
     part_nac = (val_est / val_nac_sec * 100) if val_nac_sec > 0 else 0
-    # Participación en el PIB Estatal
-    part_estatal = (val_est / pib_estatal_abs * 100) if pib_estatal_abs > 0 else 0
+    # Participación Estatal
+    part_estatal = (val_est / pib_estatal_total * 100) if pib_estatal_total > 0 else 0
     
     emp_part = 0
     if not df_enoe_est.empty and tot_emp > 0:
@@ -597,10 +601,9 @@ with c2:
     """, unsafe_allow_html=True)
 
     sub_df = get_ranked_list(meta["Subsectores"], val_est, top_n=3)
-    # CAMBIO: Titulo simplificado
     st.markdown("**Principales Subsectores:**")
     
-    # CAMBIO: Enumeración en lugar de bullets
+    # Números para Secundario
     for i, (_, r) in enumerate(sub_df.iterrows()):
         is_manuf = "manufactureras" in r['Nombre'].lower()
         st.markdown(f"""
@@ -624,8 +627,8 @@ with c3:
     val_est = get_val(df_curr, meta["Total"])
     val_nac_sec = get_val(df_nac, meta["Total"])
     part_nac = (val_est / val_nac_sec * 100) if val_nac_sec > 0 else 0
-    # Participación en el PIB Estatal
-    part_estatal = (val_est / pib_estatal_abs * 100) if pib_estatal_abs > 0 else 0
+    # Participación Estatal
+    part_estatal = (val_est / pib_estatal_total * 100) if pib_estatal_total > 0 else 0
     
     emp_part = 0
     if not df_enoe_est.empty and tot_emp > 0:
@@ -642,16 +645,20 @@ with c3:
     """, unsafe_allow_html=True)
 
     sub_df = get_ranked_list(meta["Subsectores"], val_est, top_n=3)
-    # CAMBIO: Titulo simplificado
     st.markdown("**Principales Subsectores:**")
-    for _, r in sub_df.iterrows():
+    
+    # Números para Terciario
+    for i, (_, r) in enumerate(sub_df.iterrows()):
         display_name = r['Nombre'][:37] + "..." if len(r['Nombre']) > 40 else r['Nombre']
         st.markdown(f"""
         <div style="margin-bottom:8px;">
-            <div style="font-weight:600; font-size:0.95rem;">• {display_name}</div>
+            <div style="font-weight:600; font-size:0.95rem;">{i+1}. {display_name}</div>
             <div style="color:#666; font-size:0.85rem; margin-left:15px;">${r['Valor']/1000:,.2f} MM ({r['Share']:.1f}%)</div>
         </div>
         """, unsafe_allow_html=True)
+
+# --- NOTA DE IMPUESTOS ---
+st.info(f"ℹ️ **Nota:** La suma del PIB sectorial no equivale al total, pues no considera impuestos, cuyo valor de **{val_impuestos/1000:.2f}** MMP representa el **{pct_impuestos:.2f}%** de la participación estatal.")
 
 # ==========================================
 # SECCIÓN 4: POBLACIÓN
