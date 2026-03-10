@@ -358,7 +358,7 @@ def get_ied_metrics(df_tot, state_norm):
 # ==========================================
 # SECCIÓN 1: RESUMEN EJECUTIVO
 # ==========================================
-
+st.markdown("---")
 st.header("1. Resumen Ejecutivo")
 st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: PIB por Entidad Federativa (INEGI), Exportaciones por Entidad Federativa (INEGI) e Inversión Extranjera Directa (Secretaría de Economía)</div>", unsafe_allow_html=True)
 col1, col2, col3, col4 = st.columns(4)
@@ -725,8 +725,10 @@ if not df_enoe_est.empty and not df_enoe_nac.empty:
     nac_pob = rec_nac['Poblacion Total']
     nac_pea = rec_nac['PEA']
     nac_des = rec_nac['Desocupada']
+    nac_des_sup_abs = rec_nac.get('Educacion Sup', 0)
     
     # Tasas Nacionales (Calculadas con los datos del registro Nacional)
+    t_des_sup_nac = (nac_des_sup_abs / nac_des * 100) if nac_des > 0 else 0
     t_des_nac = (nac_des / nac_pea * 100) if nac_pea > 0 else 0
     t_inf_nac = rec_nac['Informalidad TIL1'] # Dato directo
     edad_prom_nac = rec_nac.get('Edad Promedio PEA', 0) # Dato directo
@@ -735,6 +737,7 @@ if not df_enoe_est.empty and not df_enoe_nac.empty:
     # Rojo (#dc3545) si es mayor al nacional, Verde (#28a745) si es menor.
     color_des = "#dc3545" if t_des_est > t_des_nac else "#28a745"
     color_inf = "#dc3545" if t_inf_est > t_inf_nac else "#28a745"
+    color_des_sup = "#dc3545" if t_des_sup > t_des_sup_nac else "#28a745"
 
     # --- RENDERIZADO DE MÉTRICAS (6 Cuadros) ---
     with col_metrics:
@@ -772,13 +775,14 @@ if not df_enoe_est.empty and not df_enoe_nac.empty:
                 color=color_inf
             )
         
-        # Fila 3: Desempleo Superior y Edad Promedio (Neutros)
+        # Fila 3: Desempleo Superior y Edad Promedio
         r3c1, r3c2 = st.columns(2)
         with r3c1:
             render_custom_metric(
-                "Desempleo Nivel Sup.", 
+                "Desempleo Nivel Superior",         # 1. Nombre corregido
                 f"{t_des_sup:.1f}%", 
-                f"{des_sup_abs:,.0f} Personas"
+                f"Nacional: {t_des_sup_nac:.1f}%",  # 2. Dato nacional comparativo
+                color=color_des_sup                 # 3. Color dinámico (Rojo/Verde)
             )
         with r3c2:
             render_custom_metric(
@@ -1118,92 +1122,119 @@ try:
     df_mat = clean_cols(df_mat, ['Matrícula Total', 'Participacion_Matricula'])
     df_egr = clean_cols(df_egr, ['Egresados Total', 'Participacion_Egresados'])
 
-    state_target = state_norm.upper()
+    def clean_entidad(name):
+        return NAME_NORMALIZER.get(str(name).strip().title(), str(name).strip().title())
 
-    df_tot_est = df_tot[df_tot['ENTIDAD'].str.upper() == state_target]
-    df_top_mat = df_mat[df_mat['ENTIDAD'].str.upper() == state_target]
-    df_top_egr = df_egr[df_egr['ENTIDAD'].str.upper() == state_target]
+    def get_edu_context(df_full, val_col, state_target, nivel=None, campo=None):
+        df_f = df_full.copy()
+        if nivel: df_f = df_f[df_f['Nivel_Agrupado'] == nivel]
+        if campo: df_f = df_f[df_f['CAMPO AMPLIO'] == campo]
 
-    if not df_tot_est.empty:
-        total_alum = df_tot_est['Matrícula Total'].sum()
-        total_egresados = df_tot_est['Egresados Total'].sum()
+        df_f['ENTIDAD_NORM'] = df_f['ENTIDAD'].apply(clean_entidad)
+        state_tgt_norm = clean_entidad(state_target)
+        
+        agg = df_f.groupby('ENTIDAD_NORM')[val_col].sum().reset_index()
+        tot_nac = agg[val_col].sum()
 
-        def get_nivel_val(df, nivel, col):
-            val = df[df['Nivel_Agrupado'] == nivel][col]
-            return val.values[0] if not val.empty else 0
+        if tot_nac == 0 or agg.empty:
+            return 0, 0, "-", 0
 
-        mat_lic = get_nivel_val(df_tot_est, 'Licenciatura', 'Matrícula Total')
-        mat_tsu = get_nivel_val(df_tot_est, 'Técnico Superior', 'Matrícula Total')
-        mat_mae = get_nivel_val(df_tot_est, 'Maestría', 'Matrícula Total')
-        mat_doc = get_nivel_val(df_tot_est, 'Doctorado', 'Matrícula Total')
+        agg['Rank'] = agg[val_col].rank(ascending=False, method='min')
+        agg = agg.sort_values('Rank')
+        top1 = agg.iloc[0]['ENTIDAD_NORM']
 
-        egr_lic = get_nivel_val(df_tot_est, 'Licenciatura', 'Egresados Total')
-        egr_tsu = get_nivel_val(df_tot_est, 'Técnico Superior', 'Egresados Total')
-        egr_mae = get_nivel_val(df_tot_est, 'Maestría', 'Egresados Total')
-        egr_doc = get_nivel_val(df_tot_est, 'Doctorado', 'Egresados Total')
+        st_row = agg[agg['ENTIDAD_NORM'].str.upper() == state_tgt_norm.upper()]
+        if st_row.empty:
+            return 0, 0, top1, 0
 
-        # Se eliminaron los saltos de línea y la sangría para evitar que Markdown lo lea como bloque de código
-        html_general = f"""<div style="border-left: 5px solid #17a2b8; padding-left: 20px; margin-bottom: 30px; background-color: #f8f9fa; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
-<h3 style="color:#0056b3; margin-top:0;">🎓 Indicadores Generales</h3>
-<div style="display: flex; flex-direction: column; gap: 20px;">
-<div style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px; border-bottom: 1px solid #dee2e6; padding-bottom: 15px;">
-<div style="min-width: 200px;">
-<div style="font-size:2rem; font-weight:800; color:#212529;">{total_alum:,.0f}</div>
-<div style="font-size:0.9rem; color:#666; text-transform: uppercase; font-weight:600;">Matrícula</div>
+        val = st_row.iloc[0][val_col]
+        rank = int(st_row.iloc[0]['Rank'])
+        share = (val / tot_nac) * 100
+        return val, rank, top1, share
+
+    # Renderizador HTML para el Valor Total (Más ancho y con candado de espacio)
+    def main_stat_html(title, data_tuple, target_state, color_main):
+        val, rank, top1, share = data_tuple
+        top_str_clean = f"<b>#1 {top1}</b>"
+        
+        return f"""<div style="min-width: 260px; flex-shrink: 0; padding-right: 15px; border-right: 1px solid #dee2e6; margin-right: 5px; display: flex; flex-direction: column;">
+<div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 15px;">
+<div style="font-size:2.2rem; font-weight:800; color:{color_main}; line-height: 1.1;">{val:,.0f}</div>
+<div style="background-color: #007bff; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: bold; margin-top: 5px;">#{rank}</div>
 </div>
-<div style="display: flex; gap: 10px; flex-wrap: wrap;">
-<div style="background: white; padding: 8px 15px; border-radius: 6px; border: 1px solid #dee2e6;">
-<div style="font-size: 0.75rem; color: #6c757d; text-transform: uppercase;">Licenciatura</div>
-<div style="font-weight: 700; color: #17a2b8; font-size: 1.1rem;">{mat_lic:,.0f}</div>
-</div>
-<div style="background: white; padding: 8px 15px; border-radius: 6px; border: 1px solid #dee2e6;">
-<div style="font-size: 0.75rem; color: #6c757d; text-transform: uppercase;">Técnico Sup.</div>
-<div style="font-weight: 700; color: #17a2b8; font-size: 1.1rem;">{mat_tsu:,.0f}</div>
-</div>
-<div style="background: white; padding: 8px 15px; border-radius: 6px; border: 1px solid #dee2e6;">
-<div style="font-size: 0.75rem; color: #6c757d; text-transform: uppercase;">Maestría</div>
-<div style="font-weight: 700; color: #17a2b8; font-size: 1.1rem;">{mat_mae:,.0f}</div>
-</div>
-<div style="background: white; padding: 8px 15px; border-radius: 6px; border: 1px solid #dee2e6;">
-<div style="font-size: 0.75rem; color: #6c757d; text-transform: uppercase;">Doctorado</div>
-<div style="font-weight: 700; color: #17a2b8; font-size: 1.1rem;">{mat_doc:,.0f}</div>
-</div>
-</div>
-</div>
-<div style="display: flex; align-items: center; flex-wrap: wrap; gap: 20px;">
-<div style="min-width: 200px;">
-<div style="font-size:2rem; font-weight:800; color:#28a745;">{total_egresados:,.0f}</div>
-<div style="font-size:0.9rem; color:#666; text-transform: uppercase; font-weight:600;">Egresados</div>
-</div>
-<div style="display: flex; gap: 10px; flex-wrap: wrap;">
-<div style="background: white; padding: 8px 15px; border-radius: 6px; border: 1px solid #dee2e6;">
-<div style="font-size: 0.75rem; color: #6c757d; text-transform: uppercase;">Licenciatura</div>
-<div style="font-weight: 700; color: #28a745; font-size: 1.1rem;">{egr_lic:,.0f}</div>
-</div>
-<div style="background: white; padding: 8px 15px; border-radius: 6px; border: 1px solid #dee2e6;">
-<div style="font-size: 0.75rem; color: #6c757d; text-transform: uppercase;">Técnico Sup.</div>
-<div style="font-weight: 700; color: #28a745; font-size: 1.1rem;">{egr_tsu:,.0f}</div>
-</div>
-<div style="background: white; padding: 8px 15px; border-radius: 6px; border: 1px solid #dee2e6;">
-<div style="font-size: 0.75rem; color: #6c757d; text-transform: uppercase;">Maestría</div>
-<div style="font-weight: 700; color: #28a745; font-size: 1.1rem;">{egr_mae:,.0f}</div>
-</div>
-<div style="background: white; padding: 8px 15px; border-radius: 6px; border: 1px solid #dee2e6;">
-<div style="font-size: 0.75rem; color: #6c757d; text-transform: uppercase;">Doctorado</div>
-<div style="font-weight: 700; color: #28a745; font-size: 1.1rem;">{egr_doc:,.0f}</div>
-</div>
-</div>
-</div>
+<div style="font-size:0.95rem; color:#444; text-transform: uppercase; font-weight:800; margin-bottom: 8px; margin-top: 5px;">{title}</div>
+<div style="font-size:0.8rem; color:#555;">
+<div style="margin-bottom: 2px;">{top_str_clean}</div>
+<div>Participación Nacional: <span style="font-weight:700; color:#212529;">{share:.1f}%</span></div>
 </div>
 </div>"""
 
+    # Renderizador HTML para los Niveles Internos
+    def sub_box_html(title, data_tuple, target_state, color_main):
+        val, rank, top1, share = data_tuple
+        top_str_clean = f"<b>#1 {top1}</b>"
+        
+        return f"""<div style="background: white; padding: 10px 12px; border-radius: 8px; border: 1px solid #dee2e6; flex: 1; min-width: 130px; display: flex; flex-direction: column; justify-content: space-between; box-shadow: 0 1px 2px rgba(0,0,0,0.02);">
+<div>
+<div style="display: flex; justify-content: space-between; align-items: flex-start;">
+<div style="font-size: 0.75rem; color: #555; text-transform: uppercase; font-weight: 800;">{title}</div>
+<div style="background-color: #007bff; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.7rem; font-weight: bold;">#{rank}</div>
+</div>
+<div style="font-weight: 800; color: {color_main}; font-size: 1.25rem; margin-top: 2px;">{val:,.0f}</div>
+</div>
+<div style="font-size: 0.75rem; color: #555; margin-top: 8px; line-height: 1.4; border-top: 1px solid #f0f0f0; padding-top: 6px;">
+<div style="margin-bottom: 2px;">{top_str_clean}</div>
+<div>Participación Nacional: <span style="font-weight:700; color:#212529;">{share:.1f}%</span></div>
+</div>
+</div>"""
+
+    state_target = state_norm 
+
+    df_tot_est = df_tot[df_tot['ENTIDAD'].apply(clean_entidad).str.upper() == state_target.upper()]
+    
+    if not df_tot_est.empty:
+        
+        ctx_mat_tot = get_edu_context(df_tot, 'Matrícula Total', state_target)
+        ctx_mat_lic = get_edu_context(df_tot, 'Matrícula Total', state_target, 'Licenciatura')
+        ctx_mat_tsu = get_edu_context(df_tot, 'Matrícula Total', state_target, 'Técnico Superior')
+        ctx_mat_mae = get_edu_context(df_tot, 'Matrícula Total', state_target, 'Maestría')
+        ctx_mat_doc = get_edu_context(df_tot, 'Matrícula Total', state_target, 'Doctorado')
+
+        ctx_egr_tot = get_edu_context(df_tot, 'Egresados Total', state_target)
+        ctx_egr_lic = get_edu_context(df_tot, 'Egresados Total', state_target, 'Licenciatura')
+        ctx_egr_tsu = get_edu_context(df_tot, 'Egresados Total', state_target, 'Técnico Superior')
+        ctx_egr_mae = get_edu_context(df_tot, 'Egresados Total', state_target, 'Maestría')
+        ctx_egr_doc = get_edu_context(df_tot, 'Egresados Total', state_target, 'Doctorado')
+
+        html_general = f"""<div style="border-left: 5px solid #17a2b8; padding-left: 20px; margin-bottom: 30px; background-color: #f8f9fa; padding: 20px; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.05);">
+<h3 style="color:#0056b3; margin-top:0; margin-bottom:20px;">Panorama General</h3>
+<div style="display: flex; flex-direction: column; gap: 20px;">
+<div style="display: flex; align-items: stretch; flex-wrap: nowrap; gap: 15px; border-bottom: 1px solid #dee2e6; padding-bottom: 20px; overflow-x: auto;">
+{main_stat_html("Matrícula", ctx_mat_tot, state_target, "#212529")}
+{sub_box_html("Licenciatura", ctx_mat_lic, state_target, "#17a2b8")}
+{sub_box_html("Técnico Sup.", ctx_mat_tsu, state_target, "#17a2b8")}
+{sub_box_html("Maestría", ctx_mat_mae, state_target, "#17a2b8")}
+{sub_box_html("Doctorado", ctx_mat_doc, state_target, "#17a2b8")}
+</div>
+<div style="display: flex; align-items: stretch; flex-wrap: nowrap; gap: 15px; overflow-x: auto;">
+{main_stat_html("Egresados", ctx_egr_tot, state_target, "#28a745")}
+{sub_box_html("Licenciatura", ctx_egr_lic, state_target, "#28a745")}
+{sub_box_html("Técnico Sup.", ctx_egr_tsu, state_target, "#28a745")}
+{sub_box_html("Maestría", ctx_egr_mae, state_target, "#28a745")}
+{sub_box_html("Doctorado", ctx_egr_doc, state_target, "#28a745")}
+</div>
+</div>
+</div>"""
+        
         st.markdown(html_general, unsafe_allow_html=True)
 
         st.markdown("#### Principal Campo de Formación por Nivel Educativo")
-
         col_mat, col_egr = st.columns(2)
 
         niveles_orden = ['Licenciatura', 'Técnico Superior', 'Maestría', 'Doctorado']
+
+        df_top_mat_est = df_mat[df_mat['ENTIDAD'].apply(clean_entidad).str.upper() == state_target.upper()]
+        df_top_egr_est = df_egr[df_egr['ENTIDAD'].apply(clean_entidad).str.upper() == state_target.upper()]
 
         def get_top1_by_level(df, nivel, val_col, share_col):
             subset = df[df['Nivel_Agrupado'] == nivel]
@@ -1212,35 +1243,48 @@ try:
                 return row['CAMPO AMPLIO'], row[val_col], row[share_col]
             return None, 0, 0
 
-        with col_mat:
-            st.markdown(f"<div style='margin-bottom:15px; font-weight:700; color:#0056b3; font-size:1.1rem;'>Por Matrícula</div>", unsafe_allow_html=True)
-            for nivel in niveles_orden:
-                campo, val, share = get_top1_by_level(df_top_mat, nivel, 'Matrícula Total', 'Participacion_Matricula')
-                if campo:
-                    html_mat = f"""<div style="background: white; padding: 12px; border-radius: 6px; border-left: 4px solid #17a2b8; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 10px;">
-<div style="font-size:0.8rem; color:#666; font-weight:700; text-transform: uppercase; margin-bottom:4px;">{nivel}</div>
-<div style="font-weight:600; font-size:0.95rem; color:#333; margin-bottom:6px;">{campo}</div>
-<div style="display:flex; justify-content:space-between; align-items:flex-end;">
-<span style="color:#17a2b8; font-weight:700; font-size:1.1rem;">{share:.1f}%</span>
-<span style="color:#888; font-size:0.85rem;">{val:,.0f} alumnos</span>
+        def campo_card_html(nivel, campo, val_est, share_est, ctx_tuple, color_main, label_val):
+            val_nac, rk_nac, top1_nac, sh_nac = ctx_tuple
+            top_str_clean = f"<b>#1 {top1_nac}</b>"
+            
+            return f"""<div style="background: white; padding: 15px; border-radius: 8px; border-left: 5px solid {color_main}; box-shadow: 0 2px 5px rgba(0,0,0,0.05); margin-bottom: 15px;">
+<div style="display: flex; justify-content: space-between; align-items: flex-start;">
+<div style="font-size:0.8rem; color:#555; font-weight:800; text-transform: uppercase; margin-bottom:5px; letter-spacing: 0.5px;">{nivel}</div>
+<div style="background-color: #007bff; color: white; padding: 2px 8px; border-radius: 10px; font-size: 0.75rem; font-weight: bold;">#{rk_nac}</div>
+</div>
+<div style="font-weight:700; font-size:1.05rem; color:#212529; margin-bottom:10px; line-height: 1.2;">{campo}</div>
+<div style="display:flex; justify-content:space-between; align-items:center; background: #f8f9fa; padding: 8px 10px; border-radius: 6px; margin-bottom: 10px;">
+<div style="text-align: center;">
+<div style="color:{color_main}; font-weight:800; font-size:1.1rem;">{share_est:.1f}%</div>
+<div style="font-size:0.7rem; color:#555; text-transform: uppercase;">Del Estado</div>
+</div>
+<div style="width: 1px; background: #dee2e6; height: 30px;"></div>
+<div style="text-align: center;">
+<div style="color:#212529; font-weight:800; font-size:1.1rem;">{val_est:,.0f}</div>
+<div style="font-size:0.7rem; color:#555; text-transform: uppercase;">{label_val}</div>
+</div>
+</div>
+<div style="display:flex; justify-content:space-between; align-items:center; font-size: 0.8rem; color: #555; border-top: 1px dashed #dee2e6; padding-top: 8px;">
+<span>{top_str_clean}</span>
+<span>Participación Nac.: <span style="font-weight:700; color:#212529;">{sh_nac:.1f}%</span></span>
 </div>
 </div>"""
-                    st.markdown(html_mat, unsafe_allow_html=True)
+
+        with col_mat:
+            st.markdown(f"<div style='margin-bottom:15px; font-weight:800; color:#0056b3; font-size:1.1rem;'>Por Matrícula</div>", unsafe_allow_html=True)
+            for nivel in niveles_orden:
+                campo, val, share = get_top1_by_level(df_top_mat_est, nivel, 'Matrícula Total', 'Participacion_Matricula')
+                if campo:
+                    ctx_campo = get_edu_context(df_mat, 'Matrícula Total', state_target, nivel, campo)
+                    st.markdown(campo_card_html(nivel, campo, val, share, ctx_campo, "#17a2b8", "Alumnos"), unsafe_allow_html=True)
 
         with col_egr:
-            st.markdown(f"<div style='margin-bottom:15px; font-weight:700; color:#198754; font-size:1.1rem;'>Por Egresados</div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='margin-bottom:15px; font-weight:800; color:#198754; font-size:1.1rem;'>Por Egresados</div>", unsafe_allow_html=True)
             for nivel in niveles_orden:
-                campo, val, share = get_top1_by_level(df_top_egr, nivel, 'Egresados Total', 'Participacion_Egresados')
+                campo, val, share = get_top1_by_level(df_top_egr_est, nivel, 'Egresados Total', 'Participacion_Egresados')
                 if campo:
-                    html_egr = f"""<div style="background: white; padding: 12px; border-radius: 6px; border-left: 4px solid #28a745; box-shadow: 0 1px 3px rgba(0,0,0,0.1); margin-bottom: 10px;">
-<div style="font-size:0.8rem; color:#666; font-weight:700; text-transform: uppercase; margin-bottom:4px;">{nivel}</div>
-<div style="font-weight:600; font-size:0.95rem; color:#333; margin-bottom:6px;">{campo}</div>
-<div style="display:flex; justify-content:space-between; align-items:flex-end;">
-<span style="color:#28a745; font-weight:700; font-size:1.1rem;">{share:.1f}%</span>
-<span style="color:#888; font-size:0.85rem;">{val:,.0f} egresados</span>
-</div>
-</div>"""
-                    st.markdown(html_egr, unsafe_allow_html=True)
+                    ctx_campo = get_edu_context(df_egr, 'Egresados Total', state_target, nivel, campo)
+                    st.markdown(campo_card_html(nivel, campo, val, share, ctx_campo, "#28a745", "Egresados"), unsafe_allow_html=True)
 
     else:
         st.info(f"No se encontraron datos de Educación Superior para {state_norm}.")
@@ -1252,11 +1296,19 @@ except Exception as e:
 # SECCIÓN 6: PRODUCTIVIDAD
 # ==========================================
 st.markdown("---")
-st.header("6. Productividad Laboral")
+
+df_saic = DATA['saic'].copy() 
+
+# 1. Extraemos el año censal para el título
+try:
+    anio_saic = df_saic['Anio_Censal'].iloc[0]
+    texto_anio_saic = f" ({anio_saic})"
+except:
+    texto_anio_saic = ""
+
+st.header(f"6. Productividad Laboral{texto_anio_saic}")
 st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: Censos Económicos (INEGI)</div>", unsafe_allow_html=True)
 
-# --- CORRECCIÓN AQUÍ ---
-df_saic = DATA['saic'].copy() 
 df_saic['Entidad_Norm'] = df_saic['Entidad'].str.strip().replace(NAME_NORMALIZER)
 df_saic['Rank'] = df_saic['Indicador_Productividad'].rank(ascending=False)
 
@@ -1270,26 +1322,41 @@ if not row.empty:
     top1 = df_saic.sort_values('Indicador_Productividad', ascending=False).iloc[0]
     avg = df_saic['Indicador_Productividad'].mean()
     
+    # 4. Condicional de color para el valor estatal
+    val_color = "#28a745" if val > avg else "#dc3545" # Verde si es mayor, rojo si es menor
+    
     card_html = """
     <div style="background-color: white; padding: 15px; border-radius: 8px; text-align: center; color: black; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 0px;">
         <p style="margin: 0; font-size: 14px; color: #6c757d; font-weight: bold;">{title}</p>
-        <p style="margin: 0; font-size: 22px; font-weight: bold; color: #212529;">{value}</p>
+        <p style="margin: 0; font-size: 22px; font-weight: bold; color: {color_val};">{value}</p>
     </div>
     """
     
     c1, c2, c3, c4 = st.columns(4)
-    c1.markdown(card_html.format(title="Posición", value=f"#{rk}"), unsafe_allow_html=True)
-    c2.markdown(card_html.format(title=nombre_estado, value=f"{val:.2f}"), unsafe_allow_html=True)
-    c3.markdown(card_html.format(title="Promedio Nacional", value=f"{avg:.2f}"), unsafe_allow_html=True)
-    c4.markdown(card_html.format(title=f"1er Lugar ({top1['Entidad']})", value=f"{top1['Indicador_Productividad']:.2f}"), unsafe_allow_html=True)
+    # 3. Agregamos el separador de miles a toda la sección (,{.2f})
+    c1.markdown(card_html.format(title="Posición", value=f"#{rk}", color_val="#212529"), unsafe_allow_html=True)
+    c2.markdown(card_html.format(title=nombre_estado, value=f"{val:,.2f}", color_val=val_color), unsafe_allow_html=True)
+    c3.markdown(card_html.format(title="Promedio Nacional", value=f"{avg:,.2f}", color_val="#212529"), unsafe_allow_html=True)
+    c4.markdown(card_html.format(title=f"1er Lugar ({top1['Entidad']})", value=f"{top1['Indicador_Productividad']:,.2f}", color_val="#212529"), unsafe_allow_html=True)
     
     df_sorted = df_saic.sort_values('Indicador_Productividad', ascending=False).reset_index(drop=True)
-    colors = ['#d63384' if x == state_norm else '#e9ecef' for x in df_sorted['Entidad_Norm']]
+    
+    # 6. Usamos el color azul del IMSS para remarcar la entidad
+    colors = ['#007bff' if x == state_norm else '#e9ecef' for x in df_sorted['Entidad_Norm']]
     
     fig = px.bar(df_sorted, x='Entidad', y='Indicador_Productividad')
     fig.update_traces(marker_color=colors, hovertemplate="%{y:,.2f}<extra></extra>")
     
-    fig.add_hline(y=avg, line_dash="dot", line_color="white", annotation_text="Promedio", annotation_font_color="white")
+    # 5. Renombramos a "Promedio Nacional"
+    fig.add_hline(y=avg, line_dash="dot", line_color="white", annotation_text="Promedio Nacional", annotation_font_color="white")
+    
+    # 2. Recuadro con la fórmula dentro de la gráfica
+    fig.add_annotation(
+        x=0.99, y=0.95, xref='paper', yref='paper', 
+        text="Indicador = Producción Bruta / Personal Ocupado", 
+        showarrow=False, align='right', 
+        bgcolor='rgba(255, 255, 255, 0.95)', bordercolor='#dee2e6', borderwidth=1, borderpad=8, font=dict(color='#555', size=12)
+    )
     
     fig.update_layout(
         yaxis_title="Productividad",
@@ -1304,11 +1371,32 @@ if not row.empty:
 # SECCIÓN 7: IMCO
 # ==========================================
 st.markdown("---")
-st.header("7. Competitividad (IMCO)")
+
+df_g = DATA['imco_g'].copy()
+
+# 1. Extraemos el año para el título (Ajustado para fechas como "01/01/2025")
+try:
+    # Buscamos la columna que represente el año (Año, AÃ±o, etc.)
+    col_anio_candidatas = [c for c in df_g.columns if str(c).strip().upper().startswith('A') and str(c).strip().lower().endswith('o')]
+    col_anio = col_anio_candidatas[0] if col_anio_candidatas else 'AÃ±o'
+    
+    val_bruto = str(df_g[col_anio].iloc[0]).strip()
+    
+    # Extraemos el año si viene en formato de fecha (ej. 01/01/2025)
+    if '/' in val_bruto:
+        anio_imco = val_bruto.split('/')[-1]
+    elif '-' in val_bruto:
+        anio_imco = val_bruto.split('-')[0]
+    else:
+        anio_imco = val_bruto
+        
+    texto_anio_imco = f" ({anio_imco})"
+except Exception as e:
+    texto_anio_imco = ""
+
+st.header(f"7. Competitividad{texto_anio_imco}")
 st.markdown("<div style='font-size: 0.75rem; color: #888; font-style: italic; margin-top: -15px; margin-bottom: 20px;'>Fuente: Índice de Competitividad Estatal (IMCO)</div>", unsafe_allow_html=True)
 
-# --- CORRECCIÓN AQUÍ ---
-df_g = DATA['imco_g'].copy()
 df_g['Entidad_Norm'] = df_g['Entidad'].str.strip().replace(NAME_NORMALIZER)
 row = df_g[df_g['Entidad_Norm'] == state_norm]
 
@@ -1334,12 +1422,15 @@ if not row.empty:
     c4.markdown(card_html.format(title=f"1er Lugar ({top1['Entidad']})", value=f"{top1['Valor']:.2f}"), unsafe_allow_html=True)
     
     df_sorted = df_g.sort_values('Valor', ascending=False).reset_index(drop=True)
-    colors = ['#fd7e14' if x == state_norm else '#e9ecef' for x in df_sorted['Entidad_Norm']]
+    
+    # Usamos el color verde de la gráfica del IMSS (#28a745) para el estado
+    colors = ['#28a745' if x == state_norm else '#e9ecef' for x in df_sorted['Entidad_Norm']]
     
     fig = px.bar(df_sorted, x='Entidad', y='Valor')
     fig.update_traces(marker_color=colors, hovertemplate="%{y:,.2f}<extra></extra>")
     
-    fig.add_hline(y=avg, line_dash="dot", line_color="white", annotation_text="Promedio", annotation_font_color="white")
+    # Línea con el texto "Promedio Nacional"
+    fig.add_hline(y=avg, line_dash="dot", line_color="white", annotation_text="Promedio Nacional", annotation_font_color="white")
     
     fig.update_layout(
         yaxis_title="Competitividad",
@@ -1350,7 +1441,6 @@ if not row.empty:
     )
     st.plotly_chart(fig, use_container_width=True)
 
-# --- CORRECCIÓN AQUÍ ---
 df_d = DATA['imco_d'].copy()
 df_d['Entidad_Norm'] = df_d['Entidad'].str.strip().replace(NAME_NORMALIZER)
 st_d = df_d[df_d['Entidad_Norm'] == state_norm].copy()
@@ -1417,7 +1507,6 @@ if not st_d.empty:
 
     def calc_puntaje(row):
         ind = str(row['Indicador']).strip()
-        # Si está en la lista es Inverso (33-Rank), si no, es Directo (Rank)
         tipo = TIPO_INDICADOR.get(ind, "Directo") 
         return row['Rank'] if tipo == "Directo" else 33 - row['Rank']
 
@@ -1449,6 +1538,9 @@ if not st_d.empty:
             else: badge = f"<span style='background-color:#007bff; color:white; padding: 2px 6px; border-radius: 4px; font-size: 0.75rem; margin-left:5px;'>=</span>"
             
             st.markdown(f"- **#{int(r['Rank'])}** {r['Indicador']} {badge}", unsafe_allow_html=True)
+            
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.info("ℹ️ **Nota:** El cambio de posiciones mostrado corresponde a la variación respecto al año anterior.")
 
 # ==========================================
 # SECCIÓN 8: RATINGS
@@ -1487,15 +1579,30 @@ if "Tlaxcala" not in selected_name:
     
     # Renderizamos la tabla si hay datos
     if not match.empty:
+        # Renombramos y unificamos los nombres de las columnas para mayor presentación
         match = match.rename(columns={
-            "Fecha Publicacion": "Fecha Publicación",
-            "Calificacion": "Calificación"
+            "Fecha Publicacion": "Fecha de Publicación",
+            "Fecha de Publicacion": "Fecha de Publicación",
+            "Fecha Publicación": "Fecha de Publicación",
+            "Calificacion": "Calificación",
+            "Descripcion": "Descripción"
         })
         
-        columnas_deseadas = ["Calificadora", "Entidad", "Fecha Publicación", "Calificación", "Perspectiva"]
+        # Reordenamos las columnas quitando Entidad y agregando Descripción
+        columnas_deseadas = [
+            "Calificadora", 
+            "Calificación", 
+            "Perspectiva", 
+            "Descripción", 
+            "Fecha de Publicación"
+        ]
+        
+        # Filtramos solo las columnas que realmente existan en el DataFrame 
         columnas_finales = [c for c in columnas_deseadas if c in match.columns]
         
-        st.dataframe(match[columnas_finales], hide_index=True)
+        # Mostramos el dataframe ocupando todo el ancho del contenedor
+        st.dataframe(match[columnas_finales], hide_index=True, use_container_width=True)
+        
     elif not df_r.empty:
         st.info("Sin calificación.")
     else: 
@@ -1504,7 +1611,6 @@ if "Tlaxcala" not in selected_name:
 # ==========================================
 # SECCIÓN 9: TOP EXPORTACIONES
 # ==========================================
-st.markdown("---")
 st.markdown("---")
 if "Tlaxcala" in selected_name:
     st.header("8. Principales Sectores de Exportación")
@@ -1561,20 +1667,20 @@ if not st_e_curr.empty:
     
     # IMPORTANTE: Todo este HTML debe ir sin espacios iniciales para que Markdown no lo tome como código
     html_export = f"""<div style="background-color: transparent; width: 100%; margin-top: 10px; font-family: sans-serif; color: #ffffff;">
-<div style="display: flex; justify-content: flex-start; margin-bottom:15px; font-size: 0.85rem;">
+<div style="display: flex; justify-content: flex-start; margin-bottom:15px; font-size: 0.85rem; color: #ffffff;">
 <div style="display:flex; align-items:center; margin-right:15px;"><div style="width:12px; height:12px; background-color:#007bff; margin-right:5px; border-radius:2px;"></div> {label_curr}</div>
-<div style="display:flex; align-items:center;"><div style="width:12px; height:12px; background-color:#6c757d; margin-right:5px; border-radius:2px;"></div> {label_prev}</div>
+<div style="display:flex; align-items:center;"><div style="width:12px; height:12px; background-color:#28a745; margin-right:5px; border-radius:2px;"></div> {label_prev}</div>
 </div>
-<div style="display: flex; width: 100%; margin-bottom: 20px; font-weight: bold; text-align: center; font-size: 0.95rem; justify-content: flex-start; gap: 15px;">
-<div style="width: 25%; text-align: left; padding-left: 5px; color: #ffffff;">Sector</div>
-<div style="width: 40%; text-align: left; padding-left: 0px; color: #ffffff;">Millones de Dólares</div>
-<div style="width: 120px; color: #ffffff;">% en el total<br>estatal</div>
-<div style="width: 120px; color: #ffffff;">Ranking<br>nacional</div>
+<div style="display: flex; width: 100%; margin-bottom: 20px; font-weight: bold; text-align: center; font-size: 0.95rem; justify-content: flex-start; gap: 15px; color: #ffffff;">
+<div style="width: 25%; text-align: left; padding-left: 5px;">Sector</div>
+<div style="width: 40%; text-align: left; padding-left: 0px;">Millones de Dólares</div>
+<div style="width: 120px;">% en el total<br>estatal</div>
+<div style="width: 120px;">Ranking<br>nacional</div>
 </div>"""
     
     for _, r in top10.iterrows():
-        pct_curr = (r['Valor'] / max_val_scale) * 100 if max_val_scale > 0 else 0
-        pct_prev = (r['Valor_Prev'] / max_val_scale) * 100 if max_val_scale > 0 else 0
+        pct_curr = max((r['Valor'] / max_val_scale) * 100 if max_val_scale > 0 else 0, 0.5) # Min 0.5% para que se vea una rayita
+        pct_prev = max((r['Valor_Prev'] / max_val_scale) * 100 if max_val_scale > 0 else 0, 0.5)
         
         val_curr_m = r['Valor'] / 1000
         val_prev_m = r['Valor_Prev'] / 1000
@@ -1583,18 +1689,16 @@ if not st_e_curr.empty:
         
         html_export += f"""<div style="display: flex; width: 100%; align-items: stretch; margin-bottom: 16px; justify-content: flex-start; gap: 15px;">
 <div style="width: 25%; text-align: left; padding-left: 5px; font-size: 0.85rem; display: flex; align-items: center; justify-content: flex-start;">
-<span style="display: inline-block; line-height: 1.2; color: #ffffff;">{sector_wrapped}</span>
+<span style="display: inline-block; line-height: 1.2; color: #ffffff; font-weight: 500;">{sector_wrapped}</span>
 </div>
-<div style="width: 40%; border-left: 2px solid #e0e0e0; padding-left: 0; display: flex; flex-direction: column; justify-content: center; gap: 4px;">
-<div style="display:flex; align-items:center;">
-<div style="background-color: #007bff; width: {pct_curr}%; height: 20px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; color: white; font-weight: bold; font-size: 0.8rem; min-width: 45px; border-radius: 0 4px 4px 0; box-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
-{val_curr_m:,.0f}
+<div style="width: 40%; border-left: 2px solid #555; padding-left: 0; display: flex; flex-direction: column; justify-content: center; gap: 8px;">
+<div style="display:flex; align-items:center; width: 100%;">
+<div style="background-color: #007bff; width: {pct_curr}%; height: 18px; border-radius: 0 4px 4px 0; box-shadow: 1px 1px 2px rgba(0,0,0,0.1);"></div>
+<span style="margin-left: 8px; font-weight: 800; font-size: 0.85rem; color: #ffffff;">{val_curr_m:,.0f}</span>
 </div>
-</div>
-<div style="display:flex; align-items:center;">
-<div style="background-color: #6c757d; width: {pct_prev}%; height: 16px; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; color: white; font-weight: 600; font-size: 0.75rem; min-width: 40px; border-radius: 0 4px 4px 0; opacity: 0.85;">
-{val_prev_m:,.0f}
-</div>
+<div style="display:flex; align-items:center; width: 100%;">
+<div style="background-color: #28a745; width: {pct_prev}%; height: 14px; border-radius: 0 4px 4px 0; opacity: 0.85;"></div>
+<span style="margin-left: 8px; font-weight: 600; font-size: 0.75rem; color: #ffffff;">{val_prev_m:,.0f}</span>
 </div>
 </div>
 <div style="width: 120px; display: flex; justify-content: center; align-items: center;">
@@ -1610,5 +1714,4 @@ if not st_e_curr.empty:
 </div>"""
         
     html_export += "</div>"
-
     st.markdown(html_export, unsafe_allow_html=True)
