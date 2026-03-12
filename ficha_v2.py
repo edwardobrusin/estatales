@@ -47,15 +47,15 @@ st.markdown("""
     /* Efecto al pasar el mouse por los estados inactivos */
     [data-testid="stSidebar"] .stButton button[kind="secondary"]:hover {
         background-color: #F1F5F9;
-        color: #006A71; /* Teal institucional */
+        color: #2596be; /* Nuevo Primary */
     }
 
-    /* Estado ACTIVO con el color institucional NAFIN/Bancomext */
+    /* Estado ACTIVO con el color institucional */
     [data-testid="stSidebar"] .stButton button[kind="primary"] {
-        background-color: #006A71 !important; /* Teal NAFIN */
-        color: #ffffff !important; /* Texto blanco */
+        background-color: #2596be !important; /* Nuevo Primary */
+        color: #ffffff !important; 
         font-weight: 700 !important;
-        box-shadow: 0 4px 6px -1px rgba(0, 106, 113, 0.2), 0 2px 4px -1px rgba(0, 106, 113, 0.1) !important;
+        box-shadow: 0 4px 6px -1px rgba(37, 150, 190, 0.2), 0 2px 4px -1px rgba(37, 150, 190, 0.1) !important;
     }
     
     /* Contenedores de Métricas Premium */
@@ -84,7 +84,7 @@ st.markdown("""
         margin-bottom: 5px;
     }
     .metric-rank {
-        background-color: #006A71; /* Teal NAFIN */
+        background-color: #2596be; /* Nuevo Primary */
         color: white;
         padding: 3px 10px;
         border-radius: 12px;
@@ -214,7 +214,7 @@ state_id = NAME_TO_ID.get(state_norm)
 state_id_str = str(state_id).zfill(2)
 
 # Encabezado Principal
-st.markdown(f"<h1 style='color: #006A71; font-size: 2.8rem;'>Ficha Técnica Estatal: {selected_name}</h1>", unsafe_allow_html=True)
+st.markdown(f"<h1 style='color: #2596be; font-size: 2.8rem;'>Ficha Técnica Estatal: {selected_name}</h1>", unsafe_allow_html=True)
 
 if 'gob_sedeco' in DATA and not DATA['gob_sedeco'].empty:
     df_gob = DATA['gob_sedeco']
@@ -231,7 +231,7 @@ if 'gob_sedeco' in DATA and not DATA['gob_sedeco'].empty:
         </div>
         """, unsafe_allow_html=True)
 
-st.markdown("<p style='text-align: right; color: #94A3B8; font-size: 0.85rem; margin-top: -10px;'><i>MDP: Millones de Pesos &nbsp;|&nbsp; MDD: Millones de Dólares</i></p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align: left; color: #94A3B8; font-size: 0.85rem; margin-top: -10px;'><i>MDP: Millones de Pesos &nbsp;|&nbsp; MDD: Millones de Dólares</i></p>", unsafe_allow_html=True)
 
 # ==========================================
 # 5. FUNCIONES LÓGICAS (SIN CAMBIOS)
@@ -345,9 +345,9 @@ def get_ied_metrics(df_tot, state_norm):
 # ==========================================
 # SECCIÓN 1: RESUMEN EJECUTIVO
 # ==========================================
-st.markdown("<hr style='border-color: #006A71; border-width: 2px;'>", unsafe_allow_html=True)
+st.markdown("<hr style='border-color: #2596be; border-width: 2px;'>", unsafe_allow_html=True)
 st.header("1. Resumen Ejecutivo")
-st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: INEGI y Secretaría de Economía</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: PIB por Entidad Federativa (INEGI), Exportaciones por Entidad Federativa (INEGI) e Inversión Extranjera Directa (Secretaría de Economía)</div>", unsafe_allow_html=True)
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
@@ -389,7 +389,7 @@ try:
 except: texto_periodo_ied = ""
 
 st.header(f"2. Inversión Extranjera Directa {texto_periodo_ied}")
-st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: Secretaría de Economía</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: Inversión Extranjera Directa (Secretaría de Economía)</div>", unsafe_allow_html=True)
 df_ied_det = DATA['ied_det']
 df_ied_tot = DATA['ied_tot']
 
@@ -424,10 +424,10 @@ Total: ${total_sector_val:,.2f} MDD
             st.caption("Sin inversión registrada.")
         st.markdown("</div>", unsafe_allow_html=True)
 
-    # Colores NAFIN/Financieros
-    render_sector_block("Primaria", "#4C7273", "#F1F5F9")    # Verde Pizarra
-    render_sector_block("Secundaria", "#006A71", "#E6F0F1")  # Teal NAFIN
-    render_sector_block("Terciaria", "#D4A373", "#FDF8F3")   # Dorado NAFIN
+    # Colores NAFIN/Financieros Actualizados
+    render_sector_block("Primaria", "#73c6e3", "#f0f9fc")    # Terciario (Primary claro)
+    render_sector_block("Secundaria", "#2596be", "#e9f5f9")  # Primary
+    render_sector_block("Terciaria", "#008889", "#e6f3f3")   # Secondary
     
     st.info("ℹ️ Nota: El monto de algunas actividades individuales puede superar al Total del Sector debido a desinversiones en otras actividades.")
 else: st.info("No hay detalle de sectores de IED disponible.")
@@ -441,7 +441,7 @@ df_pib = DATA['pib']
 max_period = df_pib['Periodo'].max()
 
 st.header(f"3. Estructura Económica (PIB {max_period})")
-st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: INEGI</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: PIB por Entidad Federativa (INEGI)</div>", unsafe_allow_html=True)
 
 df_curr = df_pib[(df_pib['Estado_ID'] == state_id) & (df_pib['Periodo'] == max_period)].copy()
 df_nac = df_pib[(df_pib['Estado_ID'] == 0) & (df_pib['Periodo'] == max_period)].copy()
@@ -530,9 +530,9 @@ def render_sector_col(col, meta_key, color_hex, df_curr, df_nac, pib_estatal_tot
     
     col.markdown("</div>", unsafe_allow_html=True)
 
-render_sector_col(c1, "Primario", "#4C7273", df_curr, df_nac, pib_estatal_total, tot_emp, df_enoe_est, 'Sector Primario')
-render_sector_col(c2, "Secundario", "#006A71", df_curr, df_nac, pib_estatal_total, tot_emp, df_enoe_est, 'Sector Secundario')
-render_sector_col(c3, "Terciario", "#D4A373", df_curr, df_nac, pib_estatal_total, tot_emp, df_enoe_est, 'Sector Terciario')
+render_sector_col(c1, "Primario", "#73c6e3", df_curr, df_nac, pib_estatal_total, tot_emp, df_enoe_est, 'Sector Primario')
+render_sector_col(c2, "Secundario", "#2596be", df_curr, df_nac, pib_estatal_total, tot_emp, df_enoe_est, 'Sector Secundario')
+render_sector_col(c3, "Terciario", "#008889", df_curr, df_nac, pib_estatal_total, tot_emp, df_enoe_est, 'Sector Terciario')
 
 st.info(f"ℹ️ **Nota:** La suma del PIB sectorial no equivale al total, pues no considera impuestos, cuyo valor de **{val_impuestos/1000:.2f}** MMP representa el **{pct_impuestos:.2f}%** de la participación estatal.")
 
@@ -550,7 +550,7 @@ try: periodo_pob = DATA['pob']['Periodo'].max()
 except: periodo_pob = ""
 
 st.header("4. Demografía y Mercado Laboral")
-st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: INEGI e IMSS</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: ENOE (INEGI), CPV (INEGI), Puestos de Trabajo (IMSS) y Cifras de Salario (IMSS)</div>", unsafe_allow_html=True)
 
 def render_custom_metric(label, value, sub_text, color="#0F172A"):
     st.markdown(f"""
@@ -589,7 +589,8 @@ if not df_enoe_est.empty and not df_enoe_nac.empty:
     color_des_sup = "#DC2626" if t_des_sup > t_des_sup_nac else "#059669"
 
     with col_metrics:
-        st.markdown(f"<div style='text-align: left; color: #006A71; font-weight: 800; margin-bottom: 15px; font-size:1.1rem;'>Datos ENOE: {periodo_enoe}</div>", unsafe_allow_html=True)
+        # Puesto text-align: center y color primary
+        st.markdown(f"<div style='text-align: center; color: #2596be; font-weight: 800; margin-bottom: 15px; font-size:1.1rem;'>Datos ENOE: {periodo_enoe}</div>", unsafe_allow_html=True)
         r1c1, r1c2 = st.columns(2)
         with r1c1: render_custom_metric("Población Total", f"{est_pob:,.0f}", f"{(est_pob/nac_pob*100):.2f}% del Nacional")
         with r1c2: render_custom_metric("PEA", f"{est_pea:,.0f}", f"{(est_pea/nac_pea*100):.2f}% del Nacional")
@@ -636,7 +637,7 @@ with col_chart:
         df_h = grp[grp['Sexo']=='Hombres']
         fig.add_trace(go.Bar(
             y=df_h['Rango'], x=df_h['Valor_Plot'], name='Hombres', orientation='h', 
-            marker_color='#006A71', # Teal NAFIN
+            marker_color='#2596be', # Primary
             text=df_h['Label_Text'], textposition='inside', insidetextanchor='middle',
             customdata=df_h[['Valor', 'Porcentaje_Real']],
             hovertemplate="<b>Hombres</b><br>Población: %{customdata[0]:,.0f}<br>Share: %{customdata[1]:.2f}%<extra></extra>"
@@ -645,18 +646,18 @@ with col_chart:
         df_m = grp[grp['Sexo']=='Mujeres']
         fig.add_trace(go.Bar(
             y=df_m['Rango'], x=df_m['Valor_Plot'], name='Mujeres', orientation='h', 
-            marker_color='#5CA4A9', # Teal Claro
+            marker_color='#008889', # Secondary
             text=df_m['Label_Text'], textposition='inside', insidetextanchor='middle',
             customdata=df_m[['Valor', 'Porcentaje_Real']],
             hovertemplate="<b>Mujeres</b><br>Población: %{customdata[0]:,.0f}<br>Share: %{customdata[1]:.2f}%<extra></extra>"
         ))
         
         fig.update_layout(
-            title=dict(text=f"Pirámide Poblacional ({periodo_pob})", font=dict(color='#0F172A', size=16, family="sans-serif"), x=0.5),
+            title=dict(text=f"Pirámide Poblacional ({periodo_pob})", font=dict(color='#0F172A', size=16, family="sans-serif"), x=0.0), # Título a la izquierda (x=0.0)
             barmode='overlay', bargap=0.15, 
             yaxis={'categoryorder':'array', 'categoryarray': category_order, 'tickfont': dict(color='#475569', size=12)}, 
             xaxis={'showticklabels':False, 'title': ''},
-            legend=dict(orientation="h", yanchor="bottom", y=1.05, xanchor="center", x=0.5, font=dict(color='#475569')),
+            legend=dict(orientation="h", yanchor="bottom", y=1.05, xanchor="right", x=1, font=dict(color='#475569')), # Leyenda a la derecha
             uniformtext_minsize=8, uniformtext_mode='hide',
             height=480, margin=dict(t=80, b=10, l=10, r=10),
             plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)'
@@ -673,6 +674,25 @@ with col_hist_izq:
     df_pue = DATA['imss_pue'].copy()
     col_pue = next((c for c in df_pue.columns if NAME_NORMALIZER.get(c, c) == state_norm), None)
     
+    # --- RESTAURADO: ESPÍA A SALARIOS para sincronizar cantidad de líneas ---
+    df_sal_temp = DATA['imss_sal'].copy()
+    col_sal_temp = next((c for c in df_sal_temp.columns if NAME_NORMALIZER.get(c, c) == state_norm), None)
+    num_lineas_target = 6 # Valor por defecto fallback
+    
+    if col_sal_temp:
+        df_sal_temp[col_sal_temp] = pd.to_numeric(df_sal_temp[col_sal_temp].astype(str).str.replace(',', '').str.replace(' ', '').str.replace('$', '', regex=False), errors='coerce')
+        df_sal_temp[['Mes_Str', 'Año']] = df_sal_temp['Fecha'].str.split(' ', expand=True)
+        meses_map_temp = {'enero':1, 'febrero':2, 'marzo':3, 'abril':4, 'mayo':5, 'junio':6, 'julio':7, 'agosto':8, 'septiembre':9, 'octubre':10, 'noviembre':11, 'diciembre':12}
+        df_sal_temp['Mes_Num'] = df_sal_temp['Mes_Str'].str.lower().str.strip().map(meses_map_temp)
+        df_sal_temp['Date'] = pd.to_datetime(df_sal_temp['Año'] + '-' + df_sal_temp['Mes_Num'].astype(str).str.zfill(2) + '-01')
+        df_sal_temp = df_sal_temp[df_sal_temp['Date'].dt.year >= 2000]
+        if not df_sal_temp.empty:
+            min_s, max_s = df_sal_temp[col_sal_temp].min(), df_sal_temp[col_sal_temp].max()
+            y_min_s = (min_s // 100) * 100
+            y_max_s = ((max_s // 100) + 1) * 100
+            num_lineas_target = len(range(int(y_min_s), int(y_max_s) + 1, 100))
+    # ------------------------------------------------------------------------
+
     if col_pue:
         df_pue[col_pue] = pd.to_numeric(df_pue[col_pue].astype(str).str.replace(',', '').str.replace(' ', ''), errors='coerce')
         meses_map = {'enero':1, 'febrero':2, 'marzo':3, 'abril':4, 'mayo':5, 'junio':6, 'julio':7, 'agosto':8, 'septiembre':9, 'octubre':10, 'noviembre':11, 'diciembre':12}
@@ -682,7 +702,7 @@ with col_hist_izq:
         
         min_pue, max_pue = df_pue[col_pue].min(), df_pue[col_pue].max()
         
-        # Algoritmo de pasos
+        # Algoritmo de pasos usando el num_lineas_target dinámico
         allowed_steps = [i * 10000 for i in range(1, 51)] + [i * 100000 for i in range(6, 51)]
         best_step = allowed_steps[0]
         best_diff = float('inf')
@@ -690,7 +710,7 @@ with col_hist_izq:
             temp_min = (min_pue // S) * S
             temp_max = ((max_pue // S) + 1) * S
             lines_count = int((temp_max - temp_min) / S) + 1
-            diff = abs(lines_count - 6) # Target 6 lines
+            diff = abs(lines_count - num_lineas_target) # Ahora usa el target dinámico
             if diff < best_diff: best_diff = diff; best_step = S
                 
         y_min_pue = (min_pue // best_step) * best_step
@@ -711,7 +731,7 @@ with col_hist_izq:
         top1_pue = last_row_pue.idxmax()
         
         fig_pue = px.line(df_pue, x='Date', y=col_pue)
-        fig_pue.update_traces(line_color='#006A71', line_width=3) # Teal NAFIN
+        fig_pue.update_traces(line_color='#2596be', line_width=3) # Primary
         
         for hito in hitos_pue:
             fig_pue.add_hline(y=hito, line_color='#E2E8F0', line_width=1, layer='below')
@@ -721,22 +741,26 @@ with col_hist_izq:
                     primer_cruce = cruce.iloc[0]
                     fig_pue.add_trace(go.Scatter(
                         x=[primer_cruce['Date']], y=[primer_cruce[col_pue]], mode='markers+text',
-                        marker=dict(color='white', size=8, line=dict(color='#006A71', width=2)),
+                        marker=dict(color='white', size=8, line=dict(color='#2596be', width=2)),
                         text=[f"{primer_cruce['Mes'][:3].capitalize()} {primer_cruce['Año']}"], textposition="top left",
-                        textfont=dict(color="#006A71", size=10, weight="bold"), showlegend=False, hoverinfo='skip'
+                        textfont=dict(color="#2596be", size=10, weight="bold"), showlegend=False, hoverinfo='skip'
                     ))
         
         rank_html = f"Rank: <b>#{rk_pue}</b>" if rk_pue == 1 else f"Rank: <b>#{rk_pue}</b> <span style='font-size:10px; color:#94A3B8;'>(1º {top1_pue})</span>"
         color_m = '#059669' if var_m >=0 else '#DC2626'
         color_y = '#059669' if var_y >=0 else '#DC2626'
         
-        html_box = f"<div style='background:white; border:1px solid #E2E8F0; border-radius:8px; padding:10px; box-shadow:0 4px 6px rgba(0,0,0,0.05);'>" \
-                   f"<div style='color:#64748B; font-size:11px; font-weight:bold; text-transform:uppercase;'>{fecha_str} | {rank_html}</div>" \
-                   f"<div style='color:#0F172A; font-size:18px; font-weight:900;'>{val_curr:,.0f} <span style='font-size:12px; font-weight:normal; color:#475569;'>puestos</span></div>" \
-                   f"<div style='font-size:11px; color:#475569;'>Var M: <span style='color:{color_m}; font-weight:bold;'>{var_m:+.2f}%</span> | Var A: <span style='color:{color_y}; font-weight:bold;'>{var_y:+.2f}%</span></div></div>"
+        # Formato de 5 líneas solicitado
+        ficha_pue_html = f"<span style='color:#0F172A; font-size:12px; font-weight:bold;'>{fecha_str.title()}</span><br>" \
+                         f"<span style='color:#64748B; font-size:11px;'>{rank_html}</span><br>" \
+                         f"<span style='color:#0F172A; font-size:16px;'><b>{val_curr:,.0f}</b></span> <span style='font-size:12px; color:#475569;'>Puestos</span><br>" \
+                         f"<span style='font-size:11px; color:#475569;'>Var. Mensual: <span style='color:{color_m};'><b>{var_m:+.2f}%</b></span></span><br>" \
+                         f"<span style='font-size:11px; color:#475569;'>Var. Anual: <span style='color:{color_y};'><b>{var_y:+.2f}%</b></span></span>"
         
+        # Usamos los parámetros de Plotly para pintar el fondo blanco y el borde
         fig_pue.add_annotation(
-            x=0.02, y=0.98, xref='paper', yref='paper', text=html_box, showarrow=False, align='left'
+            x=0.02, y=0.98, xref='paper', yref='paper', text=ficha_pue_html, showarrow=False, align='left',
+            bgcolor='white', bordercolor='#2596be', borderwidth=2, borderpad=10
         )
 
         fig_pue.update_layout(
@@ -779,7 +803,7 @@ with col_hist_der:
         top1_sal = last_row_sal.idxmax()
         
         fig_sal = px.line(df_sal, x='Date', y=col_sal)
-        fig_sal.update_traces(line_color='#D4A373', line_width=3) # Dorado NAFIN
+        fig_sal.update_traces(line_color='#008889', line_width=3) # Secondary
         
         for hito in hitos_sal:
             fig_sal.add_hline(y=hito, line_color='#E2E8F0', line_width=1, layer='below')
@@ -789,22 +813,26 @@ with col_hist_der:
                     primer_cruce = cruce.iloc[0]
                     fig_sal.add_trace(go.Scatter(
                         x=[primer_cruce['Date']], y=[primer_cruce[col_sal]], mode='markers+text',
-                        marker=dict(color='white', size=8, line=dict(color='#D4A373', width=2)),
+                        marker=dict(color='white', size=8, line=dict(color='#008889', width=2)),
                         text=[f"{primer_cruce['Mes_Str'][:3].capitalize()} {primer_cruce['Año']}"], textposition="top left",
-                        textfont=dict(color="#D4A373", size=10, weight="bold"), showlegend=False, hoverinfo='skip'
+                        textfont=dict(color="#008889", size=10, weight="bold"), showlegend=False, hoverinfo='skip'
                     ))
 
         rank_html_sal = f"Rank: <b>#{rk_sal}</b>" if rk_sal == 1 else f"Rank: <b>#{rk_sal}</b> <span style='font-size:10px; color:#94A3B8;'>(1º {top1_sal})</span>"
         color_m = '#059669' if var_m >=0 else '#DC2626'
         color_y = '#059669' if var_y >=0 else '#DC2626'
         
-        html_box_sal = f"<div style='background:white; border:1px solid #E2E8F0; border-radius:8px; padding:10px; box-shadow:0 4px 6px rgba(0,0,0,0.05);'>" \
-                       f"<div style='color:#64748B; font-size:11px; font-weight:bold; text-transform:uppercase;'>{fecha_str} | {rank_html_sal}</div>" \
-                       f"<div style='color:#0F172A; font-size:18px; font-weight:900;'>${val_curr:,.2f} <span style='font-size:12px; font-weight:normal; color:#475569;'>MXN</span></div>" \
-                       f"<div style='font-size:11px; color:#475569;'>Var M: <span style='color:{color_m}; font-weight:bold;'>{var_m:+.2f}%</span> | Var A: <span style='color:{color_y}; font-weight:bold;'>{var_y:+.2f}%</span></div></div>"
+        # Formato de 5 líneas solicitado
+        ficha_sal_html = f"<span style='color:#0F172A; font-size:12px; font-weight:bold;'>{fecha_str.title()}</span><br>" \
+                         f"<span style='color:#64748B; font-size:11px;'>{rank_html_sal}</span><br>" \
+                         f"<span style='color:#0F172A; font-size:16px;'><b>${val_curr:,.2f}</b></span> <span style='font-size:12px; color:#475569;'>MXN</span><br>" \
+                         f"<span style='font-size:11px; color:#475569;'>Var. Mensual: <span style='color:{color_m};'><b>{var_m:+.2f}%</b></span></span><br>" \
+                         f"<span style='font-size:11px; color:#475569;'>Var. Anual: <span style='color:{color_y};'><b>{var_y:+.2f}%</b></span></span>"
         
+        # Usamos los parámetros de Plotly para pintar el fondo blanco y el borde
         fig_sal.add_annotation(
-            x=0.02, y=0.98, xref='paper', yref='paper', text=html_box_sal, showarrow=False, align='left'
+            x=0.02, y=0.98, xref='paper', yref='paper', text=ficha_sal_html, showarrow=False, align='left',
+            bgcolor='white', bordercolor='#008889', borderwidth=2, borderpad=10
         )
 
         fig_sal.update_layout(
@@ -827,7 +855,7 @@ try:
 except: texto_ciclo = ""
 
 st.header(f"5. Educación Superior{texto_ciclo}")
-st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: ANUIES</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: Anuario Estadístico de la Población Escolar en Educación Superior (ANUIES)</div>", unsafe_allow_html=True)
 
 try:
     df_tot, df_mat, df_egr = DATA['edu_tot'].copy(), DATA['edu_mat'].copy(), DATA['edu_egr'].copy()
@@ -906,22 +934,23 @@ try:
         ctx_egr_mae = get_edu_context(df_tot, 'Egresados Total', state_target, 'Maestría')
         ctx_egr_doc = get_edu_context(df_tot, 'Egresados Total', state_target, 'Doctorado')
 
-        html_general = f"""<div style="border-left: 6px solid #006A71; margin-bottom: 30px; background-color: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #E2E8F0;">
+        # --- AQUI SE HOMOLOGARON LOS COLORES ---
+        html_general = f"""<div style="border-left: 6px solid #2596be; margin-bottom: 30px; background-color: #ffffff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.03); border: 1px solid #E2E8F0;">
 <h3 style="color:#0F172A; margin-top:0; margin-bottom:20px; font-weight:800;">Panorama General</h3>
 <div style="display: flex; flex-direction: column; gap: 25px;">
 <div style="display: flex; align-items: stretch; flex-wrap: nowrap; gap: 15px; border-bottom: 1px dashed #E2E8F0; padding-bottom: 20px; overflow-x: auto;">
-{main_stat_html("Matrícula", ctx_mat_tot, "#006A71")}
-{sub_box_html("Licenciatura", ctx_mat_lic, "#4C7273")}
-{sub_box_html("Técnico Sup.", ctx_mat_tsu, "#4C7273")}
-{sub_box_html("Maestría", ctx_mat_mae, "#4C7273")}
-{sub_box_html("Doctorado", ctx_mat_doc, "#4C7273")}
+{main_stat_html("Matrícula", ctx_mat_tot, "#2596be")}
+{sub_box_html("Licenciatura", ctx_mat_lic, "#2596be")}
+{sub_box_html("Técnico Sup.", ctx_mat_tsu, "#2596be")}
+{sub_box_html("Maestría", ctx_mat_mae, "#2596be")}
+{sub_box_html("Doctorado", ctx_mat_doc, "#2596be")}
 </div>
 <div style="display: flex; align-items: stretch; flex-wrap: nowrap; gap: 15px; overflow-x: auto;">
-{main_stat_html("Egresados", ctx_egr_tot, "#D4A373")}
-{sub_box_html("Licenciatura", ctx_egr_lic, "#D4A373")}
-{sub_box_html("Técnico Sup.", ctx_egr_tsu, "#D4A373")}
-{sub_box_html("Maestría", ctx_egr_mae, "#D4A373")}
-{sub_box_html("Doctorado", ctx_egr_doc, "#D4A373")}
+{main_stat_html("Egresados", ctx_egr_tot, "#008889")}
+{sub_box_html("Licenciatura", ctx_egr_lic, "#008889")}
+{sub_box_html("Técnico Sup.", ctx_egr_tsu, "#008889")}
+{sub_box_html("Maestría", ctx_egr_mae, "#008889")}
+{sub_box_html("Doctorado", ctx_egr_doc, "#008889")}
 </div>
 </div>
 </div>"""
@@ -946,7 +975,7 @@ try:
             return f"""<div style="background: white; padding: 20px; border-radius: 12px; border-top: 4px solid {color_main}; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border-left:1px solid #E2E8F0; border-right:1px solid #E2E8F0; border-bottom:1px solid #E2E8F0; margin-bottom: 15px;">
 <div style="display: flex; justify-content: space-between; align-items: flex-start;">
 <div style="font-size:0.8rem; color:#64748B; font-weight:800; text-transform: uppercase; margin-bottom:8px; letter-spacing: 0.5px;">{nivel}</div>
-<div style="background-color: {color_main}; color: white; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: bold;">#{rk_nac} Nacional</div>
+<div style="background-color: {color_main}; color: white; padding: 2px 10px; border-radius: 12px; font-size: 0.75rem; font-weight: bold;">#{rk_nac}</div>
 </div>
 <div style="font-weight:800; font-size:1.1rem; color:#0F172A; margin-bottom:15px; line-height: 1.3;">{campo}</div>
 <div style="display:flex; justify-content:space-between; align-items:center; background: #F8FAFC; padding: 12px; border-radius: 8px; margin-bottom: 12px; border:1px solid #F1F5F9;">
@@ -967,16 +996,16 @@ try:
 </div>"""
 
         with col_mat:
-            st.markdown(f"<div style='margin-bottom:15px; font-weight:800; color:#006A71; font-size:1.1rem;'>Por Matrícula</div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='margin-bottom:15px; font-weight:800; color:#2596be; font-size:1.1rem;'>Por Matrícula</div>", unsafe_allow_html=True)
             for nivel in niveles_orden:
                 campo, val, share = get_top1_by_level(df_top_mat_est, nivel, 'Matrícula Total', 'Participacion_Matricula')
-                if campo: st.markdown(campo_card_html(nivel, campo, val, share, get_edu_context(df_mat, 'Matrícula Total', state_target, nivel, campo), "#006A71", "Alumnos"), unsafe_allow_html=True)
+                if campo: st.markdown(campo_card_html(nivel, campo, val, share, get_edu_context(df_mat, 'Matrícula Total', state_target, nivel, campo), "#2596be", "Alumnos"), unsafe_allow_html=True)
 
         with col_egr:
-            st.markdown(f"<div style='margin-bottom:15px; font-weight:800; color:#D4A373; font-size:1.1rem;'>Por Egresados</div>", unsafe_allow_html=True)
+            st.markdown(f"<div style='margin-bottom:15px; font-weight:800; color:#008889; font-size:1.1rem;'>Por Egresados</div>", unsafe_allow_html=True)
             for nivel in niveles_orden:
                 campo, val, share = get_top1_by_level(df_top_egr_est, nivel, 'Egresados Total', 'Participacion_Egresados')
-                if campo: st.markdown(campo_card_html(nivel, campo, val, share, get_edu_context(df_egr, 'Egresados Total', state_target, nivel, campo), "#D4A373", "Egresados"), unsafe_allow_html=True)
+                if campo: st.markdown(campo_card_html(nivel, campo, val, share, get_edu_context(df_egr, 'Egresados Total', state_target, nivel, campo), "#008889", "Egresados"), unsafe_allow_html=True)
 
 except Exception as e: st.error(f"Error procesando educación: {str(e)}")
 
@@ -999,11 +1028,18 @@ df_saic['Rank'] = df_saic['Indicador_Productividad'].rank(ascending=False)
 row = df_saic[df_saic['Entidad_Norm'] == state_norm]
 
 if not row.empty:
-    val, rk, nombre_estado = row['Indicador_Productividad'].values[0], int(row['Rank'].values[0]), row['Entidad'].values[0]
+    # Restablecemos las columnas correctas para Productividad
+    val = row['Indicador_Productividad'].values[0]
+    rk = int(row['Rank'].values[0])
+    nombre_estado = row['Entidad'].values[0]
+    
     top1 = df_saic.sort_values('Indicador_Productividad', ascending=False).iloc[0]
     avg = df_saic['Indicador_Productividad'].mean()
+    
+    # 1. Agregamos el condicional de color
     val_color = "#059669" if val > avg else "#DC2626"
     
+    # 2. Modificamos el HTML para aceptar '{color_val}'
     card_html = """
     <div style="background-color: white; padding: 20px; border-radius: 12px; text-align: center; border: 1px solid #E2E8F0; box-shadow: 0 4px 6px rgba(0,0,0,0.02); height:100%;">
         <p style="margin: 0; font-size: 0.85rem; color: #64748B; font-weight: 700; text-transform:uppercase; letter-spacing:0.5px;">{title}</p>
@@ -1011,14 +1047,15 @@ if not row.empty:
     </div>
     """
     
+    # 3. Actualizamos la inyección de las variables en los .format()
     c1, c2, c3, c4 = st.columns(4)
-    c1.markdown(card_html.format(title="Posición Nacional", value=f"#{rk}", color_val="#0F172A"), unsafe_allow_html=True)
+    c1.markdown(card_html.format(title="Posición", value=f"#{rk}", color_val="#0F172A"), unsafe_allow_html=True)
     c2.markdown(card_html.format(title=nombre_estado, value=f"{val:,.2f}", color_val=val_color), unsafe_allow_html=True)
     c3.markdown(card_html.format(title="Promedio Nacional", value=f"{avg:,.2f}", color_val="#0F172A"), unsafe_allow_html=True)
     c4.markdown(card_html.format(title=f"1er Lugar ({top1['Entidad']})", value=f"{top1['Indicador_Productividad']:,.2f}", color_val="#0F172A"), unsafe_allow_html=True)
     
     df_sorted = df_saic.sort_values('Indicador_Productividad', ascending=False).reset_index(drop=True)
-    colors = ['#006A71' if x == state_norm else '#CBD5E1' for x in df_sorted['Entidad_Norm']] # Teal NAFIN vs Gray
+    colors = ['#2596be' if x == state_norm else '#CBD5E1' for x in df_sorted['Entidad_Norm']] # Primary
     
     fig = px.bar(df_sorted, x='Entidad', y='Indicador_Productividad')
     fig.update_traces(marker_color=colors, hovertemplate="%{y:,.2f}<extra></extra>")
@@ -1027,7 +1064,8 @@ if not row.empty:
         x=0.99, y=0.95, xref='paper', yref='paper', text="Indicador = Producción Bruta / Personal Ocupado", 
         showarrow=False, align='right', bgcolor='rgba(255, 255, 255, 0.95)', bordercolor='#E2E8F0', borderwidth=1, borderpad=8, font=dict(color='#475569', size=11)
     )
-    fig.update_layout(yaxis_title="Productividad", xaxis_title="", xaxis_tickangle=-90, margin=dict(t=30, b=0, l=0, r=0), showlegend=False, plot_bgcolor='rgba(0,0,0,0)')
+    # Se añade plot_bgcolor='white' y paper_bgcolor='white'
+    fig.update_layout(yaxis_title="Productividad", xaxis_title="", xaxis_tickangle=-90, margin=dict(t=30, b=0, l=0, r=0), showlegend=False, plot_bgcolor='white', paper_bgcolor='white')
     st.plotly_chart(fig, use_container_width=True)
 
 # ==========================================
@@ -1047,7 +1085,7 @@ try:
 except: texto_anio_imco = ""
 
 st.header(f"7. Competitividad{texto_anio_imco}")
-st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: IMCO</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: Índice de Competitividad Estatal (IMCO)</div>", unsafe_allow_html=True)
 
 df_g['Entidad_Norm'] = df_g['Entidad'].str.strip().replace(NAME_NORMALIZER)
 row = df_g[df_g['Entidad_Norm'] == state_norm]
@@ -1057,26 +1095,31 @@ if not row.empty:
     top1 = df_g.sort_values('Valor', ascending=False).iloc[0]
     avg = df_g['Valor'].mean()
     
+    # 1. Agregamos el condicional de color (Verde si es mayor al promedio, Rojo si es menor)
+    val_color = "#059669" if val > avg else "#DC2626"
+    
+    # 2. Modificamos el HTML para aceptar '{color_val}'
     card_html = """
     <div style="background-color: white; padding: 20px; border-radius: 12px; text-align: center; border: 1px solid #E2E8F0; box-shadow: 0 4px 6px rgba(0,0,0,0.02); height:100%;">
         <p style="margin: 0; font-size: 0.85rem; color: #64748B; font-weight: 700; text-transform:uppercase; letter-spacing:0.5px;">{title}</p>
-        <p style="margin: 8px 0 0 0; font-size: 1.8rem; font-weight: 800; color: #0F172A;">{value}</p>
+        <p style="margin: 8px 0 0 0; font-size: 1.8rem; font-weight: 800; color: {color_val};">{value}</p>
     </div>
     """
     
+    # 3. Actualizamos la inyección de las variables en los .format()
     c1, c2, c3, c4 = st.columns(4)
-    c1.markdown(card_html.format(title="Posición", value=f"#{rk}"), unsafe_allow_html=True)
-    c2.markdown(card_html.format(title=nombre_estado, value=f"{val:.2f}"), unsafe_allow_html=True)
-    c3.markdown(card_html.format(title="Promedio Nacional", value=f"{avg:.2f}"), unsafe_allow_html=True)
-    c4.markdown(card_html.format(title=f"1er Lugar ({top1['Entidad']})", value=f"{top1['Valor']:.2f}"), unsafe_allow_html=True)
+    c1.markdown(card_html.format(title="Posición", value=f"#{rk}", color_val="#0F172A"), unsafe_allow_html=True)
+    c2.markdown(card_html.format(title=nombre_estado, value=f"{val:.2f}", color_val=val_color), unsafe_allow_html=True)
+    c3.markdown(card_html.format(title="Promedio Nacional", value=f"{avg:.2f}", color_val="#0F172A"), unsafe_allow_html=True)
+    c4.markdown(card_html.format(title=f"1er Lugar ({top1['Entidad']})", value=f"{top1['Valor']:.2f}", color_val="#0F172A"), unsafe_allow_html=True)
     
     df_sorted = df_g.sort_values('Valor', ascending=False).reset_index(drop=True)
-    colors = ['#006A71' if x == state_norm else '#CBD5E1' for x in df_sorted['Entidad_Norm']]
+    colors = ['#008889' if x == state_norm else '#CBD5E1' for x in df_sorted['Entidad_Norm']] # Secondary
     
     fig = px.bar(df_sorted, x='Entidad', y='Valor')
     fig.update_traces(marker_color=colors, hovertemplate="%{y:,.2f}<extra></extra>")
     fig.add_hline(y=avg, line_dash="dash", line_color="#475569", annotation_text="Promedio Nacional", annotation_font_color="#475569")
-    fig.update_layout(yaxis_title="Competitividad", xaxis_title="", xaxis_tickangle=-90, margin=dict(t=30, b=0, l=0, r=0), showlegend=False, plot_bgcolor='rgba(0,0,0,0)')
+    fig.update_layout(yaxis_title="Competitividad", xaxis_title="", xaxis_tickangle=-90, margin=dict(t=30, b=0, l=0, r=0), showlegend=False, plot_bgcolor='white', paper_bgcolor='white')
     st.plotly_chart(fig, use_container_width=True)
 
 df_d = DATA['imco_d'].copy()
@@ -1107,12 +1150,12 @@ if not st_d.empty:
         else: return f"<span style='background-color:#64748B; color:white; padding: 2px 8px; border-radius: 12px; font-size: 0.75rem; font-weight:bold; margin-left:8px;'>=</span>"
 
     with c1:
-        st.markdown("<div style='background:white; padding:20px; border-radius:12px; border-top:4px solid #006A71; box-shadow: 0 4px 6px rgba(0,0,0,0.02);'><h4 style='color:#0F172A; margin-top:0;'>✅ Top 5 Fortalezas</h4>", unsafe_allow_html=True)
+        st.markdown("<div style='background:white; padding:20px; border-radius:12px; border-top:4px solid #2596be; box-shadow: 0 4px 6px rgba(0,0,0,0.02);'><h4 style='color:#0F172A; margin-top:0;'>✅ Top 5 Fortalezas</h4>", unsafe_allow_html=True)
         for _, r in st_d.sort_values('Puntaje_Fortaleza').head(5).iterrows():
             st.markdown(f"<div style='padding:8px 0; border-bottom:1px solid #F1F5F9; color:#334155;'><b style='color:#0F172A;'>#{int(r['Rank'])}</b> {r['Indicador']} {badge_html(r['Cambio_Ajustado'])}</div>", unsafe_allow_html=True)
         st.markdown("</div>", unsafe_allow_html=True)
     with c2:
-        st.markdown("<div style='background:white; padding:20px; border-radius:12px; border-top:4px solid #D4A373; box-shadow: 0 4px 6px rgba(0,0,0,0.02);'><h4 style='color:#0F172A; margin-top:0;'>⚠️ Top 5 Áreas de oportunidad</h4>", unsafe_allow_html=True)
+        st.markdown("<div style='background:white; padding:20px; border-radius:12px; border-top:4px solid #008889; box-shadow: 0 4px 6px rgba(0,0,0,0.02);'><h4 style='color:#0F172A; margin-top:0;'>⚠️ Top 5 Áreas de oportunidad</h4>", unsafe_allow_html=True)
         for _, r in st_d.sort_values('Puntaje_Fortaleza', ascending=False).head(5).iterrows():
             st.markdown(f"<div style='padding:8px 0; border-bottom:1px solid #F1F5F9; color:#334155;'><b style='color:#0F172A;'>#{int(r['Rank'])}</b> {r['Indicador']} {badge_html(r['Cambio_Ajustado'])}</div>", unsafe_allow_html=True)
         st.markdown("</div>", unsafe_allow_html=True)
@@ -1155,7 +1198,7 @@ if "Tlaxcala" not in selected_name:
 st.markdown("<hr style='border-color: #E2E8F0;'>", unsafe_allow_html=True)
 num_seccion = "8" if "Tlaxcala" in selected_name else "9"
 st.header(f"{num_seccion}. Principales Sectores de Exportación")
-st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: INEGI</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: Exportaciones por Entidad Federativa INEGI</div>", unsafe_allow_html=True)
 
 df_e = DATA['export'].copy()
 df_e['Year'] = df_e['Periodo'].astype(str).str[:4].astype(int)
@@ -1167,35 +1210,45 @@ st_e_curr = df_e[(df_e['Estado_ID'].astype(str).str.zfill(2) == state_id_str) & 
 st_e_prev = df_e[(df_e['Estado_ID'].astype(str).str.zfill(2) == state_id_str) & (df_e['Year'] == (max_y - 1)) & (df_e['Quarter'].isin(quarters_avail)) & (df_e['Sector'] != 'Total')]
 
 if not st_e_curr.empty:
-    top10 = st_e_curr.groupby('Sector')['Valor'].sum().reset_index().sort_values('Valor', ascending=False).head(10)
-    tot_curr = top10['Valor'].sum()
-    top10['Part'] = (top10['Valor']/tot_curr*100) if tot_curr > 0 else 0
+    # 1. Agrupamos todos los sectores disponibles
+    top_all = st_e_curr.groupby('Sector')['Valor'].sum().reset_index().sort_values('Valor', ascending=False)
     
-    if not st_e_prev.empty:
-        prev_agg = st_e_prev.groupby('Sector')['Valor'].sum().reset_index().rename(columns={'Valor': 'Valor_Prev'})
-        top10 = top10.merge(prev_agg, on='Sector', how='left')
-    else: top10['Valor_Prev'] = 0
-    top10['Valor_Prev'] = top10['Valor_Prev'].fillna(0)
+    # 2. NUEVO FILTRO: Omitir si el valor bruto es menor a 500 (ya que al dividir entre 1000 se redondeará visualmente a 0)
+    top_all = top_all[top_all['Valor'] >= 500]
     
-    nac_curr_agg = df_e[(df_e['Year'] == max_y) & (df_e['Sector'] != 'Total')].groupby(['Sector', 'Estado_ID'])['Valor'].sum().reset_index()
-    rks = []
-    for s in top10['Sector']:
-        d_s = nac_curr_agg[nac_curr_agg['Sector'] == s].copy()
-        d_s['Rank'] = d_s['Valor'].rank(ascending=False)
-        try: rks.append(int(d_s[d_s['Estado_ID'].astype(str).str.zfill(2) == state_id_str]['Rank'].values[0]))
-        except: rks.append("-")
-    top10['Rank Nac'] = rks
+    # 3. Extraemos el Top 10 después de haber limpiado los ceros
+    top10 = top_all.head(10)
+    
+    # Verificamos que tras el filtro sigan existiendo datos
+    if not top10.empty:
+        tot_curr = top10['Valor'].sum()
+        top10['Part'] = (top10['Valor']/tot_curr*100) if tot_curr > 0 else 0
+        
+        if not st_e_prev.empty:
+            prev_agg = st_e_prev.groupby('Sector')['Valor'].sum().reset_index().rename(columns={'Valor': 'Valor_Prev'})
+            top10 = top10.merge(prev_agg, on='Sector', how='left')
+        else: top10['Valor_Prev'] = 0
+        top10['Valor_Prev'] = top10['Valor_Prev'].fillna(0)
+        
+        nac_curr_agg = df_e[(df_e['Year'] == max_y) & (df_e['Sector'] != 'Total')].groupby(['Sector', 'Estado_ID'])['Valor'].sum().reset_index()
+        rks = []
+        for s in top10['Sector']:
+            d_s = nac_curr_agg[nac_curr_agg['Sector'] == s].copy()
+            d_s['Rank'] = d_s['Valor'].rank(ascending=False)
+            try: rks.append(int(d_s[d_s['Estado_ID'].astype(str).str.zfill(2) == state_id_str]['Rank'].values[0]))
+            except: rks.append("-")
+        top10['Rank Nac'] = rks
 
-    max_val_scale = max(top10['Valor'].max(), top10['Valor_Prev'].max())
-    q_len = len(quarters_avail)
-    q_prefix = f"1T-{q_len}T" if q_len > 1 else "1T"
-    label_curr = f"{q_prefix} {max_y}"
-    label_prev = f"{q_prefix} {max_y - 1}"
-    
-    html_export = f"""<div style="background-color: white; padding:25px; border-radius:12px; border:1px solid #E2E8F0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); width: 100%; font-family: sans-serif; color: #334155;">
+        max_val_scale = max(top10['Valor'].max(), top10['Valor_Prev'].max())
+        q_len = len(quarters_avail)
+        q_prefix = f"1T-{q_len}T" if q_len > 1 else "1T"
+        label_curr = f"{q_prefix} {max_y}"
+        label_prev = f"{q_prefix} {max_y - 1}"
+        
+        html_export = f"""<div style="background-color: white; padding:25px; border-radius:12px; border:1px solid #E2E8F0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); width: 100%; font-family: sans-serif; color: #334155;">
 <div style="display: flex; justify-content: flex-start; margin-bottom:20px; font-size: 0.85rem; color: #475569; font-weight:600;">
-<div style="display:flex; align-items:center; margin-right:20px;"><div style="width:14px; height:14px; background-color:#006A71; margin-right:6px; border-radius:3px;"></div> {label_curr}</div>
-<div style="display:flex; align-items:center;"><div style="width:14px; height:14px; background-color:#CBD5E1; margin-right:6px; border-radius:3px;"></div> {label_prev}</div>
+<div style="display:flex; align-items:center; margin-right:20px;"><div style="width:14px; height:14px; background-color:#2596be; margin-right:6px; border-radius:3px;"></div> {label_curr}</div>
+<div style="display:flex; align-items:center;"><div style="width:14px; height:14px; background-color:#008889; margin-right:6px; border-radius:3px;"></div> {label_prev}</div>
 </div>
 <div style="display: flex; width: 100%; margin-bottom: 20px; font-weight: 800; text-align: center; font-size: 0.85rem; text-transform:uppercase; letter-spacing:0.5px; justify-content: flex-start; gap: 15px; color: #64748B; border-bottom:2px solid #F1F5F9; padding-bottom:10px;">
 <div style="width: 25%; text-align: left; padding-left: 5px;">Sector</div>
@@ -1203,23 +1256,23 @@ if not st_e_curr.empty:
 <div style="width: 120px;">% Estatal</div>
 <div style="width: 120px;">Rank Nacional</div>
 </div>"""
-    
-    for _, r in top10.iterrows():
-        pct_curr = max((r['Valor'] / max_val_scale) * 100 if max_val_scale > 0 else 0, 0.5)
-        pct_prev = max((r['Valor_Prev'] / max_val_scale) * 100 if max_val_scale > 0 else 0, 0.5)
-        sector_wrapped = '<br>'.join(textwrap.wrap(r['Sector'], width=38))
         
-        html_export += f"""<div style="display: flex; width: 100%; align-items: stretch; margin-bottom: 18px; justify-content: flex-start; gap: 15px;">
+        for _, r in top10.iterrows():
+            pct_curr = max((r['Valor'] / max_val_scale) * 100 if max_val_scale > 0 else 0, 0.5)
+            pct_prev = max((r['Valor_Prev'] / max_val_scale) * 100 if max_val_scale > 0 else 0, 0.5)
+            sector_wrapped = '<br>'.join(textwrap.wrap(r['Sector'], width=38))
+            
+            html_export += f"""<div style="display: flex; width: 100%; align-items: stretch; margin-bottom: 18px; justify-content: flex-start; gap: 15px;">
 <div style="width: 25%; text-align: left; padding-left: 5px; font-size: 0.85rem; display: flex; align-items: center; justify-content: flex-start;">
 <span style="display: inline-block; line-height: 1.3; color: #0F172A; font-weight: 600;">{sector_wrapped}</span>
 </div>
 <div style="width: 40%; border-left: 2px solid #E2E8F0; padding-left: 15px; display: flex; flex-direction: column; justify-content: center; gap: 8px;">
 <div style="display:flex; align-items:center; width: 100%;">
-<div style="background-color: #006A71; width: {pct_curr}%; height: 20px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+<div style="background-color: #2596be; width: {pct_curr}%; height: 20px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
 <span style="margin-left: 10px; font-weight: 800; font-size: 0.95rem; color: #0F172A;">{r['Valor'] / 1000:,.0f}</span>
 </div>
 <div style="display:flex; align-items:center; width: 100%;">
-<div style="background-color: #CBD5E1; width: {pct_prev}%; height: 12px; border-radius: 4px;"></div>
+<div style="background-color: #008889; width: {pct_prev}%; height: 12px; border-radius: 4px;"></div>
 <span style="margin-left: 10px; font-weight: 600; font-size: 0.8rem; color: #64748B;">{r['Valor_Prev'] / 1000:,.0f}</span>
 </div>
 </div>
@@ -1229,11 +1282,13 @@ if not st_e_curr.empty:
 </div>
 </div>
 <div style="width: 120px; display: flex; justify-content: center; align-items: center;">
-<div style="background-color: #F8FAFC; border:1px solid #E2E8F0; border-radius: 8px; padding: 6px 0; width: 100%; font-weight: 800; font-size: 0.95rem; color: #0F172A; text-align: center;">
-#{r['Rank Nac']}
+<div style="background-color: #F8FAFC; border:1px solid #E2E8F0; border-radius: 8px; padding: 6px 0; width: 100%; font-weight: 800; font-size: 0.95rem; color: #2596be; text-align: center;">
+{r['Rank Nac']}°
 </div>
 </div>
 </div>"""
-        
-    html_export += "</div>"
-    st.markdown(html_export, unsafe_allow_html=True)
+            
+        html_export += "</div>"
+        st.markdown(html_export, unsafe_allow_html=True)
+    else:
+        st.info("Sin registros de exportación mayores a 0 en el periodo actual.")
