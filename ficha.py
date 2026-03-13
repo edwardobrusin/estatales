@@ -1408,23 +1408,18 @@ if not row.empty:
     top1 = df_g.sort_values('Valor', ascending=False).iloc[0]
     avg = df_g['Valor'].mean()
     
-    # Lógica de color: Verde si el valor estatal es mayor al promedio, rojo si es menor
-    val_color = "#28a745" if val > avg else "#dc3545" 
-    
-    # Se reemplaza el color fijo #212529 por la variable {color_val}
     card_html = """
     <div style="background-color: white; padding: 15px; border-radius: 8px; text-align: center; color: black; box-shadow: 0 2px 4px rgba(0,0,0,0.1); margin-bottom: 0px;">
         <p style="margin: 0; font-size: 14px; color: #6c757d; font-weight: bold;">{title}</p>
-        <p style="margin: 0; font-size: 22px; font-weight: bold; color: {color_val};">{value}</p>
+        <p style="margin: 0; font-size: 22px; font-weight: bold; color: #212529;">{value}</p>
     </div>
     """
     
     c1, c2, c3, c4 = st.columns(4)
-    # Se asigna el color oscuro por defecto a todos, excepto al estado (c2) que recibe la lógica de color dinámica
-    c1.markdown(card_html.format(title="Posición", value=f"#{rk}", color_val="#212529"), unsafe_allow_html=True)
-    c2.markdown(card_html.format(title=nombre_estado, value=f"{val:.2f}", color_val=val_color), unsafe_allow_html=True)
-    c3.markdown(card_html.format(title="Promedio Nacional", value=f"{avg:.2f}", color_val="#212529"), unsafe_allow_html=True)
-    c4.markdown(card_html.format(title=f"1er Lugar ({top1['Entidad']})", value=f"{top1['Valor']:.2f}", color_val="#212529"), unsafe_allow_html=True)
+    c1.markdown(card_html.format(title="Posición", value=f"#{rk}"), unsafe_allow_html=True)
+    c2.markdown(card_html.format(title=nombre_estado, value=f"{val:.2f}"), unsafe_allow_html=True)
+    c3.markdown(card_html.format(title="Promedio Nacional", value=f"{avg:.2f}"), unsafe_allow_html=True)
+    c4.markdown(card_html.format(title=f"1er Lugar ({top1['Entidad']})", value=f"{top1['Valor']:.2f}"), unsafe_allow_html=True)
     
     df_sorted = df_g.sort_values('Valor', ascending=False).reset_index(drop=True)
     
@@ -1698,12 +1693,12 @@ if not st_e_curr.empty:
 </div>
 <div style="width: 40%; border-left: 2px solid #555; padding-left: 0; display: flex; flex-direction: column; justify-content: center; gap: 8px;">
 <div style="display:flex; align-items:center; width: 100%;">
-<div style="background-color: #007bff; width: {pct_curr}%; height: 18px; border-radius: 0 4px 4px 0; box-shadow: 1px 1px 2px rgba(0,0,0,0.1);"></div>
-<span style="margin-left: 8px; font-weight: 800; font-size: 0.85rem; color: #ffffff;">{val_curr_m:,.0f}</span>
+<div style="flex-grow: 1;"><div style="background-color: #007bff; width: {pct_curr}%; height: 18px; border-radius: 0 4px 4px 0; box-shadow: 1px 1px 2px rgba(0,0,0,0.1);"></div></div>
+<span style="width: 65px; margin-left: 8px; flex-shrink: 0; text-align: left; font-weight: 800; font-size: 0.85rem; color: #ffffff;">{val_curr_m:,.0f}</span>
 </div>
 <div style="display:flex; align-items:center; width: 100%;">
-<div style="background-color: #28a745; width: {pct_prev}%; height: 14px; border-radius: 0 4px 4px 0; opacity: 0.85;"></div>
-<span style="margin-left: 8px; font-weight: 600; font-size: 0.75rem; color: #ffffff;">{val_prev_m:,.0f}</span>
+<div style="flex-grow: 1;"><div style="background-color: #28a745; width: {pct_prev}%; height: 14px; border-radius: 0 4px 4px 0; opacity: 0.85;"></div></div>
+<span style="width: 65px; margin-left: 8px; flex-shrink: 0; text-align: left; font-weight: 600; font-size: 0.75rem; color: #ffffff;">{val_prev_m:,.0f}</span>
 </div>
 </div>
 <div style="width: 120px; display: flex; justify-content: center; align-items: center;">
@@ -1719,5 +1714,4 @@ if not st_e_curr.empty:
 </div>"""
         
     html_export += "</div>"
-
     st.markdown(html_export, unsafe_allow_html=True)
