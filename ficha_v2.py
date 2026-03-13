@@ -1268,12 +1268,12 @@ if not st_e_curr.empty:
 </div>
 <div style="width: 40%; border-left: 2px solid #E2E8F0; padding-left: 15px; display: flex; flex-direction: column; justify-content: center; gap: 8px;">
 <div style="display:flex; align-items:center; width: 100%;">
-<div style="background-color: #2596be; width: {pct_curr}%; height: 20px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
-<span style="margin-left: 10px; font-weight: 800; font-size: 0.95rem; color: #0F172A;">{r['Valor'] / 1000:,.0f}</span>
+<div style="flex-grow: 1;"><div style="background-color: #2596be; width: {pct_curr}%; height: 20px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div></div>
+<span style="width: 65px; margin-left: 10px; flex-shrink: 0; text-align: left; font-weight: 800; font-size: 0.95rem; color: #0F172A;">{r['Valor'] / 1000:,.0f}</span>
 </div>
 <div style="display:flex; align-items:center; width: 100%;">
-<div style="background-color: #008889; width: {pct_prev}%; height: 12px; border-radius: 4px;"></div>
-<span style="margin-left: 10px; font-weight: 600; font-size: 0.8rem; color: #64748B;">{r['Valor_Prev'] / 1000:,.0f}</span>
+<div style="flex-grow: 1;"><div style="background-color: #008889; width: {pct_prev}%; height: 12px; border-radius: 4px;"></div></div>
+<span style="width: 65px; margin-left: 10px; flex-shrink: 0; text-align: left; font-weight: 600; font-size: 0.8rem; color: #64748B;">{r['Valor_Prev'] / 1000:,.0f}</span>
 </div>
 </div>
 <div style="width: 120px; display: flex; justify-content: center; align-items: center;">
