@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 import os
 import textwrap
 import base64
+import zipfile
 
 # ==========================================
 # 1. CONFIGURACIÓN DE LA PÁGINA (BRANDING NAFIN/BANCOMEXT)
@@ -214,28 +215,46 @@ state_norm = NAME_NORMALIZER.get(selected_name, selected_name)
 state_id = NAME_TO_ID.get(state_norm)
 state_id_str = str(state_id).zfill(2)
 
-ruta_pdf = os.path.join("fichas_pdf", f"{selected_name}.pdf")
+# ==========================================
+# BOTÓN FLOTANTE DE DESCARGA DESDE ZIP
+# ==========================================
+# Cambiamos la ruta para que apunte a un único archivo ZIP comprimido
+ruta_zip = "fichas_pdf.zip" 
+nombre_pdf_interno = f"{selected_name}.pdf"
 
-if os.path.exists(ruta_pdf):
-    # Leer el PDF y codificarlo en Base64
-    with open(ruta_pdf, "rb") as f:
-        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-    
-    # Ícono SVG estándar universal para descargas (Heroicons)
+html_boton = ""
+pdf_encontrado = False
+
+# Verificamos si el archivo ZIP existe
+if os.path.exists(ruta_zip):
+    try:
+        # Abrimos el ZIP en modo lectura
+        with zipfile.ZipFile(ruta_zip, 'r') as zf:
+            # Listamos los archivos internos para verificar que nuestro PDF esté ahí
+            if nombre_pdf_interno in zf.namelist():
+                # Leemos el PDF directamente a la memoria RAM
+                with zf.open(nombre_pdf_interno) as f:
+                    base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+                pdf_encontrado = True
+    except zipfile.BadZipFile:
+        st.sidebar.error("El archivo ZIP está corrupto.")
+
+if pdf_encontrado:
+    # Ícono SVG estándar universal para descargas
     svg_icon = '''
     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 24px; height: 24px;">
       <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
     </svg>
     '''
 
-    # Inyección de HTML y CSS
+    # Inyección de HTML y CSS del Floating Action Button
     html_boton = f"""
     <style>
         .floating-download-btn {{
             position: fixed;
             bottom: 40px;
             right: 40px;
-            background-color: #2596be; /* Tu color institucional Primary */
+            background-color: #2596be;
             color: white !important;
             border-radius: 50%;
             width: 56px;
@@ -259,7 +278,7 @@ if os.path.exists(ruta_pdf):
     """
     st.markdown(html_boton, unsafe_allow_html=True)
 else:
-    # Si no existe el PDF, mostramos un pequeño aviso flotante discreto
+    # Aviso flotante si el ZIP no existe o falta el PDF adentro
     st.markdown("""
     <style>
         .floating-warning {
