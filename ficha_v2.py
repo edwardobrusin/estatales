@@ -252,8 +252,8 @@ if pdf_encontrado:
     <style>
         .floating-download-btn {{
             position: fixed;
-            bottom: 40px;
-            right: 40px;
+            bottom: 50px;
+            right: 20px;
             background-color: #2596be;
             color: white !important;
             border-radius: 50%;
