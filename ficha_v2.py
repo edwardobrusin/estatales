@@ -4,6 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 import os
 import textwrap
+import base64
 
 # ==========================================
 # 1. CONFIGURACIÓN DE LA PÁGINA (BRANDING NAFIN/BANCOMEXT)
@@ -213,6 +214,62 @@ state_norm = NAME_NORMALIZER.get(selected_name, selected_name)
 state_id = NAME_TO_ID.get(state_norm)
 state_id_str = str(state_id).zfill(2)
 
+ruta_pdf = os.path.join("fichas_pdf", f"{selected_name}.pdf")
+
+if os.path.exists(ruta_pdf):
+    # Leer el PDF y codificarlo en Base64
+    with open(ruta_pdf, "rb") as f:
+        base64_pdf = base64.b64encode(f.read()).decode('utf-8')
+    
+    # Ícono SVG estándar universal para descargas (Heroicons)
+    svg_icon = '''
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" style="width: 24px; height: 24px;">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3" />
+    </svg>
+    '''
+
+    # Inyección de HTML y CSS
+    html_boton = f"""
+    <style>
+        .floating-download-btn {{
+            position: fixed;
+            bottom: 40px;
+            right: 40px;
+            background-color: #2596be; /* Tu color institucional Primary */
+            color: white !important;
+            border-radius: 50%;
+            width: 56px;
+            height: 56px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            z-index: 9999;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+        }}
+        .floating-download-btn:hover {{
+            background-color: #1e7a9b;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+        }}
+    </style>
+    <a href="data:application/pdf;base64,{base64_pdf}" download="Ficha_Estatal_{selected_name.replace(' ', '_')}.pdf" class="floating-download-btn" title="Descargar Ficha PDF">
+        {svg_icon}
+    </a>
+    """
+    st.markdown(html_boton, unsafe_allow_html=True)
+else:
+    # Si no existe el PDF, mostramos un pequeño aviso flotante discreto
+    st.markdown("""
+    <style>
+        .floating-warning {
+            position: fixed; bottom: 40px; right: 40px; background-color: #64748B; color: white;
+            padding: 10px 20px; border-radius: 20px; font-size: 0.8rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 9999;
+        }
+    </style>
+    <div class="floating-warning">Actualizando PDF...</div>
+    """, unsafe_allow_html=True)
+
 # Encabezado Principal
 st.markdown(f"<h1 style='color: #2596be; font-size: 2.8rem;'>Ficha Técnica Estatal: {selected_name}</h1>", unsafe_allow_html=True)
 
@@ -403,11 +460,15 @@ if not df_ied_st_det.empty:
         subset = df_ied_st_det[df_ied_st_det['Sector'] == sector_name].sort_values('Inversion', ascending=False)
         subset = subset[subset['Inversion'] > 0]
         
+        # Aplicamos la misma regla al total del sector por si acaso
+        tot_str = f"{total_sector_val:,.2f}"
+        display_tot = "< 0.01" if tot_str == "0.00" and total_sector_val > 0 else f"${tot_str}"
+        
         html_head = f"""<div style="border-left: 6px solid {color_bar}; padding: 15px 20px; margin-bottom: 20px; background-color: {bg_color}; border-radius: 0 12px 12px 0; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
 <div style="display:flex; justify-content:space-between; align-items:center;">
 <h5 style="margin:0; color:#0F172A; font-weight:800; font-size:1.1rem;">{sector_name}</h5>
 <span style="font-size:0.95rem; font-weight:800; color:{color_bar}; background:white; padding:4px 12px; border-radius:20px; border:1px solid #E2E8F0; box-shadow: 0 2px 4px rgba(0,0,0,0.02);">
-Total: ${total_sector_val:,.2f} MDD
+Total: {display_tot} MDD
 </span>
 </div>
 <hr style="margin:12px 0; border-color:rgba(0,0,0,0.05);">"""
@@ -415,9 +476,13 @@ Total: ${total_sector_val:,.2f} MDD
         
         if not subset.empty:
             for _, r in subset.iterrows():
+                # Lógica para mostrar < 0.01 si el valor formateado es 0.00
+                val_str = f"{r['Inversion']:,.2f}"
+                display_val = "< $0.01" if val_str == "0.00" else f"${val_str}"
+                
                 html_row = f"""<div style="display: flex; justify-content: space-between; font-size: 0.95rem; margin-bottom: 8px; color:#334155;">
 <span style="font-weight: 500;">• {r['Actividad']}</span>
-<span style="white-space: nowrap; font-weight:700; color:#0F172A;">${r['Inversion']:,.2f} MDD</span>
+<span style="white-space: nowrap; font-weight:700; color:#0F172A;">{display_val} MDD</span>
 </div>"""
                 st.markdown(html_row, unsafe_allow_html=True)
         else:
