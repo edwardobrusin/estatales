@@ -282,7 +282,7 @@ else:
     st.markdown("""
     <style>
         .floating-warning {
-            position: fixed; bottom: 40px; right: 40px; background-color: #64748B; color: white;
+            position: fixed; bottom: 50px; right: 20px; background-color: #64748B; color: white;
             padding: 10px 20px; border-radius: 20px; font-size: 0.8rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); z-index: 9999;
         }
     </style>
