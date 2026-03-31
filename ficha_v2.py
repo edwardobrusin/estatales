@@ -1305,7 +1305,8 @@ if not st_e_curr.empty:
     
     # Verificamos que tras el filtro sigan existiendo datos
     if not top10.empty:
-        tot_curr = top10['Valor'].sum()
+        # CORRECCIÓN: Usar el total real del estado, no solo del top 10
+        tot_curr = st_e_curr['Valor'].sum() 
         top10['Part'] = (top10['Valor']/tot_curr*100) if tot_curr > 0 else 0
         
         if not st_e_prev.empty:
