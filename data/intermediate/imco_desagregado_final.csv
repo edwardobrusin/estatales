@@ -1,0 +1,1377 @@
+Date,Entidad,Subíndice,Indicador,Unidad,Value,Rank,Rank_Prev,Cambio_Posicion
+2025-01-01,Aguascalientes,Derecho,Agresiones a periodistas,casos por millón hab.,1.307031502726794,27.0,28.0,1.0
+2025-01-01,Aguascalientes,Derecho,Competencia en servicios notariales,notarios por 100k hab.,4.247852383862082,7.0,6.0,-1.0
+2025-01-01,Aguascalientes,Derecho,Delitos no denunciados,porcentaje,0.871256347741753,31.0,30.0,-1.0
+2025-01-01,Aguascalientes,Derecho,Homicidios,homicidios por 100k hab.,7.776837441224427,27.0,28.0,1.0
+2025-01-01,Aguascalientes,Derecho,Incidencia delictiva,delitos por mil hab.,28.09398863536109,3.0,3.0,0.0
+2025-01-01,Aguascalientes,Derecho,Percepción de seguridad,porcentaje población 18+,48.3676328807978,6.0,5.0,-1.0
+2025-01-01,Aguascalientes,Derecho,Robo de vehículos,robos por mil vehículos,2.683071948987954,15.0,19.0,4.0
+2025-01-01,Aguascalientes,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,4.0,3.0
+2025-01-01,Aguascalientes,Infraestructura,Captación de ahorro,pesos por millón de PIB,53557.83624547994,10.0,10.0,0.0
+2025-01-01,Aguascalientes,Infraestructura,Carga aérea,kilos por mil hab.,236.5354515957221,22.0,21.0,-1.0
+2025-01-01,Aguascalientes,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,629.3618091930061,13.0,13.0,0.0
+2025-01-01,Aguascalientes,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,67.90028656665697,17.0,15.0,-2.0
+2025-01-01,Aguascalientes,Infraestructura,Terminales punto de venta,terminales por 10k adultos,173.073546551896,7.0,6.0,-1.0
+2025-01-01,Aguascalientes,Infraestructura,Uso de banca móvil,contratos por 10k adultos,7998.960641120319,16.0,16.0,0.0
+2025-01-01,Aguascalientes,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0202985659248309,23.0,24.0,1.0
+2025-01-01,Aguascalientes,Innovación y Economía,Diversificación económica,número de sectores presentes,794.0,21.0,21.0,0.0
+2025-01-01,Aguascalientes,Innovación y Economía,Patentes,patentes por 100k PEA,3.770750002175432,4.0,15.0,11.0
+2025-01-01,Aguascalientes,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1607789012521347,17.0,28.0,11.0
+2025-01-01,Aguascalientes,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0237868696479543,20.0,14.0,-6.0
+2025-01-01,Aguascalientes,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0107993483878216,15.0,11.0,-4.0
+2025-01-01,Aguascalientes,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,4.554531420949298,24.0,18.0,-6.0
+2025-01-01,Aguascalientes,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,1.579149222595089,20.0,18.0,-2.0
+2025-01-01,Aguascalientes,Mercado de trabajo,Grado de escolaridad,años promedio,10.48233,7.0,7.0,0.0
+2025-01-01,Aguascalientes,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.4068754543251757,26.0,26.0,0.0
+2025-01-01,Aguascalientes,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,11240.22785,14.0,19.0,5.0
+2025-01-01,Aguascalientes,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2980615459171311,5.0,6.0,1.0
+2025-01-01,Aguascalientes,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4099182327364913,17.0,8.0,-9.0
+2025-01-01,Aguascalientes,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0090773554860061,24.0,24.0,0.0
+2025-01-01,Aguascalientes,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2778894886527217,13.0,9.0,-4.0
+2025-01-01,Aguascalientes,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.5932266384930802,26.0,21.0,-5.0
+2025-01-01,Aguascalientes,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,13.98059783672498,22.0,22.0,0.0
+2025-01-01,Aguascalientes,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.26884902854797,9.0,14.0,5.0
+2025-01-01,Aguascalientes,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.0826247493595989,24.0,22.0,-2.0
+2025-01-01,Aguascalientes,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.1149118868603915,17.0,18.0,1.0
+2025-01-01,Aguascalientes,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.46,28.0,27.0,-1.0
+2025-01-01,Aguascalientes,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,75.3,28.0,28.0,0.0
+2025-01-01,Aguascalientes,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.5200766295129634,7.0,8.0,1.0
+2025-01-01,Aguascalientes,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.7051434957211057,16.0,15.0,-1.0
+2025-01-01,Aguascalientes,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,90.6,21.0,20.0,-1.0
+2025-01-01,Aguascalientes,Sociedad y Medio ambiente,Esperanza de vida,años,76.84080355,4.0,4.0,0.0
+2025-01-01,Aguascalientes,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,154.2506298258054,10.0,10.0,0.0
+2025-01-01,Aguascalientes,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.460607704297193,6.0,4.0,-2.0
+2025-01-01,Aguascalientes,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,3.557086234670971,12.0,10.0,-2.0
+2025-01-01,Baja California,Derecho,Agresiones a periodistas,casos por millón hab.,5.402920327554501,9.0,15.0,6.0
+2025-01-01,Baja California,Derecho,Competencia en servicios notariales,notarios por 100k hab.,2.1611681310218,21.0,23.0,2.0
+2025-01-01,Baja California,Derecho,Delitos no denunciados,porcentaje,0.8930305131761442,22.0,32.0,10.0
+2025-01-01,Baja California,Derecho,Homicidios,homicidios por 100k hab.,52.23641607594738,3.0,3.0,0.0
+2025-01-01,Baja California,Derecho,Incidencia delictiva,delitos por mil hab.,26.37509234082015,4.0,2.0,-2.0
+2025-01-01,Baja California,Derecho,Percepción de seguridad,porcentaje población 18+,24.3605658553222,16.0,14.0,-2.0
+2025-01-01,Baja California,Derecho,Robo de vehículos,robos por mil vehículos,5.762212420827317,4.0,4.0,0.0
+2025-01-01,Baja California,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,1.0,0.0
+2025-01-01,Baja California,Infraestructura,Captación de ahorro,pesos por millón de PIB,25536.3759475396,32.0,32.0,0.0
+2025-01-01,Baja California,Infraestructura,Carga aérea,kilos por mil hab.,10209.17700752873,8.0,9.0,1.0
+2025-01-01,Baja California,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,3343.647098926489,4.0,4.0,0.0
+2025-01-01,Baja California,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,65.74371689483364,19.0,21.0,2.0
+2025-01-01,Baja California,Infraestructura,Terminales punto de venta,terminales por 10k adultos,155.4189127880892,14.0,13.0,-1.0
+2025-01-01,Baja California,Infraestructura,Uso de banca móvil,contratos por 10k adultos,8786.131695969283,9.0,8.0,-1.0
+2025-01-01,Baja California,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0248600750538826,19.0,12.0,-7.0
+2025-01-01,Baja California,Innovación y Economía,Diversificación económica,número de sectores presentes,866.0,9.0,10.0,1.0
+2025-01-01,Baja California,Innovación y Economía,Patentes,patentes por 100k PEA,1.262219519730961,14.0,23.0,9.0
+2025-01-01,Baja California,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1521585107424719,18.0,18.0,0.0
+2025-01-01,Baja California,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0350991225219369,12.0,2.0,-10.0
+2025-01-01,Baja California,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,-0.0160910701879015,29.0,27.0,-2.0
+2025-01-01,Baja California,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,9.93199521666196,7.0,12.0,5.0
+2025-01-01,Baja California,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,0.2594102137017995,31.0,26.0,-5.0
+2025-01-01,Baja California,Mercado de trabajo,Grado de escolaridad,años promedio,10.53828,6.0,3.0,-3.0
+2025-01-01,Baja California,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.364443464068696,28.0,30.0,2.0
+2025-01-01,Baja California,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,14771.24012,3.0,2.0,-1.0
+2025-01-01,Baja California,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2490348721032764,16.0,20.0,4.0
+2025-01-01,Baja California,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4030667544000698,21.0,18.0,-3.0
+2025-01-01,Baja California,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0043431327300655,32.0,32.0,0.0
+2025-01-01,Baja California,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2841682681241951,11.0,8.0,-3.0
+2025-01-01,Baja California,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6016884511447418,19.0,16.0,-3.0
+2025-01-01,Baja California,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,10.40826983665164,31.0,31.0,0.0
+2025-01-01,Baja California,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,10.93767289703641,23.0,22.0,-1.0
+2025-01-01,Baja California,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.2508658932706606,7.0,8.0,1.0
+2025-01-01,Baja California,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.1902012733232485,6.0,4.0,-2.0
+2025-01-01,Baja California,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.38,32.0,31.0,-1.0
+2025-01-01,Baja California,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,86.7,8.0,8.0,0.0
+2025-01-01,Baja California,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.5675002806670342,4.0,4.0,0.0
+2025-01-01,Baja California,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.6397548842399762,19.0,21.0,2.0
+2025-01-01,Baja California,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,96.0,7.0,8.0,1.0
+2025-01-01,Baja California,Sociedad y Medio ambiente,Esperanza de vida,años,76.57153805,8.0,8.0,0.0
+2025-01-01,Baja California,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,106.1843299592915,27.0,30.0,3.0
+2025-01-01,Baja California,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,0.952633088662905,22.0,20.0,-2.0
+2025-01-01,Baja California,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,2.367707039906952,31.0,31.0,0.0
+2025-01-01,Baja California Sur,Derecho,Agresiones a periodistas,casos por millón hab.,4.514417922239152,14.0,11.0,-3.0
+2025-01-01,Baja California Sur,Derecho,Competencia en servicios notariales,notarios por 100k hab.,3.611534337791321,11.0,9.0,-2.0
+2025-01-01,Baja California Sur,Derecho,Delitos no denunciados,porcentaje,0.8734819734345352,29.0,16.0,-13.0
+2025-01-01,Baja California Sur,Derecho,Homicidios,homicidios por 100k hab.,7.223068675582642,28.0,31.0,3.0
+2025-01-01,Baja California Sur,Derecho,Incidencia delictiva,delitos por mil hab.,28.2151120139947,2.0,6.0,4.0
+2025-01-01,Baja California Sur,Derecho,Percepción de seguridad,porcentaje población 18+,67.679418983686,2.0,1.0,-1.0
+2025-01-01,Baja California Sur,Derecho,Robo de vehículos,robos por mil vehículos,1.10022149195825,26.0,27.0,1.0
+2025-01-01,Baja California Sur,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,8.0,7.0
+2025-01-01,Baja California Sur,Infraestructura,Captación de ahorro,pesos por millón de PIB,33086.1859922322,27.0,31.0,4.0
+2025-01-01,Baja California Sur,Infraestructura,Carga aérea,kilos por mil hab.,6086.261497658146,11.0,10.0,-1.0
+2025-01-01,Baja California Sur,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,10035.68534507082,2.0,2.0,0.0
+2025-01-01,Baja California Sur,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,173.6922295581514,6.0,7.0,1.0
+2025-01-01,Baja California Sur,Infraestructura,Terminales punto de venta,terminales por 10k adultos,294.4441905143853,2.0,2.0,0.0
+2025-01-01,Baja California Sur,Infraestructura,Uso de banca móvil,contratos por 10k adultos,9436.23595050035,4.0,5.0,1.0
+2025-01-01,Baja California Sur,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0298866866230988,14.0,5.0,-9.0
+2025-01-01,Baja California Sur,Innovación y Economía,Diversificación económica,número de sectores presentes,692.0,31.0,31.0,0.0
+2025-01-01,Baja California Sur,Innovación y Economía,Patentes,patentes por 100k PEA,0.6238290209419401,23.0,14.0,-9.0
+2025-01-01,Baja California Sur,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1361627793042962,25.0,2.0,-23.0
+2025-01-01,Baja California Sur,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0276967930029155,18.0,32.0,14.0
+2025-01-01,Baja California Sur,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,-0.0053195872513024,26.0,7.0,-19.0
+2025-01-01,Baja California Sur,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,1.816555903049257,32.0,32.0,0.0
+2025-01-01,Baja California Sur,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,4.024263464083477,10.0,11.0,1.0
+2025-01-01,Baja California Sur,Mercado de trabajo,Grado de escolaridad,años promedio,10.65142,3.0,4.0,1.0
+2025-01-01,Baja California Sur,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.3551730022611886,30.0,28.0,-2.0
+2025-01-01,Baja California Sur,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,15825.30777,2.0,1.0,-1.0
+2025-01-01,Baja California Sur,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.223906736635522,24.0,22.0,-2.0
+2025-01-01,Baja California Sur,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4052310142836051,20.0,22.0,2.0
+2025-01-01,Baja California Sur,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0081991927652469,28.0,25.0,-3.0
+2025-01-01,Baja California Sur,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.3069287216144183,5.0,7.0,2.0
+2025-01-01,Baja California Sur,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6962586851177006,1.0,1.0,0.0
+2025-01-01,Baja California Sur,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,18.55738253998334,7.0,7.0,0.0
+2025-01-01,Baja California Sur,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.54900645367764,3.0,7.0,4.0
+2025-01-01,Baja California Sur,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.0640706097793826,26.0,26.0,0.0
+2025-01-01,Baja California Sur,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.1274922701737833,13.0,13.0,0.0
+2025-01-01,Baja California Sur,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.49,24.0,23.0,-1.0
+2025-01-01,Baja California Sur,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,73.7,30.0,30.0,0.0
+2025-01-01,Baja California Sur,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.5659989760655318,5.0,5.0,0.0
+2025-01-01,Baja California Sur,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,1.006715196659331,2.0,3.0,1.0
+2025-01-01,Baja California Sur,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,96.1,6.0,6.0,0.0
+2025-01-01,Baja California Sur,Sociedad y Medio ambiente,Esperanza de vida,años,77.17990941,2.0,2.0,0.0
+2025-01-01,Baja California Sur,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,171.7950454263303,7.0,6.0,-1.0
+2025-01-01,Baja California Sur,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.538287907002991,3.0,3.0,0.0
+2025-01-01,Baja California Sur,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,3.713108741041702,9.0,9.0,0.0
+2025-01-01,Campeche,Derecho,Agresiones a periodistas,casos por millón hab.,3.142483336982106,19.0,6.0,-13.0
+2025-01-01,Campeche,Derecho,Competencia en servicios notariales,notarios por 100k hab.,4.713725005473159,4.0,5.0,1.0
+2025-01-01,Campeche,Derecho,Delitos no denunciados,porcentaje,0.8595237779926104,32.0,31.0,-1.0
+2025-01-01,Campeche,Derecho,Homicidios,homicidios por 100k hab.,10.57969390117309,21.0,18.0,-3.0
+2025-01-01,Campeche,Derecho,Incidencia delictiva,delitos por mil hab.,13.02454593734517,19.0,4.0,-15.0
+2025-01-01,Campeche,Derecho,Percepción de seguridad,porcentaje población 18+,35.7065442088477,10.0,10.0,0.0
+2025-01-01,Campeche,Derecho,Robo de vehículos,robos por mil vehículos,0.7749105224555592,30.0,24.0,-6.0
+2025-01-01,Campeche,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,20.0,19.0
+2025-01-01,Campeche,Infraestructura,Captación de ahorro,pesos por millón de PIB,32313.23060724199,28.0,26.0,-2.0
+2025-01-01,Campeche,Infraestructura,Carga aérea,kilos por mil hab.,772.5020138080719,16.0,16.0,0.0
+2025-01-01,Campeche,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,473.6340410554973,17.0,17.0,0.0
+2025-01-01,Campeche,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,72.06761786145628,15.0,10.0,-5.0
+2025-01-01,Campeche,Infraestructura,Terminales punto de venta,terminales por 10k adultos,100.9879619020139,20.0,16.0,-4.0
+2025-01-01,Campeche,Infraestructura,Uso de banca móvil,contratos por 10k adultos,8666.945030920628,11.0,12.0,1.0
+2025-01-01,Campeche,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,-0.0018890063249398,32.0,32.0,0.0
+2025-01-01,Campeche,Innovación y Economía,Diversificación económica,número de sectores presentes,671.0,32.0,32.0,0.0
+2025-01-01,Campeche,Innovación y Economía,Patentes,patentes por 100k PEA,1.126012003287955,17.0,18.0,1.0
+2025-01-01,Campeche,Mercado de trabajo,Brecha de ingresos por género,proporción,0.0599045809001399,30.0,26.0,-4.0
+2025-01-01,Campeche,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,-0.0135363790186126,29.0,18.0,-11.0
+2025-01-01,Campeche,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,-0.042040726954237,31.0,18.0,-13.0
+2025-01-01,Campeche,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,5.360669725509136,21.0,19.0,-2.0
+2025-01-01,Campeche,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,0.8464522613357617,26.0,10.0,-16.0
+2025-01-01,Campeche,Mercado de trabajo,Grado de escolaridad,años promedio,9.600819,22.0,21.0,-1.0
+2025-01-01,Campeche,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.5979277967394151,12.0,13.0,1.0
+2025-01-01,Campeche,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,10515.86988,18.0,16.0,-2.0
+2025-01-01,Campeche,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2841068303237157,8.0,7.0,-1.0
+2025-01-01,Campeche,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.3828936256460494,29.0,29.0,0.0
+2025-01-01,Campeche,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0422547264353838,5.0,6.0,1.0
+2025-01-01,Campeche,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.252241993129292,18.0,19.0,1.0
+2025-01-01,Campeche,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6105289064390523,13.0,18.0,5.0
+2025-01-01,Campeche,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,16.53597395066685,11.0,11.0,0.0
+2025-01-01,Campeche,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.19852978120128,15.0,20.0,5.0
+2025-01-01,Campeche,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.0736742526708233,25.0,25.0,0.0
+2025-01-01,Campeche,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.1453306944529833,9.0,11.0,2.0
+2025-01-01,Campeche,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.63,5.0,8.0,3.0
+2025-01-01,Campeche,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,76.9,26.0,26.0,0.0
+2025-01-01,Campeche,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.3536756227864266,20.0,20.0,0.0
+2025-01-01,Campeche,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.8861803010289538,7.0,6.0,-1.0
+2025-01-01,Campeche,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,90.1,23.0,27.0,4.0
+2025-01-01,Campeche,Sociedad y Medio ambiente,Esperanza de vida,años,74.49600133,21.0,21.0,0.0
+2025-01-01,Campeche,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,181.5391673885649,4.0,5.0,1.0
+2025-01-01,Campeche,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.406785040522323,7.0,6.0,-1.0
+2025-01-01,Campeche,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,4.561838310852357,3.0,4.0,1.0
+2025-01-01,Chiapas,Derecho,Agresiones a periodistas,casos por millón hab.,1.658882636375912,25.0,23.0,-2.0
+2025-01-01,Chiapas,Derecho,Competencia en servicios notariales,notarios por 100k hab.,2.139958600924927,22.0,22.0,0.0
+2025-01-01,Chiapas,Derecho,Delitos no denunciados,porcentaje,0.9198284564594668,4.0,6.0,2.0
+2025-01-01,Chiapas,Derecho,Homicidios,homicidios por 100k hab.,11.51264549644883,20.0,24.0,4.0
+2025-01-01,Chiapas,Derecho,Incidencia delictiva,delitos por mil hab.,2.273498653153188,31.0,31.0,0.0
+2025-01-01,Chiapas,Derecho,Percepción de seguridad,porcentaje población 18+,19.7219896202107,22.0,13.0,-9.0
+2025-01-01,Chiapas,Derecho,Robo de vehículos,robos por mil vehículos,1.536170069453573,24.0,29.0,5.0
+2025-01-01,Chiapas,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,32.0,31.0
+2025-01-01,Chiapas,Infraestructura,Captación de ahorro,pesos por millón de PIB,48037.23864851292,17.0,17.0,0.0
+2025-01-01,Chiapas,Infraestructura,Carga aérea,kilos por mil hab.,276.9896057731769,21.0,22.0,1.0
+2025-01-01,Chiapas,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,383.7216169328123,19.0,19.0,0.0
+2025-01-01,Chiapas,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,15.26172025465839,32.0,32.0,0.0
+2025-01-01,Chiapas,Infraestructura,Terminales punto de venta,terminales por 10k adultos,49.13557154900055,31.0,31.0,0.0
+2025-01-01,Chiapas,Infraestructura,Uso de banca móvil,contratos por 10k adultos,5578.465703577088,31.0,31.0,0.0
+2025-01-01,Chiapas,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0324338783554733,10.0,16.0,6.0
+2025-01-01,Chiapas,Innovación y Economía,Diversificación económica,número de sectores presentes,808.0,20.0,20.0,0.0
+2025-01-01,Chiapas,Innovación y Economía,Patentes,patentes por 100k PEA,0.3138954333595511,28.0,22.0,-6.0
+2025-01-01,Chiapas,Mercado de trabajo,Brecha de ingresos por género,proporción,0.0005379837338534,32.0,30.0,-2.0
+2025-01-01,Chiapas,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0223076923076923,21.0,21.0,0.0
+2025-01-01,Chiapas,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0392054550844944,4.0,6.0,2.0
+2025-01-01,Chiapas,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,13.28341427364865,2.0,4.0,2.0
+2025-01-01,Chiapas,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,5.456199008277984,4.0,8.0,4.0
+2025-01-01,Chiapas,Mercado de trabajo,Grado de escolaridad,años promedio,7.561088,32.0,32.0,0.0
+2025-01-01,Chiapas,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.7608078813858205,3.0,3.0,0.0
+2025-01-01,Chiapas,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,7058.723503,32.0,32.0,0.0
+2025-01-01,Chiapas,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2479716281820748,17.0,14.0,-3.0
+2025-01-01,Chiapas,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.3031759043103224,32.0,32.0,0.0
+2025-01-01,Chiapas,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.1251962967513616,1.0,1.0,0.0
+2025-01-01,Chiapas,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.1552796070285321,31.0,31.0,0.0
+2025-01-01,Chiapas,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.5375047091033506,32.0,30.0,-2.0
+2025-01-01,Chiapas,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,12.00932388408883,26.0,26.0,0.0
+2025-01-01,Chiapas,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,9.188218733364094,30.0,29.0,-1.0
+2025-01-01,Chiapas,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.1427753703799964,19.0,20.0,1.0
+2025-01-01,Chiapas,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.0571215909142856,30.0,20.0,-10.0
+2025-01-01,Chiapas,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.5966948639901266,8.0,4.0,-4.0
+2025-01-01,Chiapas,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,88.3,1.0,1.0,0.0
+2025-01-01,Chiapas,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.1722102196912968,31.0,30.0,-1.0
+2025-01-01,Chiapas,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.3994589388393196,32.0,32.0,0.0
+2025-01-01,Chiapas,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,82.4,32.0,32.0,0.0
+2025-01-01,Chiapas,Sociedad y Medio ambiente,Esperanza de vida,años,72.99433557,32.0,32.0,0.0
+2025-01-01,Chiapas,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,91.50413211075896,32.0,32.0,0.0
+2025-01-01,Chiapas,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,0.5636883198405349,32.0,32.0,0.0
+2025-01-01,Chiapas,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,2.91581800995794,22.0,21.0,-1.0
+2025-01-01,Chihuahua,Derecho,Agresiones a periodistas,casos por millón hab.,2.752405602496582,22.0,24.0,2.0
+2025-01-01,Chihuahua,Derecho,Competencia en servicios notariales,notarios por 100k hab.,1.801574576179581,26.0,25.0,-1.0
+2025-01-01,Chihuahua,Derecho,Delitos no denunciados,porcentaje,0.8967485958540158,18.0,25.0,7.0
+2025-01-01,Chihuahua,Derecho,Homicidios,homicidios por 100k hab.,43.28783356653715,4.0,4.0,0.0
+2025-01-01,Chihuahua,Derecho,Incidencia delictiva,delitos por mil hab.,19.71072717555143,12.0,13.0,1.0
+2025-01-01,Chihuahua,Derecho,Percepción de seguridad,porcentaje población 18+,24.5662852346407,15.0,23.0,8.0
+2025-01-01,Chihuahua,Derecho,Robo de vehículos,robos por mil vehículos,2.259241298140843,18.0,18.0,0.0
+2025-01-01,Chihuahua,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,12.0,11.0
+2025-01-01,Chihuahua,Infraestructura,Captación de ahorro,pesos por millón de PIB,44039.38177394321,20.0,23.0,3.0
+2025-01-01,Chihuahua,Infraestructura,Carga aérea,kilos por mil hab.,4085.192207989784,12.0,12.0,0.0
+2025-01-01,Chihuahua,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,999.0967105249988,9.0,9.0,0.0
+2025-01-01,Chihuahua,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,175.3532587481459,5.0,5.0,0.0
+2025-01-01,Chihuahua,Infraestructura,Terminales punto de venta,terminales por 10k adultos,156.290094524888,13.0,10.0,-3.0
+2025-01-01,Chihuahua,Infraestructura,Uso de banca móvil,contratos por 10k adultos,8366.549056060328,13.0,14.0,1.0
+2025-01-01,Chihuahua,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0385184543353636,8.0,7.0,-1.0
+2025-01-01,Chihuahua,Innovación y Economía,Diversificación económica,número de sectores presentes,866.0,9.0,12.0,3.0
+2025-01-01,Chihuahua,Innovación y Economía,Patentes,patentes por 100k PEA,1.829610524350233,10.0,10.0,0.0
+2025-01-01,Chihuahua,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1464448079986538,23.0,25.0,2.0
+2025-01-01,Chihuahua,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0132968322252639,23.0,6.0,-17.0
+2025-01-01,Chihuahua,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,-0.0019423935661311,23.0,29.0,6.0
+2025-01-01,Chihuahua,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,4.784772783146429,23.0,22.0,-1.0
+2025-01-01,Chihuahua,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,4.814565166374019,8.0,6.0,-2.0
+2025-01-01,Chihuahua,Mercado de trabajo,Grado de escolaridad,años promedio,10.17789,14.0,13.0,-1.0
+2025-01-01,Chihuahua,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.3590814265464523,29.0,31.0,2.0
+2025-01-01,Chihuahua,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,12747.33603,5.0,5.0,0.0
+2025-01-01,Chihuahua,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.190952421741377,29.0,28.0,-1.0
+2025-01-01,Chihuahua,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4089846791643416,18.0,25.0,7.0
+2025-01-01,Chihuahua,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0068605013455709,31.0,31.0,0.0
+2025-01-01,Chihuahua,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2853549581627814,10.0,13.0,3.0
+2025-01-01,Chihuahua,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6158557965015586,10.0,7.0,-3.0
+2025-01-01,Chihuahua,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,13.09992277581281,23.0,23.0,0.0
+2025-01-01,Chihuahua,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,9.690704265056532,29.0,28.0,-1.0
+2025-01-01,Chihuahua,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.4890020082014165,3.0,3.0,0.0
+2025-01-01,Chihuahua,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.2150590266153337,3.0,3.0,0.0
+2025-01-01,Chihuahua,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.46,28.0,27.0,-1.0
+2025-01-01,Chihuahua,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,84.0,13.0,13.0,0.0
+2025-01-01,Chihuahua,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.5799209193471287,3.0,3.0,0.0
+2025-01-01,Chihuahua,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.8047033106935462,12.0,14.0,2.0
+2025-01-01,Chihuahua,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,89.7,25.0,19.0,-6.0
+2025-01-01,Chihuahua,Sociedad y Medio ambiente,Esperanza de vida,años,76.63165373,7.0,7.0,0.0
+2025-01-01,Chihuahua,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,137.1974105368092,17.0,20.0,3.0
+2025-01-01,Chihuahua,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.090202837279783,15.0,14.0,-1.0
+2025-01-01,Chihuahua,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,3.314396782788157,15.0,14.0,-1.0
+2025-01-01,Ciudad de México,Derecho,Agresiones a periodistas,casos por millón hab.,18.47019421300567,1.0,4.0,3.0
+2025-01-01,Ciudad de México,Derecho,Competencia en servicios notariales,notarios por 100k hab.,2.379395607440142,19.0,19.0,0.0
+2025-01-01,Ciudad de México,Derecho,Delitos no denunciados,porcentaje,0.8993216825716683,16.0,17.0,1.0
+2025-01-01,Ciudad de México,Derecho,Homicidios,homicidios por 100k hab.,9.571906530387054,25.0,23.0,-2.0
+2025-01-01,Ciudad de México,Derecho,Incidencia delictiva,delitos por mil hab.,24.16140429103898,6.0,7.0,1.0
+2025-01-01,Ciudad de México,Derecho,Percepción de seguridad,porcentaje población 18+,23.1496069612337,18.0,25.0,7.0
+2025-01-01,Ciudad de México,Derecho,Robo de vehículos,robos por mil vehículos,1.020851938549769,27.0,30.0,3.0
+2025-01-01,Ciudad de México,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,2.0,1.0
+2025-01-01,Ciudad de México,Infraestructura,Captación de ahorro,pesos por millón de PIB,173530.5074487689,1.0,1.0,0.0
+2025-01-01,Ciudad de México,Infraestructura,Carga aérea,kilos por mil hab.,26079.35175702612,3.0,1.0,-2.0
+2025-01-01,Ciudad de México,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,4928.226455011279,3.0,3.0,0.0
+2025-01-01,Ciudad de México,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,24.27200815991451,29.0,29.0,0.0
+2025-01-01,Ciudad de México,Infraestructura,Terminales punto de venta,terminales por 10k adultos,378.8569457844757,1.0,1.0,0.0
+2025-01-01,Ciudad de México,Infraestructura,Uso de banca móvil,contratos por 10k adultos,30167.35138503087,1.0,1.0,0.0
+2025-01-01,Ciudad de México,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0315383630082792,12.0,8.0,-4.0
+2025-01-01,Ciudad de México,Innovación y Economía,Diversificación económica,número de sectores presentes,943.0,1.0,1.0,0.0
+2025-01-01,Ciudad de México,Innovación y Economía,Patentes,patentes por 100k PEA,4.708927459364899,2.0,2.0,0.0
+2025-01-01,Ciudad de México,Mercado de trabajo,Brecha de ingresos por género,proporción,0.2783196469172128,1.0,32.0,31.0
+2025-01-01,Ciudad de México,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,-0.0410114942528735,32.0,30.0,-2.0
+2025-01-01,Ciudad de México,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0015916173094499,19.0,24.0,5.0
+2025-01-01,Ciudad de México,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,2.878290204910117,30.0,25.0,-5.0
+2025-01-01,Ciudad de México,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,2.153744036779464,17.0,29.0,12.0
+2025-01-01,Ciudad de México,Mercado de trabajo,Grado de escolaridad,años promedio,11.76504,1.0,1.0,0.0
+2025-01-01,Ciudad de México,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.4525893049408802,22.0,22.0,0.0
+2025-01-01,Ciudad de México,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,16487.05855,1.0,4.0,3.0
+2025-01-01,Ciudad de México,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.293677933835298,6.0,8.0,2.0
+2025-01-01,Ciudad de México,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4681507767179639,1.0,1.0,0.0
+2025-01-01,Ciudad de México,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0086869901359742,26.0,17.0,-9.0
+2025-01-01,Ciudad de México,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.4471413402140822,1.0,1.0,0.0
+2025-01-01,Ciudad de México,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6345727794319165,6.0,8.0,2.0
+2025-01-01,Ciudad de México,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,22.03997221082967,2.0,2.0,0.0
+2025-01-01,Ciudad de México,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,8.821833529634645,31.0,30.0,-1.0
+2025-01-01,Ciudad de México,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.3709903536807674,5.0,5.0,0.0
+2025-01-01,Ciudad de México,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.4226423446919361,1.0,1.0,0.0
+2025-01-01,Ciudad de México,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.6983088612410289,1.0,3.0,2.0
+2025-01-01,Ciudad de México,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,87.7,4.0,4.0,0.0
+2025-01-01,Ciudad de México,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.4874243916909824,10.0,10.0,0.0
+2025-01-01,Ciudad de México,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,1.715011856778203,1.0,1.0,0.0
+2025-01-01,Ciudad de México,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,112.5,1.0,1.0,0.0
+2025-01-01,Ciudad de México,Sociedad y Medio ambiente,Esperanza de vida,años,76.81275066,5.0,5.0,0.0
+2025-01-01,Ciudad de México,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,149.4400597652025,11.0,12.0,1.0
+2025-01-01,Ciudad de México,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,2.580612076160651,1.0,1.0,0.0
+2025-01-01,Ciudad de México,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,5.881561726628522,1.0,1.0,0.0
+2025-01-01,Coahuila,Derecho,Agresiones a periodistas,casos por millón hab.,4.167918282603317,18.0,7.0,-11.0
+2025-01-01,Coahuila,Derecho,Competencia en servicios notariales,notarios por 100k hab.,6.877065166295474,1.0,1.0,0.0
+2025-01-01,Coahuila,Derecho,Delitos no denunciados,porcentaje,0.8728534007835838,30.0,24.0,-6.0
+2025-01-01,Coahuila,Derecho,Homicidios,homicidios por 100k hab.,3.721355609467247,31.0,30.0,-1.0
+2025-01-01,Coahuila,Derecho,Incidencia delictiva,delitos por mil hab.,18.34985565605862,13.0,14.0,1.0
+2025-01-01,Coahuila,Derecho,Percepción de seguridad,porcentaje población 18+,60.000786138209,3.0,3.0,0.0
+2025-01-01,Coahuila,Derecho,Robo de vehículos,robos por mil vehículos,0.4162839950563336,31.0,31.0,0.0
+2025-01-01,Coahuila,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,10.0,9.0
+2025-01-01,Coahuila,Infraestructura,Captación de ahorro,pesos por millón de PIB,40774.05884152783,22.0,24.0,2.0
+2025-01-01,Coahuila,Infraestructura,Carga aérea,kilos por mil hab.,365.0599242451081,18.0,18.0,0.0
+2025-01-01,Coahuila,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,243.0578111105389,25.0,26.0,1.0
+2025-01-01,Coahuila,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,105.4781033947397,10.0,11.0,1.0
+2025-01-01,Coahuila,Infraestructura,Terminales punto de venta,terminales por 10k adultos,156.4981326678348,12.0,8.0,-4.0
+2025-01-01,Coahuila,Infraestructura,Uso de banca móvil,contratos por 10k adultos,8870.5329645681,7.0,7.0,0.0
+2025-01-01,Coahuila,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0006378112400515,31.0,21.0,-10.0
+2025-01-01,Coahuila,Innovación y Economía,Diversificación económica,número de sectores presentes,862.0,11.0,9.0,-2.0
+2025-01-01,Coahuila,Innovación y Economía,Patentes,patentes por 100k PEA,1.206118703663617,15.0,8.0,-7.0
+2025-01-01,Coahuila,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1882923490855575,9.0,20.0,11.0
+2025-01-01,Coahuila,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0350951374207189,13.0,29.0,16.0
+2025-01-01,Coahuila,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0069570393193515,17.0,13.0,-4.0
+2025-01-01,Coahuila,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,4.116163564651637,26.0,27.0,1.0
+2025-01-01,Coahuila,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,5.611232189842063,3.0,15.0,12.0
+2025-01-01,Coahuila,Mercado de trabajo,Grado de escolaridad,años promedio,10.42158,8.0,8.0,0.0
+2025-01-01,Coahuila,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.3462728774889152,32.0,32.0,0.0
+2025-01-01,Coahuila,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,12355.72798,6.0,6.0,0.0
+2025-01-01,Coahuila,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2366960385974324,18.0,25.0,7.0
+2025-01-01,Coahuila,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.3958519673383055,26.0,27.0,1.0
+2025-01-01,Coahuila,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.012216712869477,21.0,19.0,-2.0
+2025-01-01,Coahuila,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2869782942960912,9.0,5.0,-4.0
+2025-01-01,Coahuila,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.610940769847709,11.0,20.0,9.0
+2025-01-01,Coahuila,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,10.87283625289382,30.0,30.0,0.0
+2025-01-01,Coahuila,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.30211773705661,7.0,4.0,-3.0
+2025-01-01,Coahuila,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.5185885433144369,2.0,1.0,-1.0
+2025-01-01,Coahuila,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.1740006208254936,7.0,7.0,0.0
+2025-01-01,Coahuila,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.57,13.0,12.0,-1.0
+2025-01-01,Coahuila,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,77.6,23.0,23.0,0.0
+2025-01-01,Coahuila,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.6041855829185832,2.0,1.0,-1.0
+2025-01-01,Coahuila,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.915453479928943,5.0,5.0,0.0
+2025-01-01,Coahuila,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,90.0,24.0,25.0,1.0
+2025-01-01,Coahuila,Sociedad y Medio ambiente,Esperanza de vida,años,77.0827254,3.0,3.0,0.0
+2025-01-01,Coahuila,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,131.9533157427335,20.0,23.0,3.0
+2025-01-01,Coahuila,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.27597841137413,10.0,10.0,0.0
+2025-01-01,Coahuila,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,3.180419358075089,18.0,16.0,-2.0
+2025-01-01,Colima,Derecho,Agresiones a periodistas,casos por millón hab.,7.870018769994766,7.0,5.0,-2.0
+2025-01-01,Colima,Derecho,Competencia en servicios notariales,notarios por 100k hab.,3.541508446497645,13.0,13.0,0.0
+2025-01-01,Colima,Derecho,Delitos no denunciados,porcentaje,0.8746690516664396,28.0,28.0,0.0
+2025-01-01,Colima,Derecho,Homicidios,homicidios por 100k hab.,99.16223650193406,1.0,1.0,0.0
+2025-01-01,Colima,Derecho,Incidencia delictiva,delitos por mil hab.,33.21803755835291,1.0,1.0,0.0
+2025-01-01,Colima,Derecho,Percepción de seguridad,porcentaje población 18+,18.0392782601359,25.0,26.0,1.0
+2025-01-01,Colima,Derecho,Robo de vehículos,robos por mil vehículos,2.77333720873904,14.0,16.0,2.0
+2025-01-01,Colima,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,7.0,6.0
+2025-01-01,Colima,Infraestructura,Captación de ahorro,pesos por millón de PIB,45606.84996203178,19.0,16.0,-3.0
+2025-01-01,Colima,Infraestructura,Carga aérea,kilos por mil hab.,3.857620867092435,26.0,28.0,2.0
+2025-01-01,Colima,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,562.6407585648759,15.0,16.0,1.0
+2025-01-01,Colima,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,236.4940640383427,1.0,1.0,0.0
+2025-01-01,Colima,Infraestructura,Terminales punto de venta,terminales por 10k adultos,163.2166675630614,9.0,7.0,-2.0
+2025-01-01,Colima,Infraestructura,Uso de banca móvil,contratos por 10k adultos,8351.983945570913,14.0,13.0,-1.0
+2025-01-01,Colima,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0245169326805789,20.0,31.0,11.0
+2025-01-01,Colima,Innovación y Economía,Diversificación económica,número de sectores presentes,711.0,30.0,30.0,0.0
+2025-01-01,Colima,Innovación y Economía,Patentes,patentes por 100k PEA,2.082899395959175,6.0,28.0,22.0
+2025-01-01,Colima,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1881469546235462,10.0,1.0,-9.0
+2025-01-01,Colima,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.026070763500931,19.0,11.0,-8.0
+2025-01-01,Colima,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0177185386196301,8.0,20.0,12.0
+2025-01-01,Colima,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,3.430655974760089,29.0,29.0,0.0
+2025-01-01,Colima,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,1.911606224250767,19.0,1.0,-18.0
+2025-01-01,Colima,Mercado de trabajo,Grado de escolaridad,años promedio,10.54597,5.0,9.0,4.0
+2025-01-01,Colima,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.467098913872256,21.0,19.0,-2.0
+2025-01-01,Colima,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,12231.52443,8.0,10.0,2.0
+2025-01-01,Colima,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.236620687081105,19.0,19.0,0.0
+2025-01-01,Colima,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.444797958758592,2.0,2.0,0.0
+2025-01-01,Colima,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0097557800458237,23.0,22.0,-1.0
+2025-01-01,Colima,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.3169780510896283,3.0,4.0,1.0
+2025-01-01,Colima,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6690007141488565,2.0,2.0,0.0
+2025-01-01,Colima,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,15.28434147704494,18.0,18.0,0.0
+2025-01-01,Colima,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.39123138624115,5.0,25.0,20.0
+2025-01-01,Colima,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.1819957617405948,13.0,14.0,1.0
+2025-01-01,Colima,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.0818547780981358,25.0,25.0,0.0
+2025-01-01,Colima,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.53,16.0,14.0,-2.0
+2025-01-01,Colima,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,74.5,29.0,29.0,0.0
+2025-01-01,Colima,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.4498952262632833,13.0,15.0,2.0
+2025-01-01,Colima,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.9194805262943886,4.0,4.0,0.0
+2025-01-01,Colima,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,90.9,20.0,21.0,1.0
+2025-01-01,Colima,Sociedad y Medio ambiente,Esperanza de vida,años,76.16063803,10.0,10.0,0.0
+2025-01-01,Colima,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,167.9055387880433,8.0,4.0,-4.0
+2025-01-01,Colima,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.694677375138873,2.0,2.0,0.0
+2025-01-01,Colima,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,4.492469047872013,4.0,5.0,1.0
+2025-01-01,Durango,Derecho,Agresiones a periodistas,casos por millón hab.,4.180221907079937,17.0,25.0,8.0
+2025-01-01,Durango,Derecho,Competencia en servicios notariales,notarios por 100k hab.,2.090110953539969,23.0,20.0,-3.0
+2025-01-01,Durango,Derecho,Delitos no denunciados,porcentaje,0.8924396308097785,24.0,29.0,5.0
+2025-01-01,Durango,Derecho,Homicidios,homicidios por 100k hab.,3.918958037887441,30.0,29.0,-1.0
+2025-01-01,Durango,Derecho,Incidencia delictiva,delitos por mil hab.,10.37635582884917,24.0,21.0,-3.0
+2025-01-01,Durango,Derecho,Percepción de seguridad,porcentaje población 18+,51.8181604672358,5.0,6.0,1.0
+2025-01-01,Durango,Derecho,Robo de vehículos,robos por mil vehículos,0.9947834526264708,28.0,28.0,0.0
+2025-01-01,Durango,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,23.0,22.0
+2025-01-01,Durango,Infraestructura,Captación de ahorro,pesos por millón de PIB,35363.3921895921,25.0,27.0,2.0
+2025-01-01,Durango,Infraestructura,Carga aérea,kilos por mil hab.,119.1478199620227,24.0,24.0,0.0
+2025-01-01,Durango,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,278.7690709561317,23.0,22.0,-1.0
+2025-01-01,Durango,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,179.5927836829218,4.0,3.0,-1.0
+2025-01-01,Durango,Infraestructura,Terminales punto de venta,terminales por 10k adultos,109.3306395874315,17.0,23.0,6.0
+2025-01-01,Durango,Infraestructura,Uso de banca móvil,contratos por 10k adultos,7396.990802275506,21.0,22.0,1.0
+2025-01-01,Durango,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0261935618251145,16.0,27.0,11.0
+2025-01-01,Durango,Innovación y Economía,Diversificación económica,número de sectores presentes,763.0,23.0,22.0,-1.0
+2025-01-01,Durango,Innovación y Economía,Patentes,patentes por 100k PEA,0.2287238239878685,29.0,31.0,2.0
+2025-01-01,Durango,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1472190550672007,22.0,22.0,0.0
+2025-01-01,Durango,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0306930693069306,16.0,7.0,-9.0
+2025-01-01,Durango,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0001559162417949,21.0,30.0,9.0
+2025-01-01,Durango,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,7.581508271381689,13.0,16.0,3.0
+2025-01-01,Durango,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,5.140445843300434,5.0,31.0,26.0
+2025-01-01,Durango,Mercado de trabajo,Grado de escolaridad,años promedio,10.0767,15.0,16.0,1.0
+2025-01-01,Durango,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.4965019252419561,18.0,18.0,0.0
+2025-01-01,Durango,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,9807.965499,22.0,22.0,0.0
+2025-01-01,Durango,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2216949224699861,25.0,26.0,1.0
+2025-01-01,Durango,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4177617772756019,9.0,24.0,15.0
+2025-01-01,Durango,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0248657105248411,11.0,10.0,-1.0
+2025-01-01,Durango,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2617934616559731,14.0,20.0,6.0
+2025-01-01,Durango,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6107918905401742,12.0,19.0,7.0
+2025-01-01,Durango,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,20.17128310135864,4.0,4.0,0.0
+2025-01-01,Durango,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.65218672120578,2.0,2.0,0.0
+2025-01-01,Durango,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.2120130889620751,9.0,10.0,1.0
+2025-01-01,Durango,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.1245444237037884,15.0,16.0,1.0
+2025-01-01,Durango,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.51,20.0,19.0,-1.0
+2025-01-01,Durango,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,85.6,11.0,11.0,0.0
+2025-01-01,Durango,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.4492649076167681,14.0,14.0,0.0
+2025-01-01,Durango,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.8553779077362322,8.0,8.0,0.0
+2025-01-01,Durango,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,92.0,17.0,18.0,1.0
+2025-01-01,Durango,Sociedad y Medio ambiente,Esperanza de vida,años,75.52452891,16.0,16.0,0.0
+2025-01-01,Durango,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,147.6360322587725,12.0,13.0,1.0
+2025-01-01,Durango,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.190318188041012,11.0,11.0,0.0
+2025-01-01,Durango,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,3.215113174282857,17.0,15.0,-2.0
+2025-01-01,Guanajuato,Derecho,Agresiones a periodistas,casos por millón hab.,4.937099805632553,11.0,12.0,1.0
+2025-01-01,Guanajuato,Derecho,Competencia en servicios notariales,notarios por 100k hab.,2.715404893097904,17.0,17.0,0.0
+2025-01-01,Guanajuato,Derecho,Delitos no denunciados,porcentaje,0.8801563196693574,27.0,23.0,-4.0
+2025-01-01,Guanajuato,Derecho,Homicidios,homicidios por 100k hab.,39.62022594020123,5.0,6.0,1.0
+2025-01-01,Guanajuato,Derecho,Incidencia delictiva,delitos por mil hab.,23.77645552645067,7.0,10.0,3.0
+2025-01-01,Guanajuato,Derecho,Percepción de seguridad,porcentaje población 18+,10.8852249831051,31.0,29.0,-2.0
+2025-01-01,Guanajuato,Derecho,Robo de vehículos,robos por mil vehículos,1.920772822273443,20.0,20.0,0.0
+2025-01-01,Guanajuato,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,18.0,17.0
+2025-01-01,Guanajuato,Infraestructura,Captación de ahorro,pesos por millón de PIB,73941.23141205308,5.0,3.0,-2.0
+2025-01-01,Guanajuato,Infraestructura,Carga aérea,kilos por mil hab.,322.9895435311804,20.0,19.0,-1.0
+2025-01-01,Guanajuato,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,490.6096361696869,16.0,15.0,-1.0
+2025-01-01,Guanajuato,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,94.869458452608,11.0,12.0,1.0
+2025-01-01,Guanajuato,Infraestructura,Terminales punto de venta,terminales por 10k adultos,102.3837658430462,19.0,18.0,-1.0
+2025-01-01,Guanajuato,Infraestructura,Uso de banca móvil,contratos por 10k adultos,6186.671082928653,29.0,29.0,0.0
+2025-01-01,Guanajuato,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0257171244628679,17.0,19.0,2.0
+2025-01-01,Guanajuato,Innovación y Economía,Diversificación económica,número de sectores presentes,896.0,6.0,5.0,-1.0
+2025-01-01,Guanajuato,Innovación y Economía,Patentes,patentes por 100k PEA,4.367256716290624,3.0,1.0,-2.0
+2025-01-01,Guanajuato,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1618733480329765,16.0,13.0,-3.0
+2025-01-01,Guanajuato,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0692167577413478,4.0,23.0,19.0
+2025-01-01,Guanajuato,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0192760976755968,6.0,9.0,3.0
+2025-01-01,Guanajuato,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,10.36149705778699,6.0,7.0,1.0
+2025-01-01,Guanajuato,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,3.847538715571552,12.0,16.0,4.0
+2025-01-01,Guanajuato,Mercado de trabajo,Grado de escolaridad,años promedio,8.863892,27.0,27.0,0.0
+2025-01-01,Guanajuato,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.5429090491186634,16.0,17.0,1.0
+2025-01-01,Guanajuato,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,9445.707778,24.0,23.0,-1.0
+2025-01-01,Guanajuato,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.3128773935168103,4.0,2.0,-2.0
+2025-01-01,Guanajuato,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4150293465896195,13.0,20.0,7.0
+2025-01-01,Guanajuato,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0181750093878825,15.0,20.0,5.0
+2025-01-01,Guanajuato,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.1770096704700532,29.0,29.0,0.0
+2025-01-01,Guanajuato,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.5999725597521712,21.0,27.0,6.0
+2025-01-01,Guanajuato,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,8.556324996104099,32.0,32.0,0.0
+2025-01-01,Guanajuato,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.21272563270163,14.0,11.0,-3.0
+2025-01-01,Guanajuato,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.0843106627821925,23.0,23.0,0.0
+2025-01-01,Guanajuato,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.1432890311221341,10.0,8.0,-2.0
+2025-01-01,Guanajuato,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.5591230805008386,15.0,17.0,2.0
+2025-01-01,Guanajuato,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,80.3,20.0,20.0,0.0
+2025-01-01,Guanajuato,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.4042491872619025,17.0,16.0,-1.0
+2025-01-01,Guanajuato,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.5938405359962404,22.0,23.0,1.0
+2025-01-01,Guanajuato,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,92.5,16.0,17.0,1.0
+2025-01-01,Guanajuato,Sociedad y Medio ambiente,Esperanza de vida,años,74.91449754,20.0,20.0,0.0
+2025-01-01,Guanajuato,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,119.1694008428247,25.0,26.0,1.0
+2025-01-01,Guanajuato,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,0.8815808840432626,25.0,22.0,-3.0
+2025-01-01,Guanajuato,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,2.697970759409264,24.0,22.0,-2.0
+2025-01-01,Guerrero,Derecho,Agresiones a periodistas,casos por millón hab.,14.14022052644318,2.0,3.0,1.0
+2025-01-01,Guerrero,Derecho,Competencia en servicios notariales,notarios por 100k hab.,1.136762826635628,31.0,31.0,0.0
+2025-01-01,Guerrero,Derecho,Delitos no denunciados,porcentaje,0.94162403994442,2.0,1.0,-1.0
+2025-01-01,Guerrero,Derecho,Homicidios,homicidios por 100k hab.,39.37081009323396,6.0,7.0,1.0
+2025-01-01,Guerrero,Derecho,Incidencia delictiva,delitos por mil hab.,7.110035591766843,29.0,29.0,0.0
+2025-01-01,Guerrero,Derecho,Percepción de seguridad,porcentaje población 18+,16.5621518175909,27.0,22.0,-5.0
+2025-01-01,Guerrero,Derecho,Robo de vehículos,robos por mil vehículos,1.991177458253198,19.0,22.0,3.0
+2025-01-01,Guerrero,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,31.0,30.0
+2025-01-01,Guerrero,Infraestructura,Captación de ahorro,pesos por millón de PIB,52092.5730617868,12.0,13.0,1.0
+2025-01-01,Guerrero,Infraestructura,Carga aérea,kilos por mil hab.,81.77455885977696,25.0,25.0,0.0
+2025-01-01,Guerrero,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,354.6037369553,21.0,18.0,-3.0
+2025-01-01,Guerrero,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,67.59579930091859,18.0,18.0,0.0
+2025-01-01,Guerrero,Infraestructura,Terminales punto de venta,terminales por 10k adultos,59.86059226041351,29.0,29.0,0.0
+2025-01-01,Guerrero,Infraestructura,Uso de banca móvil,contratos por 10k adultos,7291.202764165672,23.0,20.0,-3.0
+2025-01-01,Guerrero,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0123880549193158,28.0,29.0,1.0
+2025-01-01,Guerrero,Innovación y Economía,Diversificación económica,número de sectores presentes,772.0,22.0,24.0,2.0
+2025-01-01,Guerrero,Innovación y Economía,Patentes,patentes por 100k PEA,0.1272752843488947,31.0,30.0,-1.0
+2025-01-01,Guerrero,Mercado de trabajo,Brecha de ingresos por género,proporción,0.2293637087057314,3.0,23.0,20.0
+2025-01-01,Guerrero,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0614366729678639,6.0,28.0,22.0
+2025-01-01,Guerrero,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.040044876780091,3.0,32.0,29.0
+2025-01-01,Guerrero,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,10.84006827250223,5.0,5.0,0.0
+2025-01-01,Guerrero,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,2.026793556425721,18.0,19.0,1.0
+2025-01-01,Guerrero,Mercado de trabajo,Grado de escolaridad,años promedio,7.928519,30.0,30.0,0.0
+2025-01-01,Guerrero,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.7830210763017195,2.0,2.0,0.0
+2025-01-01,Guerrero,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,8746.55502,27.0,31.0,4.0
+2025-01-01,Guerrero,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2748940961463185,12.0,18.0,6.0
+2025-01-01,Guerrero,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4151115217860286,12.0,3.0,-9.0
+2025-01-01,Guerrero,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0287782145441285,8.0,3.0,-5.0
+2025-01-01,Guerrero,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.1628402332614641,30.0,30.0,0.0
+2025-01-01,Guerrero,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.5965425974138383,25.0,6.0,-19.0
+2025-01-01,Guerrero,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,16.51694621070367,12.0,12.0,0.0
+2025-01-01,Guerrero,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.45368362481802,4.0,5.0,1.0
+2025-01-01,Guerrero,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.0425081490290696,28.0,27.0,-1.0
+2025-01-01,Guerrero,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.0272606947254981,32.0,32.0,0.0
+2025-01-01,Guerrero,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.58,12.0,11.0,-1.0
+2025-01-01,Guerrero,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,87.4,5.0,5.0,0.0
+2025-01-01,Guerrero,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.1814027093588117,30.0,31.0,1.0
+2025-01-01,Guerrero,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.5744811162900053,24.0,24.0,0.0
+2025-01-01,Guerrero,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,89.4,28.0,28.0,0.0
+2025-01-01,Guerrero,Sociedad y Medio ambiente,Esperanza de vida,años,73.10851881,31.0,31.0,0.0
+2025-01-01,Guerrero,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,124.7328260783374,22.0,24.0,2.0
+2025-01-01,Guerrero,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,0.8933292261999987,24.0,27.0,3.0
+2025-01-01,Guerrero,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,4.222935271338355,6.0,6.0,0.0
+2025-01-01,Hidalgo,Derecho,Agresiones a periodistas,casos por millón hab.,1.838012863026687,24.0,30.0,6.0
+2025-01-01,Hidalgo,Derecho,Competencia en servicios notariales,notarios por 100k hab.,3.339056701165147,14.0,14.0,0.0
+2025-01-01,Hidalgo,Derecho,Delitos no denunciados,porcentaje,0.8839584191225346,26.0,26.0,0.0
+2025-01-01,Hidalgo,Derecho,Homicidios,homicidios por 100k hab.,8.05662304960031,26.0,26.0,0.0
+2025-01-01,Hidalgo,Derecho,Incidencia delictiva,delitos por mil hab.,16.7041672346637,15.0,16.0,1.0
+2025-01-01,Hidalgo,Derecho,Percepción de seguridad,porcentaje población 18+,36.1484810484553,9.0,9.0,0.0
+2025-01-01,Hidalgo,Derecho,Robo de vehículos,robos por mil vehículos,6.144846498709987,2.0,2.0,0.0
+2025-01-01,Hidalgo,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,24.0,23.0
+2025-01-01,Hidalgo,Infraestructura,Captación de ahorro,pesos por millón de PIB,37230.6095544777,24.0,22.0,-2.0
+2025-01-01,Hidalgo,Infraestructura,Carga aérea,kilos por mil hab.,0.0,29.0,29.0,0.0
+2025-01-01,Hidalgo,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,0.0,31.0,31.0,0.0
+2025-01-01,Hidalgo,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,24.6293723645576,28.0,30.0,2.0
+2025-01-01,Hidalgo,Infraestructura,Terminales punto de venta,terminales por 10k adultos,64.46676654041875,28.0,28.0,0.0
+2025-01-01,Hidalgo,Infraestructura,Uso de banca móvil,contratos por 10k adultos,6688.952169041011,25.0,26.0,1.0
+2025-01-01,Hidalgo,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0494259111564764,3.0,4.0,1.0
+2025-01-01,Hidalgo,Innovación y Economía,Diversificación económica,número de sectores presentes,828.0,16.0,18.0,2.0
+2025-01-01,Hidalgo,Innovación y Economía,Patentes,patentes por 100k PEA,1.41377297633546,12.0,11.0,-1.0
+2025-01-01,Hidalgo,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1236400286399247,27.0,17.0,-10.0
+2025-01-01,Hidalgo,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0683610867659946,5.0,9.0,4.0
+2025-01-01,Hidalgo,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0427508396889902,2.0,4.0,2.0
+2025-01-01,Hidalgo,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,8.20069666880205,11.0,6.0,-5.0
+2025-01-01,Hidalgo,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,3.984242833461982,11.0,27.0,16.0
+2025-01-01,Hidalgo,Mercado de trabajo,Grado de escolaridad,años promedio,9.018338,26.0,24.0,-2.0
+2025-01-01,Hidalgo,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.7049210481343173,4.0,4.0,0.0
+2025-01-01,Hidalgo,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,10147.8076,19.0,25.0,6.0
+2025-01-01,Hidalgo,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2807188885312352,10.0,13.0,3.0
+2025-01-01,Hidalgo,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4074109979419505,19.0,5.0,-14.0
+2025-01-01,Hidalgo,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.032166028112539,7.0,8.0,1.0
+2025-01-01,Hidalgo,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.1966803980964137,26.0,23.0,-3.0
+2025-01-01,Hidalgo,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.5970017820984712,23.0,24.0,1.0
+2025-01-01,Hidalgo,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,19.55092556905153,5.0,5.0,0.0
+2025-01-01,Hidalgo,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.14538577294438,19.0,17.0,-2.0
+2025-01-01,Hidalgo,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.0423726544119896,29.0,28.0,-1.0
+2025-01-01,Hidalgo,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.0862988868949711,24.0,24.0,0.0
+2025-01-01,Hidalgo,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.48,26.0,25.0,-1.0
+2025-01-01,Hidalgo,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,81.3,19.0,19.0,0.0
+2025-01-01,Hidalgo,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.2305248976168595,29.0,29.0,0.0
+2025-01-01,Hidalgo,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.4962634730172054,31.0,30.0,-1.0
+2025-01-01,Hidalgo,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,96.7,5.0,5.0,0.0
+2025-01-01,Hidalgo,Sociedad y Medio ambiente,Esperanza de vida,años,73.89404688,27.0,27.0,0.0
+2025-01-01,Hidalgo,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,155.1797499996171,9.0,9.0,0.0
+2025-01-01,Hidalgo,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,0.8709117615974783,27.0,24.0,-3.0
+2025-01-01,Hidalgo,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,3.237659658221508,16.0,17.0,1.0
+2025-01-01,Jalisco,Derecho,Agresiones a periodistas,casos por millón hab.,1.473770011387708,26.0,22.0,-4.0
+2025-01-01,Jalisco,Derecho,Competencia en servicios notariales,notarios por 100k hab.,2.063278015942791,24.0,24.0,0.0
+2025-01-01,Jalisco,Derecho,Delitos no denunciados,porcentaje,0.9013322396400132,14.0,22.0,8.0
+2025-01-01,Jalisco,Derecho,Homicidios,homicidios por 100k hab.,16.74429466784342,15.0,13.0,-2.0
+2025-01-01,Jalisco,Derecho,Incidencia delictiva,delitos por mil hab.,14.06702139177171,18.0,19.0,1.0
+2025-01-01,Jalisco,Derecho,Percepción de seguridad,porcentaje población 18+,23.043523295844,20.0,24.0,4.0
+2025-01-01,Jalisco,Derecho,Robo de vehículos,robos por mil vehículos,2.901635057321596,12.0,13.0,1.0
+2025-01-01,Jalisco,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,9.0,8.0
+2025-01-01,Jalisco,Infraestructura,Captación de ahorro,pesos por millón de PIB,74257.08992089769,4.0,5.0,1.0
+2025-01-01,Jalisco,Infraestructura,Carga aérea,kilos por mil hab.,19843.42429328477,4.0,4.0,0.0
+2025-01-01,Jalisco,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,2798.820190422422,5.0,5.0,0.0
+2025-01-01,Jalisco,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,49.16723491837298,22.0,22.0,0.0
+2025-01-01,Jalisco,Infraestructura,Terminales punto de venta,terminales por 10k adultos,132.3716380097504,16.0,14.0,-2.0
+2025-01-01,Jalisco,Infraestructura,Uso de banca móvil,contratos por 10k adultos,8070.9880942343,15.0,15.0,0.0
+2025-01-01,Jalisco,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0254342880485127,18.0,15.0,-3.0
+2025-01-01,Jalisco,Innovación y Economía,Diversificación económica,número de sectores presentes,929.0,2.0,2.0,0.0
+2025-01-01,Jalisco,Innovación y Economía,Patentes,patentes por 100k PEA,6.025287284203838,1.0,3.0,2.0
+2025-01-01,Jalisco,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1640485157772399,13.0,9.0,-4.0
+2025-01-01,Jalisco,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0206923225681686,22.0,17.0,-5.0
+2025-01-01,Jalisco,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0153977458670302,11.0,19.0,8.0
+2025-01-01,Jalisco,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,3.738676791112986,28.0,30.0,2.0
+2025-01-01,Jalisco,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,0.7584944048184661,28.0,7.0,-21.0
+2025-01-01,Jalisco,Mercado de trabajo,Grado de escolaridad,años promedio,9.861239,18.0,18.0,0.0
+2025-01-01,Jalisco,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.4755823717483221,20.0,20.0,0.0
+2025-01-01,Jalisco,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,10794.65051,16.0,17.0,1.0
+2025-01-01,Jalisco,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.1472396151887134,32.0,32.0,0.0
+2025-01-01,Jalisco,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4002008263108859,23.0,12.0,-11.0
+2025-01-01,Jalisco,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.008637821973177,27.0,29.0,2.0
+2025-01-01,Jalisco,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2597901894881526,15.0,17.0,2.0
+2025-01-01,Jalisco,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.5922126890270218,27.0,12.0,-15.0
+2025-01-01,Jalisco,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,16.22572963393698,13.0,13.0,0.0
+2025-01-01,Jalisco,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.16283667622425,17.0,18.0,1.0
+2025-01-01,Jalisco,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.1790481345985794,14.0,13.0,-1.0
+2025-01-01,Jalisco,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.1343153731690977,12.0,9.0,-3.0
+2025-01-01,Jalisco,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.5865213045340817,11.0,9.0,-2.0
+2025-01-01,Jalisco,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,82.6,16.0,16.0,0.0
+2025-01-01,Jalisco,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.4435703356564109,15.0,13.0,-2.0
+2025-01-01,Jalisco,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.8159017516890253,9.0,10.0,1.0
+2025-01-01,Jalisco,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,93.6,11.0,14.0,3.0
+2025-01-01,Jalisco,Sociedad y Medio ambiente,Esperanza de vida,años,76.01959891,12.0,12.0,0.0
+2025-01-01,Jalisco,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,98.58943204871602,31.0,31.0,0.0
+2025-01-01,Jalisco,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.067236222092606,16.0,16.0,0.0
+2025-01-01,Jalisco,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,2.763885605971716,23.0,24.0,1.0
+2025-01-01,Michoacán,Derecho,Agresiones a periodistas,casos por millón hab.,2.800753962966831,21.0,21.0,0.0
+2025-01-01,Michoacán,Derecho,Competencia en servicios notariales,notarios por 100k hab.,3.821028620904748,10.0,10.0,0.0
+2025-01-01,Michoacán,Derecho,Delitos no denunciados,porcentaje,0.9028768551101592,13.0,27.0,14.0
+2025-01-01,Michoacán,Derecho,Homicidios,homicidios por 100k hab.,25.20678566670148,12.0,10.0,-2.0
+2025-01-01,Michoacán,Derecho,Incidencia delictiva,delitos por mil hab.,9.648397348566233,26.0,27.0,1.0
+2025-01-01,Michoacán,Derecho,Percepción de seguridad,porcentaje población 18+,18.1110954874978,24.0,27.0,3.0
+2025-01-01,Michoacán,Derecho,Robo de vehículos,robos por mil vehículos,3.822437342527516,8.0,7.0,-1.0
+2025-01-01,Michoacán,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,25.0,24.0
+2025-01-01,Michoacán,Infraestructura,Captación de ahorro,pesos por millón de PIB,49218.30684070773,16.0,12.0,-4.0
+2025-01-01,Michoacán,Infraestructura,Carga aérea,kilos por mil hab.,2.416450508476882,27.0,27.0,0.0
+2025-01-01,Michoacán,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,297.3846559493816,22.0,21.0,-1.0
+2025-01-01,Michoacán,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,84.12264581625374,13.0,14.0,1.0
+2025-01-01,Michoacán,Infraestructura,Terminales punto de venta,terminales por 10k adultos,93.2393204661555,23.0,22.0,-1.0
+2025-01-01,Michoacán,Infraestructura,Uso de banca móvil,contratos por 10k adultos,6214.255086845916,28.0,28.0,0.0
+2025-01-01,Michoacán,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0272594804325945,15.0,14.0,-1.0
+2025-01-01,Michoacán,Innovación y Economía,Diversificación económica,número de sectores presentes,856.0,12.0,13.0,1.0
+2025-01-01,Michoacán,Innovación y Economía,Patentes,patentes por 100k PEA,1.159839745834502,16.0,16.0,0.0
+2025-01-01,Michoacán,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1948381704524076,6.0,6.0,0.0
+2025-01-01,Michoacán,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0386526780784098,8.0,12.0,4.0
+2025-01-01,Michoacán,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0151233391869057,13.0,22.0,9.0
+2025-01-01,Michoacán,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,7.144614209990522,15.0,14.0,-1.0
+2025-01-01,Michoacán,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,0.579208542493681,30.0,17.0,-13.0
+2025-01-01,Michoacán,Mercado de trabajo,Grado de escolaridad,años promedio,8.694749,28.0,29.0,1.0
+2025-01-01,Michoacán,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.6670237724791873,8.0,7.0,-1.0
+2025-01-01,Michoacán,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,9970.795271,20.0,21.0,1.0
+2025-01-01,Michoacán,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2179492210135174,26.0,30.0,4.0
+2025-01-01,Michoacán,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.3936112458061756,28.0,23.0,-5.0
+2025-01-01,Michoacán,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.026869025988886,9.0,12.0,3.0
+2025-01-01,Michoacán,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2091725137208243,25.0,28.0,3.0
+2025-01-01,Michoacán,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.601248044398753,20.0,22.0,2.0
+2025-01-01,Michoacán,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,11.141496672258,29.0,29.0,0.0
+2025-01-01,Michoacán,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.22084996774375,13.0,16.0,3.0
+2025-01-01,Michoacán,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.2055943481455451,10.0,11.0,1.0
+2025-01-01,Michoacán,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.0763633696689908,26.0,27.0,1.0
+2025-01-01,Michoacán,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.48,26.0,25.0,-1.0
+2025-01-01,Michoacán,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,88.0,2.0,2.0,0.0
+2025-01-01,Michoacán,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.2589389759701856,26.0,26.0,0.0
+2025-01-01,Michoacán,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.5647520312468116,26.0,26.0,0.0
+2025-01-01,Michoacán,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,86.3,31.0,31.0,0.0
+2025-01-01,Michoacán,Sociedad y Medio ambiente,Esperanza de vida,años,74.13140285,25.0,25.0,0.0
+2025-01-01,Michoacán,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,105.9363180568209,28.0,29.0,1.0
+2025-01-01,Michoacán,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,0.878236421244599,26.0,26.0,0.0
+2025-01-01,Michoacán,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,2.553687452662257,27.0,26.0,-1.0
+2025-01-01,Morelos,Derecho,Agresiones a periodistas,casos por millón hab.,5.871174685060405,8.0,17.0,9.0
+2025-01-01,Morelos,Derecho,Competencia en servicios notariales,notarios por 100k hab.,1.272087848429754,30.0,30.0,0.0
+2025-01-01,Morelos,Derecho,Delitos no denunciados,porcentaje,0.9144098645918756,5.0,21.0,16.0
+2025-01-01,Morelos,Derecho,Homicidios,homicidios por 100k hab.,67.22495014394164,2.0,2.0,0.0
+2025-01-01,Morelos,Derecho,Incidencia delictiva,delitos por mil hab.,22.56732769570093,9.0,9.0,0.0
+2025-01-01,Morelos,Derecho,Percepción de seguridad,porcentaje población 18+,8.77940289246107,32.0,30.0,-2.0
+2025-01-01,Morelos,Derecho,Robo de vehículos,robos por mil vehículos,4.852468551231479,5.0,5.0,0.0
+2025-01-01,Morelos,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,13.0,12.0
+2025-01-01,Morelos,Infraestructura,Captación de ahorro,pesos por millón de PIB,64536.5766620066,6.0,6.0,0.0
+2025-01-01,Morelos,Infraestructura,Carga aérea,kilos por mil hab.,0.0,29.0,29.0,0.0
+2025-01-01,Morelos,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,1.647353763716532,30.0,30.0,0.0
+2025-01-01,Morelos,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,117.0810085112462,9.0,8.0,-1.0
+2025-01-01,Morelos,Infraestructura,Terminales punto de venta,terminales por 10k adultos,91.62657252847713,24.0,15.0,-9.0
+2025-01-01,Morelos,Infraestructura,Uso de banca móvil,contratos por 10k adultos,8550.056780258818,12.0,11.0,-1.0
+2025-01-01,Morelos,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0125037552423121,27.0,26.0,-1.0
+2025-01-01,Morelos,Innovación y Economía,Diversificación económica,número de sectores presentes,763.0,23.0,23.0,0.0
+2025-01-01,Morelos,Innovación y Economía,Patentes,patentes por 100k PEA,1.546090048701836,11.0,5.0,-6.0
+2025-01-01,Morelos,Mercado de trabajo,Brecha de ingresos por género,proporción,0.2314472302596089,2.0,5.0,3.0
+2025-01-01,Morelos,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0361317747077578,10.0,5.0,-5.0
+2025-01-01,Morelos,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,-0.0092209300761085,27.0,17.0,-10.0
+2025-01-01,Morelos,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,14.83497114334737,1.0,1.0,0.0
+2025-01-01,Morelos,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,1.26797551607204,24.0,28.0,4.0
+2025-01-01,Morelos,Mercado de trabajo,Grado de escolaridad,años promedio,10.01888,16.0,14.0,-2.0
+2025-01-01,Morelos,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.6629851425276846,9.0,9.0,0.0
+2025-01-01,Morelos,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,8377.171141,30.0,27.0,-3.0
+2025-01-01,Morelos,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2600406739351244,13.0,11.0,-2.0
+2025-01-01,Morelos,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4140870890437433,16.0,9.0,-7.0
+2025-01-01,Morelos,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0156486399929321,17.0,23.0,6.0
+2025-01-01,Morelos,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2489473587511613,20.0,18.0,-2.0
+2025-01-01,Morelos,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.5789095140218583,28.0,31.0,3.0
+2025-01-01,Morelos,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,15.39281564943514,17.0,17.0,0.0
+2025-01-01,Morelos,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.23,12.0,8.0,-4.0
+2025-01-01,Morelos,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.1523465236397457,17.0,17.0,0.0
+2025-01-01,Morelos,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.0741896449076807,27.0,29.0,2.0
+2025-01-01,Morelos,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.6140822983921709,6.0,5.0,-1.0
+2025-01-01,Morelos,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,87.3,6.0,6.0,0.0
+2025-01-01,Morelos,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.2705830155916751,24.0,25.0,1.0
+2025-01-01,Morelos,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.5973920242048961,21.0,22.0,1.0
+2025-01-01,Morelos,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,92.7,15.0,15.0,0.0
+2025-01-01,Morelos,Sociedad y Medio ambiente,Esperanza de vida,años,74.33676233,23.0,23.0,0.0
+2025-01-01,Morelos,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,144.171097772672,14.0,18.0,4.0
+2025-01-01,Morelos,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.103291576234268,14.0,15.0,1.0
+2025-01-01,Morelos,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,3.000170264065867,19.0,20.0,1.0
+2025-01-01,México,Derecho,Agresiones a periodistas,casos por millón hab.,1.192096874560414,28.0,27.0,-1.0
+2025-01-01,México,Derecho,Competencia en servicios notariales,notarios por 100k hab.,1.118300401373341,32.0,32.0,0.0
+2025-01-01,México,Derecho,Delitos no denunciados,porcentaje,0.909533206677453,7.0,14.0,7.0
+2025-01-01,México,Derecho,Homicidios,homicidios por 100k hab.,11.56333968323602,19.0,16.0,-3.0
+2025-01-01,México,Derecho,Incidencia delictiva,delitos por mil hab.,20.88565077533413,10.0,11.0,1.0
+2025-01-01,México,Derecho,Percepción de seguridad,porcentaje población 18+,12.3782498856746,29.0,31.0,2.0
+2025-01-01,México,Derecho,Robo de vehículos,robos por mil vehículos,3.855400956406989,7.0,8.0,1.0
+2025-01-01,México,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,17.0,16.0
+2025-01-01,México,Infraestructura,Captación de ahorro,pesos por millón de PIB,53676.84604906008,9.0,8.0,-1.0
+2025-01-01,México,Infraestructura,Carga aérea,kilos por mil hab.,27614.09634231754,2.0,5.0,3.0
+2025-01-01,México,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,457.0875211412704,18.0,25.0,7.0
+2025-01-01,México,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,20.0385807961822,31.0,31.0,0.0
+2025-01-01,México,Infraestructura,Terminales punto de venta,terminales por 10k adultos,82.14167901037165,26.0,24.0,-2.0
+2025-01-01,México,Infraestructura,Uso de banca móvil,contratos por 10k adultos,7944.884832698719,18.0,18.0,0.0
+2025-01-01,México,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0234706021428338,22.0,17.0,-5.0
+2025-01-01,México,Innovación y Economía,Diversificación económica,número de sectores presentes,929.0,2.0,3.0,1.0
+2025-01-01,México,Innovación y Economía,Patentes,patentes por 100k PEA,0.7696386321650692,19.0,17.0,-2.0
+2025-01-01,México,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1200769357069815,28.0,16.0,-12.0
+2025-01-01,México,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0313594154361395,15.0,10.0,-5.0
+2025-01-01,México,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0441402887525394,1.0,14.0,13.0
+2025-01-01,México,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,6.989378905037993,16.0,13.0,-3.0
+2025-01-01,México,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,2.482133088372973,15.0,14.0,-1.0
+2025-01-01,México,Mercado de trabajo,Grado de escolaridad,años promedio,10.28764,11.0,12.0,1.0
+2025-01-01,México,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.5360949066251612,17.0,15.0,-2.0
+2025-01-01,México,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,9040.714481,25.0,20.0,-5.0
+2025-01-01,México,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.3176773332609784,3.0,5.0,2.0
+2025-01-01,México,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4029459635532298,22.0,17.0,-5.0
+2025-01-01,México,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0169974099883938,16.0,15.0,-1.0
+2025-01-01,México,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2876171271438869,8.0,14.0,6.0
+2025-01-01,México,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.5979757171016857,22.0,26.0,4.0
+2025-01-01,México,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,12.25978351713729,24.0,24.0,0.0
+2025-01-01,México,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,10.8378306331851,26.0,24.0,-2.0
+2025-01-01,México,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.1577982225883899,16.0,15.0,-1.0
+2025-01-01,México,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.1400501422334119,11.0,12.0,1.0
+2025-01-01,México,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.5,22.0,21.0,-1.0
+2025-01-01,México,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,86.5,10.0,10.0,0.0
+2025-01-01,México,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.4150217434738745,16.0,18.0,2.0
+2025-01-01,México,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.5365571265878588,27.0,31.0,4.0
+2025-01-01,México,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,95.4,8.0,7.0,-1.0
+2025-01-01,México,Sociedad y Medio ambiente,Esperanza de vida,años,75.12213624,18.0,18.0,0.0
+2025-01-01,México,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,104.2520506053071,29.0,27.0,-2.0
+2025-01-01,México,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,0.804495090774771,29.0,28.0,-1.0
+2025-01-01,México,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,2.243185718815683,32.0,32.0,0.0
+2025-01-01,Nayarit,Derecho,Agresiones a periodistas,casos por millón hab.,3.054759620965426,20.0,14.0,-6.0
+2025-01-01,Nayarit,Derecho,Competencia en servicios notariales,notarios por 100k hab.,4.658508421972275,5.0,4.0,-1.0
+2025-01-01,Nayarit,Derecho,Delitos no denunciados,porcentaje,0.8944002936770148,21.0,5.0,-16.0
+2025-01-01,Nayarit,Derecho,Homicidios,homicidios por 100k hab.,11.83719353124103,18.0,22.0,4.0
+2025-01-01,Nayarit,Derecho,Incidencia delictiva,delitos por mil hab.,9.358256098827583,27.0,28.0,1.0
+2025-01-01,Nayarit,Derecho,Percepción de seguridad,porcentaje población 18+,54.6821532427132,4.0,4.0,0.0
+2025-01-01,Nayarit,Derecho,Robo de vehículos,robos por mil vehículos,1.139086066312575,25.0,25.0,0.0
+2025-01-01,Nayarit,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,21.0,20.0
+2025-01-01,Nayarit,Infraestructura,Captación de ahorro,pesos por millón de PIB,49329.68019870993,15.0,15.0,0.0
+2025-01-01,Nayarit,Infraestructura,Carga aérea,kilos por mil hab.,0.0,29.0,29.0,0.0
+2025-01-01,Nayarit,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,161.4799393935691,28.0,28.0,0.0
+2025-01-01,Nayarit,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,85.99148333017675,12.0,16.0,4.0
+2025-01-01,Nayarit,Infraestructura,Terminales punto de venta,terminales por 10k adultos,103.3096618140732,18.0,19.0,1.0
+2025-01-01,Nayarit,Infraestructura,Uso de banca móvil,contratos por 10k adultos,7514.684227915533,20.0,21.0,1.0
+2025-01-01,Nayarit,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0110255437824728,29.0,11.0,-18.0
+2025-01-01,Nayarit,Innovación y Economía,Diversificación económica,número de sectores presentes,721.0,27.0,29.0,2.0
+2025-01-01,Nayarit,Innovación y Economía,Patentes,patentes por 100k PEA,0.0,32.0,32.0,0.0
+2025-01-01,Nayarit,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1767860241705494,11.0,8.0,-3.0
+2025-01-01,Nayarit,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0282392026578072,17.0,16.0,-1.0
+2025-01-01,Nayarit,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0092634408009958,16.0,2.0,-14.0
+2025-01-01,Nayarit,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,4.897104801062144,22.0,24.0,2.0
+2025-01-01,Nayarit,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,1.343146581964083,23.0,9.0,-14.0
+2025-01-01,Nayarit,Mercado de trabajo,Grado de escolaridad,años promedio,9.775796,19.0,17.0,-2.0
+2025-01-01,Nayarit,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.5914052601421965,14.0,14.0,0.0
+2025-01-01,Nayarit,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,11423.57276,13.0,13.0,0.0
+2025-01-01,Nayarit,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2122311621863727,27.0,27.0,0.0
+2025-01-01,Nayarit,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4247857503996081,4.0,15.0,11.0
+2025-01-01,Nayarit,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0187431108822153,14.0,13.0,-1.0
+2025-01-01,Nayarit,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2591515491511655,16.0,15.0,-1.0
+2025-01-01,Nayarit,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6594741801538733,4.0,4.0,0.0
+2025-01-01,Nayarit,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,15.58407076881749,16.0,16.0,0.0
+2025-01-01,Nayarit,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.35402108078761,6.0,13.0,7.0
+2025-01-01,Nayarit,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.2006984049383533,12.0,12.0,0.0
+2025-01-01,Nayarit,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.0878452217347488,23.0,22.0,-1.0
+2025-01-01,Nayarit,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.53,16.0,14.0,-2.0
+2025-01-01,Nayarit,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,82.2,17.0,17.0,0.0
+2025-01-01,Nayarit,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.3359631354256615,21.0,22.0,1.0
+2025-01-01,Nayarit,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.8034017803139071,13.0,12.0,-1.0
+2025-01-01,Nayarit,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,91.0,19.0,21.0,2.0
+2025-01-01,Nayarit,Sociedad y Medio ambiente,Esperanza de vida,años,75.61553864,15.0,15.0,0.0
+2025-01-01,Nayarit,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,180.4087573848814,5.0,3.0,-2.0
+2025-01-01,Nayarit,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.461702478631956,5.0,9.0,4.0
+2025-01-01,Nayarit,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,4.69516553742386,2.0,3.0,1.0
+2025-01-01,Nuevo León,Derecho,Agresiones a periodistas,casos por millón hab.,0.7926192563043747,30.0,26.0,-4.0
+2025-01-01,Nuevo León,Derecho,Competencia en servicios notariales,notarios por 100k hab.,3.091215099587061,16.0,16.0,0.0
+2025-01-01,Nuevo León,Derecho,Delitos no denunciados,porcentaje,0.8976165758481165,17.0,12.0,-5.0
+2025-01-01,Nuevo León,Derecho,Homicidios,homicidios por 100k hab.,25.3479638166139,11.0,11.0,0.0
+2025-01-01,Nuevo León,Derecho,Incidencia delictiva,delitos por mil hab.,14.29679057366453,17.0,18.0,1.0
+2025-01-01,Nuevo León,Derecho,Percepción de seguridad,porcentaje población 18+,26.2167986276868,14.0,12.0,-2.0
+2025-01-01,Nuevo León,Derecho,Robo de vehículos,robos por mil vehículos,0.9335693552090708,29.0,26.0,-3.0
+2025-01-01,Nuevo León,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,3.0,2.0
+2025-01-01,Nuevo León,Infraestructura,Captación de ahorro,pesos por millón de PIB,112982.2634899163,2.0,2.0,0.0
+2025-01-01,Nuevo León,Infraestructura,Carga aérea,kilos por mil hab.,12590.76497111141,6.0,6.0,0.0
+2025-01-01,Nuevo León,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,2167.788777747817,6.0,6.0,0.0
+2025-01-01,Nuevo León,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,81.29103092657667,14.0,13.0,-1.0
+2025-01-01,Nuevo León,Infraestructura,Terminales punto de venta,terminales por 10k adultos,236.1407130833449,5.0,4.0,-1.0
+2025-01-01,Nuevo León,Infraestructura,Uso de banca móvil,contratos por 10k adultos,8842.52758399998,8.0,10.0,2.0
+2025-01-01,Nuevo León,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0348634834480863,9.0,10.0,1.0
+2025-01-01,Nuevo León,Innovación y Economía,Diversificación económica,número de sectores presentes,924.0,4.0,3.0,-1.0
+2025-01-01,Nuevo León,Innovación y Economía,Patentes,patentes por 100k PEA,3.092862703833787,5.0,4.0,-1.0
+2025-01-01,Nuevo León,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1486255953283129,19.0,15.0,-4.0
+2025-01-01,Nuevo León,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0340253748558245,14.0,24.0,10.0
+2025-01-01,Nuevo León,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0360868104563353,5.0,8.0,3.0
+2025-01-01,Nuevo León,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,2.708444163785203,31.0,31.0,0.0
+2025-01-01,Nuevo León,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,6.67404444018242,2.0,5.0,3.0
+2025-01-01,Nuevo León,Mercado de trabajo,Grado de escolaridad,años promedio,10.69734,2.0,2.0,0.0
+2025-01-01,Nuevo León,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.3487029225795061,31.0,29.0,-2.0
+2025-01-01,Nuevo León,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,14190.73388,4.0,3.0,-1.0
+2025-01-01,Nuevo León,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2304334902120898,22.0,21.0,-1.0
+2025-01-01,Nuevo León,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.3993338040249119,25.0,26.0,1.0
+2025-01-01,Nuevo León,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0072067026658148,30.0,26.0,-4.0
+2025-01-01,Nuevo León,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.3405826033944971,2.0,2.0,0.0
+2025-01-01,Nuevo León,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.619355063290357,9.0,17.0,8.0
+2025-01-01,Nuevo León,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,12.19725869202261,25.0,25.0,0.0
+2025-01-01,Nuevo León,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,10.22907835397674,27.0,27.0,0.0
+2025-01-01,Nuevo León,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.5249442075798819,1.0,2.0,1.0
+2025-01-01,Nuevo León,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.199123044517993,5.0,5.0,0.0
+2025-01-01,Nuevo León,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.51,20.0,19.0,-1.0
+2025-01-01,Nuevo León,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,77.4,24.0,24.0,0.0
+2025-01-01,Nuevo León,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.6063990394164772,1.0,2.0,1.0
+2025-01-01,Nuevo León,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.6935418492663279,17.0,17.0,0.0
+2025-01-01,Nuevo León,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,94.1,10.0,10.0,0.0
+2025-01-01,Nuevo León,Sociedad y Medio ambiente,Esperanza de vida,años,77.73467601,1.0,1.0,0.0
+2025-01-01,Nuevo León,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,122.8651791105512,24.0,25.0,1.0
+2025-01-01,Nuevo León,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.032941414815861,18.0,17.0,-1.0
+2025-01-01,Nuevo León,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,2.501664896747867,29.0,27.0,-2.0
+2025-01-01,Oaxaca,Derecho,Agresiones a periodistas,casos por millón hab.,4.409843420385963,16.0,19.0,3.0
+2025-01-01,Oaxaca,Derecho,Competencia en servicios notariales,notarios por 100k hab.,1.624679154879039,27.0,26.0,-1.0
+2025-01-01,Oaxaca,Derecho,Delitos no denunciados,porcentaje,0.905927669908568,9.0,8.0,-1.0
+2025-01-01,Oaxaca,Derecho,Homicidios,homicidios por 100k hab.,20.81910288466426,14.0,12.0,-2.0
+2025-01-01,Oaxaca,Derecho,Incidencia delictiva,delitos por mil hab.,8.747504666890872,28.0,26.0,-2.0
+2025-01-01,Oaxaca,Derecho,Percepción de seguridad,porcentaje población 18+,27.2194544143044,12.0,16.0,4.0
+2025-01-01,Oaxaca,Derecho,Robo de vehículos,robos por mil vehículos,2.637280598540976,17.0,11.0,-6.0
+2025-01-01,Oaxaca,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,30.0,29.0
+2025-01-01,Oaxaca,Infraestructura,Captación de ahorro,pesos por millón de PIB,39898.53991330571,23.0,21.0,-2.0
+2025-01-01,Oaxaca,Infraestructura,Carga aérea,kilos por mil hab.,937.0056188368088,15.0,15.0,0.0
+2025-01-01,Oaxaca,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,814.5444991497126,11.0,11.0,0.0
+2025-01-01,Oaxaca,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,35.88219962061421,24.0,24.0,0.0
+2025-01-01,Oaxaca,Infraestructura,Terminales punto de venta,terminales por 10k adultos,47.6083291082899,32.0,32.0,0.0
+2025-01-01,Oaxaca,Infraestructura,Uso de banca móvil,contratos por 10k adultos,5167.783168125405,32.0,32.0,0.0
+2025-01-01,Oaxaca,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.068595689801666,2.0,3.0,1.0
+2025-01-01,Oaxaca,Innovación y Economía,Diversificación económica,número de sectores presentes,822.0,18.0,19.0,1.0
+2025-01-01,Oaxaca,Innovación y Economía,Patentes,patentes por 100k PEA,0.3604783857159925,27.0,29.0,2.0
+2025-01-01,Oaxaca,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1921659649139684,7.0,7.0,0.0
+2025-01-01,Oaxaca,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.036101083032491,11.0,27.0,16.0
+2025-01-01,Oaxaca,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0180573520753922,7.0,12.0,5.0
+2025-01-01,Oaxaca,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,12.44759608138659,4.0,3.0,-1.0
+2025-01-01,Oaxaca,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,0.5993761524230146,29.0,30.0,1.0
+2025-01-01,Oaxaca,Mercado de trabajo,Grado de escolaridad,años promedio,7.704187,31.0,31.0,0.0
+2025-01-01,Oaxaca,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.8112701768920886,1.0,1.0,0.0
+2025-01-01,Oaxaca,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,8504.27561,28.0,29.0,1.0
+2025-01-01,Oaxaca,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2348859030156117,20.0,12.0,-8.0
+2025-01-01,Oaxaca,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4193790090346183,8.0,13.0,5.0
+2025-01-01,Oaxaca,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0389610188973069,6.0,4.0,-2.0
+2025-01-01,Oaxaca,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.1503562974260498,32.0,32.0,0.0
+2025-01-01,Oaxaca,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6061625010106018,16.0,15.0,-1.0
+2025-01-01,Oaxaca,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,18.46551955407178,8.0,8.0,0.0
+2025-01-01,Oaxaca,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,10.95460312461048,22.0,21.0,-1.0
+2025-01-01,Oaxaca,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.1361994474363367,20.0,18.0,-2.0
+2025-01-01,Oaxaca,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.055218073502412,31.0,31.0,0.0
+2025-01-01,Oaxaca,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.39,31.0,30.0,-1.0
+2025-01-01,Oaxaca,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,87.1,7.0,7.0,0.0
+2025-01-01,Oaxaca,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.1505177805405692,32.0,32.0,0.0
+2025-01-01,Oaxaca,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.5085245754771393,30.0,27.0,-3.0
+2025-01-01,Oaxaca,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,89.7,25.0,23.0,-2.0
+2025-01-01,Oaxaca,Sociedad y Medio ambiente,Esperanza de vida,años,73.30051683,30.0,30.0,0.0
+2025-01-01,Oaxaca,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,135.2693938530961,19.0,16.0,-3.0
+2025-01-01,Oaxaca,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,0.6930417080669731,31.0,31.0,0.0
+2025-01-01,Oaxaca,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,2.983143025380042,20.0,18.0,-2.0
+2025-01-01,Puebla,Derecho,Agresiones a periodistas,casos por millón hab.,4.721433965309192,13.0,13.0,0.0
+2025-01-01,Puebla,Derecho,Competencia en servicios notariales,notarios por 100k hab.,1.817036707861416,25.0,27.0,2.0
+2025-01-01,Puebla,Derecho,Delitos no denunciados,porcentaje,0.910583330518575,6.0,20.0,14.0
+2025-01-01,Puebla,Derecho,Homicidios,homicidios por 100k hab.,13.19140035156084,16.0,17.0,1.0
+2025-01-01,Puebla,Derecho,Incidencia delictiva,delitos por mil hab.,11.4466158907443,21.0,23.0,2.0
+2025-01-01,Puebla,Derecho,Percepción de seguridad,porcentaje población 18+,20.5450682344373,21.0,21.0,0.0
+2025-01-01,Puebla,Derecho,Robo de vehículos,robos por mil vehículos,9.871612354058485,1.0,1.0,0.0
+2025-01-01,Puebla,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,26.0,25.0
+2025-01-01,Puebla,Infraestructura,Captación de ahorro,pesos por millón de PIB,52204.40293777036,11.0,18.0,7.0
+2025-01-01,Puebla,Infraestructura,Carga aérea,kilos por mil hab.,405.1483946695298,17.0,17.0,0.0
+2025-01-01,Puebla,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,154.2920266998522,29.0,29.0,0.0
+2025-01-01,Puebla,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,26.76909984573788,27.0,27.0,0.0
+2025-01-01,Puebla,Infraestructura,Terminales punto de venta,terminales por 10k adultos,73.68758858088185,27.0,26.0,-1.0
+2025-01-01,Puebla,Infraestructura,Uso de banca móvil,contratos por 10k adultos,6678.455666396474,26.0,25.0,-1.0
+2025-01-01,Puebla,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0385392054788671,7.0,18.0,11.0
+2025-01-01,Puebla,Innovación y Economía,Diversificación económica,número de sectores presentes,899.0,5.0,6.0,1.0
+2025-01-01,Puebla,Innovación y Economía,Patentes,patentes por 100k PEA,1.985574642635961,8.0,9.0,1.0
+2025-01-01,Puebla,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1477180097952734,20.0,21.0,1.0
+2025-01-01,Puebla,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.1009796533534288,1.0,4.0,3.0
+2025-01-01,Puebla,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0151882999294067,12.0,16.0,4.0
+2025-01-01,Puebla,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,9.518636531454163,9.0,8.0,-1.0
+2025-01-01,Puebla,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,4.491766013957054,9.0,24.0,15.0
+2025-01-01,Puebla,Mercado de trabajo,Grado de escolaridad,años promedio,9.072639,24.0,26.0,2.0
+2025-01-01,Puebla,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.6949246599123171,7.0,6.0,-1.0
+2025-01-01,Puebla,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,8503.776968,29.0,28.0,-1.0
+2025-01-01,Puebla,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.292912721856634,7.0,4.0,-3.0
+2025-01-01,Puebla,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4158581228125192,11.0,6.0,-5.0
+2025-01-01,Puebla,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0468999034002177,3.0,7.0,4.0
+2025-01-01,Puebla,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2402907250304815,23.0,24.0,1.0
+2025-01-01,Puebla,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6287513670834253,7.0,9.0,2.0
+2025-01-01,Puebla,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,17.16706490326839,9.0,9.0,0.0
+2025-01-01,Puebla,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.11,20.0,9.0,-11.0
+2025-01-01,Puebla,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.0299936335494787,31.0,30.0,-1.0
+2025-01-01,Puebla,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.0942579215614106,20.0,21.0,1.0
+2025-01-01,Puebla,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.634108048299876,4.0,32.0,28.0
+2025-01-01,Puebla,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,87.8,3.0,3.0,0.0
+2025-01-01,Puebla,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.2333111035825492,28.0,28.0,0.0
+2025-01-01,Puebla,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.5732965423937556,25.0,25.0,0.0
+2025-01-01,Puebla,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,93.5,12.0,15.0,3.0
+2025-01-01,Puebla,Sociedad y Medio ambiente,Esperanza de vida,años,73.90583425,26.0,26.0,0.0
+2025-01-01,Puebla,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,116.9205892006212,26.0,19.0,-7.0
+2025-01-01,Puebla,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,0.7693075888323493,30.0,29.0,-1.0
+2025-01-01,Puebla,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,2.527970204031761,28.0,28.0,0.0
+2025-01-01,Querétaro,Derecho,Agresiones a periodistas,casos por millón hab.,1.15088130654184,29.0,30.0,1.0
+2025-01-01,Querétaro,Derecho,Competencia en servicios notariales,notarios por 100k hab.,3.912996442242254,9.0,11.0,2.0
+2025-01-01,Querétaro,Derecho,Delitos no denunciados,porcentaje,0.8926196567751586,23.0,13.0,-10.0
+2025-01-01,Querétaro,Derecho,Homicidios,homicidios por 100k hab.,6.828562418814914,29.0,27.0,-2.0
+2025-01-01,Querétaro,Derecho,Incidencia delictiva,delitos por mil hab.,22.77632468356519,8.0,8.0,0.0
+2025-01-01,Querétaro,Derecho,Percepción de seguridad,porcentaje población 18+,42.579808730275,8.0,7.0,-1.0
+2025-01-01,Querétaro,Derecho,Robo de vehículos,robos por mil vehículos,5.841593387813442,3.0,3.0,0.0
+2025-01-01,Querétaro,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,5.0,4.0
+2025-01-01,Querétaro,Infraestructura,Captación de ahorro,pesos por millón de PIB,78476.02065432777,3.0,4.0,1.0
+2025-01-01,Querétaro,Infraestructura,Carga aérea,kilos por mil hab.,29689.25706008138,1.0,2.0,1.0
+2025-01-01,Querétaro,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,796.0070556696634,12.0,12.0,0.0
+2025-01-01,Querétaro,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,58.15786869058095,21.0,19.0,-2.0
+2025-01-01,Querétaro,Infraestructura,Terminales punto de venta,terminales por 10k adultos,158.8073091070299,11.0,11.0,0.0
+2025-01-01,Querétaro,Infraestructura,Uso de banca móvil,contratos por 10k adultos,7958.058182936772,17.0,17.0,0.0
+2025-01-01,Querétaro,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0302075637523577,13.0,20.0,7.0
+2025-01-01,Querétaro,Innovación y Economía,Diversificación económica,número de sectores presentes,846.0,14.0,11.0,-3.0
+2025-01-01,Querétaro,Innovación y Economía,Patentes,patentes por 100k PEA,1.966632796879609,9.0,6.0,-3.0
+2025-01-01,Querétaro,Mercado de trabajo,Brecha de ingresos por género,proporción,0.2055213632093794,5.0,11.0,6.0
+2025-01-01,Querétaro,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0413898824731731,7.0,15.0,8.0
+2025-01-01,Querétaro,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0170707712841697,9.0,5.0,-4.0
+2025-01-01,Querétaro,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,5.589061960381486,20.0,23.0,3.0
+2025-01-01,Querétaro,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,2.322570532551888,16.0,12.0,-4.0
+2025-01-01,Querétaro,Mercado de trabajo,Grado de escolaridad,años promedio,10.34105,9.0,15.0,6.0
+2025-01-01,Querétaro,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.4417157724090512,24.0,24.0,0.0
+2025-01-01,Querétaro,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,11922.1396,9.0,18.0,9.0
+2025-01-01,Querétaro,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.283825454166901,9.0,10.0,1.0
+2025-01-01,Querétaro,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.423887213609099,5.0,4.0,-1.0
+2025-01-01,Querétaro,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0099118292962732,22.0,30.0,8.0
+2025-01-01,Querétaro,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.303542308591106,6.0,12.0,6.0
+2025-01-01,Querétaro,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6043549250548588,18.0,28.0,10.0
+2025-01-01,Querétaro,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,18.66438563311786,6.0,6.0,0.0
+2025-01-01,Querétaro,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,10.90045045478466,25.0,31.0,6.0
+2025-01-01,Querétaro,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.0395615896825983,30.0,31.0,1.0
+2025-01-01,Querétaro,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.2177449716429826,2.0,6.0,4.0
+2025-01-01,Querétaro,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.52,19.0,17.0,-2.0
+2025-01-01,Querétaro,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,68.3,32.0,32.0,0.0
+2025-01-01,Querétaro,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.4634748144000229,11.0,12.0,1.0
+2025-01-01,Querétaro,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.5125258085132992,29.0,28.0,-1.0
+2025-01-01,Querétaro,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,97.6,4.0,4.0,0.0
+2025-01-01,Querétaro,Sociedad y Medio ambiente,Esperanza de vida,años,76.26513178,9.0,9.0,0.0
+2025-01-01,Querétaro,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,145.795178421129,13.0,15.0,2.0
+2025-01-01,Querétaro,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,0.9686584330060484,21.0,19.0,-2.0
+2025-01-01,Querétaro,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,2.368513728863106,30.0,30.0,0.0
+2025-01-01,Quintana Roo,Derecho,Agresiones a periodistas,casos por millón hab.,8.24789884776853,6.0,1.0,-5.0
+2025-01-01,Quintana Roo,Derecho,Competencia en servicios notariales,notarios por 100k hab.,5.967597401620761,2.0,2.0,0.0
+2025-01-01,Quintana Roo,Derecho,Delitos no denunciados,porcentaje,0.894405891566519,20.0,15.0,-5.0
+2025-01-01,Quintana Roo,Derecho,Homicidios,homicidios por 100k hab.,28.1884072385501,9.0,9.0,0.0
+2025-01-01,Quintana Roo,Derecho,Incidencia delictiva,delitos por mil hab.,26.01872467106652,5.0,5.0,0.0
+2025-01-01,Quintana Roo,Derecho,Percepción de seguridad,porcentaje población 18+,18.3103917607755,23.0,19.0,-4.0
+2025-01-01,Quintana Roo,Derecho,Robo de vehículos,robos por mil vehículos,3.119147233527939,10.0,10.0,0.0
+2025-01-01,Quintana Roo,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,6.0,5.0
+2025-01-01,Quintana Roo,Infraestructura,Captación de ahorro,pesos por millón de PIB,31046.00856629888,29.0,28.0,-1.0
+2025-01-01,Quintana Roo,Infraestructura,Carga aérea,kilos por mil hab.,17655.04667097822,5.0,3.0,-2.0
+2025-01-01,Quintana Roo,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,15989.70856292007,1.0,1.0,0.0
+2025-01-01,Quintana Roo,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,183.7340760970555,3.0,4.0,1.0
+2025-01-01,Quintana Roo,Infraestructura,Terminales punto de venta,terminales por 10k adultos,267.8667603625415,4.0,3.0,-1.0
+2025-01-01,Quintana Roo,Infraestructura,Uso de banca móvil,contratos por 10k adultos,10463.08288494386,2.0,2.0,0.0
+2025-01-01,Quintana Roo,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0762084842566482,1.0,2.0,1.0
+2025-01-01,Quintana Roo,Innovación y Economía,Diversificación económica,número de sectores presentes,713.0,29.0,27.0,-2.0
+2025-01-01,Quintana Roo,Innovación y Economía,Patentes,patentes por 100k PEA,0.3987642296523075,26.0,25.0,-1.0
+2025-01-01,Quintana Roo,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1476382995139265,21.0,12.0,-9.0
+2025-01-01,Quintana Roo,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,-7.062941169228514e-17,26.0,31.0,5.0
+2025-01-01,Quintana Roo,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0124138885319785,14.0,1.0,-13.0
+2025-01-01,Quintana Roo,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,3.804941963280923,27.0,26.0,-1.0
+2025-01-01,Quintana Roo,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,3.309963568049734,13.0,3.0,-10.0
+2025-01-01,Quintana Roo,Mercado de trabajo,Grado de escolaridad,años promedio,10.1854,13.0,6.0,-7.0
+2025-01-01,Quintana Roo,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.4384242704595742,25.0,23.0,-2.0
+2025-01-01,Quintana Roo,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,12281.92609,7.0,8.0,1.0
+2025-01-01,Quintana Roo,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2338090842289909,21.0,17.0,-4.0
+2025-01-01,Quintana Roo,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.3995388291684071,24.0,21.0,-3.0
+2025-01-01,Quintana Roo,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0089911364680854,25.0,21.0,-4.0
+2025-01-01,Quintana Roo,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2498168279462127,19.0,10.0,-9.0
+2025-01-01,Quintana Roo,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6608143485988561,3.0,3.0,0.0
+2025-01-01,Quintana Roo,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,15.00748685176423,19.0,19.0,0.0
+2025-01-01,Quintana Roo,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.24477270851414,11.0,10.0,-1.0
+2025-01-01,Quintana Roo,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.4000986210707061,4.0,4.0,0.0
+2025-01-01,Quintana Roo,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.1995174429876121,4.0,2.0,-2.0
+2025-01-01,Quintana Roo,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.41,30.0,29.0,-1.0
+2025-01-01,Quintana Roo,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,82.8,15.0,15.0,0.0
+2025-01-01,Quintana Roo,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.5089241670947947,8.0,9.0,1.0
+2025-01-01,Quintana Roo,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.5870563297529366,23.0,20.0,-3.0
+2025-01-01,Quintana Roo,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,91.8,18.0,12.0,-6.0
+2025-01-01,Quintana Roo,Sociedad y Medio ambiente,Esperanza de vida,años,75.99418173,13.0,13.0,0.0
+2025-01-01,Quintana Roo,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,144.0335427491023,15.0,17.0,2.0
+2025-01-01,Quintana Roo,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,0.8965951218044851,23.0,25.0,2.0
+2025-01-01,Quintana Roo,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,2.653397576379182,26.0,25.0,-1.0
+2025-01-01,San Luis Potosí,Derecho,Agresiones a periodistas,casos por millón hab.,9.13445614970494,5.0,9.0,4.0
+2025-01-01,San Luis Potosí,Derecho,Competencia en servicios notariales,notarios por 100k hab.,2.300529696962725,20.0,21.0,1.0
+2025-01-01,San Luis Potosí,Derecho,Delitos no denunciados,porcentaje,0.9031082294810328,12.0,10.0,-2.0
+2025-01-01,San Luis Potosí,Derecho,Homicidios,homicidios por 100k hab.,13.16038311938971,17.0,15.0,-2.0
+2025-01-01,San Luis Potosí,Derecho,Incidencia delictiva,delitos por mil hab.,19.87217851027846,11.0,12.0,1.0
+2025-01-01,San Luis Potosí,Derecho,Percepción de seguridad,porcentaje población 18+,23.7551139444524,17.0,18.0,1.0
+2025-01-01,San Luis Potosí,Derecho,Robo de vehículos,robos por mil vehículos,2.654836251521866,16.0,15.0,-1.0
+2025-01-01,San Luis Potosí,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,22.0,21.0
+2025-01-01,San Luis Potosí,Infraestructura,Captación de ahorro,pesos por millón de PIB,44006.98144006717,21.0,20.0,-1.0
+2025-01-01,San Luis Potosí,Infraestructura,Carga aérea,kilos por mil hab.,9303.753821670382,9.0,8.0,-1.0
+2025-01-01,San Luis Potosí,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,250.3771346293661,24.0,24.0,0.0
+2025-01-01,San Luis Potosí,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,33.93281303020021,25.0,25.0,0.0
+2025-01-01,San Luis Potosí,Infraestructura,Terminales punto de venta,terminales por 10k adultos,275.6053802769435,3.0,20.0,17.0
+2025-01-01,San Luis Potosí,Infraestructura,Uso de banca móvil,contratos por 10k adultos,6618.237145609354,27.0,27.0,0.0
+2025-01-01,San Luis Potosí,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.039191452237027,5.0,9.0,4.0
+2025-01-01,San Luis Potosí,Innovación y Economía,Diversificación económica,número de sectores presentes,834.0,15.0,14.0,-1.0
+2025-01-01,San Luis Potosí,Innovación y Economía,Patentes,patentes por 100k PEA,1.031566677154261,18.0,12.0,-6.0
+2025-01-01,San Luis Potosí,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1377370910479859,24.0,31.0,7.0
+2025-01-01,San Luis Potosí,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.011392405063291,24.0,22.0,-2.0
+2025-01-01,San Luis Potosí,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0011961847561727,20.0,15.0,-5.0
+2025-01-01,San Luis Potosí,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,6.11830366405245,18.0,15.0,-3.0
+2025-01-01,San Luis Potosí,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,1.506807510525299,21.0,20.0,-1.0
+2025-01-01,San Luis Potosí,Mercado de trabajo,Grado de escolaridad,años promedio,9.603369,21.0,22.0,1.0
+2025-01-01,San Luis Potosí,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.5515873137273498,15.0,16.0,1.0
+2025-01-01,San Luis Potosí,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,10957.05142,15.0,12.0,-3.0
+2025-01-01,San Luis Potosí,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.204847907291211,28.0,23.0,-5.0
+2025-01-01,San Luis Potosí,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4160367355630402,10.0,11.0,1.0
+2025-01-01,San Luis Potosí,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0122749066247948,20.0,14.0,-6.0
+2025-01-01,San Luis Potosí,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2429404763536512,21.0,22.0,1.0
+2025-01-01,San Luis Potosí,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.606553134891088,15.0,11.0,-4.0
+2025-01-01,San Luis Potosí,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,15.98205195396571,14.0,14.0,0.0
+2025-01-01,San Luis Potosí,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.27377030682317,8.0,15.0,7.0
+2025-01-01,San Luis Potosí,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.101448725905843,21.0,24.0,3.0
+2025-01-01,San Luis Potosí,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.0915653740890606,21.0,17.0,-4.0
+2025-01-01,San Luis Potosí,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.59,10.0,9.0,-1.0
+2025-01-01,San Luis Potosí,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,78.7,22.0,22.0,0.0
+2025-01-01,San Luis Potosí,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.3901897678915053,18.0,17.0,-1.0
+2025-01-01,San Luis Potosí,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.7591747999976995,14.0,13.0,-1.0
+2025-01-01,San Luis Potosí,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,92.9,14.0,13.0,-1.0
+2025-01-01,San Luis Potosí,Sociedad y Medio ambiente,Esperanza de vida,años,75.27085302,17.0,17.0,0.0
+2025-01-01,San Luis Potosí,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,143.8057730439492,16.0,22.0,6.0
+2025-01-01,San Luis Potosí,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,0.843076471298693,28.0,30.0,2.0
+2025-01-01,San Luis Potosí,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,2.685530108013253,25.0,29.0,4.0
+2025-01-01,Sinaloa,Derecho,Agresiones a periodistas,casos por millón hab.,10.42428086676948,4.0,8.0,4.0
+2025-01-01,Sinaloa,Derecho,Competencia en servicios notariales,notarios por 100k hab.,3.917002507513379,8.0,8.0,0.0
+2025-01-01,Sinaloa,Derecho,Delitos no denunciados,porcentaje,0.9399715529829332,3.0,2.0,-1.0
+2025-01-01,Sinaloa,Derecho,Homicidios,homicidios por 100k hab.,26.2502345463195,10.0,14.0,4.0
+2025-01-01,Sinaloa,Derecho,Incidencia delictiva,delitos por mil hab.,10.89463705497008,22.0,24.0,2.0
+2025-01-01,Sinaloa,Derecho,Percepción de seguridad,porcentaje población 18+,44.0483534385891,7.0,8.0,1.0
+2025-01-01,Sinaloa,Derecho,Robo de vehículos,robos por mil vehículos,3.246616314849482,9.0,14.0,5.0
+2025-01-01,Sinaloa,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,15.0,14.0
+2025-01-01,Sinaloa,Infraestructura,Captación de ahorro,pesos por millón de PIB,60088.55353632718,7.0,9.0,2.0
+2025-01-01,Sinaloa,Infraestructura,Carga aérea,kilos por mil hab.,3407.062797763264,13.0,13.0,0.0
+2025-01-01,Sinaloa,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,1497.3335953092,7.0,8.0,1.0
+2025-01-01,Sinaloa,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,125.7863224590184,7.0,6.0,-1.0
+2025-01-01,Sinaloa,Infraestructura,Terminales punto de venta,terminales por 10k adultos,160.6262744677162,10.0,12.0,2.0
+2025-01-01,Sinaloa,Infraestructura,Uso de banca móvil,contratos por 10k adultos,9945.054446086404,3.0,3.0,0.0
+2025-01-01,Sinaloa,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.006454020953328,30.0,30.0,0.0
+2025-01-01,Sinaloa,Innovación y Economía,Diversificación económica,número de sectores presentes,828.0,16.0,16.0,0.0
+2025-01-01,Sinaloa,Innovación y Economía,Patentes,patentes por 100k PEA,2.065232431584012,7.0,7.0,0.0
+2025-01-01,Sinaloa,Mercado de trabajo,Brecha de ingresos por género,proporción,0.2286858354739054,4.0,10.0,6.0
+2025-01-01,Sinaloa,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,-0.0096665055582407,28.0,8.0,-20.0
+2025-01-01,Sinaloa,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,-0.0039400078668494,25.0,25.0,0.0
+2025-01-01,Sinaloa,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,4.305226119318823,25.0,28.0,3.0
+2025-01-01,Sinaloa,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,3.154409491460703,14.0,32.0,18.0
+2025-01-01,Sinaloa,Mercado de trabajo,Grado de escolaridad,años promedio,10.32101,10.0,10.0,0.0
+2025-01-01,Sinaloa,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.4810910730834609,19.0,21.0,2.0
+2025-01-01,Sinaloa,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,11885.75262,11.0,7.0,-4.0
+2025-01-01,Sinaloa,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.1478908388856204,31.0,31.0,0.0
+2025-01-01,Sinaloa,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4302250896827183,3.0,7.0,4.0
+2025-01-01,Sinaloa,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0147891294425731,19.0,27.0,8.0
+2025-01-01,Sinaloa,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.3112523716088021,4.0,3.0,-1.0
+2025-01-01,Sinaloa,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.5969759573320007,24.0,14.0,-10.0
+2025-01-01,Sinaloa,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,11.93190895485387,28.0,28.0,0.0
+2025-01-01,Sinaloa,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.1508574833789,18.0,19.0,1.0
+2025-01-01,Sinaloa,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.0932959698482295,22.0,21.0,-1.0
+2025-01-01,Sinaloa,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.1484874989650661,8.0,15.0,7.0
+2025-01-01,Sinaloa,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.49,24.0,23.0,-1.0
+2025-01-01,Sinaloa,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,85.0,12.0,12.0,0.0
+2025-01-01,Sinaloa,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.4608918633241793,12.0,11.0,-1.0
+2025-01-01,Sinaloa,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.809619147319096,10.0,9.0,-1.0
+2025-01-01,Sinaloa,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,94.8,9.0,9.0,0.0
+2025-01-01,Sinaloa,Sociedad y Medio ambiente,Esperanza de vida,años,76.11152524,11.0,11.0,0.0
+2025-01-01,Sinaloa,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,135.5671408977391,18.0,11.0,-7.0
+2025-01-01,Sinaloa,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.351049977793123,8.0,8.0,0.0
+2025-01-01,Sinaloa,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,3.608064729098211,11.0,12.0,1.0
+2025-01-01,Sonora,Derecho,Agresiones a periodistas,casos por millón hab.,4.820509919966681,12.0,18.0,6.0
+2025-01-01,Sonora,Derecho,Competencia en servicios notariales,notarios por 100k hab.,3.567177340775344,12.0,12.0,0.0
+2025-01-01,Sonora,Derecho,Delitos no denunciados,porcentaje,0.8956930926553188,19.0,4.0,-15.0
+2025-01-01,Sonora,Derecho,Homicidios,homicidios por 100k hab.,37.08578965094367,7.0,8.0,1.0
+2025-01-01,Sonora,Derecho,Incidencia delictiva,delitos por mil hab.,11.67816733211128,20.0,20.0,0.0
+2025-01-01,Sonora,Derecho,Percepción de seguridad,porcentaje población 18+,26.8502852430223,13.0,17.0,4.0
+2025-01-01,Sonora,Derecho,Robo de vehículos,robos por mil vehículos,1.821135954775001,21.0,23.0,2.0
+2025-01-01,Sonora,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,11.0,10.0
+2025-01-01,Sonora,Infraestructura,Captación de ahorro,pesos por millón de PIB,27573.2385639653,30.0,29.0,-1.0
+2025-01-01,Sonora,Infraestructura,Carga aérea,kilos por mil hab.,6604.821024107691,10.0,11.0,1.0
+2025-01-01,Sonora,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,842.9551782560294,10.0,10.0,0.0
+2025-01-01,Sonora,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,122.3445417687544,8.0,9.0,1.0
+2025-01-01,Sonora,Infraestructura,Terminales punto de venta,terminales por 10k adultos,200.0286405308602,6.0,5.0,-1.0
+2025-01-01,Sonora,Infraestructura,Uso de banca móvil,contratos por 10k adultos,9172.000582830628,5.0,4.0,-1.0
+2025-01-01,Sonora,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0317877407291231,11.0,13.0,2.0
+2025-01-01,Sonora,Innovación y Economía,Diversificación económica,número de sectores presentes,879.0,8.0,8.0,0.0
+2025-01-01,Sonora,Innovación y Economía,Patentes,patentes por 100k PEA,1.317618993131044,13.0,20.0,7.0
+2025-01-01,Sonora,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1763419101066311,12.0,27.0,15.0
+2025-01-01,Sonora,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,-0.0049931911030412,27.0,26.0,-1.0
+2025-01-01,Sonora,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,-0.0105959659099571,28.0,23.0,-5.0
+2025-01-01,Sonora,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,5.808390263397819,19.0,20.0,1.0
+2025-01-01,Sonora,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,0.8054346071493468,27.0,21.0,-6.0
+2025-01-01,Sonora,Mercado de trabajo,Grado de escolaridad,años promedio,10.61013,4.0,5.0,1.0
+2025-01-01,Sonora,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.4038888477363,27.0,27.0,0.0
+2025-01-01,Sonora,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,11873.26916,12.0,11.0,-1.0
+2025-01-01,Sonora,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.187615292174192,30.0,29.0,-1.0
+2025-01-01,Sonora,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4203710831174866,6.0,16.0,10.0
+2025-01-01,Sonora,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0072358087233312,29.0,28.0,-1.0
+2025-01-01,Sonora,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.3003427991659424,7.0,6.0,-1.0
+2025-01-01,Sonora,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.605816615901691,17.0,10.0,-7.0
+2025-01-01,Sonora,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,11.94581236436345,27.0,27.0,0.0
+2025-01-01,Sonora,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.26579264654344,10.0,6.0,-4.0
+2025-01-01,Sonora,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.2378746506171634,8.0,7.0,-1.0
+2025-01-01,Sonora,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.1126104880888811,18.0,23.0,5.0
+2025-01-01,Sonora,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.5,22.0,21.0,-1.0
+2025-01-01,Sonora,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,79.3,21.0,21.0,0.0
+2025-01-01,Sonora,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.5448248781543759,6.0,6.0,0.0
+2025-01-01,Sonora,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.9939891454971296,3.0,2.0,-1.0
+2025-01-01,Sonora,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,90.5,22.0,23.0,1.0
+2025-01-01,Sonora,Sociedad y Medio ambiente,Esperanza de vida,años,76.75962127,6.0,6.0,0.0
+2025-01-01,Sonora,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,124.13648598967,23.0,21.0,-2.0
+2025-01-01,Sonora,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.506891400981584,4.0,5.0,1.0
+2025-01-01,Sonora,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,3.63562858163887,10.0,7.0,-3.0
+2025-01-01,Tabasco,Derecho,Agresiones a periodistas,casos por millón hab.,0.4062472705261511,32.0,29.0,-3.0
+2025-01-01,Tabasco,Derecho,Competencia en servicios notariales,notarios por 100k hab.,3.168728710103979,15.0,15.0,0.0
+2025-01-01,Tabasco,Derecho,Delitos no denunciados,porcentaje,0.903151703507546,11.0,9.0,-2.0
+2025-01-01,Tabasco,Derecho,Homicidios,homicidios por 100k hab.,29.85917438367211,8.0,21.0,13.0
+2025-01-01,Tabasco,Derecho,Incidencia delictiva,delitos por mil hab.,18.09872214921056,14.0,15.0,1.0
+2025-01-01,Tabasco,Derecho,Percepción de seguridad,porcentaje población 18+,14.8369838914747,28.0,20.0,-8.0
+2025-01-01,Tabasco,Derecho,Robo de vehículos,robos por mil vehículos,3.916710202253899,6.0,9.0,3.0
+2025-01-01,Tabasco,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,29.0,28.0
+2025-01-01,Tabasco,Infraestructura,Captación de ahorro,pesos por millón de PIB,34372.7027885928,26.0,25.0,-1.0
+2025-01-01,Tabasco,Infraestructura,Carga aérea,kilos por mil hab.,1934.197692109256,14.0,14.0,0.0
+2025-01-01,Tabasco,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,604.5625630952792,14.0,14.0,0.0
+2025-01-01,Tabasco,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,30.95604201409272,26.0,26.0,0.0
+2025-01-01,Tabasco,Infraestructura,Terminales punto de venta,terminales por 10k adultos,135.9492284398054,15.0,17.0,2.0
+2025-01-01,Tabasco,Infraestructura,Uso de banca móvil,contratos por 10k adultos,8968.411925397739,6.0,6.0,0.0
+2025-01-01,Tabasco,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0439556200805897,4.0,1.0,-3.0
+2025-01-01,Tabasco,Innovación y Economía,Diversificación económica,número de sectores presentes,751.0,25.0,25.0,0.0
+2025-01-01,Tabasco,Innovación y Economía,Patentes,patentes por 100k PEA,0.7178969925500239,20.0,19.0,-1.0
+2025-01-01,Tabasco,Mercado de trabajo,Brecha de ingresos por género,proporción,0.0561135962523473,31.0,14.0,-17.0
+2025-01-01,Tabasco,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,-0.020973154362416,31.0,1.0,-30.0
+2025-01-01,Tabasco,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,-0.1221491433585795,32.0,31.0,-1.0
+2025-01-01,Tabasco,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,7.151953811396536,14.0,21.0,7.0
+2025-01-01,Tabasco,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,0.1102729077240072,32.0,2.0,-30.0
+2025-01-01,Tabasco,Mercado de trabajo,Grado de escolaridad,años promedio,9.696856,20.0,19.0,-1.0
+2025-01-01,Tabasco,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.6381858778504106,10.0,10.0,0.0
+2025-01-01,Tabasco,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,9934.429683,21.0,14.0,-7.0
+2025-01-01,Tabasco,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.3193830737768797,2.0,1.0,-1.0
+2025-01-01,Tabasco,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.3568333922607115,31.0,30.0,-1.0
+2025-01-01,Tabasco,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0208656760884664,12.0,11.0,-1.0
+2025-01-01,Tabasco,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.240479368545592,22.0,21.0,-1.0
+2025-01-01,Tabasco,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.5681873688665223,30.0,25.0,-5.0
+2025-01-01,Tabasco,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,14.78357044376771,20.0,20.0,0.0
+2025-01-01,Tabasco,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,10.93119428230809,24.0,23.0,-1.0
+2025-01-01,Tabasco,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.0452499897394372,27.0,29.0,2.0
+2025-01-01,Tabasco,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.088325531125338,22.0,28.0,6.0
+2025-01-01,Tabasco,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.6021118033679118,7.0,2.0,-5.0
+2025-01-01,Tabasco,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,86.6,9.0,9.0,0.0
+2025-01-01,Tabasco,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.3189098441158962,23.0,21.0,-2.0
+2025-01-01,Tabasco,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.7385575378165429,15.0,16.0,1.0
+2025-01-01,Tabasco,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,98.5,2.0,2.0,0.0
+2025-01-01,Tabasco,Sociedad y Medio ambiente,Esperanza de vida,años,73.79834889,28.0,28.0,0.0
+2025-01-01,Tabasco,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,173.6264271974423,6.0,8.0,2.0
+2025-01-01,Tabasco,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.168773397303737,13.0,12.0,-1.0
+2025-01-01,Tabasco,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,4.444345139556094,5.0,2.0,-3.0
+2025-01-01,Tamaulipas,Derecho,Agresiones a periodistas,casos por millón hab.,2.420904998846035,23.0,20.0,-3.0
+2025-01-01,Tamaulipas,Derecho,Competencia en servicios notariales,notarios por 100k hab.,5.24529416416641,3.0,3.0,0.0
+2025-01-01,Tamaulipas,Derecho,Delitos no denunciados,porcentaje,0.946673524357686,1.0,3.0,2.0
+2025-01-01,Tamaulipas,Derecho,Homicidios,homicidios por 100k hab.,9.602923162089272,24.0,20.0,-4.0
+2025-01-01,Tamaulipas,Derecho,Incidencia delictiva,delitos por mil hab.,10.80880284095891,23.0,22.0,-1.0
+2025-01-01,Tamaulipas,Derecho,Percepción de seguridad,porcentaje población 18+,23.1471185351531,19.0,15.0,-4.0
+2025-01-01,Tamaulipas,Derecho,Robo de vehículos,robos por mil vehículos,1.723728857164909,22.0,21.0,-1.0
+2025-01-01,Tamaulipas,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,14.0,13.0
+2025-01-01,Tamaulipas,Infraestructura,Captación de ahorro,pesos por millón de PIB,49649.78078730892,14.0,14.0,0.0
+2025-01-01,Tamaulipas,Infraestructura,Carga aérea,kilos por mil hab.,327.6420546704907,19.0,20.0,1.0
+2025-01-01,Tamaulipas,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,357.3503248585519,20.0,20.0,0.0
+2025-01-01,Tamaulipas,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,71.4973942992529,16.0,17.0,1.0
+2025-01-01,Tamaulipas,Infraestructura,Terminales punto de venta,terminales por 10k adultos,99.29445357737234,21.0,21.0,0.0
+2025-01-01,Tamaulipas,Infraestructura,Uso de banca móvil,contratos por 10k adultos,8718.139933899485,10.0,9.0,-1.0
+2025-01-01,Tamaulipas,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0159415586852934,26.0,28.0,2.0
+2025-01-01,Tamaulipas,Innovación y Economía,Diversificación económica,número de sectores presentes,847.0,13.0,15.0,2.0
+2025-01-01,Tamaulipas,Innovación y Economía,Patentes,patentes por 100k PEA,0.6412894815699233,21.0,24.0,3.0
+2025-01-01,Tamaulipas,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1632812777916118,14.0,19.0,5.0
+2025-01-01,Tamaulipas,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0076130765785938,25.0,3.0,-22.0
+2025-01-01,Tamaulipas,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,-0.0018314487990618,22.0,28.0,6.0
+2025-01-01,Tamaulipas,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,8.681126128532506,10.0,11.0,1.0
+2025-01-01,Tamaulipas,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,4.965266961335846,7.0,13.0,6.0
+2025-01-01,Tamaulipas,Mercado de trabajo,Grado de escolaridad,años promedio,10.25661,12.0,11.0,-1.0
+2025-01-01,Tamaulipas,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.4441032711621926,23.0,25.0,2.0
+2025-01-01,Tamaulipas,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,11887.13591,10.0,9.0,-1.0
+2025-01-01,Tamaulipas,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2247045242351647,23.0,24.0,1.0
+2025-01-01,Tamaulipas,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4149562698872613,14.0,19.0,5.0
+2025-01-01,Tamaulipas,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0150487321706949,18.0,18.0,0.0
+2025-01-01,Tamaulipas,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2818761010167955,12.0,11.0,-1.0
+2025-01-01,Tamaulipas,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6100495460266618,14.0,23.0,9.0
+2025-01-01,Tamaulipas,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,14.50492662473795,21.0,21.0,0.0
+2025-01-01,Tamaulipas,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.17367088109369,16.0,3.0,-13.0
+2025-01-01,Tamaulipas,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.2019218017098968,11.0,9.0,-2.0
+2025-01-01,Tamaulipas,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.1265410751653596,14.0,10.0,-4.0
+2025-01-01,Tamaulipas,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.53,16.0,14.0,-2.0
+2025-01-01,Tamaulipas,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,77.4,24.0,24.0,0.0
+2025-01-01,Tamaulipas,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.5061748946323411,9.0,7.0,-2.0
+2025-01-01,Tamaulipas,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.9132191634535878,6.0,7.0,1.0
+2025-01-01,Tamaulipas,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,89.1,30.0,26.0,-4.0
+2025-01-01,Tamaulipas,Sociedad y Medio ambiente,Esperanza de vida,años,75.85950879,14.0,14.0,0.0
+2025-01-01,Tamaulipas,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,192.3158861399961,3.0,7.0,4.0
+2025-01-01,Tamaulipas,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.175752861106224,12.0,13.0,1.0
+2025-01-01,Tamaulipas,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,3.510043258882435,13.0,11.0,-2.0
+2025-01-01,Tlaxcala,Derecho,Agresiones a periodistas,casos por millón hab.,11.88398158122667,3.0,2.0,-1.0
+2025-01-01,Tlaxcala,Derecho,Competencia en servicios notariales,notarios por 100k hab.,1.537927028158745,28.0,29.0,1.0
+2025-01-01,Tlaxcala,Derecho,Delitos no denunciados,porcentaje,0.8873814989584662,25.0,18.0,-7.0
+2025-01-01,Tlaxcala,Derecho,Homicidios,homicidios por 100k hab.,9.856714135017407,23.0,25.0,2.0
+2025-01-01,Tlaxcala,Derecho,Incidencia delictiva,delitos por mil hab.,2.397768048447498,30.0,30.0,0.0
+2025-01-01,Tlaxcala,Derecho,Percepción de seguridad,porcentaje población 18+,34.3424571730657,11.0,11.0,0.0
+2025-01-01,Tlaxcala,Derecho,Robo de vehículos,robos por mil vehículos,3.016840298381673,11.0,12.0,1.0
+2025-01-01,Tlaxcala,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,27.0,26.0
+2025-01-01,Tlaxcala,Infraestructura,Captación de ahorro,pesos por millón de PIB,27467.45427212952,31.0,30.0,-1.0
+2025-01-01,Tlaxcala,Infraestructura,Carga aérea,kilos por mil hab.,0.0,29.0,29.0,0.0
+2025-01-01,Tlaxcala,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,0.0,31.0,31.0,0.0
+2025-01-01,Tlaxcala,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,20.62220333212862,30.0,28.0,-2.0
+2025-01-01,Tlaxcala,Infraestructura,Terminales punto de venta,terminales por 10k adultos,55.53263284027515,30.0,30.0,0.0
+2025-01-01,Tlaxcala,Infraestructura,Uso de banca móvil,contratos por 10k adultos,7178.490077604381,24.0,24.0,0.0
+2025-01-01,Tlaxcala,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0195644759155401,24.0,22.0,-2.0
+2025-01-01,Tlaxcala,Innovación y Economía,Diversificación económica,número de sectores presentes,751.0,25.0,25.0,0.0
+2025-01-01,Tlaxcala,Innovación y Economía,Patentes,patentes por 100k PEA,0.1437913759684349,30.0,27.0,-3.0
+2025-01-01,Tlaxcala,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1883646774423243,8.0,3.0,-5.0
+2025-01-01,Tlaxcala,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0760869565217391,3.0,13.0,10.0
+2025-01-01,Tlaxcala,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0166637524042665,10.0,10.0,0.0
+2025-01-01,Tlaxcala,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,12.91482202939614,3.0,2.0,-1.0
+2025-01-01,Tlaxcala,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,1.097091492825475,25.0,22.0,-3.0
+2025-01-01,Tlaxcala,Mercado de trabajo,Grado de escolaridad,años promedio,9.870922,17.0,20.0,3.0
+2025-01-01,Tlaxcala,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.700623886715778,6.0,5.0,-1.0
+2025-01-01,Tlaxcala,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,8347.286022,31.0,30.0,-1.0
+2025-01-01,Tlaxcala,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.3211733605444613,1.0,3.0,2.0
+2025-01-01,Tlaxcala,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4148251784450976,15.0,10.0,-5.0
+2025-01-01,Tlaxcala,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0441137562333561,4.0,5.0,1.0
+2025-01-01,Tlaxcala,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.2303207031009096,24.0,25.0,1.0
+2025-01-01,Tlaxcala,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6218415111210461,8.0,13.0,5.0
+2025-01-01,Tlaxcala,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,20.21907003813313,3.0,3.0,0.0
+2025-01-01,Tlaxcala,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,0.0,32.0,31.0,-1.0
+2025-01-01,Tlaxcala,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.0,32.0,32.0,0.0
+2025-01-01,Tlaxcala,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.0699558049368801,29.0,30.0,1.0
+2025-01-01,Tlaxcala,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.64,3.0,7.0,4.0
+2025-01-01,Tlaxcala,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,75.7,27.0,27.0,0.0
+2025-01-01,Tlaxcala,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.2633407626873376,25.0,27.0,2.0
+2025-01-01,Tlaxcala,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.5159046121732517,28.0,29.0,1.0
+2025-01-01,Tlaxcala,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,98.4,3.0,3.0,0.0
+2025-01-01,Tlaxcala,Sociedad y Medio ambiente,Esperanza de vida,años,74.1827825,24.0,24.0,0.0
+2025-01-01,Tlaxcala,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,254.2123471772398,2.0,2.0,0.0
+2025-01-01,Tlaxcala,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.063965880389822,17.0,21.0,4.0
+2025-01-01,Tlaxcala,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,3.775610854129718,8.0,23.0,15.0
+2025-01-01,Veracruz,Derecho,Agresiones a periodistas,casos por millón hab.,5.167496398439564,10.0,16.0,6.0
+2025-01-01,Veracruz,Derecho,Competencia en servicios notariales,notarios por 100k hab.,2.632962450633492,18.0,18.0,0.0
+2025-01-01,Veracruz,Derecho,Delitos no denunciados,porcentaje,0.8998448911089322,15.0,7.0,-8.0
+2025-01-01,Veracruz,Derecho,Homicidios,homicidios por 100k hab.,10.15043935407772,22.0,19.0,-3.0
+2025-01-01,Veracruz,Derecho,Incidencia delictiva,delitos por mil hab.,9.990985179497294,25.0,25.0,0.0
+2025-01-01,Veracruz,Derecho,Percepción de seguridad,porcentaje población 18+,17.9214955168239,26.0,28.0,2.0
+2025-01-01,Veracruz,Derecho,Robo de vehículos,robos por mil vehículos,1.557211952463593,23.0,17.0,-6.0
+2025-01-01,Veracruz,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,28.0,27.0
+2025-01-01,Veracruz,Infraestructura,Captación de ahorro,pesos por millón de PIB,45867.50300217078,18.0,19.0,1.0
+2025-01-01,Veracruz,Infraestructura,Carga aérea,kilos por mil hab.,129.6909947885798,23.0,23.0,0.0
+2025-01-01,Veracruz,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,231.4348156624847,26.0,27.0,1.0
+2025-01-01,Veracruz,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,42.44729184432499,23.0,23.0,0.0
+2025-01-01,Veracruz,Infraestructura,Terminales punto de venta,terminales por 10k adultos,95.29013560623552,22.0,25.0,3.0
+2025-01-01,Veracruz,Infraestructura,Uso de banca móvil,contratos por 10k adultos,7343.123573749204,22.0,23.0,1.0
+2025-01-01,Veracruz,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0244119401726118,21.0,23.0,2.0
+2025-01-01,Veracruz,Innovación y Economía,Diversificación económica,número de sectores presentes,881.0,7.0,7.0,0.0
+2025-01-01,Veracruz,Innovación y Economía,Patentes,patentes por 100k PEA,0.524479964313279,24.0,26.0,2.0
+2025-01-01,Veracruz,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1115445548619886,29.0,29.0,0.0
+2025-01-01,Veracruz,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,-0.0157983193277311,30.0,20.0,-10.0
+2025-01-01,Veracruz,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,-0.0030660848967118,24.0,21.0,-3.0
+2025-01-01,Veracruz,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,9.548029835816653,8.0,10.0,2.0
+2025-01-01,Veracruz,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,1.361059719609858,22.0,23.0,1.0
+2025-01-01,Veracruz,Mercado de trabajo,Grado de escolaridad,años promedio,8.442156,29.0,28.0,-1.0
+2025-01-01,Veracruz,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.7010867504610654,5.0,8.0,3.0
+2025-01-01,Veracruz,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,8993.484562,26.0,26.0,0.0
+2025-01-01,Veracruz,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2530064744386716,14.0,16.0,2.0
+2025-01-01,Veracruz,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.3938143385093065,27.0,31.0,4.0
+2025-01-01,Veracruz,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0478104893784525,2.0,2.0,0.0
+2025-01-01,Veracruz,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.195980223754948,27.0,27.0,0.0
+2025-01-01,Veracruz,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.5679932567738003,31.0,32.0,1.0
+2025-01-01,Veracruz,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,15.72154389461361,15.0,15.0,0.0
+2025-01-01,Veracruz,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,9.692680017698796,28.0,26.0,-2.0
+2025-01-01,Veracruz,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.2714802135726785,6.0,6.0,0.0
+2025-01-01,Veracruz,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.0728503353154964,28.0,26.0,-2.0
+2025-01-01,Veracruz,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.5930704442615362,9.0,5.0,-4.0
+2025-01-01,Veracruz,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,81.5,18.0,18.0,0.0
+2025-01-01,Veracruz,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.2509016169402689,27.0,24.0,-3.0
+2025-01-01,Veracruz,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.665376679113361,18.0,19.0,1.0
+2025-01-01,Veracruz,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,89.4,28.0,29.0,1.0
+2025-01-01,Veracruz,Sociedad y Medio ambiente,Esperanza de vida,años,73.72795317,29.0,29.0,0.0
+2025-01-01,Veracruz,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,104.179803283255,30.0,28.0,-2.0
+2025-01-01,Veracruz,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.003109479439947,20.0,23.0,3.0
+2025-01-01,Veracruz,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,2.971802571616886,21.0,19.0,-2.0
+2025-01-01,Yucatán,Derecho,Agresiones a periodistas,casos por millón hab.,4.429411290972054,15.0,10.0,-5.0
+2025-01-01,Yucatán,Derecho,Competencia en servicios notariales,notarios por 100k hab.,4.308609164854635,6.0,7.0,1.0
+2025-01-01,Yucatán,Derecho,Delitos no denunciados,porcentaje,0.904482310271676,10.0,11.0,1.0
+2025-01-01,Yucatán,Derecho,Homicidios,homicidios por 100k hab.,2.053636143996134,32.0,32.0,0.0
+2025-01-01,Yucatán,Derecho,Incidencia delictiva,delitos por mil hab.,1.669888056696464,32.0,32.0,0.0
+2025-01-01,Yucatán,Derecho,Percepción de seguridad,porcentaje población 18+,67.9754690525928,1.0,2.0,1.0
+2025-01-01,Yucatán,Derecho,Robo de vehículos,robos por mil vehículos,0.1224035916118271,32.0,32.0,0.0
+2025-01-01,Yucatán,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,16.0,15.0
+2025-01-01,Yucatán,Infraestructura,Captación de ahorro,pesos por millón de PIB,58951.09049402872,8.0,7.0,-1.0
+2025-01-01,Yucatán,Infraestructura,Carga aérea,kilos por mil hab.,10550.29596520899,7.0,7.0,0.0
+2025-01-01,Yucatán,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,1496.572441008295,8.0,7.0,-1.0
+2025-01-01,Yucatán,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,209.4708866876057,2.0,2.0,0.0
+2025-01-01,Yucatán,Infraestructura,Terminales punto de venta,terminales por 10k adultos,169.8414070579952,8.0,9.0,1.0
+2025-01-01,Yucatán,Infraestructura,Uso de banca móvil,contratos por 10k adultos,7769.54915527152,19.0,19.0,0.0
+2025-01-01,Yucatán,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0389675405473372,6.0,6.0,0.0
+2025-01-01,Yucatán,Innovación y Economía,Diversificación económica,número de sectores presentes,812.0,19.0,17.0,-2.0
+2025-01-01,Yucatán,Innovación y Economía,Patentes,patentes por 100k PEA,0.6390878937580285,22.0,13.0,-9.0
+2025-01-01,Yucatán,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1276015115800236,26.0,4.0,-22.0
+2025-01-01,Yucatán,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0366022099447512,9.0,25.0,16.0
+2025-01-01,Yucatán,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,0.0033215580125706,18.0,3.0,-15.0
+2025-01-01,Yucatán,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,6.454225683655489,17.0,17.0,0.0
+2025-01-01,Yucatán,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,7.010880193228697,1.0,4.0,3.0
+2025-01-01,Yucatán,Mercado de trabajo,Grado de escolaridad,años promedio,9.36731,23.0,23.0,0.0
+2025-01-01,Yucatán,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.5926339841076522,13.0,12.0,-1.0
+2025-01-01,Yucatán,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,10790.4667,17.0,15.0,-2.0
+2025-01-01,Yucatán,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2499761394532713,15.0,15.0,0.0
+2025-01-01,Yucatán,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.4196906175506318,7.0,14.0,7.0
+2025-01-01,Yucatán,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.026363973337253,10.0,9.0,-1.0
+2025-01-01,Yucatán,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.254759886172384,17.0,16.0,-1.0
+2025-01-01,Yucatán,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.6579198681410399,5.0,5.0,0.0
+2025-01-01,Yucatán,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,23.86845418429494,1.0,1.0,0.0
+2025-01-01,Yucatán,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.05828716500261,21.0,12.0,-9.0
+2025-01-01,Yucatán,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.1625648129172528,15.0,19.0,4.0
+2025-01-01,Yucatán,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.121728663276752,16.0,14.0,-2.0
+2025-01-01,Yucatán,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.6806556511834156,2.0,1.0,-1.0
+2025-01-01,Yucatán,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,68.7,31.0,31.0,0.0
+2025-01-01,Yucatán,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.3581937117466491,19.0,19.0,0.0
+2025-01-01,Yucatán,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.8057501812031892,11.0,11.0,0.0
+2025-01-01,Yucatán,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,89.5,27.0,30.0,3.0
+2025-01-01,Yucatán,Sociedad y Medio ambiente,Esperanza de vida,años,75.01153463,19.0,19.0,0.0
+2025-01-01,Yucatán,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,131.4568736409761,21.0,14.0,-7.0
+2025-01-01,Yucatán,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.29258274945639,9.0,7.0,-2.0
+2025-01-01,Yucatán,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,3.389707658854796,14.0,13.0,-1.0
+2025-01-01,Zacatecas,Derecho,Agresiones a periodistas,casos por millón hab.,0.5888407609706922,31.0,30.0,-1.0
+2025-01-01,Zacatecas,Derecho,Competencia en servicios notariales,notarios por 100k hab.,1.472101902426731,29.0,28.0,-1.0
+2025-01-01,Zacatecas,Derecho,Delitos no denunciados,porcentaje,0.907429084966385,8.0,19.0,11.0
+2025-01-01,Zacatecas,Derecho,Homicidios,homicidios por 100k hab.,22.19929668859509,13.0,5.0,-8.0
+2025-01-01,Zacatecas,Derecho,Incidencia delictiva,delitos por mil hab.,15.13085219390291,16.0,17.0,1.0
+2025-01-01,Zacatecas,Derecho,Percepción de seguridad,porcentaje población 18+,12.2037613014034,30.0,32.0,2.0
+2025-01-01,Zacatecas,Derecho,Robo de vehículos,robos por mil vehículos,2.901278740549454,13.0,6.0,-7.0
+2025-01-01,Zacatecas,Infraestructura,Acceso a internet,porcentaje de viviendas,0.0,1.0,19.0,18.0
+2025-01-01,Zacatecas,Infraestructura,Captación de ahorro,pesos por millón de PIB,50829.39185053737,13.0,11.0,-2.0
+2025-01-01,Zacatecas,Infraestructura,Carga aérea,kilos por mil hab.,0.1354333750232592,28.0,26.0,-2.0
+2025-01-01,Zacatecas,Infraestructura,Flujo de pasajeros aéreos,pasajeros por mil hab.,220.827062179229,27.0,23.0,-4.0
+2025-01-01,Zacatecas,Infraestructura,Heridos en accidentes de tránsito terrestre,heridos por 100k hab.,64.94913593506735,20.0,20.0,0.0
+2025-01-01,Zacatecas,Infraestructura,Terminales punto de venta,terminales por 10k adultos,85.48689336403928,25.0,27.0,2.0
+2025-01-01,Zacatecas,Infraestructura,Uso de banca móvil,contratos por 10k adultos,5661.036341681037,30.0,30.0,0.0
+2025-01-01,Zacatecas,Innovación y Economía,Crecimiento del PIB,porcentaje promedio 3 años,0.0191589170242241,25.0,25.0,0.0
+2025-01-01,Zacatecas,Innovación y Economía,Diversificación económica,número de sectores presentes,714.0,28.0,28.0,0.0
+2025-01-01,Zacatecas,Innovación y Economía,Patentes,patentes por 100k PEA,0.4239713395374473,25.0,21.0,-4.0
+2025-01-01,Zacatecas,Mercado de trabajo,Brecha de ingresos por género,proporción,0.1621852794189743,15.0,24.0,9.0
+2025-01-01,Zacatecas,Mercado de trabajo,Crecimiento de UE >50 empleados,porcentaje anual,0.0772870662460568,2.0,19.0,17.0
+2025-01-01,Zacatecas,Mercado de trabajo,Crecimiento puestos de trabajo (IMSS),porcentaje anual,-0.0276483945522497,30.0,26.0,-4.0
+2025-01-01,Zacatecas,Mercado de trabajo,Desigualdad salarial,razón ≤2 SM / >2 SM,7.964011979087356,12.0,9.0,-3.0
+2025-01-01,Zacatecas,Mercado de trabajo,Diferencia de informalidad laboral H-M,diferencia p.p.,5.116267957279918,6.0,25.0,19.0
+2025-01-01,Zacatecas,Mercado de trabajo,Grado de escolaridad,años promedio,9.053918,25.0,25.0,0.0
+2025-01-01,Zacatecas,Mercado de trabajo,Informalidad laboral,porcentaje PEA ocupada,0.6108163061086271,11.0,11.0,0.0
+2025-01-01,Zacatecas,Mercado de trabajo,Ingreso promedio de tiempo completo,pesos mensuales,9760.458927,23.0,24.0,1.0
+2025-01-01,Zacatecas,Mercado de trabajo,Jornadas laborales >48h,porcentaje PEA ocupada,0.2760201469690355,11.0,9.0,-2.0
+2025-01-01,Zacatecas,Mercado de trabajo,Mujeres económicamente activas,porcentaje PEA,0.3822341876355825,30.0,28.0,-2.0
+2025-01-01,Zacatecas,Mercado de trabajo,Personas con ingresos debajo línea de bienestar,porcentaje PEA,0.0188907496519901,13.0,16.0,3.0
+2025-01-01,Zacatecas,Mercado de trabajo,Población con educación superior,porcentaje población 25+,0.1956286563090315,28.0,26.0,-2.0
+2025-01-01,Zacatecas,Mercado de trabajo,Tasa de participación,porcentaje 15+,0.5744379787693497,29.0,29.0,0.0
+2025-01-01,Zacatecas,Sistema político y Gobiernos,Consulta info finanzas públicas,porcentaje población urbana,16.74957695365859,10.0,10.0,0.0
+2025-01-01,Zacatecas,Sistema político y Gobiernos,Costo promedio de la deuda,tasa interés promedio,11.69258429456737,1.0,1.0,0.0
+2025-01-01,Zacatecas,Sistema político y Gobiernos,Deuda estatal y organismos,porcentaje ingresos totales,0.1512155465630646,18.0,16.0,-2.0
+2025-01-01,Zacatecas,Sistema político y Gobiernos,Ingresos propios,porcentaje ingresos totales,0.0991673524723763,19.0,19.0,0.0
+2025-01-01,Zacatecas,Sistema político y Gobiernos,Participación ciudadana en elecciones,porcentaje lista nominal,0.56,14.0,13.0,-1.0
+2025-01-01,Zacatecas,Sistema político y Gobiernos,Perc. de corrupción estatal,porcentaje,82.9,14.0,14.0,0.0
+2025-01-01,Zacatecas,Sociedad y Medio ambiente,Acceso a instituciones de salud,porcentaje ocupados,0.3231592976695822,22.0,23.0,1.0
+2025-01-01,Zacatecas,Sociedad y Medio ambiente,Camas de hospital,camas por mil hab.,0.6224046843460217,20.0,18.0,-2.0
+2025-01-01,Zacatecas,Sociedad y Medio ambiente,Cobertura educativa,tasa bruta secundaria,93.1,13.0,11.0,-2.0
+2025-01-01,Zacatecas,Sociedad y Medio ambiente,Esperanza de vida,años,74.37416987,22.0,22.0,0.0
+2025-01-01,Zacatecas,Sociedad y Medio ambiente,Morbilidad respiratoria,casos por mil hab.,311.6109976611245,1.0,1.0,0.0
+2025-01-01,Zacatecas,Sociedad y Medio ambiente,Personal médico con especialidad,por mil hab.,1.013394949630561,19.0,18.0,-1.0
+2025-01-01,Zacatecas,Sociedad y Medio ambiente,Personal médico y de enfermería,por mil hab.,3.816276971851056,7.0,8.0,1.0
