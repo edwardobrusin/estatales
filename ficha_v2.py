@@ -983,7 +983,7 @@ Total: {display_tot} MDD
                 titulo_des = "Mayores desinversiones" if len(subset_des) > 1 else "Mayor desinversión"
                 st.markdown(f"""
                 <hr style="margin:8px 0; border-color:rgba(0,0,0,0.05); border-style: dashed;">
-                <div style='font-size: 0.75rem; color: #DC2626; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;'>{titulo_des} por subsector</div>
+                <div style='font-size: 0.75rem; color: #D9534F; font-weight: 800; text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.5px;'>{titulo_des} por subsector</div>
                 """, unsafe_allow_html=True)
                 for _, r in subset_des.iterrows():
                     val_abs = abs(r['Inversion'])
