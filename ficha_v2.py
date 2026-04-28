@@ -1207,8 +1207,11 @@ if "Tlaxcala" not in selected_name:
     st.markdown(f"<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: {fuente_str}</div>", unsafe_allow_html=True)
     
     if not match.empty:
-        # Renombramos el resto de columnas para la tabla final
         match = match.rename(columns={"Calificacion": "Calificación", "Descripcion": "Descripción"})
+        
+        if "Fecha de Publicación" in match.columns:
+            match["Fecha de Publicación"] = pd.to_datetime(match["Fecha de Publicación"], errors='coerce').dt.strftime('%Y/%m/%d')
+            
         columnas_deseadas = ["Calificadora", "Calificación", "Perspectiva", "Descripción", "Fecha de Publicación"]
         columnas_finales = [c for c in columnas_deseadas if c in match.columns]
         st.dataframe(match[columnas_finales], hide_index=True, use_container_width=True)
