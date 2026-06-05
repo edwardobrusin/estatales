@@ -2,96 +2,130 @@ Estado,Sector,Inversion,Inversion_Anterior,Anio,Trimestre
 Aguascalientes,Primaria,0.0,0.0,2026,1
 Aguascalientes,Secundaria,235.06955442,112.9197221,2026,1
 Aguascalientes,Terciaria,55.00660991,-2.08845994,2026,1
+Aguascalientes,Total,342.05074875,109.85308059,2026,1
 Baja California,Primaria,0.0,0.0,2026,1
 Baja California,Secundaria,1065.0162714399999,735.1026164,2026,1
 Baja California,Terciaria,178.56072423,82.68084547000001,2026,1
+Baja California,Total,1394.45372825,857.12456016,2026,1
 Baja California Sur,Primaria,0.0,0.0,2026,1
 Baja California Sur,Secundaria,0.0,0.0,2026,1
 Baja California Sur,Terciaria,212.70729213,88.14103559,2026,1
+Baja California Sur,Total,222.09964833,83.73263897,2026,1
+"C: Cifra confidencial, no publicable por el principio de confidencialidad establecido en el Artículo 31 de la Ley de Inversión Extranjera.",Total,0.0,0.0,2026,1
 Campeche,Primaria,0.0,0.0,2026,1
 Campeche,Secundaria,0.0,0.0,2026,1
 Campeche,Terciaria,16.54182691,0.0,2026,1
+Campeche,Total,36.04612983,-2.87875536,2026,1
 Chiapas,Primaria,0.0,0.0,2026,1
 Chiapas,Secundaria,24.92372688,0.0,2026,1
 Chiapas,Terciaria,48.62409348,0.0,2026,1
+Chiapas,Total,84.16255693,1.99202691,2026,1
 Chihuahua,Primaria,0.0,0.0,2026,1
 Chihuahua,Secundaria,221.71238749,405.87783541,2026,1
 Chihuahua,Terciaria,140.33759842,2.81563319,2026,1
+Chihuahua,Total,406.44251261,440.47392008,2026,1
 Ciudad de México,Primaria,0.0,0.0,2026,1
 Ciudad de México,Secundaria,6961.38468011,2812.99440147,2026,1
 Ciudad de México,Terciaria,4551.83662009,6401.13103067,2026,1
+Ciudad de México,Total,11776.81617678,11805.77730826,2026,1
 Coahuila,Primaria,0.0,0.0,2026,1
 Coahuila,Secundaria,343.33733844,523.10129899,2026,1
 Coahuila,Terciaria,60.34561078,0.0,2026,1
+Coahuila,Total,449.86950671,538.40014202,2026,1
 Colima,Primaria,0.0,0.0,2026,1
 Colima,Secundaria,0.0,0.0,2026,1
 Colima,Terciaria,17.40220616,0.0,2026,1
+Colima,Total,82.22430183,3.93887043,2026,1
 Durango,Primaria,0.0,0.0,2026,1
 Durango,Secundaria,64.98144053,0.0,2026,1
 Durango,Terciaria,24.25997401,0.0,2026,1
+Durango,Total,100.12361874,-13.89017802,2026,1
+Fuente: Registro Nacional de Inversiones Extranjeras (RNIE). Secretaría de Economía.,Total,0.0,0.0,2026,1
 Guanajuato,Primaria,-17.83481684,0.0,2026,1
 Guanajuato,Secundaria,222.37767087,644.1138824999999,2026,1
 Guanajuato,Terciaria,124.89998675,40.95590116,2026,1
+Guanajuato,Total,420.15403798,700.46984564,2026,1
 Guerrero,Primaria,0.0,0.0,2026,1
 Guerrero,Secundaria,0.0,0.0,2026,1
 Guerrero,Terciaria,34.60958494,23.47751784,2026,1
+Guerrero,Total,-86.04644431,-15.55412347,2026,1
 Hidalgo,Primaria,0.0,0.0,2026,1
 Hidalgo,Secundaria,9.64332963,0.0,2026,1
 Hidalgo,Terciaria,48.1522823,0.0,2026,1
+Hidalgo,Total,135.15044409,68.94638141,2026,1
 Jalisco,Primaria,18.32187862,39.56705393,2026,1
 Jalisco,Secundaria,340.52796965,286.10450001,2026,1
 Jalisco,Terciaria,274.46826916000003,40.55484003,2026,1
+Jalisco,Total,722.95609968,606.87244112,2026,1
 Michoacán,Primaria,19.17427793,0.0,2026,1
 Michoacán,Secundaria,0.0,0.0,2026,1
 Michoacán,Terciaria,218.65892989000002,0.0,2026,1
+Michoacán,Total,278.64884027,106.33265801,2026,1
 Morelos,Primaria,0.0,0.0,2026,1
 Morelos,Secundaria,3.739566590000001,1.70409384,2026,1
 Morelos,Terciaria,29.07675643,0.0,2026,1
+Morelos,Total,47.47272804,5.36801689,2026,1
 México,Primaria,0.0,0.0,2026,1
 México,Secundaria,448.42719123999996,960.38569803,2026,1
 México,Terciaria,209.40846286000001,-33.93243474,2026,1
+México,Total,1983.19007759,1888.25829668,2026,1
 Nayarit,Primaria,0.0,0.0,2026,1
 Nayarit,Secundaria,0.0,0.0,2026,1
 Nayarit,Terciaria,124.43748271999999,23.38754106,2026,1
+Nayarit,Total,126.41800823,45.88752043,2026,1
 Nuevo León,Primaria,0.0,0.0,2026,1
 Nuevo León,Secundaria,1045.69560815,1346.78468993,2026,1
 Nuevo León,Terciaria,854.62960013,1229.7347106399998,2026,1
+Nuevo León,Total,1956.46703299,2674.17976803,2026,1
 Oaxaca,Primaria,0.0,0.0,2026,1
 Oaxaca,Secundaria,-0.69381749,0.0,2026,1
 Oaxaca,Terciaria,31.20241659,1.92898585,2026,1
+Oaxaca,Total,47.77587975,-0.62432353,2026,1
 Puebla,Primaria,0.0,0.0,2026,1
 Puebla,Secundaria,111.46875468,140.84912816000002,2026,1
 Puebla,Terciaria,107.69035435,2.47751118,2026,1
+Puebla,Total,663.83904145,384.44515216,2026,1
 Querétaro,Primaria,0.0,0.0,2026,1
 Querétaro,Secundaria,175.96329446,233.50386719,2026,1
 Querétaro,Terciaria,35.67852661,0.0,2026,1
+Querétaro,Total,456.29780838,302.01300133,2026,1
 Quintana Roo,Primaria,0.0,0.0,2026,1
 Quintana Roo,Secundaria,1.19856996,0.0,2026,1
 Quintana Roo,Terciaria,174.98993292999998,287.15460198,2026,1
+Quintana Roo,Total,196.54014571,289.57985487,2026,1
 San Luis Potosí,Primaria,0.0,0.0,2026,1
 San Luis Potosí,Secundaria,411.0383607,89.64125999,2026,1
 San Luis Potosí,Terciaria,44.678809400000006,0.0,2026,1
+San Luis Potosí,Total,493.95383314,125.71455536,2026,1
 Sinaloa,Primaria,3.58256764,0.0,2026,1
 Sinaloa,Secundaria,23.86475724,0.0,2026,1
 Sinaloa,Terciaria,58.12947311,6.78801989,2026,1
+Sinaloa,Total,125.82783548,17.37021174,2026,1
 Sonora,Primaria,0.0,0.0,2026,1
 Sonora,Secundaria,124.93949255,15.829657159999998,2026,1
 Sonora,Terciaria,65.55281328,8.03559138,2026,1
+Sonora,Total,246.04974552,3.92092439,2026,1
 Tabasco,Primaria,0.0,0.0,2026,1
 Tabasco,Secundaria,0.0,0.0,2026,1
 Tabasco,Terciaria,38.804589299999996,0.87159478,2026,1
+Tabasco,Total,162.85710176,-49.52822912,2026,1
 Tamaulipas,Primaria,0.0,0.0,2026,1
 Tamaulipas,Secundaria,113.360214,152.52290893,2026,1
 Tamaulipas,Terciaria,55.51553602,1.74076302,2026,1
+Tamaulipas,Total,222.7432958,232.25338836,2026,1
 Tlaxcala,Primaria,0.0,0.0,2026,1
 Tlaxcala,Secundaria,35.9002669,28.08654582,2026,1
 Tlaxcala,Terciaria,10.79038573,0.0,2026,1
+Tlaxcala,Total,90.36907519,34.24087735,2026,1
 Veracruz,Primaria,0.0,0.0,2026,1
 Veracruz,Secundaria,110.40810688,26.80442148,2026,1
 Veracruz,Terciaria,93.8641216,0.95483697,2026,1
+Veracruz,Total,456.99837057,99.88459649,2026,1
 Yucatán,Primaria,0.0,0.0,2026,1
 Yucatán,Secundaria,8.96842639,0.12535655,2026,1
 Yucatán,Terciaria,69.32960012,14.18839207,2026,1
+Yucatán,Total,120.35895224,16.49385413,2026,1
 Zacatecas,Primaria,0.0,0.0,2026,1
 Zacatecas,Secundaria,-200.76372951000002,0.0,2026,1
 Zacatecas,Terciaria,23.65681223,0.0,2026,1
+Zacatecas,Total,-171.68879232,12.1448226,2026,1

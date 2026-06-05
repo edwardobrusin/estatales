@@ -441,10 +441,14 @@ def get_export_metrics(df, id_estado_str):
 def get_ied_metrics(df_tot, state_norm):
     df_tot = df_tot.copy()
     df_tot['Estado_Norm'] = df_tot['Estado'].replace(NAME_NORMALIZER)
+    
+    # FILTRO: Usamos solo la fila de "Total" para no duplicar ni usar la suma parcial
+    df_tot_only = df_tot[df_tot['Sector'] == 'Total'].copy()
+    
     try:
-        max_year = int(df_tot['Anio'].max())
+        max_year = int(df_tot_only['Anio'].max())
         # 1. Filtramos para sacar el trimestre máximo SOLO del año más reciente
-        max_trim = int(df_tot[df_tot['Anio'] == max_year]['Trimestre'].max())
+        max_trim = int(df_tot_only[df_tot_only['Anio'] == max_year]['Trimestre'].max())
         
         # 2. Lógica exacta de trimestres
         if max_trim == 4:
@@ -455,7 +459,8 @@ def get_ied_metrics(df_tot, state_norm):
             trim_str = f"1T-{max_trim}T {max_year}" # Ej. "1T-2T 2026" o "1T-3T 2026"
     except: 
         trim_str = "N/A"
-    df_agg = df_tot.groupby('Estado_Norm')[['Inversion', 'Inversion_Anterior']].sum().reset_index()
+        
+    df_agg = df_tot_only.groupby('Estado_Norm')[['Inversion', 'Inversion_Anterior']].sum().reset_index()
     df_agg['Rank'] = df_agg['Inversion'].rank(ascending=False)
     nac_curr = df_agg['Inversion'].sum()
     nac_prev = df_agg['Inversion_Anterior'].sum()
@@ -833,7 +838,10 @@ if not df_ied_st_det.empty:
     val_prim = df_ied_st_tot[df_ied_st_tot['Sector'] == 'Primaria']['Inversion'].sum()
     val_sec  = df_ied_st_tot[df_ied_st_tot['Sector'] == 'Secundaria']['Inversion'].sum()
     val_ter  = df_ied_st_tot[df_ied_st_tot['Sector'] == 'Terciaria']['Inversion'].sum()
-    val_total = val_prim + val_sec + val_ter
+    
+    # Extraemos el total real directamente de la nueva fila "Total"
+    row_total = df_ied_st_tot[df_ied_st_tot['Sector'] == 'Total']
+    val_total = row_total['Inversion'].sum() if not row_total.empty else (val_prim + val_sec + val_ter)
 
     segs = [('Primaria', val_prim, '#73c6e3'), ('Secundaria', val_sec, '#2596be'), ('Terciaria', val_ter, '#008889')]
     pos_segs = [s for s in segs if s[1] > 0] 
