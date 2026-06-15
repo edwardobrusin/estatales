@@ -1263,17 +1263,19 @@ if "Tlaxcala" not in selected_name:
             st.markdown(f"<h4 style='color:#0F172A; font-weight:800; font-size:1.1rem; margin-bottom:15px;'>Sistema de Alertas - {ultimo_reg['Fecha']}</h4>", unsafe_allow_html=True)
             
             # --- CONTENEDOR CON LA LÍNEA DEL TIEMPO INTEGRADA ---
-            # Cabecera de la tarjeta
+            # Cabecera de la tarjeta (Ahora actúa como fondo maestro estirado hacia abajo)
             st.markdown(f'''
-            <div style="background: white; padding: 20px 20px 0px 20px; border-radius: 12px 12px 0 0; border: 1px solid #E2E8F0; border-bottom: none; display: flex; align-items: center; justify-content: space-between; box-shadow: 0 -2px 6px rgba(0,0,0,0.01);">
-                <div>
-                    <div style="color: #64748B; font-size: 0.85rem; font-weight: 700; text-transform: uppercase;">Nivel de Endeudamiento General</div>
-                    <div style="color: {color_map[res]}; font-size: 1.8rem; font-weight: 800;">{texto_map[res]}</div>
-                </div>
-                <div style="display: flex; gap: 10px;">
-                    <div style="width: 30px; height: 30px; border-radius: 50%; background-color: {'#059669' if res==1 else '#E2E8F0'}; box-shadow: {'0 0 10px #059669' if res==1 else 'none'};"></div>
-                    <div style="width: 30px; height: 30px; border-radius: 50%; background-color: {'#D97706' if res==2 else '#E2E8F0'}; box-shadow: {'0 0 10px #D97706' if res==2 else 'none'};"></div>
-                    <div style="width: 30px; height: 30px; border-radius: 50%; background-color: {'#DC2626' if res==3 else '#E2E8F0'}; box-shadow: {'0 0 10px #DC2626' if res==3 else 'none'};"></div>
+            <div style="background: white; border-radius: 12px; border: 1px solid #E2E8F0; box-shadow: 0 4px 6px rgba(0,0,0,0.02); padding-bottom: 105px; margin-bottom: -105px;">
+                <div style="padding: 20px 20px 0px 20px; display: flex; align-items: center; justify-content: space-between;">
+                    <div>
+                        <div style="color: #64748B; font-size: 0.85rem; font-weight: 700; text-transform: uppercase;">Nivel de Endeudamiento General</div>
+                        <div style="color: {color_map[res]}; font-size: 1.8rem; font-weight: 800;">{texto_map[res]}</div>
+                    </div>
+                    <div style="display: flex; gap: 10px;">
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background-color: {'#059669' if res==1 else '#E2E8F0'}; box-shadow: {'0 0 10px #059669' if res==1 else 'none'};"></div>
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background-color: {'#D97706' if res==2 else '#E2E8F0'}; box-shadow: {'0 0 10px #D97706' if res==2 else 'none'};"></div>
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background-color: {'#DC2626' if res==3 else '#E2E8F0'}; box-shadow: {'0 0 10px #DC2626' if res==3 else 'none'};"></div>
+                    </div>
                 </div>
             </div>
             ''', unsafe_allow_html=True)
@@ -1306,19 +1308,19 @@ if "Tlaxcala" not in selected_name:
             
             fig_tl.update_layout(
                 height=80,
-                margin=dict(t=10, b=45, l=20, r=20),
+                margin=dict(t=10, b=30, l=0, r=0),
                 xaxis=dict(
-                    showgrid=False, zeroline=False, tickfont=dict(size=11, color='#64748B'), 
+                    showgrid=False, zeroline=False, tickfont=dict(size=14, color='#64748B'), 
                     linecolor='rgba(0,0,0,0)', tickmode='array', tickvals=tick_vals, ticktext=tick_text
                 ),
                 yaxis=dict(showgrid=False, zeroline=False, showticklabels=False, range=[0.9, 1.08]),
-                plot_bgcolor='white', paper_bgcolor='white', showlegend=False
+                plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)', showlegend=False
             )
             
             st.plotly_chart(fig_tl, use_container_width=True)
             
-            # Cierre inferior de la tarjeta
-            st.markdown('<div style="background: white; border-radius: 0 0 12px 12px; border: 1px solid #E2E8F0; border-top: none; margin-top: -30px; margin-bottom: 20px; height: 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.02);"></div>', unsafe_allow_html=True)
+            # Cierre inferior de la tarjeta (Eliminado visualmente, solo conserva margen espacial)
+            st.markdown('<div style="margin-bottom: 20px;"></div>', unsafe_allow_html=True)
             
             # --- GRÁFICOS DE LOS 3 INDICADORES ---
             col_i1, col_i2, col_i3 = st.columns(3)
