@@ -1260,7 +1260,7 @@ if "Tlaxcala" not in selected_name:
             color_map = {1: "#059669", 2: "#D97706", 3: "#DC2626"}
             texto_map = {1: "Sostenible", 2: "En Observación", 3: "Elevado"}
             
-            st.markdown(f"<h4 style='color:#0F172A; font-weight:800; font-size:1.1rem; margin-bottom:15px;'>Sistema de Alertas - {ultimo_reg['Fecha']}</h4>", unsafe_allow_html=True)
+            st.markdown(f"<h4 style='color:#0F172A; font-weight:800; font-size:1.1rem; margin-top:5px; margin-bottom:5px;'>Sistema de Alertas - {ultimo_reg['Fecha']}</h4>", unsafe_allow_html=True)
             
             # --- CONTENEDOR CON LA LÍNEA DEL TIEMPO INTEGRADA ---
             # Cabecera de la tarjeta (Ahora actúa como fondo maestro estirado hacia abajo)
@@ -1272,9 +1272,9 @@ if "Tlaxcala" not in selected_name:
                         <div style="color: {color_map[res]}; font-size: 1.8rem; font-weight: 800;">{texto_map[res]}</div>
                     </div>
                     <div style="display: flex; gap: 10px;">
-                        <div style="width: 30px; height: 30px; border-radius: 50%; background-color: {'#059669' if res==1 else '#E2E8F0'}; box-shadow: {'0 0 10px #059669' if res==1 else 'none'};"></div>
-                        <div style="width: 30px; height: 30px; border-radius: 50%; background-color: {'#D97706' if res==2 else '#E2E8F0'}; box-shadow: {'0 0 10px #D97706' if res==2 else 'none'};"></div>
-                        <div style="width: 30px; height: 30px; border-radius: 50%; background-color: {'#DC2626' if res==3 else '#E2E8F0'}; box-shadow: {'0 0 10px #DC2626' if res==3 else 'none'};"></div>
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background-color: #059669; opacity: {'1' if res==1 else '0.2'}; box-shadow: {'0 0 10px #059669' if res==1 else 'none'}; transition: opacity 0.3s;"></div>
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background-color: #D97706; opacity: {'1' if res==2 else '0.2'}; box-shadow: {'0 0 10px #D97706' if res==2 else 'none'}; transition: opacity 0.3s;"></div>
+                        <div style="width: 30px; height: 30px; border-radius: 50%; background-color: #DC2626; opacity: {'1' if res==3 else '0.2'}; box-shadow: {'0 0 10px #DC2626' if res==3 else 'none'}; transition: opacity 0.3s;"></div>
                     </div>
                 </div>
             </div>
@@ -1348,7 +1348,7 @@ if "Tlaxcala" not in selected_name:
                 
                 fig.update_layout(
                     title=dict(text=titulo, font=dict(size=13, color='#0F172A', weight='bold'), x=0.5, xanchor='center'),
-                    margin=dict(t=40, b=20, l=45, r=10),
+                    margin=dict(t=40, b=0, l=45, r=10),
                     height=350, xaxis_title="", yaxis_title="",
                     yaxis=dict(tickformat=".0%", showgrid=True, gridcolor='#F1F5F9', zeroline=False, range=[inicio_verde, max_real], automargin=False),
                     xaxis=dict(showgrid=False, tickformat="%Y", ticklabelmode="period", dtick="M12"),
@@ -1357,14 +1357,21 @@ if "Tlaxcala" not in selected_name:
                 return fig
 
             with col_i1:
-                fig1 = plot_indicador(match_ale, 'Indicador 1', "DPyO / ILD", calc_c1, 1.0, 2.0, 2.2)
+                fig1 = plot_indicador(match_ale, 'Indicador 1', "DyO / ILD", calc_c1, 1.0, 2.0, 2.2)
                 st.plotly_chart(fig1, use_container_width=True)
             with col_i2:
-                fig2 = plot_indicador(match_ale, 'Indicador 2', "SDyO / ILD", calc_c2, 0.075, 0.15, 0.18)
+                fig2 = plot_indicador(match_ale, 'Indicador 2', "SDyPI / ILD", calc_c2, 0.075, 0.15, 0.18)
                 st.plotly_chart(fig2, use_container_width=True)
             with col_i3:
-                fig3 = plot_indicador(match_ale, 'Indicador 3', "OCPyPyC / IT", calc_c3, 0.075, 0.125, 0.15)
+                fig3 = plot_indicador(match_ale, 'Indicador 3', "OCPyPC / IT", calc_c3, 0.075, 0.125, 0.15)
                 st.plotly_chart(fig3, use_container_width=True)
+
+            mostrar_fecha_act('alertas', m_top="5px", m_bottom="15px")
+            
+            st.info("""ℹ️ **Glosario de Indicadores:**
+* **DyO / ILD:** Deuda Pública y Obligaciones sobre Ingresos de Libre Disposición.
+* **SDyPI / ILD:** Servicio de la Deuda y de Obligaciones sobre Ingresos de Libre Disposición.
+* **OCPyPC / IT:** Obligaciones a Corto Plazo y Proveedores y Contratistas sobre Ingresos Totales.""")
 
     st.markdown("<h4 style='color:#0F172A; font-weight:800; font-size:1.1rem; margin-top:20px; margin-bottom:15px;'>Calificaciones Crediticias</h4>", unsafe_allow_html=True)
 
