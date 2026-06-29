@@ -160,8 +160,8 @@ def procesar_pib():
                     if 'Series' in data and data['Series']:
                         serie = data['Series'][0].get('OBSERVATIONS', [])
                         serie_sorted = sorted(serie, key=lambda x: x.get('TIME_PERIOD', ''))
-                        obs_list = serie_sorted[-2:] if len(serie_sorted) >= 2 else serie_sorted
-                        for obs in obs_list:
+                        
+                        for obs in serie_sorted:
                             res_locales.append({
                                 'Indicador': ind_nombre, 'Clave_Indicador': ind_clave,
                                 'Estado_ID': obs.get('COBER_GEO', clave_estado),
@@ -170,7 +170,6 @@ def procesar_pib():
                     return res_locales, errores_locales
                 else:
                     errores_locales += 1
-                    # Añadimos Jitter (Ruido Aleatorio) para desincronizar los hilos
                     time.sleep(1 + random.uniform(0.1, 1.5))
             except Exception:
                 errores_locales += 1

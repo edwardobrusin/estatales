@@ -164,6 +164,23 @@ NAME_NORMALIZER = {
     'Mexico': 'México'
 }
 
+HIERARCHY = {
+    "Primario": {
+        "Total": "Actividades Primarias",
+        "Subsectores": ["Agricultura, cría y explotación de animales, aprovechamiento forestal, pesca y caza"],
+        "Actividades": ["Agricultura", "Cría y explotación de animales", "Pesca, caza y captura", "Aprovechamiento forestal"]
+    },
+    "Secundario": {
+        "Total": "Actividades Secundarias",
+        "Subsectores": ["Minería", "Generación, transmisión y distribución de energía eléctrica, agua y gas", "Construcción", "Industrias manufactureras"],
+        "Manufactura_Actividades": ["Industria alimentaria", "Bebidas y tabaco", "Insumos, acabados y productos textiles", "Prendas de vestir y productos de cuero y piel", "Industria de la madera", "Industria del papel", "Productos derivados del petróleo y carbón, química, plástico y hule", "Productos a base de minerales no metálicos", "Metálicas básicas y productos metálicos", "Maquinaria y equipo, computación, electrónicos y accesorios", "Muebles, colchones y persianas", "Otras industrias manufactureras"]
+    },
+    "Terciario": {
+        "Total": "Actividades Terciarias",
+        "Subsectores": ["Comercio al por mayor", "Comercio al por menor", "Transportes, correos y almacenamiento", "Información en medios masivos", "Servicios financieros y de seguros", "Servicios inmobiliarios y de alquiler de bienes", "Servicios profesionales, científicos y técnicos", "Corporativos", "Servicios de apoyo a los negocios y manejo de residuos", "Servicios educativos", "Servicios de salud y de asistencia social", "Servicios de esparcimiento culturales y deportivos", "Servicios de alojamiento temporal y de preparación de alimentos y bebidas", "Otros servicios excepto actividades gubernamentales", "Actividades legislativas, gubernamentales"]
+    }
+}
+
 # ==========================================
 # 3. CARGA DE DATOS (SIN CAMBIOS)
 # ==========================================
@@ -253,35 +270,62 @@ for estado in lista_estados:
 
 selected_name = st.session_state['estado_seleccionado']
 
+# Función global para extracción de valores sectoriales
+def get_val(df, indicador_name):
+    row = df[df['Indicador'] == indicador_name]
+    if row.empty: row = df[df['Indicador'].str.contains(indicador_name[:20], na=False, regex=False)]
+    return row['Valor'].sum() if not row.empty else 0.0
+
 # ==========================================
-# NUEVA SECCIÓN: VISTA NACIONAL (MAPA)
+# NUEVA SECCIÓN: VISTA NACIONAL (MAPA Y DASHBOARD)
 # ==========================================
 if selected_name == 'Nacional':
     st.markdown(f"<h1 style='color: #2596be; font-size: 2.8rem;'>Panorama Nacional</h1>", unsafe_allow_html=True)
-    st.markdown("<p style='color: #64748B; margin-top: -15px; margin-bottom: 25px;'>Selecciona un indicador para visualizar su distribución espacial en el territorio mexicano.</p>", unsafe_allow_html=True)
+    st.markdown("<p style='color: #64748B; margin-top: -15px; margin-bottom: 25px;'>Selecciona un indicador para visualizar su comportamiento y distribución territorial.</p>", unsafe_allow_html=True)
 
     variables_mapa = {
-        "PIB Total (MDP)": "pib",
+        "Producto Interno Bruto": "pib",
         "Exportaciones Totales (MDD)": "export",
         "Inversión Extranjera Directa (MDD)": "ied",
         "Competitividad General (IMCO)": "imco"
     }
 
-    col1, col2 = st.columns([1, 2])
+    col1, col2 = st.columns([1, 1])
     with col1:
-        # Menú desplegable para elegir la variable del mapa
-        var_seleccionada = st.selectbox("Selecciona la variable a analizar:", list(variables_mapa.keys()))
+        var_seleccionada = st.selectbox("Selecciona la variable a analizar:", list(variables_mapa.keys()), key="select_var_nacional")
+
+    desglose_pib = None
+    if var_seleccionada == "Producto Interno Bruto":
+        pib_options = ["Total Nacional"]
+        for meta in HIERARCHY.values():
+            pib_options.append(meta["Total"])
+            pib_options.extend(meta.get("Subsectores", []))
+            pib_options.extend(meta.get("Actividades", []))
+            pib_options.extend(meta.get("Manufactura_Actividades", []))
+        pib_options = list(dict.fromkeys(pib_options))
+        
+        with col2:
+            desglose_pib = st.selectbox("Desglose PIB:", pib_options, key="select_desglose_pib")
 
     df_mapa = pd.DataFrame()
+    missing_states_flag = False
 
-    # Preparación dinámica de datos según la selección reutilizando tus bases
-    if var_seleccionada == "PIB Total (MDP)":
+    # Preparación dinámica de datos según la selección
+    if var_seleccionada == "Producto Interno Bruto":
         df = DATA['pib'].copy()
         max_period = df['Periodo'].max()
-        df_mapa = df[(df['Periodo'] == max_period) & (df['Indicador'] == 'Total Nacional') & (df['Estado_ID'] != 0)].copy()
+        prev_period = max_period - 1
+
+        df_curr = df[(df['Periodo'] == max_period) & (df['Indicador'] == desglose_pib) & (df['Estado_ID'] != 0)].copy()
+        df_prev = df[(df['Periodo'] == prev_period) & (df['Indicador'] == desglose_pib) & (df['Estado_ID'] != 0)].copy()
+
+        df_mapa = df_curr.merge(df_prev[['Estado_ID', 'Valor']], on='Estado_ID', how='left', suffixes=('', '_Prev'))
+        df_mapa['Var_Anual'] = ((df_mapa['Valor'] - df_mapa['Valor_Prev']) / df_mapa['Valor_Prev'] * 100).fillna(0)
+        
         df_mapa['Estado'] = df_mapa['Estado_ID'].map(STATE_MAP)
         df_mapa['Valor_Mapa'] = df_mapa['Valor']
-        formato_hover = "$%{z:,.0f} MDP"
+        # Hover dinámico: El color de la variación se manejará por HTML en el template
+        formato_hover = "$%{z:,.0f} MDP<br><b>Var. Anual:</b> %{customdata:.1f}%"
 
     elif var_seleccionada == "Exportaciones Totales (MDD)":
         df = DATA['export'].copy()
@@ -305,12 +349,16 @@ if selected_name == 'Nacional':
         df_mapa['Estado'] = df_mapa['Entidad'].replace(NAME_NORMALIZER)
         formato_hover = "%{z:,.2f} pts"
 
+    # Eliminamos nulos (0 no es nulo, así que se respeta)
     df_mapa = df_mapa.dropna(subset=['Valor_Mapa', 'Estado'])
+    
+    # Validación de estados faltantes
+    if len(df_mapa) < 32:
+        missing_states_flag = True
 
     df_mapa['Estado_Geo'] = df_mapa['Estado']
 
     with st.spinner("Construyendo mapa nacional..."):
-        # GeoJSON público ligero y estándar para México (directamente compatible con Plotly Express)
         url_geojson = "https://raw.githubusercontent.com/angelnmara/geojson/master/mexicoHigh.json"
 
         fig = px.choropleth(
@@ -319,39 +367,323 @@ if selected_name == 'Nacional':
             locations='Estado_Geo',
             featureidkey='properties.name',
             color='Valor_Mapa',
-            color_continuous_scale="Teal", # Paleta continua que encaja con el branding institucional
+            color_continuous_scale="Teal", 
             hover_name='Estado'
         )
 
-        fig.update_traces(
-            hovertemplate="<b>%{hovertext}</b><br>Valor: " + formato_hover + "<extra></extra>",
-            marker_line_color='white', # Contorno blanco para separar las piezas del rompecabezas
-            marker_line_width=1.5,
-            hoverlabel=dict(bgcolor='white', font_size=14, font_family='sans-serif', font_color='#0F172A', bordercolor='#2596be')
-        )
-        
-        fig.update_geos(
-            fitbounds="locations", 
-            visible=False, # Elimina ejes, marcos y paralelos
-            bgcolor='#F8FAFC' # Elimina la caja blanca interna del lienzo geográfico
-        )
-        
-        fig.update_layout(
-            margin={"r":0,"t":0,"l":0,"b":0},
-            height=650,
-            dragmode=False, # Bloquea paneo/zoom para que se sienta como un visual nativo interactivo
-            plot_bgcolor='#F8FAFC',  # Acoplado exactamente al color grisáceo de tu .stApp
-            paper_bgcolor='#F8FAFC', 
-            coloraxis_colorbar=dict(
-                title="", thickness=10, len=0.7, 
-                outlinewidth=0, tickfont=dict(color='#64748B')
+        if var_seleccionada == "Producto Interno Bruto":
+            fig.update_traces(
+                customdata=df_mapa['Var_Anual'],
+                hovertemplate="<b>%{hovertext}</b><br>Valor: " + formato_hover + "<extra></extra>",
+                marker_line_color='white', marker_line_width=1.5,
+                hoverlabel=dict(bgcolor='white', font_size=14, font_family='sans-serif', font_color='#0F172A', bordercolor='#2596be')
             )
+        else:
+            fig.update_traces(
+                hovertemplate="<b>%{hovertext}</b><br>Valor: " + formato_hover + "<extra></extra>",
+                marker_line_color='white', marker_line_width=1.5,
+                hoverlabel=dict(bgcolor='white', font_size=14, font_family='sans-serif', font_color='#0F172A', bordercolor='#2596be')
+            )
+        
+        fig.update_geos(fitbounds="locations", visible=False, bgcolor='#F8FAFC')
+        fig.update_layout(
+            margin={"r":0,"t":0,"l":0,"b":0}, height=600, dragmode=False, 
+            plot_bgcolor='#F8FAFC', paper_bgcolor='#F8FAFC', 
+            coloraxis_colorbar=dict(title="", thickness=10, len=0.7, outlinewidth=0, tickfont=dict(color='#64748B'))
         )
 
-    # config={'displayModeBar': False} oculta la barra de herramientas superior de Plotly para un look ultra limpio
     st.plotly_chart(fig, use_container_width=True, config={'displayModeBar': False})
 
-    # Detenemos la ejecución aquí para que no renderice el resto de la interfaz (ficha estatal ni botón flotante)
+    # Aviso condicional de estados ocultos
+    if missing_states_flag:
+        st.markdown("<div style='text-align:center; color:#DC2626; font-size:0.85rem; font-weight:600; margin-top:-20px;'>⚠️ Nota: Algunos estados no se muestran en el mapa debido a la falta de datos para el desglose seleccionado.</div>", unsafe_allow_html=True)
+
+    # ==========================================
+    # EXTENSIÓN: ANÁLISIS DE PIB (SOLO SI ESTÁ SELECCIONADO)
+    # ==========================================
+    if var_seleccionada == "Producto Interno Bruto":
+        
+        # --- 1. GRÁFICA DE RANKING ESTATAL (ESTILO EXPORTACIONES) ---
+        st.markdown("<hr style='border-color: #E2E8F0; margin-top: 30px;'>", unsafe_allow_html=True)
+        st.header(f"Ranking Estatal: {desglose_pib}")
+        
+        df_mapa['Rank_Curr'] = df_mapa['Valor'].rank(ascending=False, method='min')
+        df_mapa['Rank_Prev'] = df_mapa['Valor_Prev'].rank(ascending=False, method='min')
+        df_mapa['Cambio_Posicion'] = df_mapa['Rank_Prev'] - df_mapa['Rank_Curr'] # Positivo = Subió lugares
+
+        top10 = df_mapa.sort_values('Valor', ascending=False).head(10)
+        max_val_scale = max(top10['Valor'].max(), top10['Valor_Prev'].max()) if not top10.empty else 1
+        
+        # Totales Nacionales para la cabecera
+        df_nac_curr = df[(df['Periodo'] == max_period) & (df['Indicador'] == desglose_pib) & (df['Estado_ID'] == 0)]
+        df_nac_prev = df[(df['Periodo'] == prev_period) & (df['Indicador'] == desglose_pib) & (df['Estado_ID'] == 0)]
+        val_total_curr = df_nac_curr['Valor'].sum() if not df_nac_curr.empty else 0
+        val_total_prev = df_nac_prev['Valor'].sum() if not df_nac_prev.empty else 0
+        
+        max_total_scale = max(val_total_curr, val_total_prev) if max(val_total_curr, val_total_prev) > 0 else 1
+        pct_total_prev = max((val_total_prev / max_total_scale) * 85, 0.5)
+        pct_total_curr = max((val_total_curr / max_total_scale) * 85, 0.5)
+
+        def badge_html(ch):
+            if pd.isna(ch): return ""
+            if ch > 0: return f"<span style='background-color:#059669; color:white; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight:bold; margin-left:8px;'>▲ {int(abs(ch))}</span>"
+            elif ch < 0: return f"<span style='background-color:#DC2626; color:white; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight:bold; margin-left:8px;'>▼ {int(abs(ch))}</span>"
+            else: return f"<span style='background-color:#64748B; color:white; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight:bold; margin-left:8px;'>=</span>"
+
+        html_ranking = f"""<div style="background-color: white; padding:25px; border-radius:12px; border:1px solid #E2E8F0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); width: 100%; font-family: sans-serif; color: #334155;">
+        <div style="margin-bottom:25px; border-bottom: 2px solid #F1F5F9; padding-bottom: 20px;">
+            <div style="display: flex; align-items: center; margin-bottom: 12px;">
+                <div style="flex: 0 0 10%; font-size: 0.85rem; color: #64748B; font-weight: 700; text-transform: uppercase;">Total {prev_period}</div>
+                <div style="flex: 1; display: flex; align-items: center;">
+                    <div style="background-color: #008889; width: {pct_total_prev}%; height: 14px; border-radius: 4px;"></div>
+                    <span style="margin-left: 10px; white-space: nowrap; font-weight: 800; font-size: 1rem; color: #0F172A;">
+                        ${val_total_prev:,.0f} <span style="font-size: 0.7rem; color: #64748B; font-weight: 600;">MDP</span>
+                </div>
+            </div>
+            <div style="display: flex; align-items: center;">
+                <div style="flex: 0 0 10%; font-size: 0.85rem; color: #64748B; font-weight: 700; text-transform: uppercase;">Total {max_period}</div>
+                <div style="flex: 1; display: flex; align-items: center;">
+                    <div style="background-color: #2596be; width: {pct_total_curr}%; height: 20px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+                    <span style="margin-left: 10px; white-space: nowrap; font-weight: 800; font-size: 1rem; color: #0F172A;">
+                        ${val_total_curr:,.0f} <span style="font-size: 0.7rem; color: #64748B; font-weight: 600;">MDP</span>
+                </div>
+            </div>
+        </div>
+        <div style="display: flex; width: 100%; margin-bottom: 20px; font-weight: 800; text-align: center; font-size: 0.85rem; text-transform:uppercase; letter-spacing:0.5px; justify-content: space-between; gap: 15px; color: #64748B; border-bottom:2px solid #F1F5F9; padding-bottom:10px;">
+        <div style="flex: 0 0 25%; text-align: left; padding-left: 5px;">Estado</div>
+        <div style="flex: 1; text-align: left; padding-left: 0px;">Millones de Pesos</div>
+        <div style="flex: 0 0 12%;">Var. Anual</div>
+        <div style="flex: 0 0 12%;">Ranking</div>
+        </div>"""
+        
+        for _, r in top10.iterrows():
+            pct_curr = max((r['Valor'] / max_val_scale) * 85, 0.5)
+            pct_prev = max((r['Valor_Prev'] / max_val_scale) * 85, 0.5)
+            color_var = "#059669" if r['Var_Anual'] >= 0 else "#DC2626"
+            signo_var = "+" if r['Var_Anual'] > 0 else ""
+            
+            html_ranking += f"""<div style="display: flex; width: 100%; align-items: stretch; margin-bottom: 18px; justify-content: space-between; gap: 15px;">
+        <div style="flex: 0 0 25%; text-align: left; padding-left: 5px; font-size: 0.95rem; display: flex; align-items: center; justify-content: flex-start;">
+        <span style="display: inline-block; line-height: 1.3; color: #0F172A; font-weight: 700;">{r['Estado']}</span>
+        </div>
+        <div style="flex: 1; border-left: 2px solid #E2E8F0; padding-left: 15px; display: flex; flex-direction: column; justify-content: center; gap: 8px;">
+        <div style="display:flex; align-items:center; width: 100%;">
+        <div style="background-color: #008889; width: {pct_prev}%; height: 12px; border-radius: 4px;"></div>
+        <span style="margin-left: 10px; white-space: nowrap; font-weight: 600; font-size: 0.8rem; color: #64748B;">{r['Valor_Prev']:,.0f}</span>
+        </div>
+        <div style="display:flex; align-items:center; width: 100%;">
+        <div style="background-color: #2596be; width: {pct_curr}%; height: 20px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
+        <span style="margin-left: 10px; white-space: nowrap; font-weight: 800; font-size: 0.95rem; color: #0F172A;">{r['Valor']:,.0f}</span>
+        </div>
+        </div>
+        <div style="flex: 0 0 12%; display: flex; justify-content: center; align-items: center;">
+        <div style="background-color: #F8FAFC; border:1px solid #E2E8F0; border-radius: 8px; padding: 6px 0; width: 100%; font-weight: 800; font-size: 0.95rem; color: {color_var}; text-align: center;">
+        {signo_var}{r['Var_Anual']:.1f}%
+        </div>
+        </div>
+        <div style="flex: 0 0 12%; display: flex; justify-content: center; align-items: center;">
+        <div style="width: 100%; font-weight: 800; font-size: 0.95rem; color: #0F172A; text-align: center;">
+        #{int(r['Rank_Curr'])} {badge_html(r['Cambio_Posicion'])}
+        </div>
+        </div>
+        </div>"""
+        html_ranking += "</div>"
+        st.markdown(html_ranking, unsafe_allow_html=True)
+
+
+        if desglose_pib == "Total Nacional":
+            st.markdown("<hr style='border-color: #E2E8F0; margin-top: 30px;'>", unsafe_allow_html=True)
+            st.header(f"Estructura Económica Nacional ({max_period})")
+            
+            df_nac_estructura = df[(df['Periodo'] == max_period) & (df['Estado_ID'] == 0)]
+            
+            def get_ranked_list_nac(lista_indicadores, total_compare, top_n=None):
+                res = []
+                for ind in lista_indicadores:
+                    v = get_val(df_nac_estructura, ind)
+                    s = (v / total_compare * 100) if total_compare > 0 else 0.0
+                    res.append({'Nombre': ind, 'Valor': v, 'Share': s})
+                df_res = pd.DataFrame(res).sort_values('Valor', ascending=False)
+                if top_n: return df_res.head(top_n)
+                return df_res
+
+            def render_sector_col_nac(col, meta_key, color_hex):
+                meta = HIERARCHY[meta_key]
+                val_nac = get_val(df_nac_estructura, meta["Total"])
+                part_nac = (val_nac / val_total_curr * 100) if val_total_curr > 0 else 0
+
+                df_rank_sector = df[(df['Periodo'] == max_period) & (df['Indicador'] == meta["Total"]) & (df['Estado_ID'] != 0)]
+                top3_sector = df_rank_sector.sort_values('Valor', ascending=False).head(3)
+                
+                html_top_estados = "<div style='font-size:0.85rem; color:#475569; margin-bottom:15px; margin-top:-5px;'>"
+                emojis = ["🥇", "🥈", "🥉"]
+                for i, r_sec in enumerate(top3_sector.itertuples()):
+                    if i < 3:
+                        html_top_estados += f"{emojis[i]} <b>{STATE_MAP.get(r_sec.Estado_ID)}</b> (${r_sec.Valor/1000:,.0f} MM)<br>"
+                html_top_estados += "</div>"
+
+                html_str = f"""<div class="card-hover" style="background: white; border-top: 5px solid {color_hex}; padding: 20px; border-radius: 8px; box-shadow: 0 4px 10px rgba(0,0,0,0.03); margin-bottom: 20px; height: 100%;">
+                    <div style="font-weight:800; color:{color_hex}; font-size:1rem; text-transform:uppercase; letter-spacing:0.5px;">SECTOR {meta_key.upper()}</div>
+                    <div style="font-size:1.8rem; font-weight:800; color:#0F172A; margin: 10px 0;">${val_nac:,.0f} <span style='font-size:0.5em; color:#64748B;'>MDP</span></div>
+                    <div style="font-size:0.9rem; color:#475569; margin-bottom:15px;">📍 Part. Nacional: <b style="color:#0F172A;">{part_nac:.1f}%</b></div>
+                    {html_top_estados}
+                    <hr style="border-color:#E2E8F0; margin:15px 0;">
+                    <div style="font-weight:700; color:#334155; margin-bottom:10px;">Composición Principal:</div>"""
+
+                if meta_key == "Primario":
+                    sub_df = get_ranked_list_nac(meta["Subsectores"], val_nac)
+                    act_df = get_ranked_list_nac(meta["Actividades"], val_nac, top_n=3)
+                    for _, r in sub_df.iterrows():
+                        html_str += f"<div style='font-weight:600; font-size:0.95rem; color:#0F172A;'>• {r['Nombre']}</div><div style='color:#64748B; font-size:0.85rem; margin-bottom:8px;'>${r['Valor']/1000:,.0f} MM ({r['Share']:.1f}%)</div>"
+                        for _, act in act_df.iterrows():
+                            html_str += f"<div style='margin-left: 15px; font-size: 0.85rem; border-left: 2px solid {color_hex}; padding-left: 10px; margin-bottom: 6px; color:#475569;'><span>{act['Nombre']}</span> <br> <span style='font-weight:700; color:{color_hex};'>{act['Share']:.1f}%</span> del sector</div>"
+                else:
+                    sub_df = get_ranked_list_nac(meta["Subsectores"], val_nac, top_n=3)
+                    for i, (_, r) in enumerate(sub_df.iterrows()):
+                        display_name = r['Nombre'][:37] + "..." if len(r['Nombre']) > 40 else r['Nombre']
+                        html_str += f"<div style='margin-bottom:12px;'><div style='font-weight:600; font-size:0.95rem; color:#0F172A;'>{i+1}. {display_name}</div><div style='color:#64748B; font-size:0.85rem;'>${r['Valor']/1000:,.0f} MM ({r['Share']:.1f}%)</div></div>"
+                        if meta_key == "Secundario" and "manufactureras" in r['Nombre'].lower():
+                            manuf_acts = get_ranked_list_nac(meta["Manufactura_Actividades"], r['Valor'], top_n=3)
+                            for _, m_act in manuf_acts.iterrows():
+                                html_str += f"<div style='margin-left: 15px; font-size: 0.85rem; border-left: 2px solid {color_hex}; padding-left: 10px; margin-bottom: 6px; color:#475569;'><span>{m_act['Nombre']}</span> <br> <span style='font-weight:700; color:{color_hex};'>{m_act['Share']:.1f}%</span> de manufactura</div>"
+
+                html_str += "</div>"
+                col.markdown(html_str, unsafe_allow_html=True)
+
+            c1, c2, c3 = st.columns(3)
+            render_sector_col_nac(c1, "Primario", "#73c6e3")
+            render_sector_col_nac(c2, "Secundario", "#2596be")
+            render_sector_col_nac(c3, "Terciario", "#008889")
+
+
+        st.markdown("<hr style='border-color: #E2E8F0; margin-top: 30px;'>", unsafe_allow_html=True)
+        st.header(f"Distribución Territorial: {desglose_pib}")
+        
+        df_tree = df_mapa[['Estado', 'Valor']].copy()
+        tot_tree = df_tree['Valor'].sum()
+        df_tree['Pct'] = (df_tree['Valor'] / tot_tree) * 100
+        
+        df_main = df_tree[df_tree['Pct'] > 1.0].copy()
+        df_resto = df_tree[df_tree['Pct'] <= 1.0].copy()
+        
+        if not df_resto.empty:
+            df_main = pd.concat([df_main, pd.DataFrame([{'Estado': 'Resto de Estados', 'Valor': df_resto['Valor'].sum(), 'Pct': df_resto['Pct'].sum()}])], ignore_index=True)
+            
+        df_main['Hover_Tree'] = df_main.apply(lambda x: f"${x['Valor']:,.0f} MDP<br>{x['Pct']:.1f}%", axis=1)
+        
+        fig_tree = px.treemap(df_main, path=['Estado'], values='Valor', custom_data=['Hover_Tree'], color='Valor', color_continuous_scale='Teal')
+        
+        fig_tree.update_traces(
+            texttemplate="<b>%{label}</b><br>%{customdata[0]}",
+            hovertemplate="<b>%{label}</b><br>%{customdata[0]}<extra></extra>",
+            marker=dict(line=dict(color='#F8FAFC', width=1.5)),
+            root_color="#F8FAFC",
+            tiling=dict(pad=0),
+            pathbar=dict(visible=False)
+        )
+        
+        fig_tree.update_layout(
+            margin=dict(t=0, l=0, r=0, b=0),
+            height=350,
+            coloraxis_showscale=False,
+            plot_bgcolor='rgba(0,0,0,0)', 
+            paper_bgcolor='rgba(0,0,0,0)'
+        )
+        st.plotly_chart(fig_tree, use_container_width=True, config={'displayModeBar': False})
+
+        st.header("Evolución e Incidencia Histórica")
+        
+        df_hist = df[(df['Indicador'] == desglose_pib)].copy()
+        years = sorted(df_hist['Periodo'].unique())
+        df_est = df_hist[df_hist['Estado_ID'] != 0]
+        df_nac = df_hist[df_hist['Estado_ID'] == 0]
+
+        plot_data_1 = []
+        plot_data_2 = []
+
+        for i, y in enumerate(years):
+            df_y = df_est[df_est['Periodo'] == y].sort_values('Valor', ascending=False)
+            top3 = df_y.head(3)
+            resto_val = df_y.iloc[3:]['Valor'].sum() if len(df_y) > 3 else 0
+            n_val = df_nac[df_nac['Periodo'] == y]['Valor'].sum() if not df_nac[df_nac['Periodo'] == y].empty else 0
+            
+            hover_1 = f"<b>Nacional: ${n_val:,.0f} MDP (100%)</b><br><br>"
+            for _, r in top3.iterrows():
+                pct_1 = (r['Valor'] / n_val * 100) if n_val > 0 else 0
+                hover_1 += f"{STATE_MAP.get(r['Estado_ID'], '')}: ${r['Valor']:,.0f} MDP ({pct_1:.1f}%)<br>"
+            pct_resto_1 = (resto_val / n_val * 100) if n_val > 0 else 0
+            hover_1 += f"Resto de Estados: ${resto_val:,.0f} MDP ({pct_resto_1:.1f}%)"
+            
+            plot_data_1.append({'Año': y, 'Valor': n_val, 'Hover': hover_1})
+
+            if i > 0:
+                y0, y1 = years[i-1], years[i]
+                n0 = df_nac[df_nac['Periodo'] == y0]['Valor'].sum()
+                n1 = df_nac[df_nac['Periodo'] == y1]['Valor'].sum()
+                var_nac = (n1 - n0) / n1 * 100 if n1 else 0
+                
+                df_y0 = df_est[df_est['Periodo'] == y0][['Estado_ID', 'Valor']].set_index('Estado_ID')
+                df_y1 = df_est[df_est['Periodo'] == y1][['Estado_ID', 'Valor']].set_index('Estado_ID')
+                df_join = df_y1.join(df_y0, lsuffix='_1', rsuffix='_0').fillna(0)
+                df_join['Incidencia'] = (df_join['Valor_1'] - df_join['Valor_0']) / n1 * 100 if n1 else 0
+                
+                pos_inc = df_join[df_join['Incidencia'] > 0].sort_values('Incidencia', ascending=False).head(3)
+                neg_inc = df_join[df_join['Incidencia'] < 0].sort_values('Incidencia', ascending=True).head(3)
+                
+                hover_2 = f"<b>Variación Nacional: {var_nac:+.2f}%</b><br><br>"
+                if pos_inc.empty:
+                    hover_2 += "<i>Sin incidencias positivas</i><br>"
+                else:
+                    for eid, r in pos_inc.iterrows():
+                        hover_2 += f"<span style='color:#059669'>▲ {STATE_MAP.get(eid, '')}: {r['Incidencia']:+.2f}%</span><br>"
+                
+                hover_2 += "<br>"
+                
+                if neg_inc.empty:
+                    hover_2 += "<i>Sin incidencias negativas</i>"
+                else:
+                    for eid, r in neg_inc.iterrows():
+                        hover_2 += f"<span style='color:#DC2626'>▼ {STATE_MAP.get(eid, '')}: {r['Incidencia']:+.2f}%</span><br>"
+                        
+                plot_data_2.append({'Año': y1, 'Valor': var_nac, 'Hover': hover_2})
+
+        df_p1 = pd.DataFrame(plot_data_1)
+        df_p2 = pd.DataFrame(plot_data_2)
+
+        c_chart1, c_chart2 = st.columns(2)
+        
+        with c_chart1:
+            fig1 = go.Figure()
+            fig1.add_trace(go.Scatter(
+                x=df_p1['Año'], y=df_p1['Valor'], customdata=df_p1['Hover'],
+                mode='lines+markers', line=dict(color='#2596be', width=3), marker=dict(size=8, color='#2596be'),
+                hovertemplate="%{customdata}<extra></extra>"
+            ))
+            fig1.update_layout(
+                title=dict(text="Evolución del PIB (MDP)", font=dict(color='#0F172A', size=14, weight="bold")),
+                hovermode='closest', height=450, margin=dict(t=40, b=0, l=0, r=0), showlegend=False,
+                plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)',
+                xaxis=dict(tickformat="%Y", showgrid=False), yaxis=dict(showgrid=True, gridcolor='#F1F5F9', zeroline=False),
+                hoverlabel=dict(bgcolor='white', font_family='sans-serif', font_color='#0F172A')
+            )
+            st.plotly_chart(fig1, use_container_width=True)
+
+        with c_chart2:
+            fig2 = go.Figure()
+            fig2.add_trace(go.Scatter(
+                x=df_p2['Año'], y=df_p2['Valor'], customdata=df_p2['Hover'],
+                mode='lines+markers', line=dict(color='#008889', width=3), marker=dict(size=8, color='#008889'),
+                hovertemplate="%{customdata}<extra></extra>"
+            ))
+            fig2.update_layout(
+                title=dict(text="Incidencia en la Variación Anual (%)", font=dict(color='#0F172A', size=14, weight="bold")),
+                hovermode='closest', height=450, margin=dict(t=40, b=0, l=0, r=0), showlegend=False,
+                plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)',
+                xaxis=dict(tickformat="%Y", showgrid=False), yaxis=dict(showgrid=True, gridcolor='#F1F5F9', zeroline=True, zerolinecolor='#0F172A'),
+                hoverlabel=dict(bgcolor='white', font_family='sans-serif', font_color='#0F172A')
+            )
+            st.plotly_chart(fig2, use_container_width=True)
+
     st.stop()
 
 # ==========================================
@@ -655,28 +987,6 @@ st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; m
 
 df_curr = df_pib[(df_pib['Estado_ID'] == state_id) & (df_pib['Periodo'] == max_period)].copy()
 df_nac = df_pib[(df_pib['Estado_ID'] == 0) & (df_pib['Periodo'] == max_period)].copy()
-
-HIERARCHY = {
-    "Primario": {
-        "Total": "Actividades Primarias",
-        "Subsectores": ["Agricultura, cría y explotación de animales, aprovechamiento forestal, pesca y caza"],
-        "Actividades": ["Agricultura", "Cría y explotación de animales", "Pesca, caza y captura", "Aprovechamiento forestal"]
-    },
-    "Secundario": {
-        "Total": "Actividades Secundarias",
-        "Subsectores": ["Minería", "Generación, transmisión y distribución de energía eléctrica, agua y gas", "Construcción", "Industrias manufactureras"],
-        "Manufactura_Actividades": ["Industria alimentaria", "Bebidas y tabaco", "Insumos, acabados y productos textiles", "Prendas de vestir y productos de cuero y piel", "Industria de la madera", "Industria del papel", "Productos derivados del petróleo y carbón, química, plástico y hule", "Productos a base de minerales no metálicos", "Metálicas básicas y productos metálicos", "Maquinaria y equipo, computación, electrónicos y accesorios", "Muebles, colchones y persianas", "Otras industrias manufactureras"]
-    },
-    "Terciario": {
-        "Total": "Actividades Terciarias",
-        "Subsectores": ["Comercio al por mayor", "Comercio al por menor", "Transportes, correos y almacenamiento", "Información en medios masivos", "Servicios financieros y de seguros", "Servicios inmobiliarios y de alquiler de bienes", "Servicios profesionales, científicos y técnicos", "Corporativos", "Servicios de apoyo a los negocios y manejo de residuos", "Servicios educativos", "Servicios de salud y de asistencia social", "Servicios de esparcimiento culturales y deportivos", "Servicios de alojamiento temporal y de preparación de alimentos y bebidas", "Otros servicios excepto actividades gubernamentales", "Actividades legislativas, gubernamentales"]
-    }
-}
-
-def get_val(df, indicador_name):
-    row = df[df['Indicador'] == indicador_name]
-    if row.empty: row = df[df['Indicador'].str.contains(indicador_name[:20], na=False, regex=False)]
-    return row['Valor'].sum() if not row.empty else 0.0
 
 def get_ranked_list(lista_indicadores, total_compare, top_n=None):
     res = []
