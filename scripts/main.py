@@ -253,7 +253,6 @@ def procesar_exportaciones():
             try:
                 r = requests.get(url, timeout=10)
                 
-                # 1. Éxito total: El dato existe
                 if r.status_code == 200:
                     try:
                         data = r.json()
@@ -270,49 +269,55 @@ def procesar_exportaciones():
                                             'Estado_ID': clave_estado, 'Periodo': obs.get('TIME_PERIOD'),
                                             'Valor': float(obs.get('OBS_VALUE', 0))
                                         })
-                        return res_locales, errores_locales
+                        return res_locales, errores_locales, "EXITO"
                     except Exception:
-                        # Si el JSON viene malformado, reintentar no sirve, abortamos.
-                        return [], errores_locales
+                        return [], errores_locales, "NO_DATA"
 
-                # 2. Problemas Reales de Red/API: Límite de peticiones (429) o caída del servidor (50x)
                 elif r.status_code == 429 or r.status_code >= 500:
                     errores_locales += 1
                     time.sleep(1 + random.uniform(0.1, 1.5))
                 
-                # 3. Dato Inexistente (400, 404, 204): El estado no exporta ese sector
                 else:
-                    # No sumamos error ni reintentamos, simplemente pasamos al siguiente.
-                    return [], errores_locales
+                    return [], errores_locales, "NO_DATA"
                     
-            # 4. Falla de conexión pura (Timeout, sin internet)
             except requests.exceptions.RequestException: 
                 errores_locales += 1
                 time.sleep(1 + random.uniform(0.1, 1.5))
                 
-        return [], errores_locales
+        return [], errores_locales, "RETRY"
 
     errores_totales = 0
+    tareas_pendientes = tareas.copy()
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=len(TOKENS_INEGI) * 2) as executor:
-        futuros = {executor.submit(hacer_peticion_export, t): t for t in tareas}
-        
         barra_progreso = tqdm(
-            concurrent.futures.as_completed(futuros), 
-            total=len(tareas), 
+            total=len(tareas_pendientes), 
             desc="📦 Exportaciones", 
             unit="req",
-            position=1, # Carril 2
+            position=1,
             leave=True
         )
         
-        for futuro in barra_progreso:
-            res, errs = futuro.result()
-            if res: resultados.extend(res)
+        while tareas_pendientes:
+            futuros = {executor.submit(hacer_peticion_export, t): t for t in tareas_pendientes}
+            tareas_pendientes = []
             
-            errores_totales += errs
-            if errores_totales > 0:
-                barra_progreso.set_postfix({"Errores de Red": errores_totales})
+            for futuro in concurrent.futures.as_completed(futuros):
+                t = futuros[futuro]
+                res, errs, estado = futuro.result()
+                
+                if res: resultados.extend(res)
+                errores_totales += errs
+                
+                if estado == "RETRY":
+                    tareas_pendientes.append(t)
+                else:
+                    barra_progreso.update(1)
+                    
+                if errores_totales > 0:
+                    barra_progreso.set_postfix({"Errores de Red": errores_totales})
+                    
+        barra_progreso.close()
 
     if resultados:
         df = pd.DataFrame(resultados)
