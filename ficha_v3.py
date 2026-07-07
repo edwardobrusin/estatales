@@ -112,11 +112,11 @@ st.markdown("""
         margin-bottom: 5px;
     }
     .metric-rank {
-        background-color: #2596be; /* Nuevo Primary */
+        background-color: #2596be;
         color: white;
         padding: 3px 10px;
         border-radius: 12px;
-        font-size: 0.75rem;
+        font-size: 0.85rem;
         font-weight: 700;
         vertical-align: middle;
         margin-left: 5px;
@@ -351,14 +351,14 @@ st.markdown("<p style='text-align: left; color: #94A3B8; font-size: 0.85rem; mar
 # 5. FUNCIONES LÓGICAS (SIN CAMBIOS)
 # ==========================================
 def format_mm_pesos(val_millones):
-    return f"${val_millones:,.0f} <span style='font-size: 0.5em; color:#64748B;'>MDP</span>"
+    return f"${val_millones:,.0f} MDP"
 
-def format_mm_usd(val_miles): 
-    val = val_miles / 1000 
-    return f"${val:,.0f} <span style='font-size: 0.5em; color:#64748B;'>MDD</span>"
+def format_mm_usd(val_miles):
+    val = val_miles / 1000
+    return f"${val:,.0f} MDD"
 
-def format_mm_usd_ied(val_millones): 
-    return f"${val_millones:,.0f} <span style='font-size: 0.5em; color:#64748B;'>MDD</span>"
+def format_mm_usd_ied(val_millones):
+    return f"${val_millones:,.0f} MDD"
 
 def render_card(title, val_str, rank, top1, part, growth, growth_nac, fecha_act=""):
     c_g = "metric-delta-pos" if growth >= 0 else "metric-delta-neg"
@@ -374,13 +374,13 @@ def render_card(title, val_str, rank, top1, part, growth, growth_nac, fecha_act=
             <div class="metric-title" style="margin-bottom: 0; line-height: 1.2;">{title_html}</div>
             <div class="metric-rank" style="margin-left: 10px; flex-shrink: 0;">Top {rank}</div>
         </div>
-        <div class="metric-value">{val_str}</div>
-        <div class="metric-sub" style="margin-bottom: 5px;">Part. Nacional: <b style='color:#0F172A;'>{part:.1f}%</b></div>
-        <div class="metric-sub" style="margin-bottom: 5px; color:#94A3B8;">Top 1: {top1}</div>
+        <div class="metric-value">{part:.1f}% <span style="font-size: 0.45em; color:#64748B; font-weight: 600; vertical-align: middle;">Nacional</span></div>
+        <div class="metric-sub" style="margin-bottom: 5px; color:#0F172A;"><b>Top 1:</b> {top1}</div>
+        <div class="metric-sub" style="margin-bottom: 5px; color:#94A3B8;"><b>Monto:</b> {val_str}</div>
         <hr style="margin-top: 10px; margin-bottom: 10px;">
         <div class="metric-sub" style="background-color: #F8FAFC; padding: 8px; border-radius: 6px;">
-            <div style="margin-bottom: 3px; display:flex; justify-content: space-between;"><span>Var. Estatal:</span> <span class="{c_g}">{i_g} {growth:.1f}%</span></div>
-            <div style="display:flex; justify-content: space-between;"><span>Var. Nacional:</span> <span class="{c_gn}">{i_gn} {growth_nac:.1f}%</span></div>
+            <div style="margin-bottom: 3px; display:flex; justify-content: space-between;"><span>Var. A. Estatal:</span> <span class="{c_g}">{i_g} {growth:.1f}%</span></div>
+            <div style="display:flex; justify-content: space-between;"><span>Var. A. Nacional:</span> <span class="{c_gn}">{i_gn} {growth_nac:.1f}%</span></div>
         </div>
         <div style="text-align: right; margin-top: 8px; font-size: 0.65rem; color: #94A3B8;"><i>Actualización: {fecha_act}</i></div>
     </div>

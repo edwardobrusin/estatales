@@ -155,48 +155,63 @@ def procesar_pib():
             try:
                 r = requests.get(url, timeout=10)
                 if r.status_code == 200:
-                    data = r.json()
-                    res_locales = []
-                    if 'Series' in data and data['Series']:
-                        serie = data['Series'][0].get('OBSERVATIONS', [])
-                        serie_sorted = sorted(serie, key=lambda x: x.get('TIME_PERIOD', ''))
-                        
-                        for obs in serie_sorted:
-                            res_locales.append({
-                                'Indicador': ind_nombre, 'Clave_Indicador': ind_clave,
-                                'Estado_ID': obs.get('COBER_GEO', clave_estado),
-                                'Periodo': int(obs.get('TIME_PERIOD')), 'Valor': float(obs.get('OBS_VALUE', 0))
-                            })
-                    return res_locales, errores_locales
-                else:
+                    try:
+                        data = r.json()
+                        res_locales = []
+                        if 'Series' in data and data['Series']:
+                            serie = data['Series'][0].get('OBSERVATIONS', [])
+                            serie_sorted = sorted(serie, key=lambda x: x.get('TIME_PERIOD', ''))
+                            for obs in serie_sorted:
+                                res_locales.append({
+                                    'Indicador': ind_nombre, 'Clave_Indicador': ind_clave,
+                                    'Estado_ID': obs.get('COBER_GEO', clave_estado),
+                                    'Periodo': int(obs.get('TIME_PERIOD')), 'Valor': float(obs.get('OBS_VALUE', 0))
+                                })
+                        return res_locales, errores_locales, "EXITO"
+                    except Exception:
+                        return [], errores_locales, "NO_DATA"
+                elif r.status_code == 429 or r.status_code >= 500:
                     errores_locales += 1
                     time.sleep(1 + random.uniform(0.1, 1.5))
-            except Exception:
+                else:
+                    return [], errores_locales, "NO_DATA"
+            except requests.exceptions.RequestException:
                 errores_locales += 1
                 time.sleep(1 + random.uniform(0.1, 1.5))
-        return [], errores_locales
+        return [], errores_locales, "RETRY"
 
     errores_totales = 0
+    tareas_pendientes = tareas.copy()
 
     with concurrent.futures.ThreadPoolExecutor(max_workers=len(TOKENS_INEGI) * 2) as executor:
-        futuros = {executor.submit(hacer_peticion, t): t for t in tareas}
-        
         barra_progreso = tqdm(
-            concurrent.futures.as_completed(futuros), 
-            total=len(tareas), 
+            total=len(tareas_pendientes), 
             desc="📊 PIB        ", 
             unit="req",
-            position=0, # Carril 1
+            position=0,
             leave=True
         )
         
-        for futuro in barra_progreso:
-            res, errs = futuro.result()
-            if res: resultados.extend(res)
+        while tareas_pendientes:
+            futuros = {executor.submit(hacer_peticion, t): t for t in tareas_pendientes}
+            tareas_pendientes = []
             
-            errores_totales += errs
-            if errores_totales > 0:
-                barra_progreso.set_postfix({"Errores de Red": errores_totales})
+            for futuro in concurrent.futures.as_completed(futuros):
+                t = futuros[futuro]
+                res, errs, estado = futuro.result()
+                
+                if res: resultados.extend(res)
+                errores_totales += errs
+                
+                if estado == "RETRY":
+                    tareas_pendientes.append(t)
+                else:
+                    barra_progreso.update(1)
+                    
+                if errores_totales > 0:
+                    barra_progreso.set_postfix({"Errores de Red": errores_totales})
+                    
+        barra_progreso.close()
 
     if resultados:
         df = pd.DataFrame(resultados)
