@@ -562,10 +562,10 @@ if selected_name == 'Nacional':
         df_tree = df_mapa[['Estado', 'Valor']].copy()
         tot_tree = df_tree['Valor'].sum()
         df_tree['Pct'] = (df_tree['Valor'] / tot_tree) * 100
-
+        
         df_main = df_tree[df_tree['Pct'] > 1.0].copy()
         df_resto = df_tree[df_tree['Pct'] <= 1.0].copy()
-
+        
         if not df_resto.empty:
             df_main = pd.concat([df_main, pd.DataFrame([{'Estado': 'Resto de Estados', 'Valor': df_resto['Valor'].sum(), 'Pct': df_resto['Pct'].sum()}])], ignore_index=True)
 
@@ -585,6 +585,9 @@ if selected_name == 'Nacional':
             sub_color = "rgba(255,255,255,0.9)" if factor > 0.4 else "#334155"
             return f"rgb({r},{g},{b})", text_color, sub_color
 
+        # --- Algoritmo "squarified treemap" (Bruls, Huizing & van Wijk) ---
+        # Genera rectángulos con la mejor relación de aspecto posible, desglosando
+        # siempre de la esquina superior izquierda hacia la esquina inferior derecha.
         def _worst_ratio(row_vals, side):
             if not row_vals:
                 return float('inf')
@@ -661,16 +664,17 @@ if selected_name == 'Nacional':
                 monto_txt = f"${row['Valor']:,.0f} MDP"
                 pct_txt = f"{row['Pct']:.1f}%"
                 
+                # Descontamos el padding fijo (10px por lado = 20px horizontal, 8px arriba/abajo = 16px vertical)
                 avail_w = real_w_px - 20
                 avail_h = real_h_px - 16
                 
                 max_chars = max(len(row['Estado']), len(monto_txt), len(pct_txt))
                 
                 fs_w = avail_w / (max_chars * 0.6)
-                fs_h = avail_h / 5.2
+                fs_h = avail_h / 5.2  # Divisor más estricto para evitar cortes en la parte inferior
                 base_fs = min(fs_w, fs_h)
                 
-                base_fs = min(base_fs, 16.0)
+                base_fs = min(base_fs, 16.0) # Ceiling máximo para evitar textos desproporcionados
                 
                 title_fs = base_fs
                 value_fs = base_fs * 0.90
@@ -2675,4 +2679,3 @@ if not st_d.empty:
     st.info("ℹ️ **Nota:** El cambio de posiciones corresponde a la variación respecto al año anterior.")
 
 mostrar_fecha_act('imco')
-

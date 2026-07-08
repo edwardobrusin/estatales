@@ -275,15 +275,12 @@ def procesar_exportaciones():
                         if 'Series' in data and data['Series']:
                             serie = data['Series'][0].get('OBSERVATIONS', [])
                             serie_sorted = sorted(serie, key=lambda x: x.get('TIME_PERIOD', ''))
-                            if serie_sorted:
-                                max_year = int(serie_sorted[-1]['TIME_PERIOD'][:4])
-                                for obs in serie_sorted:
-                                    if int(obs['TIME_PERIOD'][:4]) >= (max_year - 1):
-                                        res_locales.append({
-                                            'Sector': ind_nombre, 'Clave_Indicador': ind_clave,
-                                            'Estado_ID': clave_estado, 'Periodo': obs.get('TIME_PERIOD'),
-                                            'Valor': float(obs.get('OBS_VALUE', 0))
-                                        })
+                            for obs in serie_sorted:
+                                res_locales.append({
+                                    'Sector': ind_nombre, 'Clave_Indicador': ind_clave,
+                                    'Estado_ID': clave_estado, 'Periodo': obs.get('TIME_PERIOD'),
+                                    'Valor': float(obs.get('OBS_VALUE', 0))
+                                })
                         return res_locales, errores_locales, "EXITO"
                     except Exception:
                         return [], errores_locales, "NO_DATA"
