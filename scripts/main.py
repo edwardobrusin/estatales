@@ -921,7 +921,7 @@ def procesar_salarios_imss():
         except: pass
         time.sleep(2) 
 
-        estados_pendientes = [
+        estados_totales = [
             "Aguascalientes", "Baja California", "Baja California Sur", "Campeche", "Chiapas", 
             "Chihuahua", "Ciudad de México", "Coahuila de Zaragoza", "Colima", "Durango", 
             "Guanajuato", "Guerrero", "Hidalgo", "Jalisco", "México", "Michoacán de Ocampo", 
@@ -929,6 +929,40 @@ def procesar_salarios_imss():
             "Quintana Roo", "San Luis Potosí", "Sinaloa", "Sonora", "Tabasco", 
             "Tamaulipas", "Tlaxcala", "Veracruz de Ignacio de la Llave", "Yucatán", "Zacatecas"
         ]
+        ruta_salida = os.path.join(INTERMEDIATE_DIR, "salarios_imss.csv")
+        
+        def normalizar_fechas(serie):
+            s = serie.astype(str).str.lower().str.strip()
+            meses = {'enero': '01', 'febrero': '02', 'marzo': '03', 'abril': '04', 'mayo': '05', 'junio': '06', 'julio': '07', 'agosto': '08', 'septiembre': '09', 'octubre': '10', 'noviembre': '11', 'diciembre': '12', 'ene': '01', 'feb': '02', 'mar': '03', 'abr': '04', 'may': '05', 'jun': '06', 'jul': '07', 'ago': '08', 'sep': '09', 'oct': '10', 'nov': '11', 'dic': '12'}
+            for m_nom, m_num in meses.items():
+                s = s.str.replace(rf'\b{m_nom}\b', m_num, regex=True)
+            s = s.str.replace(' de ', '-', regex=False).str.replace('.', '', regex=False).str.replace('/', '-').str.replace(' ', '-')
+            s = s.apply(lambda x: f"01-{x}" if re.match(r'^\d{2}-\d{2,4}$', str(x)) else x)
+            return pd.to_datetime(s, dayfirst=True, errors='coerce').dt.strftime('%Y-%m-%d')
+        
+        if os.path.exists(ruta_salida):
+            df_master = pd.read_csv(ruta_salida)
+            
+            cols_to_drop = [c for c in df_master.columns if c.endswith('_x') or c.endswith('_y')]
+            if cols_to_drop:
+                df_master = df_master.drop(columns=cols_to_drop)
+                
+            if 'Fecha' in df_master.columns:
+                df_master['Fecha'] = normalizar_fechas(df_master['Fecha'])
+                df_master = df_master.dropna(subset=['Fecha']).groupby('Fecha', as_index=False).first()
+                df_master = df_master.sort_values(by='Fecha').reset_index(drop=True)
+            
+            conteo = {est: df_master[est].dropna().shape[0] for est in estados_totales if est in df_master.columns}
+            if conteo:
+                max_filas = max(conteo.values())
+                estados_pendientes = [est for est in estados_totales if est not in conteo or conteo[est] < max_filas]
+                if not estados_pendientes and len(conteo) == 32:
+                    estados_pendientes = estados_totales.copy()
+            else:
+                estados_pendientes = estados_totales.copy()
+        else:
+            estados_pendientes = estados_totales.copy()
+            
         xpath_search = "//textarea[contains(@class, 'QueryBox')]"
 
         def esperar_descarga(directorio, tiempo_inicio, timeout=45):
@@ -1017,10 +1051,26 @@ def procesar_salarios_imss():
                         archivo_reciente, skiprows=1, header=None, usecols=[0, 1], 
                         names=['Fecha', estado], encoding='utf-16', sep='\t'
                     )
-                    df_temp['Fecha'] = df_temp['Fecha'].astype(str).str.replace(' de ', ' ', regex=False).str.strip()
                     
-                    if df_master.empty: df_master = df_temp
-                    else: df_master = pd.merge(df_master, df_temp, on='Fecha', how='outer')
+                    df_temp['Fecha'] = normalizar_fechas(df_temp['Fecha'])
+                    df_temp = df_temp.dropna(subset=['Fecha']).groupby('Fecha', as_index=False).first()
+                    
+                    if not df_master.empty:
+                        if estado in df_master.columns:
+                            df_master = df_master.drop(columns=[estado])
+                        df_master = pd.merge(df_master, df_temp, on='Fecha', how='outer')
+                    else: 
+                        df_master = df_temp
+                    
+                    df_master = df_master.sort_values(by='Fecha', ascending=True).reset_index(drop=True)
+                    
+                    df_export = df_master.copy()
+                    df_export['Fecha'] = pd.to_datetime(df_export['Fecha']).dt.strftime('%m-%Y')
+                    meses_inv = {'01': 'enero', '02': 'febrero', '03': 'marzo', '04': 'abril', '05': 'mayo', '06': 'junio', '07': 'julio', '08': 'agosto', '09': 'septiembre', '10': 'octubre', '11': 'noviembre', '12': 'diciembre'}
+                    for num, nom in meses_inv.items():
+                        df_export['Fecha'] = df_export['Fecha'].str.replace(rf'^{num}-', f"{nom} ", regex=True)
+                        
+                    df_export.to_csv(ruta_salida, index=False, encoding='utf-8-sig')
                         
                     try: os.remove(archivo_reciente)
                     except: pass
@@ -1076,26 +1126,9 @@ def procesar_salarios_imss():
                 else:
                     estados_pendientes.pop(0)
 
-        # Ordenar Cronológicamente y Guardar
         if not df_master.empty:
-            meses = {
-                'enero': '01', 'febrero': '02', 'marzo': '03', 'abril': '04',
-                'mayo': '05', 'junio': '06', 'julio': '07', 'agosto': '08',
-                'septiembre': '09', 'octubre': '10', 'noviembre': '11', 'diciembre': '12'
-            }
-            df_master['Fecha_Temp'] = df_master['Fecha'].str.lower().str.strip()
-            for mes_nombre, mes_numero in meses.items():
-                df_master['Fecha_Temp'] = df_master['Fecha_Temp'].str.replace(mes_nombre, f"{mes_numero}/", regex=False)
-            df_master['Fecha_Temp'] = df_master['Fecha_Temp'].str.replace(' ', '', regex=False)
-            df_master['Fecha_Temp'] = pd.to_datetime(df_master['Fecha_Temp'], format='%m/%Y', errors='coerce')
-            df_master = df_master.sort_values(by='Fecha_Temp', ascending=True).reset_index(drop=True)
-            df_master = df_master.drop(columns=['Fecha_Temp'])
-            
-            ruta_salida = os.path.join(INTERMEDIATE_DIR, "salarios_imss.csv")
-            df_master.to_csv(ruta_salida, index=False, encoding='utf-8-sig')
-            
             driver.quit()
-            return f"✅ [Salarios IMSS] Completado. Archivo consolidado guardado."
+            return f"✅ [Salarios IMSS] Completado. Archivo consolidado actualizado."
         else:
             driver.quit()
             return "⚠️ [Salarios IMSS] El DataFrame maestro está vacío."
