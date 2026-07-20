@@ -162,10 +162,27 @@ def procesar_pib():
                             serie = data['Series'][0].get('OBSERVATIONS', [])
                             serie_sorted = sorted(serie, key=lambda x: x.get('TIME_PERIOD', ''))
                             for obs in serie_sorted:
+                                raw_val = obs.get('OBS_VALUE')
+                                val_limpio = 0.0
+                                
+                                if raw_val is not None and str(raw_val).strip():
+                                    try:
+                                        val_limpio = float(str(raw_val).strip())
+                                    except ValueError:
+                                        val_limpio = 0.0
+                                        
+                                raw_periodo = obs.get('TIME_PERIOD', '0')
+                                try:
+                                    periodo_limpio = int(raw_periodo)
+                                except ValueError:
+                                    periodo_limpio = raw_periodo
+
                                 res_locales.append({
-                                    'Indicador': ind_nombre, 'Clave_Indicador': ind_clave,
+                                    'Indicador': ind_nombre, 
+                                    'Clave_Indicador': ind_clave,
                                     'Estado_ID': obs.get('COBER_GEO', clave_estado),
-                                    'Periodo': int(obs.get('TIME_PERIOD')), 'Valor': float(obs.get('OBS_VALUE', 0))
+                                    'Periodo': periodo_limpio, 
+                                    'Valor': val_limpio
                                 })
                         return res_locales, errores_locales, "EXITO"
                     except Exception:
@@ -276,10 +293,21 @@ def procesar_exportaciones():
                             serie = data['Series'][0].get('OBSERVATIONS', [])
                             serie_sorted = sorted(serie, key=lambda x: x.get('TIME_PERIOD', ''))
                             for obs in serie_sorted:
+                                raw_val = obs.get('OBS_VALUE')
+                                val_limpio = 0.0
+                                
+                                if raw_val is not None and str(raw_val).strip():
+                                    try:
+                                        val_limpio = float(str(raw_val).strip())
+                                    except ValueError:
+                                        val_limpio = 0.0
+
                                 res_locales.append({
-                                    'Sector': ind_nombre, 'Clave_Indicador': ind_clave,
-                                    'Estado_ID': clave_estado, 'Periodo': obs.get('TIME_PERIOD'),
-                                    'Valor': float(obs.get('OBS_VALUE', 0))
+                                    'Sector': ind_nombre, 
+                                    'Clave_Indicador': ind_clave,
+                                    'Estado_ID': clave_estado, 
+                                    'Periodo': obs.get('TIME_PERIOD'),
+                                    'Valor': val_limpio
                                 })
                         return res_locales, errores_locales, "EXITO"
                     except Exception:
@@ -406,10 +434,22 @@ def procesar_poblacion_api():
                     data = r.json()
                     if 'Series' in data and data['Series']:
                         obs = data['Series'][0]['OBSERVATIONS'][0]
+                        
+                        raw_val = obs.get('OBS_VALUE')
+                        val_limpio = 0.0
+                        
+                        if raw_val is not None and str(raw_val).strip():
+                            try:
+                                val_limpio = float(str(raw_val).strip())
+                            except ValueError:
+                                val_limpio = 0.0
+
                         return [{
-                            'Indicador': desc, 'Clave_Indicador': ind_clave,
-                            'Estado_ID': clave_estado, 'Periodo': obs.get('TIME_PERIOD'),
-                            'Valor': float(obs.get('OBS_VALUE', 0))
+                            'Indicador': desc, 
+                            'Clave_Indicador': ind_clave,
+                            'Estado_ID': clave_estado, 
+                            'Periodo': obs.get('TIME_PERIOD'),
+                            'Valor': val_limpio
                         }], errores_locales
                     return [], errores_locales
                 else: 

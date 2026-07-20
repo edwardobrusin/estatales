@@ -285,7 +285,7 @@ if selected_name == 'Nacional':
 
     variables_mapa = {
         "Producto Interno Bruto": "pib",
-        "Exportaciones Totales (MDD)": "export",
+        "Exportaciones": "export",
         "Inversión Extranjera Directa (MDD)": "ied",
         "Competitividad General (IMCO)": "imco"
     }
@@ -295,6 +295,7 @@ if selected_name == 'Nacional':
         var_seleccionada = st.selectbox("Selecciona la variable a analizar:", list(variables_mapa.keys()), key="select_var_nacional")
 
     desglose_pib = None
+    desglose_export = None
     if var_seleccionada == "Producto Interno Bruto":
         pib_options = ["Total Nacional"]
         for meta in HIERARCHY.values():
@@ -306,6 +307,11 @@ if selected_name == 'Nacional':
         
         with col2:
             desglose_pib = st.selectbox("Desglose PIB:", pib_options, key="select_desglose_pib")
+            
+    elif var_seleccionada == "Exportaciones":
+        export_options = ["Total"] + sorted([s for s in DATA['export']['Sector'].unique() if s != "Total"])
+        with col2:
+            desglose_export = st.selectbox("Desglose Exportaciones:", export_options, key="select_desglose_export")
 
     df_mapa = pd.DataFrame()
     missing_states_flag = False
@@ -325,16 +331,27 @@ if selected_name == 'Nacional':
         df_mapa['Estado'] = df_mapa['Estado_ID'].map(STATE_MAP)
         df_mapa['Valor_Mapa'] = df_mapa['Valor']
         # Hover dinámico: El color de la variación se manejará por HTML en el template
-        formato_hover = "$%{z:,.0f} MDP<br><b>Var. Anual:</b> %{customdata:.1f}%"
+        formato_hover = "$%{z:,.0f} MDP<br><span style='color:#7dd3c8; font-weight:700;'>Var. Anual:</span> %{customdata:.1f}%"
 
-    elif var_seleccionada == "Exportaciones Totales (MDD)":
+    elif var_seleccionada == "Exportaciones":
         df = DATA['export'].copy()
         df['Year'] = df['Periodo'].astype(str).str[:4].astype(int)
+        df['Quarter'] = df['Periodo'].astype(str).str[-2:]
         max_year = df['Year'].max()
-        df_mapa = df[(df['Year'] == max_year) & (df['Sector'] == 'Total')].groupby('Estado_ID')['Valor'].sum().reset_index()
+        prev_year = max_year - 1
+        quarters_avail = df[df['Year'] == max_year]['Quarter'].unique()
+        
+        df_curr = df[(df['Year'] == max_year) & (df['Sector'] == desglose_export)].groupby('Estado_ID')['Valor'].sum().reset_index()
+        df_prev = df[(df['Year'] == prev_year) & (df['Sector'] == desglose_export) & (df['Quarter'].isin(quarters_avail))].groupby('Estado_ID')['Valor'].sum().reset_index()
+        
+        df_mapa = df_curr.merge(df_prev[['Estado_ID', 'Valor']], on='Estado_ID', how='left', suffixes=('', '_Prev'))
+        df_mapa['Valor'] = df_mapa['Valor'] / 1000
+        df_mapa['Valor_Prev'] = (df_mapa['Valor_Prev'] / 1000).fillna(0)
+        df_mapa['Var_Anual'] = ((df_mapa['Valor'] - df_mapa['Valor_Prev']) / df_mapa['Valor_Prev'] * 100).fillna(0)
+        
         df_mapa['Estado'] = df_mapa['Estado_ID'].map(STATE_MAP)
-        df_mapa['Valor_Mapa'] = df_mapa['Valor'] / 1000
-        formato_hover = "$%{z:,.0f} MDD"
+        df_mapa['Valor_Mapa'] = df_mapa['Valor']
+        formato_hover = "$%{z:,.0f} MDD<br><span style='color:#7dd3c8; font-weight:700;'>Var. Anual:</span> %{customdata:.1f}%"
 
     elif var_seleccionada == "Inversión Extranjera Directa (MDD)":
         df = DATA['ied_tot'].copy()
@@ -371,18 +388,18 @@ if selected_name == 'Nacional':
             hover_name='Estado'
         )
 
-        if var_seleccionada == "Producto Interno Bruto":
+        if var_seleccionada in ["Producto Interno Bruto", "Exportaciones"]:
             fig.update_traces(
                 customdata=df_mapa['Var_Anual'],
-                hovertemplate="<b>%{hovertext}</b><br>Valor: " + formato_hover + "<extra></extra>",
+                hovertemplate="<b>%{hovertext}</b><br><span style='color:#7dd3c8; font-weight:700;'>Valor:</span> " + formato_hover + "<extra></extra>",
                 marker_line_color='white', marker_line_width=1.5,
-                hoverlabel=dict(bgcolor='white', font_size=14, font_family='sans-serif', font_color='#0F172A', bordercolor='#2596be')
+                hoverlabel=dict(bgcolor='#0F172A', font_size=13, font_family='sans-serif', font_color='#F8FAFC', bordercolor='#0F172A', align='left')
             )
         else:
             fig.update_traces(
-                hovertemplate="<b>%{hovertext}</b><br>Valor: " + formato_hover + "<extra></extra>",
+                hovertemplate="<b>%{hovertext}</b><br><span style='color:#7dd3c8; font-weight:700;'>Valor:</span> " + formato_hover + "<extra></extra>",
                 marker_line_color='white', marker_line_width=1.5,
-                hoverlabel=dict(bgcolor='white', font_size=14, font_family='sans-serif', font_color='#0F172A', bordercolor='#2596be')
+                hoverlabel=dict(bgcolor='#0F172A', font_size=13, font_family='sans-serif', font_color='#F8FAFC', bordercolor='#0F172A', align='left')
             )
         
         fig.update_geos(fitbounds="locations", visible=False, bgcolor='#F8FAFC')
@@ -401,24 +418,41 @@ if selected_name == 'Nacional':
     # ==========================================
     # EXTENSIÓN: ANÁLISIS DE PIB (SOLO SI ESTÁ SELECCIONADO)
     # ==========================================
-    if var_seleccionada == "Producto Interno Bruto":
+    if var_seleccionada in ["Producto Interno Bruto", "Exportaciones"]:
+        
+        titulo_desglose = desglose_pib if var_seleccionada == "Producto Interno Bruto" else desglose_export
+        unidad_medida = "MDP" if var_seleccionada == "Producto Interno Bruto" else "MDD"
+        es_nacional = (desglose_pib == "Total Nacional") if var_seleccionada == "Producto Interno Bruto" else (desglose_export == "Total")
             
-        # --- 1. GRÁFICA DE RANKING ESTATAL (ESTILO EXPORTACIONES) ---
         st.markdown("<hr style='border-color: #E2E8F0; margin-top: 0px; margin-bottom: 15px;'>", unsafe_allow_html=True)
-        st.header(f"Ranking Estatal: {desglose_pib}")
+        st.header(f"Ranking Estatal: {titulo_desglose}")
         
         df_mapa['Rank_Curr'] = df_mapa['Valor'].rank(ascending=False, method='min')
         df_mapa['Rank_Prev'] = df_mapa['Valor_Prev'].rank(ascending=False, method='min')
-        df_mapa['Cambio_Posicion'] = df_mapa['Rank_Prev'] - df_mapa['Rank_Curr'] # Positivo = Subió lugares
+        df_mapa['Cambio_Posicion'] = df_mapa['Rank_Prev'] - df_mapa['Rank_Curr'] 
 
         top10 = df_mapa.sort_values('Valor', ascending=False).head(10)
         max_val_scale = max(top10['Valor'].max(), top10['Valor_Prev'].max()) if not top10.empty else 1
         
-        # Totales Nacionales para la cabecera
-        df_nac_curr = df[(df['Periodo'] == max_period) & (df['Indicador'] == desglose_pib) & (df['Estado_ID'] == 0)]
-        df_nac_prev = df[(df['Periodo'] == prev_period) & (df['Indicador'] == desglose_pib) & (df['Estado_ID'] == 0)]
-        val_total_curr = df_nac_curr['Valor'].sum() if not df_nac_curr.empty else 0
-        val_total_prev = df_nac_prev['Valor'].sum() if not df_nac_prev.empty else 0
+        if var_seleccionada == "Producto Interno Bruto":
+            periodo_curr = max_period
+            periodo_prev = prev_period
+            df_nac_curr = df[(df['Periodo'] == max_period) & (df['Indicador'] == desglose_pib) & (df['Estado_ID'] == 0)]
+            df_nac_prev = df[(df['Periodo'] == prev_period) & (df['Indicador'] == desglose_pib) & (df['Estado_ID'] == 0)]
+            val_total_curr = df_nac_curr['Valor'].sum() if not df_nac_curr.empty else 0
+            val_total_prev = df_nac_prev['Valor'].sum() if not df_nac_prev.empty else 0
+        else:
+            q_len = len(quarters_avail)
+            if q_len == 4:
+                periodo_curr = str(max_year)
+                periodo_prev = str(prev_year)
+            else:
+                q_prefix = f"1T-{q_len}T" if q_len > 1 else "1T"
+                periodo_curr = f"{q_prefix} {max_year}"
+                periodo_prev = f"{q_prefix} {prev_year}"
+            
+            val_total_curr = df[(df['Year'] == max_year) & (df['Sector'] == desglose_export)]['Valor'].sum() / 1000
+            val_total_prev = df[(df['Year'] == prev_year) & (df['Quarter'].isin(quarters_avail)) & (df['Sector'] == desglose_export)]['Valor'].sum() / 1000
         
         max_total_scale = max(val_total_curr, val_total_prev) if max(val_total_curr, val_total_prev) > 0 else 1
         pct_total_prev = max((val_total_prev / max_total_scale) * 85, 0.5)
@@ -430,28 +464,29 @@ if selected_name == 'Nacional':
             elif ch < 0: return f"<span style='background-color:#DC2626; color:white; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight:bold; margin-left:8px;'>▼ {int(abs(ch))}</span>"
             else: return f"<span style='background-color:#64748B; color:white; padding: 2px 8px; border-radius: 12px; font-size: 0.7rem; font-weight:bold; margin-left:8px;'>=</span>"
 
+        texto_medida_larga = "Millones de Pesos" if unidad_medida == "MDP" else "Millones de Dólares"
         html_ranking = f"""<div style="background-color: white; padding:25px; border-radius:12px; border:1px solid #E2E8F0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); width: 100%; font-family: sans-serif; color: #334155;">
         <div style="margin-bottom:25px; border-bottom: 2px solid #F1F5F9; padding-bottom: 20px;">
             <div style="display: flex; align-items: center; margin-bottom: 12px;">
-                <div style="flex: 0 0 10%; font-size: 0.85rem; color: #64748B; font-weight: 700; text-transform: uppercase;">Total {prev_period}</div>
+                <div style="flex: 0 0 10%; font-size: 0.85rem; color: #64748B; font-weight: 700; text-transform: uppercase;">Total {periodo_prev}</div>
                 <div style="flex: 1; display: flex; align-items: center;">
                     <div style="background-color: #008889; width: {pct_total_prev}%; height: 14px; border-radius: 4px;"></div>
                     <span style="margin-left: 10px; white-space: nowrap; font-weight: 800; font-size: 1rem; color: #0F172A;">
-                        ${val_total_prev:,.0f} <span style="font-size: 0.7rem; color: #64748B; font-weight: 600;">MDP</span>
+                        ${val_total_prev:,.0f} <span style="font-size: 0.7rem; color: #64748B; font-weight: 600;">{unidad_medida}</span>
                 </div>
             </div>
             <div style="display: flex; align-items: center;">
-                <div style="flex: 0 0 10%; font-size: 0.85rem; color: #64748B; font-weight: 700; text-transform: uppercase;">Total {max_period}</div>
+                <div style="flex: 0 0 10%; font-size: 0.85rem; color: #64748B; font-weight: 700; text-transform: uppercase;">Total {periodo_curr}</div>
                 <div style="flex: 1; display: flex; align-items: center;">
                     <div style="background-color: #2596be; width: {pct_total_curr}%; height: 20px; border-radius: 4px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);"></div>
                     <span style="margin-left: 10px; white-space: nowrap; font-weight: 800; font-size: 1rem; color: #0F172A;">
-                        ${val_total_curr:,.0f} <span style="font-size: 0.7rem; color: #64748B; font-weight: 600;">MDP</span>
+                        ${val_total_curr:,.0f} <span style="font-size: 0.7rem; color: #64748B; font-weight: 600;">{unidad_medida}</span>
                 </div>
             </div>
         </div>
         <div style="display: flex; width: 100%; margin-bottom: 20px; font-weight: 800; text-align: center; font-size: 0.85rem; text-transform:uppercase; letter-spacing:0.5px; justify-content: space-between; gap: 15px; color: #64748B; border-bottom:2px solid #F1F5F9; padding-bottom:10px;">
-        <div style="flex: 0 0 25%; text-align: left; padding-left: 5px;">Estado</div>
-        <div style="flex: 1; text-align: left; padding-left: 0px;">Millones de Pesos</div>
+        <div style="flex: 0 0 12%; text-align: left; padding-left: 5px;">Estado</div>
+        <div style="flex: 1; text-align: left; padding-left: 0px;">{texto_medida_larga}</div>
         <div style="flex: 0 0 12%;">Var. Anual</div>
         <div style="flex: 0 0 12%;">Ranking</div>
         </div>"""
@@ -463,7 +498,7 @@ if selected_name == 'Nacional':
             signo_var = "+" if r['Var_Anual'] > 0 else ""
             
             html_ranking += f"""<div style="display: flex; width: 100%; align-items: stretch; margin-bottom: 18px; justify-content: space-between; gap: 15px;">
-        <div style="flex: 0 0 25%; text-align: left; padding-left: 5px; font-size: 0.95rem; display: flex; align-items: center; justify-content: flex-start;">
+        <div style="flex: 0 0 12%; text-align: left; padding-left: 5px; font-size: 0.95rem; display: flex; align-items: center; justify-content: flex-start;">
         <span style="display: inline-block; line-height: 1.3; color: #0F172A; font-weight: 700;">{r['Estado']}</span>
         </div>
         <div style="flex: 1; border-left: 2px solid #E2E8F0; padding-left: 15px; display: flex; flex-direction: column; justify-content: center; gap: 8px;">
@@ -491,9 +526,9 @@ if selected_name == 'Nacional':
         st.markdown(html_ranking, unsafe_allow_html=True)
 
 
-        if desglose_pib == "Total Nacional":
+        if es_nacional and var_seleccionada == "Producto Interno Bruto":
             st.markdown("<hr style='border-color: #E2E8F0; margin-top: 30px;'>", unsafe_allow_html=True)
-            st.header(f"Estructura Económica Nacional ({max_period})")
+            st.header(f"Estructura Económica Nacional ({periodo_curr})")
             
             df_nac_estructura = df[(df['Periodo'] == max_period) & (df['Estado_ID'] == 0)]
             
@@ -557,7 +592,7 @@ if selected_name == 'Nacional':
 
 
         st.markdown("<hr style='border-color: #E2E8F0; margin-top: 30px;'>", unsafe_allow_html=True)
-        st.header(f"Distribución Territorial: {desglose_pib}")
+        st.header(f"Distribución Territorial ({periodo_curr}): {titulo_desglose}")
         
         df_tree = df_mapa[['Estado', 'Valor']].copy()
         tot_tree = df_tree['Valor'].sum()
@@ -658,7 +693,7 @@ if selected_name == 'Nacional':
 
             label_html = ""
             if show_text:
-                monto_txt = f"${row['Valor']:,.0f} MDP"
+                monto_txt = f"${row['Valor']:,.0f} {unidad_medida}"
                 pct_txt = f"{row['Pct']:.1f}%"
                 
                 avail_w = real_w_px - 20
@@ -690,7 +725,7 @@ if selected_name == 'Nacional':
                 </div>
                 <div class="tm-tooltip">
                 <div class="tm-tt-row"><span class="tm-tt-label">Estado:</span> {estado_esc}</div>
-                <div class="tm-tt-row"><span class="tm-tt-label">Valor:</span> ${row['Valor']:,.0f} MDP</div>
+                <div class="tm-tt-row"><span class="tm-tt-label">Valor:</span> ${row['Valor']:,.0f} {unidad_medida}</div>
                 <div class="tm-tt-row"><span class="tm-tt-label">Participación:</span> {row['Pct']:.1f}%</div>
                 </div>
             </div>'''
@@ -791,98 +826,154 @@ if selected_name == 'Nacional':
         html_treemap = "\n".join(line.lstrip() for line in html_treemap.split("\n"))
         st.markdown(html_treemap, unsafe_allow_html=True)
 
-        st.header(f"Evolución e Incidencia Histórica: {desglose_pib}")
-        
-        df_hist = df[(df['Indicador'] == desglose_pib)].copy()
-        years = sorted(df_hist['Periodo'].unique())
-        df_est = df_hist[df_hist['Estado_ID'] != 0]
-        df_nac = df_hist[df_hist['Estado_ID'] == 0]
-
-        plot_data_1 = []
-        plot_data_2 = []
-
-        for i, y in enumerate(years):
-            df_y = df_est[df_est['Periodo'] == y].sort_values('Valor', ascending=False)
-            top3 = df_y.head(3)
-            resto_val = df_y.iloc[3:]['Valor'].sum() if len(df_y) > 3 else 0
-            n_val = df_nac[df_nac['Periodo'] == y]['Valor'].sum() if not df_nac[df_nac['Periodo'] == y].empty else 0
+        def renderizar_evolucion(years_list, df_e, df_n, titulo_e, titulo_i):
+            plot_data_1 = []
+            plot_data_2 = []
             
-            hover_1 = f"<b>Nacional: ${n_val:,.0f} MDP (100%)</b><br><br>"
-            for _, r in top3.iterrows():
-                pct_1 = (r['Valor'] / n_val * 100) if n_val > 0 else 0
-                hover_1 += f"{STATE_MAP.get(r['Estado_ID'], '')}: ${r['Valor']:,.0f} MDP ({pct_1:.1f}%)<br>"
-            pct_resto_1 = (resto_val / n_val * 100) if n_val > 0 else 0
-            hover_1 += f"Resto de Estados: ${resto_val:,.0f} MDP ({pct_resto_1:.1f}%)"
+            def format_periodo(per):
+                s = str(per)
+                if len(s) > 4:
+                    q = s[-2:]
+                    if q.isdigit() and 1 <= int(q) <= 4:
+                        return f"{int(q)}T {s[:4]}"
+                return s
+
+            for i, y in enumerate(years_list):
+                df_y = df_e[df_e['Periodo'] == y].sort_values('Valor', ascending=False)
+                top3 = df_y.head(3)
+                resto_val = df_y.iloc[3:]['Valor'].sum() if len(df_y) > 3 else 0
+                n_val = df_n[df_n['Periodo'] == y]['Valor'].sum() if not df_n[df_n['Periodo'] == y].empty else 0
+                
+                per_str = format_periodo(y)
+                hover_1 = f"<b>Periodo:</b> {per_str}<br><br><span style='color:#2596be; font-weight:700;'>Nacional:</span> ${n_val:,.0f} {unidad_medida}<br><br>"
+                for _, r in top3.iterrows():
+                    pct_1 = (r['Valor'] / n_val * 100) if n_val > 0 else 0
+                    hover_1 += f"<span style='color:#2596be; font-weight:700;'>{STATE_MAP.get(r['Estado_ID'], '')}:</span> ${r['Valor']:,.0f} {unidad_medida} ({pct_1:.1f}%)<br>"
+                pct_resto_1 = (resto_val / n_val * 100) if n_val > 0 else 0
+                hover_1 += f"<span style='color:#2596be; font-weight:700;'>Resto de Estados:</span> ${resto_val:,.0f} {unidad_medida} ({pct_resto_1:.1f}%)"
+                
+                plot_data_1.append({'Año': y, 'Valor': n_val, 'Hover': hover_1})
+
+                if i > 0:
+                    y0, y1 = years_list[i-1], years_list[i]
+                    n0 = df_n[df_n['Periodo'] == y0]['Valor'].sum()
+                    n1 = df_n[df_n['Periodo'] == y1]['Valor'].sum()
+                    var_nac = (n1 - n0) / n1 * 100 if n1 else 0
+                    
+                    df_y0 = df_e[df_e['Periodo'] == y0][['Estado_ID', 'Valor']].set_index('Estado_ID')
+                    df_y1 = df_e[df_e['Periodo'] == y1][['Estado_ID', 'Valor']].set_index('Estado_ID')
+                    df_join = df_y1.join(df_y0, lsuffix='_1', rsuffix='_0').fillna(0)
+                    df_join['Incidencia'] = (df_join['Valor_1'] - df_join['Valor_0']) / n1 * 100 if n1 else 0
+                    
+                    pos_inc = df_join[df_join['Incidencia'] > 0].sort_values('Incidencia', ascending=False).head(3)
+                    neg_inc = df_join[df_join['Incidencia'] < 0].sort_values('Incidencia', ascending=True).head(3)
+                    
+                    per_str_1 = format_periodo(y1)
+                    hover_2 = f"<b>Periodo:</b> {per_str_1}<br><br><span style='color:#008889; font-weight:700;'>Variación Nacional:</span> {var_nac:+.2f}%<br><br>"
+                    if pos_inc.empty:
+                        hover_2 += "<i>Sin incidencias positivas</i><br>"
+                    else:
+                        for eid, r in pos_inc.iterrows():
+                            hover_2 += f"<span style='color:#059669'>▲ {STATE_MAP.get(eid, '')}: {r['Incidencia']:+.2f}%</span><br>"
+                    
+                    hover_2 += "<br>"
+                    
+                    if neg_inc.empty:
+                        hover_2 += "<i>Sin incidencias negativas</i>"
+                    else:
+                        for eid, r in neg_inc.iterrows():
+                            hover_2 += f"<span style='color:#DC2626'>▼ {STATE_MAP.get(eid, '')}: {r['Incidencia']:+.2f}%</span><br>"
+                            
+                    plot_data_2.append({'Año': y1, 'Valor': var_nac, 'Hover': hover_2})
+
+            df_p1 = pd.DataFrame(plot_data_1)
+            df_p2 = pd.DataFrame(plot_data_2)
             
-            plot_data_1.append({'Año': y, 'Valor': n_val, 'Hover': hover_1})
+            def parse_to_date(val):
+                s = str(val)
+                if len(s) == 4: return pd.to_datetime(s, format='%Y')
+                if len(s) > 4:
+                    q = s[-2:]
+                    if q.isdigit() and 1 <= int(q) <= 4:
+                        m = f"{int(q)*3 - 2:02d}"
+                        return pd.to_datetime(f"{s[:4]}-{m}-01")
+                return pd.to_datetime(s, errors='coerce')
 
-            if i > 0:
-                y0, y1 = years[i-1], years[i]
-                n0 = df_nac[df_nac['Periodo'] == y0]['Valor'].sum()
-                n1 = df_nac[df_nac['Periodo'] == y1]['Valor'].sum()
-                var_nac = (n1 - n0) / n1 * 100 if n1 else 0
-                
-                df_y0 = df_est[df_est['Periodo'] == y0][['Estado_ID', 'Valor']].set_index('Estado_ID')
-                df_y1 = df_est[df_est['Periodo'] == y1][['Estado_ID', 'Valor']].set_index('Estado_ID')
-                df_join = df_y1.join(df_y0, lsuffix='_1', rsuffix='_0').fillna(0)
-                df_join['Incidencia'] = (df_join['Valor_1'] - df_join['Valor_0']) / n1 * 100 if n1 else 0
-                
-                pos_inc = df_join[df_join['Incidencia'] > 0].sort_values('Incidencia', ascending=False).head(3)
-                neg_inc = df_join[df_join['Incidencia'] < 0].sort_values('Incidencia', ascending=True).head(3)
-                
-                hover_2 = f"<b>Variación Nacional: {var_nac:+.2f}%</b><br><br>"
-                if pos_inc.empty:
-                    hover_2 += "<i>Sin incidencias positivas</i><br>"
-                else:
-                    for eid, r in pos_inc.iterrows():
-                        hover_2 += f"<span style='color:#059669'>▲ {STATE_MAP.get(eid, '')}: {r['Incidencia']:+.2f}%</span><br>"
-                
-                hover_2 += "<br>"
-                
-                if neg_inc.empty:
-                    hover_2 += "<i>Sin incidencias negativas</i>"
-                else:
-                    for eid, r in neg_inc.iterrows():
-                        hover_2 += f"<span style='color:#DC2626'>▼ {STATE_MAP.get(eid, '')}: {r['Incidencia']:+.2f}%</span><br>"
-                        
-                plot_data_2.append({'Año': y1, 'Valor': var_nac, 'Hover': hover_2})
+            if not df_p1.empty: df_p1['Date'] = df_p1['Año'].apply(parse_to_date)
+            if not df_p2.empty: df_p2['Date'] = df_p2['Año'].apply(parse_to_date)
 
-        df_p1 = pd.DataFrame(plot_data_1)
-        df_p2 = pd.DataFrame(plot_data_2)
+            c_chart1, c_chart2 = st.columns(2)
+            
+            with c_chart1:
+                fig1 = go.Figure()
+                if not df_p1.empty:
+                    fig1.add_trace(go.Scatter(
+                        x=df_p1['Date'], y=df_p1['Valor'], customdata=df_p1['Hover'],
+                        mode='lines+markers', line=dict(color='#2596be', width=3), marker=dict(size=8, color='#2596be'),
+                        hovertemplate="%{customdata}<extra></extra>"
+                    ))
+                fig1.update_layout(
+                    title=dict(text=titulo_e, font=dict(color='#0F172A', size=14, weight="bold")),
+                    hovermode='closest', height=450, margin=dict(t=40, b=0, l=0, r=0), showlegend=False,
+                    plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)',
+                    xaxis=dict(tickformat="%Y", showgrid=False), yaxis=dict(showgrid=True, gridcolor='#F1F5F9', zeroline=False),
+                    hoverlabel=dict(bgcolor='white', font_family='sans-serif', font_color='#0F172A', font_size=13, bordercolor='#2596be', align='left')
+                )
+                st.plotly_chart(fig1, use_container_width=True)
 
-        c_chart1, c_chart2 = st.columns(2)
-        
-        with c_chart1:
-            fig1 = go.Figure()
-            fig1.add_trace(go.Scatter(
-                x=df_p1['Año'], y=df_p1['Valor'], customdata=df_p1['Hover'],
-                mode='lines+markers', line=dict(color='#2596be', width=3), marker=dict(size=8, color='#2596be'),
-                hovertemplate="%{customdata}<extra></extra>"
-            ))
-            fig1.update_layout(
-                title=dict(text="Evolución del PIB (MDP)", font=dict(color='#0F172A', size=14, weight="bold")),
-                hovermode='closest', height=450, margin=dict(t=40, b=0, l=0, r=0), showlegend=False,
-                plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)',
-                xaxis=dict(tickformat="%Y", showgrid=False), yaxis=dict(showgrid=True, gridcolor='#F1F5F9', zeroline=False),
-                hoverlabel=dict(bgcolor='white', font_family='sans-serif', font_color='#0F172A')
-            )
-            st.plotly_chart(fig1, use_container_width=True)
+            with c_chart2:
+                fig2 = go.Figure()
+                if not df_p2.empty:
+                    fig2.add_trace(go.Scatter(
+                        x=df_p2['Date'], y=df_p2['Valor'], customdata=df_p2['Hover'],
+                        mode='lines+markers', line=dict(color='#008889', width=3), marker=dict(size=8, color='#008889'),
+                        hovertemplate="%{customdata}<extra></extra>"
+                    ))
+                fig2.update_layout(
+                    title=dict(text=titulo_i, font=dict(color='#0F172A', size=14, weight="bold")),
+                    hovermode='closest', height=450, margin=dict(t=40, b=0, l=0, r=0), showlegend=False,
+                    plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)',
+                    xaxis=dict(tickformat="%Y", showgrid=False), yaxis=dict(showgrid=True, gridcolor='#F1F5F9', zeroline=True, zerolinecolor='#0F172A'),
+                    hoverlabel=dict(bgcolor='white', font_family='sans-serif', font_color='#0F172A', font_size=13, bordercolor='#008889', align='left')
+                )
+                st.plotly_chart(fig2, use_container_width=True)
 
-        with c_chart2:
-            fig2 = go.Figure()
-            fig2.add_trace(go.Scatter(
-                x=df_p2['Año'], y=df_p2['Valor'], customdata=df_p2['Hover'],
-                mode='lines+markers', line=dict(color='#008889', width=3), marker=dict(size=8, color='#008889'),
-                hovertemplate="%{customdata}<extra></extra>"
-            ))
-            fig2.update_layout(
-                title=dict(text="Incidencia en la Variación Anual (%)", font=dict(color='#0F172A', size=14, weight="bold")),
-                hovermode='closest', height=450, margin=dict(t=40, b=0, l=0, r=0), showlegend=False,
-                plot_bgcolor='rgba(0,0,0,0)', paper_bgcolor='rgba(0,0,0,0)',
-                xaxis=dict(tickformat="%Y", showgrid=False), yaxis=dict(showgrid=True, gridcolor='#F1F5F9', zeroline=True, zerolinecolor='#0F172A'),
-                hoverlabel=dict(bgcolor='white', font_family='sans-serif', font_color='#0F172A')
-            )
-            st.plotly_chart(fig2, use_container_width=True)
+        if var_seleccionada == "Producto Interno Bruto":
+            st.header(f"Evolución e Incidencia Histórica: {titulo_desglose}")
+            df_hist = df[(df['Indicador'] == titulo_desglose)].copy()
+            years = sorted(df_hist['Periodo'].unique())
+            df_est = df_hist[df_hist['Estado_ID'] != 0].copy()
+            df_nac = df_hist[df_hist['Estado_ID'] == 0].copy()
+            renderizar_evolucion(years, df_est, df_nac, f"Evolución del PIB ({unidad_medida})", "Incidencia en la Variación Anual (%)")
+        else:
+            df_hist = df[(df['Sector'] == titulo_desglose)].copy()
+            df_hist['Valor'] = df_hist['Valor'] / 1000
+            
+            st.header(f"Evolución e Incidencia Trimestral: {titulo_desglose}")
+            df_est_q = df_hist.groupby(['Periodo', 'Estado_ID'])['Valor'].sum().reset_index()
+            df_nac_q = df_hist.groupby('Periodo')['Valor'].sum().reset_index()
+            df_nac_q['Estado_ID'] = 0
+            periodos_q = sorted(df_hist['Periodo'].unique())
+            renderizar_evolucion(periodos_q, df_est_q, df_nac_q, f"Evolución Trimestral ({unidad_medida})", "Incidencia en la Variación Trimestral (%)")
+
+            st.markdown("<hr style='border-color: #E2E8F0; margin-top: 30px;'>", unsafe_allow_html=True)
+            st.header(f"Evolución e Incidencia Anual: {titulo_desglose}")
+            
+            q_count = df_hist.groupby('Year')['Quarter'].nunique()
+            full_years = q_count[q_count == 4].index.tolist()
+            df_hist_a = df_hist[df_hist['Year'].isin(full_years)].copy()
+            
+            df_est_a = df_hist_a.groupby(['Year', 'Estado_ID'])['Valor'].sum().reset_index()
+            df_est_a = df_est_a.rename(columns={'Year': 'Periodo'})
+            df_nac_a = df_hist_a.groupby('Year')['Valor'].sum().reset_index()
+            df_nac_a['Estado_ID'] = 0
+            df_nac_a = df_nac_a.rename(columns={'Year': 'Periodo'})
+            periodos_a = sorted(df_hist_a['Year'].unique())
+            
+            if not periodos_a:
+                st.info("No hay años completos suficientes para mostrar evolución anual.")
+            else:
+                renderizar_evolucion(periodos_a, df_est_a, df_nac_a, f"Evolución Anual ({unidad_medida})", "Incidencia en la Variación Anual (%)")
 
     st.stop()
 
@@ -1118,6 +1209,66 @@ def get_ied_metrics(df_tot, state_norm):
     top1 = df_agg.sort_values('Inversion', ascending=False).iloc[0]['Estado_Norm']
     return est_curr, part_nac, growth_est, growth_nac, rank, top1, trim_str
 
+def get_remesas_metrics(df, state_norm):
+    df = df.copy()
+    df['fecha'] = pd.to_datetime(df['fecha'], errors='coerce')
+    if state_norm not in df.columns: return None
+    df = df.dropna(subset=['fecha', 'Total', state_norm]).sort_values('fecha').reset_index(drop=True)
+    if df.empty: return None
+    
+    val_curr = df.iloc[-1][state_norm]
+    val_prev_trim = df.iloc[-2][state_norm] if len(df) > 1 else val_curr
+    nac_curr = df.iloc[-1]['Total']
+    nac_prev_trim = df.iloc[-2]['Total'] if len(df) > 1 else nac_curr
+    
+    growth_est = ((val_curr - val_prev_trim)/val_prev_trim * 100) if val_prev_trim > 0 else 0
+    growth_nac = ((nac_curr - nac_prev_trim)/nac_prev_trim * 100) if nac_prev_trim > 0 else 0
+    part_nac = (val_curr / nac_curr * 100) if nac_curr > 0 else 0
+    
+    estados_cols = [c for c in df.columns if c not in ['fecha', 'Year', 'Quarter', 'Total']]
+    last_row = df.iloc[-1][estados_cols].fillna(0)
+    rank = int(last_row.rank(ascending=False, method='min')[state_norm])
+    top1 = last_row.idxmax()
+    
+    try:
+        max_year = df.iloc[-1]['fecha'].year
+        max_trim = df.iloc[-1]['fecha'].quarter
+        trim_str = f"{max_trim}T {max_year}"
+    except:
+        trim_str = ""
+        
+    return val_curr, part_nac, growth_est, growth_nac, rank, top1, trim_str
+
+def get_remesas_metrics(df, state_norm):
+    df = df.copy()
+    df['fecha'] = pd.to_datetime(df['fecha'], errors='coerce')
+    if state_norm not in df.columns: return None
+    df = df.dropna(subset=['fecha', 'Total', state_norm]).sort_values('fecha').reset_index(drop=True)
+    if df.empty: return None
+    
+    val_curr = df.iloc[-1][state_norm]
+    val_prev_trim = df.iloc[-2][state_norm] if len(df) > 1 else val_curr
+    nac_curr = df.iloc[-1]['Total']
+    nac_prev_trim = df.iloc[-2]['Total'] if len(df) > 1 else nac_curr
+    
+    growth_est = ((val_curr - val_prev_trim)/val_prev_trim * 100) if val_prev_trim > 0 else 0
+    growth_nac = ((nac_curr - nac_prev_trim)/nac_prev_trim * 100) if nac_prev_trim > 0 else 0
+    part_nac = (val_curr / nac_curr * 100) if nac_curr > 0 else 0
+    
+    estados_cols = [c for c in df.columns if c not in ['fecha', 'Year', 'Quarter', 'Total']]
+    last_row = df.iloc[-1][estados_cols].fillna(0)
+    rank = int(last_row.rank(ascending=False, method='min')[state_norm])
+    top1 = last_row.idxmax()
+    
+    try:
+        max_year = df.iloc[-1]['fecha'].year
+        max_trim = df.iloc[-1]['fecha'].quarter
+        trim_str = f"{max_trim}T {max_year}"
+    except:
+        trim_str = ""
+        
+    return val_curr, part_nac, growth_est, growth_nac, rank, top1, trim_str
+
 def mostrar_fecha_act(llave_fecha, align="right", m_top="5px", m_bottom="-15px"):
     fecha = DATA.get('fechas', {}).get(llave_fecha, "Fecha no disponible")
     
@@ -1143,7 +1294,7 @@ def render_custom_metric(label, value, sub_text, color="#0F172A"):
 # ==========================================
 st.markdown("<hr style='border-color: #2596be; margin-top: 5px; border-width: 2px;'>", unsafe_allow_html=True)
 st.header("1. Resumen Ejecutivo")
-st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: PIB por Entidad Federativa (INEGI), Exportaciones por Entidad Federativa (INEGI) e Inversión Extranjera Directa (Secretaría de Economía)</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: PIB por Entidad Federativa (INEGI), Exportaciones por Entidad Federativa (INEGI), Inversión Extranjera Directa (Secretaría de Economía) y Remesas (SIE - Banxico)</div>", unsafe_allow_html=True)
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
@@ -1154,11 +1305,11 @@ with col1:
     else: st.warning("Sin datos PIB")
 
 with col2:
-    res = get_pib_metrics(DATA['pib'], "Industrias manufactureras", state_id)
+    res = get_remesas_metrics(DATA['remesas'], state_norm)
     if res:
-        v, p, g, gn, r, t1, yr = res
-        render_card(f"PIB Manufactura ({yr})", format_mm_pesos(v), r, t1, p, g, gn, DATA.get('fechas', {}).get('pib', ''))
-    else: st.warning("Sin datos Manufactura")
+        v, p, g, gn, r, t1, trim_str = res
+        render_card(f"Remesas ({trim_str})", format_mm_usd_ied(v), r, t1, p, g, gn, DATA.get('fechas', {}).get('remesas', ''))
+    else: st.warning("Sin datos Remesas")
 
 with col3:
     res = get_export_metrics(DATA['export'], state_id_str)
@@ -1390,11 +1541,11 @@ if not st_e_curr.empty:
             # Escalamos al 80% máximo para asegurar que haya espacio para el número al final
             pct_curr = max((r['Valor'] / max_val_scale) * 85 if max_val_scale > 0 else 0, 0.5)
             pct_prev = max((r['Valor_Prev'] / max_val_scale) * 85 if max_val_scale > 0 else 0, 0.5)
-            sector_wrapped = '<br>'.join(textwrap.wrap(r['Sector'], width=38))
+            sector_wrapped = r['Sector']
             
             html_export += f"""<div style="display: flex; width: 100%; align-items: stretch; margin-bottom: 18px; justify-content: space-between; gap: 15px;">
-<div style="flex: 0 0 25%; text-align: left; padding-left: 5px; font-size: 0.85rem; display: flex; align-items: center; justify-content: flex-start;">
-<span style="display: inline-block; line-height: 1.3; color: #0F172A; font-weight: 600;">{sector_wrapped}</span>
+<div style="flex: 0 0 20%; text-align: justify; padding-left: 5px; font-size: 0.85rem; display: flex; align-items: center; justify-content: flex-start;">
+<span style="display: inline-block; line-height: 1.3; color: #0F172A; font-weight: 600; word-break: break-word; text-align: justify;">{sector_wrapped}</span>
 </div>
 <div style="flex: 1; border-left: 2px solid #E2E8F0; padding-left: 15px; display: flex; flex-direction: column; justify-content: center; gap: 8px;">
 
@@ -1465,6 +1616,15 @@ if not df_ied_st_det.empty:
     val_total = row_total['Inversion'].sum() if not row_total.empty else (val_prim + val_sec + val_ter)
 
     segs = [('Primaria', val_prim, '#73c6e3'), ('Secundaria', val_sec, '#2596be'), ('Terciaria', val_ter, '#008889')]
+    
+    # Lógica de barra "Confidencial" (Ajuste para que cuadre el total)
+    suma_parcial = val_prim + val_sec + val_ter
+    diferencia = val_total - suma_parcial
+    
+    # Si la diferencia es representativa (evitando problemas de decimales), agregamos el segmento
+    if round(abs(diferencia), 1) > 0:
+        segs.append(('Confidencial', diferencia, '#94A3B8'))
+
     pos_segs = [s for s in segs if s[1] > 0] 
     neg_segs = [s for s in segs if s[1] < 0]
 
@@ -1723,8 +1883,11 @@ if estado_remesas in df_rem.columns:
                 )
 
         with col_rem2:
-            # Seleccionamos exactamente los últimos 40 trimestres (10 años) para el gráfico
-            df_plot = df_rem.tail(40).copy()
+            # Identificamos el último año disponible
+            ultimo_anio = df_rem['Year'].max()
+            
+            # Filtramos para mostrar los últimos 10 años, forzando inicio en 1T (inclusive si la base trae antes)
+            df_plot = df_rem[df_rem['Year'] >= (ultimo_anio - 10)].copy()
             
             # Extraemos los periodos exactos de inicio y fin de la selección
             start_q = df_plot.iloc[0]['Quarter']
