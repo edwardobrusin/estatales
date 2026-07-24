@@ -693,8 +693,9 @@ if not st_e_curr.empty:
     
     # Verificamos que tras el filtro sigan existiendo datos
     if not top10.empty:
-        tot_curr = top10['Valor'].sum()
-        top10['Part'] = (top10['Valor']/tot_curr*100) if tot_curr > 0 else 0
+        # CORRECCIÓN: El porcentaje se calcula sobre el total estatal, no sobre la suma del Top 10
+        tot_curr_estatal = st_e_curr['Valor'].sum()
+        top10['Part'] = (top10['Valor']/tot_curr_estatal*100) if tot_curr_estatal > 0 else 0
         
         if not st_e_prev.empty:
             prev_agg = st_e_prev.groupby('Sector')['Valor'].sum().reset_index().rename(columns={'Valor': 'Valor_Prev'})
