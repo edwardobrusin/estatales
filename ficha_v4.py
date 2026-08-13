@@ -207,7 +207,7 @@ def load_data():
         data['imco_g'] = pd.read_csv(os.path.join(path, "imco_general_final.csv"))
         data['imco_d'] = pd.read_csv(os.path.join(path, "imco_desagregado_final.csv"))
         
-        rat_path = os.path.join(raw, "ratings_estatales.xlsx")
+        rat_path = os.path.join(raw, "ratings_historicos.xlsx")
         data['ratings'] = pd.read_excel(rat_path) if os.path.exists(rat_path) else pd.DataFrame()
         
         ale_path = os.path.join(raw, "sistema_alertas.xlsx")
@@ -1988,12 +1988,14 @@ if "Tlaxcala" not in selected_name:
 
             # Determinamos la fuente según las agencias encontradas
             agencias = match['Calificadora'].astype(str).unique()
-            if any("HR" in ag for ag in agencias) and any("Fitch" in ag for ag in agencias): 
-                fuente_str = "HR Ratings y Fitch Ratings"
-            elif any("Fitch" in ag for ag in agencias): 
-                fuente_str = "Fitch Ratings"
-            elif any("HR" in ag for ag in agencias): 
-                fuente_str = "HR Ratings"
+            if len(agencias) > 0:
+                agencias_list = [ag if "Ratings" in ag or "Moody" in ag or "S&P" in ag else f"{ag} Ratings" for ag in agencias]
+                if len(agencias_list) > 1:
+                    fuente_str = ", ".join(agencias_list[:-1]) + " y " + agencias_list[-1]
+                else:
+                    fuente_str = agencias_list[0]
+            else:
+                fuente_str = "Agencias Calificadoras"
     
     # Renderizamos el título con el año calculado
     st.header(f"6. Finanzas Públicas")
@@ -2155,21 +2157,131 @@ if "Tlaxcala" not in selected_name:
 * **SDyPI / ILD:** Servicio de la Deuda y de Obligaciones sobre Ingresos de Libre Disposición.
 * **OCPyPC / IT:** Obligaciones a Corto Plazo y Proveedores y Contratistas sobre Ingresos Totales.""")
 
-    st.markdown("<h4 style='color:#0F172A; font-weight:800; font-size:1.1rem; margin-top:20px; margin-bottom:15px;'>Calificaciones Crediticias</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='color:#0F172A; font-weight:800; font-size:1.1rem; margin-top:10px; margin-bottom:0px;'>Evolución de Calificaciones Crediticias</h4>", unsafe_allow_html=True)
 
     if not match.empty:
         match = match.rename(columns={"Calificacion": "Calificación", "Descripcion": "Descripción"})
         
         if "Fecha de Publicación" in match.columns:
-            match["Fecha de Publicación"] = pd.to_datetime(match["Fecha de Publicación"], errors='coerce').dt.strftime('%Y/%m/%d')
+            match["Fecha_dt"] = pd.to_datetime(match["Fecha de Publicación"], errors='coerce')
+            match = match.dropna(subset=['Fecha_dt', 'Calificación']).sort_values('Fecha_dt')
             
-        columnas_deseadas = ["Calificadora", "Calificación", "Perspectiva", "Descripción", "Fecha de Publicación"]
-        columnas_finales = [c for c in columnas_deseadas if c in match.columns]
-        st.dataframe(match[columnas_finales], hide_index=True, use_container_width=True)
+        # Jerarquía unificada de calificaciones (de menor a mayor)
+        RATING_ORDER = [
+            'D', 'SD', 'C', 'CC', 'CCC-', 'CCC', 'CCC+', 
+            'B-', 'B', 'B+', 'BB-', 'BB', 'BB+', 
+            'BBB-', 'BBB', 'BBB+', 'A-', 'A', 'A+', 
+            'AA-', 'AA', 'AA+', 'AAA'
+        ]
+        
+        rating_map = {k: i for i, k in enumerate(RATING_ORDER)}
+        match['Valor_Cal'] = match['Calificación'].map(rating_map)
+        
+        match = match.dropna(subset=['Valor_Cal'])
+        
+        agencias_presentes = match['Calificadora'].unique()
+        num_agencias = len(agencias_presentes)
+        
+        if num_agencias > 0:
+            from plotly.subplots import make_subplots
+            
+            alto_total = max(300, num_agencias * 225) # Duplicamos el espacio vertical
+            
+            fig_rat = make_subplots(
+                rows=num_agencias, 
+                cols=1, 
+                shared_xaxes=True, 
+                vertical_spacing=0.03 # Renglón mínimo para aprovechar el espacio
+            )
+            
+            x_min_r = match['Fecha_dt'].min() - pd.DateOffset(months=4)
+            x_max_r = match['Fecha_dt'].max() + pd.DateOffset(months=4)
+            
+            for i, agencia in enumerate(agencias_presentes):
+                row_idx = i + 1
+                df_ag = match[match['Calificadora'] == agencia].copy()
+                
+                # Todas las líneas y puntos en negro (sin codificación por color)
+                color_linea = '#0F172A'
+                
+                fig_rat.add_trace(go.Scatter(
+                    x=df_ag['Fecha_dt'],
+                    y=df_ag['Valor_Cal'],
+                    mode='lines+markers',
+                    line=dict(color=color_linea, width=2),
+                    marker=dict(color=color_linea, size=9, line=dict(color='white', width=1.5)),
+                    customdata=df_ag[['Calificación', 'Perspectiva']],
+                    hovertemplate="<b>%{x|%Y-%m-%d}</b><br>Calificación: <b>%{customdata[0]}</b><br>Perspectiva: %{customdata[1]}<extra></extra>",
+                    name=agencia
+                ), row=row_idx, col=1)
+                
+                min_v = df_ag['Valor_Cal'].min()
+                max_v = df_ag['Valor_Cal'].max()
+                
+                y_min_ag = max(0, min_v - 1)
+                y_max_ag = min(len(RATING_ORDER) - 1, max_v + 1)
+                
+                ticks_ag_v = [v for k, v in rating_map.items() if y_min_ag <= v <= y_max_ag]
+                ticks_ag_t = [k for k, v in rating_map.items() if y_min_ag <= v <= y_max_ag]
+                
+                fig_rat.update_yaxes(
+                    range=[y_min_ag - 0.5, y_max_ag + 0.5], 
+                    tickmode='array',
+                    tickvals=ticks_ag_v,
+                    ticktext=ticks_ag_t,
+                    tickfont=dict(size=10, color='#64748B'),
+                    showgrid=True, gridcolor='#E2E8F0', zeroline=False,
+                    row=row_idx, col=1
+                )
+                
+                # Anotación del nombre de la agencia DENTRO de la gráfica
+                _sub = '' if row_idx == 1 else str(row_idx)
+                fig_rat.add_annotation(
+                    x=0.01, y=0.95, xref=f'x{_sub} domain', yref=f'y{_sub} domain',
+                    text=f"<b>{agencia}</b>", showarrow=False, font=dict(size=14, color='#0F172A'),
+                    bgcolor='rgba(248,250,252,0.85)', borderpad=4, align='left'
+                )
+                
+                # Las tres franjas siempre presentes, en todas las gráficas (sin etiqueta de texto)
+                fig_rat.add_hrect(
+                    y0=12.5, y1=22.5, fillcolor="#059669", opacity=0.08, line_width=0, 
+                    row=row_idx, col=1
+                )
+                fig_rat.add_hrect(
+                    y0=6.5, y1=12.5, fillcolor="#D97706", opacity=0.08, line_width=0, 
+                    row=row_idx, col=1
+                )
+                fig_rat.add_hrect(
+                    y0=-0.5, y1=6.5, fillcolor="#DC2626", opacity=0.08, line_width=0, 
+                    row=row_idx, col=1
+                )
+
+            # Fondo transparente y ajustes
+            fig_rat.update_layout(
+                height=alto_total, 
+                margin=dict(t=10, b=10, l=10, r=10), # Margen mínimo para ahorrar espacio
+                showlegend=False,
+                plot_bgcolor='rgba(0,0,0,0)', 
+                paper_bgcolor='rgba(0,0,0,0)',
+                hoverlabel=dict(bgcolor='white', font_family='sans-serif', font_color='#0F172A', font_size=13, align='left')
+            )
+            
+            fig_rat.update_xaxes(showgrid=False, tickformat="%Y", range=[x_min_r, x_max_r], tickfont=dict(size=11, color='#64748B'))
+            
+            st.plotly_chart(fig_rat, use_container_width=True)
+        
     elif not df_r.empty: 
         st.info("Sin calificación disponible para esta entidad.")
     else: 
         st.info("Archivo de calificaciones no disponible.")
+
+    st.info("""ℹ️ **Rangos de Calificación Crediticia:**
+* :green[**Grado de Inversión**] — BBB- o superior (BBB-, BBB, BBB+, A-, A, A+, AA-, AA, AA+, AAA).
+* :orange[**Grado Especulativo**] — Entre BB+ y B- (BB+, BB, BB-, B+, B, B-).
+* :red[**Riesgo Sustancial / Default**] — varía según la calificadora:
+    * **Fitch Ratings / S&P:** CCC+, CCC, CCC-, CC, C, SD (Default Selectivo), D (Default).
+    * **HR Ratings:** C y D (Default).
+    * **Moody's:** CCC+, CCC, CCC-, CC, C (sin categoría explícita de default).""")
 
     mostrar_fecha_act('ratings')
 

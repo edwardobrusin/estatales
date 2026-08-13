@@ -190,7 +190,7 @@ def load_data():
         data['imco_g'] = pd.read_csv(os.path.join(path, "imco_general_final.csv"))
         data['imco_d'] = pd.read_csv(os.path.join(path, "imco_desagregado_final.csv"))
         
-        rat_path = os.path.join(raw, "ratings_estatales.xlsx")
+        rat_path = os.path.join(raw, "ratings_historicos.xlsx")
         data['ratings'] = pd.read_excel(rat_path) if os.path.exists(rat_path) else pd.DataFrame()
         
         ale_path = os.path.join(raw, "sistema_alertas.xlsx")
@@ -478,6 +478,36 @@ def get_ied_metrics(df_tot, state_norm):
     top1 = df_agg.sort_values('Inversion', ascending=False).iloc[0]['Estado_Norm']
     return est_curr, part_nac, growth_est, growth_nac, rank, top1, trim_str
 
+def get_remesas_metrics(df, state_norm):
+    df = df.copy()
+    df['fecha'] = pd.to_datetime(df['fecha'], errors='coerce')
+    if state_norm not in df.columns: return None
+    df = df.dropna(subset=['fecha', 'Total', state_norm]).sort_values('fecha').reset_index(drop=True)
+    if df.empty: return None
+    
+    val_curr = df.iloc[-1][state_norm]
+    val_prev_trim = df.iloc[-2][state_norm] if len(df) > 1 else val_curr
+    nac_curr = df.iloc[-1]['Total']
+    nac_prev_trim = df.iloc[-2]['Total'] if len(df) > 1 else nac_curr
+    
+    growth_est = ((val_curr - val_prev_trim)/val_prev_trim * 100) if val_prev_trim > 0 else 0
+    growth_nac = ((nac_curr - nac_prev_trim)/nac_prev_trim * 100) if nac_prev_trim > 0 else 0
+    part_nac = (val_curr / nac_curr * 100) if nac_curr > 0 else 0
+    
+    estados_cols = [c for c in df.columns if c not in ['fecha', 'Year', 'Quarter', 'Total']]
+    last_row = df.iloc[-1][estados_cols].fillna(0)
+    rank = int(last_row.rank(ascending=False, method='min')[state_norm])
+    top1 = last_row.idxmax()
+    
+    try:
+        max_year = df.iloc[-1]['fecha'].year
+        max_trim = df.iloc[-1]['fecha'].quarter
+        trim_str = f"{max_trim}T {max_year}"
+    except:
+        trim_str = ""
+        
+    return val_curr, part_nac, growth_est, growth_nac, rank, top1, trim_str
+
 def mostrar_fecha_act(llave_fecha, align="right", m_top="5px", m_bottom="-15px"):
     fecha = DATA.get('fechas', {}).get(llave_fecha, "Fecha no disponible")
     
@@ -503,7 +533,7 @@ def render_custom_metric(label, value, sub_text, color="#0F172A"):
 # ==========================================
 st.markdown("<hr style='border-color: #2596be; margin-top: 5px; border-width: 2px;'>", unsafe_allow_html=True)
 st.header("1. Resumen Ejecutivo")
-st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: PIB por Entidad Federativa (INEGI), Exportaciones por Entidad Federativa (INEGI) e Inversión Extranjera Directa (Secretaría de Economía)</div>", unsafe_allow_html=True)
+st.markdown("<div style='font-size: 0.8rem; color: #94A3B8; margin-top: -15px; margin-bottom: 20px;'>Fuente: PIB por Entidad Federativa (INEGI), Exportaciones por Entidad Federativa (INEGI), Inversión Extranjera Directa (Secretaría de Economía) y Remesas (SIE - Banxico)</div>", unsafe_allow_html=True)
 col1, col2, col3, col4 = st.columns(4)
 
 with col1:
@@ -514,11 +544,11 @@ with col1:
     else: st.warning("Sin datos PIB")
 
 with col2:
-    res = get_pib_metrics(DATA['pib'], "Industrias manufactureras", state_id)
+    res = get_remesas_metrics(DATA['remesas'], state_norm)
     if res:
-        v, p, g, gn, r, t1, yr = res
-        render_card(f"PIB Manufactura ({yr})", format_mm_pesos(v), r, t1, p, g, gn, DATA.get('fechas', {}).get('pib', ''))
-    else: st.warning("Sin datos Manufactura")
+        v, p, g, gn, r, t1, trim_str = res
+        render_card(f"Remesas ({trim_str})", format_mm_usd_ied(v), r, t1, p, g, gn, DATA.get('fechas', {}).get('remesas', ''))
+    else: st.warning("Sin datos Remesas")
 
 with col3:
     res = get_export_metrics(DATA['export'], state_id_str)
@@ -773,11 +803,11 @@ if not st_e_curr.empty:
             # Escalamos al 80% máximo para asegurar que haya espacio para el número al final
             pct_curr = max((r['Valor'] / max_val_scale) * 85 if max_val_scale > 0 else 0, 0.5)
             pct_prev = max((r['Valor_Prev'] / max_val_scale) * 85 if max_val_scale > 0 else 0, 0.5)
-            sector_wrapped = '<br>'.join(textwrap.wrap(r['Sector'], width=38))
-            
+            sector_wrapped = r['Sector']
+        
             html_export += f"""<div style="display: flex; width: 100%; align-items: stretch; margin-bottom: 18px; justify-content: space-between; gap: 15px;">
-<div style="flex: 0 0 25%; text-align: left; padding-left: 5px; font-size: 0.85rem; display: flex; align-items: center; justify-content: flex-start;">
-<span style="display: inline-block; line-height: 1.3; color: #0F172A; font-weight: 600;">{sector_wrapped}</span>
+<div style="flex: 0 0 20%; text-align: justify; padding-left: 5px; font-size: 0.85rem; display: flex; align-items: center; justify-content: flex-start;">
+<span style="display: inline-block; line-height: 1.3; color: #0F172A; font-weight: 600; word-break: break-word; text-align: justify;">{sector_wrapped}</span>
 </div>
 <div style="flex: 1; border-left: 2px solid #E2E8F0; padding-left: 15px; display: flex; flex-direction: column; justify-content: center; gap: 8px;">
 
@@ -848,6 +878,15 @@ if not df_ied_st_det.empty:
     val_total = row_total['Inversion'].sum() if not row_total.empty else (val_prim + val_sec + val_ter)
 
     segs = [('Primaria', val_prim, '#73c6e3'), ('Secundaria', val_sec, '#2596be'), ('Terciaria', val_ter, '#008889')]
+    
+    # Lógica de barra "Confidencial" (Ajuste para que cuadre el total)
+    suma_parcial = val_prim + val_sec + val_ter
+    diferencia = val_total - suma_parcial
+    
+    # Si la diferencia es representativa (evitando problemas de decimales), agregamos el segmento
+    if round(abs(diferencia), 1) > 0:
+        segs.append(('Confidencial', diferencia, '#94A3B8'))
+
     pos_segs = [s for s in segs if s[1] > 0] 
     neg_segs = [s for s in segs if s[1] < 0]
 
@@ -1106,8 +1145,11 @@ if estado_remesas in df_rem.columns:
                 )
 
         with col_rem2:
-            # Seleccionamos exactamente los últimos 40 trimestres (10 años) para el gráfico
-            df_plot = df_rem.tail(40).copy()
+            # Identificamos el último año disponible
+            ultimo_anio = df_rem['Year'].max()
+            
+            # Filtramos para mostrar los últimos 10 años, forzando inicio en 1T (inclusive si la base trae antes)
+            df_plot = df_rem[df_rem['Year'] >= (ultimo_anio - 10)].copy()
             
             # Extraemos los periodos exactos de inicio y fin de la selección
             start_q = df_plot.iloc[0]['Quarter']
@@ -1207,12 +1249,14 @@ if "Tlaxcala" not in selected_name:
 
             # Determinamos la fuente según las agencias encontradas
             agencias = match['Calificadora'].astype(str).unique()
-            if any("HR" in ag for ag in agencias) and any("Fitch" in ag for ag in agencias): 
-                fuente_str = "HR Ratings y Fitch Ratings"
-            elif any("Fitch" in ag for ag in agencias): 
-                fuente_str = "Fitch Ratings"
-            elif any("HR" in ag for ag in agencias): 
-                fuente_str = "HR Ratings"
+            if len(agencias) > 0:
+                agencias_list = [ag if "Ratings" in ag or "Moody" in ag or "S&P" in ag else f"{ag} Ratings" for ag in agencias]
+                if len(agencias_list) > 1:
+                    fuente_str = ", ".join(agencias_list[:-1]) + " y " + agencias_list[-1]
+                else:
+                    fuente_str = agencias_list[0]
+            else:
+                fuente_str = "Agencias Calificadoras"
     
     # Renderizamos el título con el año calculado
     st.header(f"6. Finanzas Públicas")
@@ -1374,21 +1418,131 @@ if "Tlaxcala" not in selected_name:
 * **SDyPI / ILD:** Servicio de la Deuda y de Obligaciones sobre Ingresos de Libre Disposición.
 * **OCPyPC / IT:** Obligaciones a Corto Plazo y Proveedores y Contratistas sobre Ingresos Totales.""")
 
-    st.markdown("<h4 style='color:#0F172A; font-weight:800; font-size:1.1rem; margin-top:20px; margin-bottom:15px;'>Calificaciones Crediticias</h4>", unsafe_allow_html=True)
+    st.markdown("<h4 style='color:#0F172A; font-weight:800; font-size:1.1rem; margin-top:10px; margin-bottom:0px;'>Evolución de Calificaciones Crediticias</h4>", unsafe_allow_html=True)
 
     if not match.empty:
         match = match.rename(columns={"Calificacion": "Calificación", "Descripcion": "Descripción"})
         
         if "Fecha de Publicación" in match.columns:
-            match["Fecha de Publicación"] = pd.to_datetime(match["Fecha de Publicación"], errors='coerce').dt.strftime('%Y/%m/%d')
+            match["Fecha_dt"] = pd.to_datetime(match["Fecha de Publicación"], errors='coerce')
+            match = match.dropna(subset=['Fecha_dt', 'Calificación']).sort_values('Fecha_dt')
             
-        columnas_deseadas = ["Calificadora", "Calificación", "Perspectiva", "Descripción", "Fecha de Publicación"]
-        columnas_finales = [c for c in columnas_deseadas if c in match.columns]
-        st.dataframe(match[columnas_finales], hide_index=True, use_container_width=True)
+        # Jerarquía unificada de calificaciones (de menor a mayor)
+        RATING_ORDER = [
+            'D', 'SD', 'C', 'CC', 'CCC-', 'CCC', 'CCC+', 
+            'B-', 'B', 'B+', 'BB-', 'BB', 'BB+', 
+            'BBB-', 'BBB', 'BBB+', 'A-', 'A', 'A+', 
+            'AA-', 'AA', 'AA+', 'AAA'
+        ]
+        
+        rating_map = {k: i for i, k in enumerate(RATING_ORDER)}
+        match['Valor_Cal'] = match['Calificación'].map(rating_map)
+        
+        match = match.dropna(subset=['Valor_Cal'])
+        
+        agencias_presentes = match['Calificadora'].unique()
+        num_agencias = len(agencias_presentes)
+        
+        if num_agencias > 0:
+            from plotly.subplots import make_subplots
+            
+            alto_total = max(300, num_agencias * 225) # Duplicamos el espacio vertical
+            
+            fig_rat = make_subplots(
+                rows=num_agencias, 
+                cols=1, 
+                shared_xaxes=True, 
+                vertical_spacing=0.03 # Renglón mínimo para aprovechar el espacio
+            )
+            
+            x_min_r = match['Fecha_dt'].min() - pd.DateOffset(months=4)
+            x_max_r = match['Fecha_dt'].max() + pd.DateOffset(months=4)
+            
+            for i, agencia in enumerate(agencias_presentes):
+                row_idx = i + 1
+                df_ag = match[match['Calificadora'] == agencia].copy()
+                
+                # Todas las líneas y puntos en negro (sin codificación por color)
+                color_linea = '#0F172A'
+                
+                fig_rat.add_trace(go.Scatter(
+                    x=df_ag['Fecha_dt'],
+                    y=df_ag['Valor_Cal'],
+                    mode='lines+markers',
+                    line=dict(color=color_linea, width=2),
+                    marker=dict(color=color_linea, size=9, line=dict(color='white', width=1.5)),
+                    customdata=df_ag[['Calificación', 'Perspectiva']],
+                    hovertemplate="<b>%{x|%Y-%m-%d}</b><br>Calificación: <b>%{customdata[0]}</b><br>Perspectiva: %{customdata[1]}<extra></extra>",
+                    name=agencia
+                ), row=row_idx, col=1)
+                
+                min_v = df_ag['Valor_Cal'].min()
+                max_v = df_ag['Valor_Cal'].max()
+                
+                y_min_ag = max(0, min_v - 1)
+                y_max_ag = min(len(RATING_ORDER) - 1, max_v + 1)
+                
+                ticks_ag_v = [v for k, v in rating_map.items() if y_min_ag <= v <= y_max_ag]
+                ticks_ag_t = [k for k, v in rating_map.items() if y_min_ag <= v <= y_max_ag]
+                
+                fig_rat.update_yaxes(
+                    range=[y_min_ag - 0.5, y_max_ag + 0.5], 
+                    tickmode='array',
+                    tickvals=ticks_ag_v,
+                    ticktext=ticks_ag_t,
+                    tickfont=dict(size=10, color='#64748B'),
+                    showgrid=True, gridcolor='#E2E8F0', zeroline=False,
+                    row=row_idx, col=1
+                )
+                
+                # Anotación del nombre de la agencia DENTRO de la gráfica
+                _sub = '' if row_idx == 1 else str(row_idx)
+                fig_rat.add_annotation(
+                    x=0.01, y=0.95, xref=f'x{_sub} domain', yref=f'y{_sub} domain',
+                    text=f"<b>{agencia}</b>", showarrow=False, font=dict(size=14, color='#0F172A'),
+                    bgcolor='rgba(248,250,252,0.85)', borderpad=4, align='left'
+                )
+                
+                # Las tres franjas siempre presentes, en todas las gráficas (sin etiqueta de texto)
+                fig_rat.add_hrect(
+                    y0=12.5, y1=22.5, fillcolor="#059669", opacity=0.08, line_width=0, 
+                    row=row_idx, col=1
+                )
+                fig_rat.add_hrect(
+                    y0=6.5, y1=12.5, fillcolor="#D97706", opacity=0.08, line_width=0, 
+                    row=row_idx, col=1
+                )
+                fig_rat.add_hrect(
+                    y0=-0.5, y1=6.5, fillcolor="#DC2626", opacity=0.08, line_width=0, 
+                    row=row_idx, col=1
+                )
+
+            # Fondo transparente y ajustes
+            fig_rat.update_layout(
+                height=alto_total, 
+                margin=dict(t=10, b=10, l=10, r=10), # Margen mínimo para ahorrar espacio
+                showlegend=False,
+                plot_bgcolor='rgba(0,0,0,0)', 
+                paper_bgcolor='rgba(0,0,0,0)',
+                hoverlabel=dict(bgcolor='white', font_family='sans-serif', font_color='#0F172A', font_size=13, align='left')
+            )
+            
+            fig_rat.update_xaxes(showgrid=False, tickformat="%Y", range=[x_min_r, x_max_r], tickfont=dict(size=11, color='#64748B'))
+            
+            st.plotly_chart(fig_rat, use_container_width=True)
+        
     elif not df_r.empty: 
         st.info("Sin calificación disponible para esta entidad.")
     else: 
         st.info("Archivo de calificaciones no disponible.")
+
+    st.info("""ℹ️ **Rangos de Calificación Crediticia:**
+* :green[**Grado de Inversión**] — BBB- o superior (BBB-, BBB, BBB+, A-, A, A+, AA-, AA, AA+, AAA).
+* :orange[**Grado Especulativo**] — Entre BB+ y B- (BB+, BB, BB-, B+, B, B-).
+* :red[**Riesgo Sustancial / Default**] — varía según la calificadora:
+    * **Fitch Ratings / S&P:** CCC+, CCC, CCC-, CC, C, SD (Default Selectivo), D (Default).
+    * **HR Ratings:** C y D (Default).
+    * **Moody's:** CCC+, CCC, CCC-, CC, C (sin categoría explícita de default).""")
 
     mostrar_fecha_act('ratings')
 
