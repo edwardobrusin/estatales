@@ -20,7 +20,8 @@ def generar_fichas_masivas(url="http://localhost:8501", output_dir="fichas_pdf",
 
     with sync_playwright() as p:
         print("🤖 Iniciando navegador Chromium (Headless)...")
-        browser = p.chromium.launch(headless=True)
+        # --no-sandbox y --disable-dev-shm-usage previenen crashes críticos por límites de memoria en entornos CI/CD
+        browser = p.chromium.launch(headless=True, args=['--no-sandbox', '--disable-dev-shm-usage'])
         context = browser.new_context(
             viewport={"width": 1300, "height": 1080},
             device_scale_factor=1
