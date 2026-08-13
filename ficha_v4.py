@@ -2158,7 +2158,7 @@ if "Tlaxcala" not in selected_name:
 * **OCPyPC / IT:** Obligaciones a Corto Plazo y Proveedores y Contratistas sobre Ingresos Totales.""")
 
     st.markdown("<h4 style='color:#0F172A; font-weight:800; font-size:1.1rem; margin-top:10px; margin-bottom:0px;'>Evolución de Calificaciones Crediticias</h4>", unsafe_allow_html=True)
-
+    
     if not match.empty:
         match = match.rename(columns={"Calificacion": "Calificación", "Descripcion": "Descripción"})
         
@@ -2244,15 +2244,15 @@ if "Tlaxcala" not in selected_name:
                 
                 # Las tres franjas siempre presentes, en todas las gráficas (sin etiqueta de texto)
                 fig_rat.add_hrect(
-                    y0=12.5, y1=22.5, fillcolor="#059669", opacity=0.08, line_width=0, 
+                    y0=12.5, y1=22.5, fillcolor="#059669", opacity=0.30, line_width=0, 
                     row=row_idx, col=1
                 )
                 fig_rat.add_hrect(
-                    y0=6.5, y1=12.5, fillcolor="#D97706", opacity=0.08, line_width=0, 
+                    y0=6.5, y1=12.5, fillcolor="#D97706", opacity=0.30, line_width=0, 
                     row=row_idx, col=1
                 )
                 fig_rat.add_hrect(
-                    y0=-0.5, y1=6.5, fillcolor="#DC2626", opacity=0.08, line_width=0, 
+                    y0=-0.5, y1=6.5, fillcolor="#DC2626", opacity=0.30, line_width=0, 
                     row=row_idx, col=1
                 )
 
@@ -2269,19 +2269,86 @@ if "Tlaxcala" not in selected_name:
             fig_rat.update_xaxes(showgrid=False, tickformat="%Y", range=[x_min_r, x_max_r], tickfont=dict(size=11, color='#64748B'))
             
             st.plotly_chart(fig_rat, use_container_width=True)
+
+            # --- TERMÓMETRO: última calificación vigente por calificadora ---
+            st.markdown("<h4 style='color:#0F172A; font-weight:800; font-size:1.1rem; margin-top:15px; margin-bottom:0px;'>Posición Actual por Calificadora</h4>", unsafe_allow_html=True)
+
+            ultimos = match.sort_values('Fecha_dt').groupby('Calificadora').tail(1).copy()
+            ultimos = ultimos.sort_values('Valor_Cal')
+
+            fig_term = go.Figure()
+
+            # Franjas de riesgo (mismos rangos que en el histórico, ahora en el eje X)
+            fig_term.add_vrect(x0=12.5, x1=len(RATING_ORDER) - 0.5, fillcolor="#059669", opacity=0.30, line_width=0)
+            fig_term.add_vrect(x0=6.5, x1=12.5, fillcolor="#D97706", opacity=0.30, line_width=0)
+            fig_term.add_vrect(x0=-0.5, x1=6.5, fillcolor="#DC2626", opacity=0.30, line_width=0)
+
+            # Línea base del termómetro
+            fig_term.add_trace(go.Scatter(
+                x=[-0.5, len(RATING_ORDER) - 0.5],
+                y=[0, 0],
+                mode='lines',
+                line=dict(color='#E2E8F0', width=3),
+                hoverinfo='skip',
+                showlegend=False
+            ))
+
+            # Un marcador por agencia sobre su última calificación, apilando verticalmente
+            # cuando dos o más agencias coinciden en el mismo punto del eje X
+            offset_counts = {}
+            for _, row in ultimos.iterrows():
+                x_val = row['Valor_Cal']
+                offset_counts[x_val] = offset_counts.get(x_val, -1) + 1
+                y_val = offset_counts[x_val] * 0.55
+                # Formateo de fecha para el hover
+                fecha_str = row['Fecha_dt'].strftime('%Y-%m-%d') if pd.notnull(row['Fecha_dt']) else 'N/D'
+
+                fig_term.add_trace(go.Scatter(
+                    x=[x_val],
+                    y=[y_val],
+                    mode='markers+text',
+                    marker=dict(color='#0F172A', size=18, line=dict(color='white', width=2)),
+                    text=[row['Calificadora']],
+                    textposition='top center',
+                    textfont=dict(size=11, color='#0F172A', family='sans-serif'),
+                    customdata=[[row['Calificadora'], row['Calificación'], row.get('Perspectiva', ''), fecha_str]],
+                    hovertemplate="<b>%{customdata[0]}</b><br>Calificación: <b>%{customdata[1]}</b><br>Perspectiva: %{customdata[2]}<br>Fecha: %{customdata[3]}<extra></extra>",
+                    showlegend=False
+                ))
+
+            max_offset = max(offset_counts.values()) if offset_counts else 0
+
+            # Anotaciones de los rangos (ubicadas estratégicamente debajo de la línea base para no estorbar a los marcadores)
+            fig_term.add_annotation(x=(12.5 + len(RATING_ORDER) - 0.5)/2, y=-0.22, xref="x", yref="y", text="<b>GRADO DE INVERSIÓN</b>", showarrow=False, font=dict(size=10, color="#059669"))
+            fig_term.add_annotation(x=9.5, y=-0.22, xref="x", yref="y", text="<b>GRADO ESPECULATIVO</b>", showarrow=False, font=dict(size=10, color="#D97706"))
+            fig_term.add_annotation(x=3.0, y=-0.22, xref="x", yref="y", text="<b>RIESGO SUSTANCIAL / DEFAULT</b>", showarrow=False, font=dict(size=10, color="#DC2626"))
+
+            fig_term.update_xaxes(
+                tickmode='array',
+                tickvals=list(rating_map.values()),
+                ticktext=[f"<b>{k}</b>" for k in rating_map.keys()],
+                range=[-0.5, len(RATING_ORDER) - 0.5],
+                tickfont=dict(size=13, color='#0F172A'),
+                showgrid=False
+            )
+            fig_term.update_yaxes(
+                visible=False,
+                range=[-0.4, max_offset * 0.5 + 0.6]
+            )
+            fig_term.update_layout(
+                height=130 + max_offset * 30,
+                margin=dict(t=0, b=10, l=10, r=10),
+                plot_bgcolor='rgba(0,0,0,0)',
+                paper_bgcolor='rgba(0,0,0,0)',
+                hoverlabel=dict(bgcolor='white', font_family='sans-serif', font_color='#0F172A', font_size=13, align='left')
+            )
+
+            st.plotly_chart(fig_term, use_container_width=True)
         
     elif not df_r.empty: 
         st.info("Sin calificación disponible para esta entidad.")
     else: 
         st.info("Archivo de calificaciones no disponible.")
-
-    st.info("""ℹ️ **Rangos de Calificación Crediticia:**
-* :green[**Grado de Inversión**] — BBB- o superior (BBB-, BBB, BBB+, A-, A, A+, AA-, AA, AA+, AAA).
-* :orange[**Grado Especulativo**] — Entre BB+ y B- (BB+, BB, BB-, B+, B, B-).
-* :red[**Riesgo Sustancial / Default**] — varía según la calificadora:
-    * **Fitch Ratings / S&P:** CCC+, CCC, CCC-, CC, C, SD (Default Selectivo), D (Default).
-    * **HR Ratings:** C y D (Default).
-    * **Moody's:** CCC+, CCC, CCC-, CC, C (sin categoría explícita de default).""")
 
     mostrar_fecha_act('ratings')
 
