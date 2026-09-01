@@ -672,18 +672,18 @@ def procesar_educacion():
 # ==========================================
 def procesar_ied():
     print("⏳ [IED] Procesando datos complejos (Totales 3 Dígitos y Detalle)...")
-    fpath = os.path.join(RAW_DIR, "2026_1T_Flujos_EF_OR_11A.xlsx")
+    fpath = os.path.join(RAW_DIR, "2026_2T_Flujos_EF_OR_11A.xlsx")
     
     if not os.path.exists(fpath): 
         return f"⚠️ [IED] Falta {fpath}"
     
     try:
         # 1. MAPEO DE COLUMNAS
-        df_head = pd.read_excel(fpath, sheet_name='EF por Actividad Econ', header=None, nrows=10)
+        df_head = pd.read_excel(fpath, sheet_name='EF por Actividad Económica', header=None, nrows=15)
         
         header_idx = None
         for idx, row in df_head.iterrows():
-            if "Entidad Federativa" in str(row[0]):
+            if str(row[0]).strip().startswith("Entidad Federativa"):
                 header_idx = idx
                 break
         
@@ -695,16 +695,18 @@ def procesar_ied():
         col_map = {}
         current_year = None
         for i in range(1, len(years_row)):
-            if pd.notna(years_row[i]):
-                try:
-                    y = int(float(years_row[i]))
-                    if y > 2000: current_year = y
-                except: pass
-            if current_year and pd.notna(quarters_row[i]):
-                try:
-                    q = int(float(quarters_row[i]))
-                    if 1 <= q <= 4: col_map[i] = (current_year, q)
-                except: pass
+            val_y = str(years_row[i]).strip()
+            if val_y and val_y.lower() != 'nan':
+                match_y = re.search(r'(20\d{2})', val_y)
+                if match_y:
+                    current_year = int(match_y.group(1))
+                    
+            val_q = str(quarters_row[i]).strip()
+            if current_year and val_q and val_q.lower() != 'nan':
+                match_q = re.search(r'([1-4])', val_q)
+                if match_q:
+                    q = int(match_q.group(1))
+                    col_map[i] = (current_year, q)
         
         if not col_map: return "❌ [IED] Error mapeo columnas."
         
@@ -716,7 +718,7 @@ def procesar_ied():
         idx_prev = idx_prev[0] if idx_prev else None
         
         # 2. EXTRACCIÓN (Solo 3 dígitos)
-        df_data = pd.read_excel(fpath, sheet_name='EF por Actividad Econ', header=header_idx+2)
+        df_data = pd.read_excel(fpath, sheet_name='EF por Actividad Económica', header=header_idx+1)
         
         def clean(x):
             if pd.isna(x): return 0.0

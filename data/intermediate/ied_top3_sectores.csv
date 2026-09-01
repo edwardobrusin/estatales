@@ -1,156 +1,251 @@
 Estado,Codigo,Actividad,Sector,Clasificacion_Flujo,Inversion,Inversion_Anterior,Anio,Trimestre
-Aguascalientes,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,235.06955442,109.53856788,2026,1
-Aguascalientes,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Inversión Positiva,29.95811266,-8.45135868,2026,1
-Aguascalientes,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,25.04849725,0.0,2026,1
-Baja California,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,890.34729219,609.80142352,2026,1
-Baja California,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,Inversión Positiva,68.8975643,33.07931399,2026,1
-Baja California,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,Inversión Positiva,40.96292123,25.83395477,2026,1
-Baja California,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,93.40441359,71.52086977,2026,1
-Baja California,561,Servicios de apoyo a los negocios,Terciaria,Inversión Positiva,72.46144098,24.91787517,2026,1
-Baja California,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,6.69200225,5.97995368,2026,1
-Baja California,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Desinversión,-0.32943981,0.0,2026,1
-Baja California Sur,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,191.52341114,88.14103559,2026,1
-Baja California Sur,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,21.18388099,0.0,2026,1
-Campeche,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,15.88949755,0.0,2026,1
-Campeche,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,0.65232936,0.0,2026,1
-Chiapas,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,30.21588597,0.0,2026,1
-Chiapas,325,Industria química,Secundaria,Desinversión,-5.29215909,0.0,2026,1
-Chiapas,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,48.62409348,0.0,2026,1
-Chihuahua,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,Inversión Positiva,222.35561447,37.29033179,2026,1
-Chihuahua,212,"Minería de minerales metálicos y no metálicos, excepto petróleo y gas",Secundaria,Inversión Positiva,127.80253237,0.0,2026,1
-Chihuahua,339,Otras industrias manufactureras,Secundaria,Inversión Positiva,42.24214959,4.67638159,2026,1
-Chihuahua,336,Fabricación de equipo de transporte,Secundaria,Desinversión,-196.80568047,140.87037362,2026,1
-Chihuahua,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,Desinversión,-41.3872088,22.90702068,2026,1
-Chihuahua,315,Fabricación de prendas de vestir,Secundaria,Desinversión,-5.83861828,8.4005619,2026,1
-Chihuahua,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,68.57098796,0.0,2026,1
-Chihuahua,541,"Servicios profesionales, científicos y técnicos",Terciaria,Inversión Positiva,67.80475721,0.0,2026,1
-Chihuahua,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,Inversión Positiva,2.02313972,0.0,2026,1
-Ciudad de México,212,"Minería de minerales metálicos y no metálicos, excepto petróleo y gas",Secundaria,Inversión Positiva,2307.71948101,0.0,2026,1
-Ciudad de México,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,1693.62852142,71.81490938,2026,1
-Ciudad de México,312,Industria de las bebidas y del tabaco,Secundaria,Inversión Positiva,990.8128277,1093.39973994,2026,1
-Ciudad de México,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,4056.16163688,4367.90460163,2026,1
-Ciudad de México,525,Sociedades de inversión especializadas en fondos para el retiro y fondos de inversión,Terciaria,Inversión Positiva,536.9651969,476.42780099,2026,1
-Ciudad de México,486,Transporte por ductos,Terciaria,Inversión Positiva,217.9072102,27.64259817,2026,1
-Ciudad de México,435,"Comercio al por mayor de maquinaria, equipo y mobiliario para actividades agropecuarias, industriales, de servicios y comerciales, y de otra maquinaria y equipo de uso general",Terciaria,Desinversión,-703.64325713,28.62542261,2026,1
-Ciudad de México,519,"Bibliotecas, archivos, portales de búsqueda en la red y otros servicios de suministro de información",Terciaria,Desinversión,-101.47347408,119.56202673,2026,1
-Ciudad de México,434,"Comercio al por mayor de materias primas agropecuarias y forestales, para la industria, y materiales de desecho",Terciaria,Desinversión,-51.12644427,16.54468403,2026,1
-Coahuila,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,221.61558905,474.16645741,2026,1
-Coahuila,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,78.74980688,1.1178168,2026,1
-Coahuila,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,Inversión Positiva,17.23076611,-4.85746363,2026,1
-Coahuila,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,60.34561078,0.0,2026,1
-Colima,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,17.40220616,0.0,2026,1
-Durango,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,39.03664232,0.0,2026,1
-Durango,212,"Minería de minerales metálicos y no metálicos, excepto petróleo y gas",Secundaria,Inversión Positiva,25.94479821,0.0,2026,1
-Durango,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,24.25997401,0.0,2026,1
-México,325,Industria química,Secundaria,Inversión Positiva,136.33182284,168.56884897,2026,1
-México,311,Industria alimentaria,Secundaria,Inversión Positiva,120.77255779,0.0,2026,1
-México,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,88.79684227,677.45702282,2026,1
-México,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,Desinversión,-23.7350768,0.0,2026,1
-México,326,Industria del plástico y del hule,Secundaria,Desinversión,-9.73121037,0.4381616,2026,1
-México,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,190.30310202,0.0,2026,1
-México,433,"Comercio al por mayor de productos farmacéuticos, de perfumería, artículos para el esparcimiento, electrodomésticos menores y aparatos de línea blanca",Terciaria,Inversión Positiva,10.34271412,-28.86031021,2026,1
-México,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Inversión Positiva,6.75777749,-5.77524836,2026,1
-México,541,"Servicios profesionales, científicos y técnicos",Terciaria,Desinversión,-1.02003069,0.0,2026,1
-Guanajuato,111,Agricultura,Primaria,Desinversión,-17.83481684,0.0,2026,1
-Guanajuato,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,109.5401313,565.94626796,2026,1
-Guanajuato,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,62.14445725,1.14517998,2026,1
-Guanajuato,325,Industria química,Secundaria,Inversión Positiva,27.30238525,20.86979152,2026,1
-Guanajuato,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,124.89998675,0.0,2026,1
-Guerrero,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,30.58765403,0.0,2026,1
-Guerrero,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,4.02193091,23.47751784,2026,1
-Hidalgo,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,9.64332963,0.0,2026,1
-Hidalgo,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,48.1522823,0.0,2026,1
-Jalisco,111,Agricultura,Primaria,Inversión Positiva,18.32187862,39.56705393,2026,1
-Jalisco,311,Industria alimentaria,Secundaria,Inversión Positiva,96.82316964,0.0,2026,1
-Jalisco,339,Otras industrias manufactureras,Secundaria,Inversión Positiva,67.98400576,0.88439147,2026,1
-Jalisco,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,Inversión Positiva,63.01981555,33.33681731,2026,1
-Jalisco,331,Industrias metálicas básicas,Secundaria,Desinversión,-17.85229071,0.0,2026,1
-Jalisco,325,Industria química,Secundaria,Desinversión,-9.30147708,20.90090356,2026,1
-Jalisco,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,243.34374625,0.0,2026,1
-Jalisco,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,33.0327808,38.30539332,2026,1
-Jalisco,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,Inversión Positiva,1.56860546,0.0,2026,1
-Jalisco,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Desinversión,-2.62299014,-7.20864427,2026,1
-Jalisco,541,"Servicios profesionales, científicos y técnicos",Terciaria,Desinversión,-1.83479224,9.45809098,2026,1
-Michoacán,111,Agricultura,Primaria,Inversión Positiva,19.17427793,0.0,2026,1
-Michoacán,488,Servicios relacionados con el transporte,Terciaria,Inversión Positiva,134.18966918,0.0,2026,1
-Michoacán,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,84.70937809,0.0,2026,1
-Michoacán,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Desinversión,-0.24011738,0.0,2026,1
-Morelos,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,19.19497574,1.70409384,2026,1
-Morelos,325,Industria química,Secundaria,Desinversión,-15.45540915,0.0,2026,1
-Morelos,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,29.07675643,0.0,2026,1
-Nayarit,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,103.48443692,23.38754106,2026,1
-Nayarit,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,20.9530458,0.0,2026,1
-Nuevo León,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,424.34956575,317.34901952,2026,1
-Nuevo León,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,243.48858062,124.97723767,2026,1
-Nuevo León,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,Inversión Positiva,214.4602383,3.89663867,2026,1
-Nuevo León,312,Industria de las bebidas y del tabaco,Secundaria,Desinversión,-151.46770353,562.06467624,2026,1
-Nuevo León,221,"Generación, transmisión, distribución y comercialización de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final",Secundaria,Desinversión,-13.43497831,0.5142985,2026,1
-Nuevo León,436,"Comercio al por mayor de camiones y de partes y refacciones nuevas para automóviles, camionetas y camiones",Terciaria,Inversión Positiva,610.60598554,1081.67821953,2026,1
-Nuevo León,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,178.43857324,69.10799648,2026,1
-Nuevo León,488,Servicios relacionados con el transporte,Terciaria,Inversión Positiva,18.66720189,0.0,2026,1
-Nuevo León,541,"Servicios profesionales, científicos y técnicos",Terciaria,Desinversión,-0.397333,0.0,2026,1
-Oaxaca,221,"Generación, transmisión, distribución y comercialización de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final",Secundaria,Desinversión,-0.69381749,0.0,2026,1
-Oaxaca,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,30.06349913,0.0,2026,1
-Oaxaca,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,1.13891746,1.92898585,2026,1
-Puebla,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,87.49499419,148.71828439,2026,1
-Puebla,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,21.07636371,0.0,2026,1
-Puebla,325,Industria química,Secundaria,Inversión Positiva,2.89739678,0.0,2026,1
-Puebla,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,107.69035435,0.0,2026,1
-Querétaro,311,Industria alimentaria,Secundaria,Inversión Positiva,109.8494373,0.0,2026,1
-Querétaro,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,45.47509229,74.88144824,2026,1
-Querétaro,325,Industria química,Secundaria,Inversión Positiva,44.64236263,83.72295432,2026,1
-Querétaro,326,Industria del plástico y del hule,Secundaria,Desinversión,-49.02020044,0.5227749,2026,1
-Querétaro,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,Desinversión,-3.27733728,0.0,2026,1
-Querétaro,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,51.74845585,0.0,2026,1
-Querétaro,561,Servicios de apoyo a los negocios,Terciaria,Inversión Positiva,5.4122623,0.0,2026,1
-Querétaro,433,"Comercio al por mayor de productos farmacéuticos, de perfumería, artículos para el esparcimiento, electrodomésticos menores y aparatos de línea blanca",Terciaria,Inversión Positiva,3.57339321,0.0,2026,1
-Querétaro,541,"Servicios profesionales, científicos y técnicos",Terciaria,Desinversión,-26.55883741,0.0,2026,1
-Quintana Roo,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,1.19856996,0.0,2026,1
-Quintana Roo,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,129.06084915,287.15460198,2026,1
-Quintana Roo,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,43.86218272,0.0,2026,1
-Quintana Roo,531,Servicios inmobiliarios,Terciaria,Inversión Positiva,2.15171086,0.0,2026,1
-Quintana Roo,432,Comercio al por mayor de productos textiles y calzado,Terciaria,Desinversión,-0.0848098,0.0,2026,1
-San Luis Potosí,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,188.08523778,55.47879104,2026,1
-San Luis Potosí,331,Industrias metálicas básicas,Secundaria,Inversión Positiva,65.30123774,20.76724866,2026,1
-San Luis Potosí,311,Industria alimentaria,Secundaria,Inversión Positiva,53.91206897,0.0,2026,1
-San Luis Potosí,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,40.48974564,0.0,2026,1
-San Luis Potosí,561,Servicios de apoyo a los negocios,Terciaria,Inversión Positiva,2.76048188,0.0,2026,1
-San Luis Potosí,433,"Comercio al por mayor de productos farmacéuticos, de perfumería, artículos para el esparcimiento, electrodomésticos menores y aparatos de línea blanca",Terciaria,Inversión Positiva,1.42858188,0.0,2026,1
-Sinaloa,111,Agricultura,Primaria,Inversión Positiva,3.58256764,0.0,2026,1
-Sinaloa,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,23.4519156,0.0,2026,1
-Sinaloa,325,Industria química,Secundaria,Inversión Positiva,0.41284164,0.0,2026,1
-Sinaloa,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,55.75583482,0.0,2026,1
-Sinaloa,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,2.37363829,6.78801989,2026,1
-Sonora,212,"Minería de minerales metálicos y no metálicos, excepto petróleo y gas",Secundaria,Inversión Positiva,118.63913905,0.0,2026,1
-Sonora,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,Inversión Positiva,11.74832659,3.44579119,2026,1
-Sonora,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,Inversión Positiva,3.56369914,8.83569306,2026,1
-Sonora,336,Fabricación de equipo de transporte,Secundaria,Desinversión,-7.08331295,11.95246838,2026,1
-Sonora,326,Industria del plástico y del hule,Secundaria,Desinversión,-5.94314653,-15.79131665,2026,1
-Sonora,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,59.08913421,0.0,2026,1
-Sonora,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,5.96515169,7.66934288,2026,1
-Sonora,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,Inversión Positiva,0.49852738,0.0,2026,1
-Tabasco,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,38.6961259,0.0,2026,1
-Tabasco,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,0.1084634,0.87159478,2026,1
-Tamaulipas,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,Inversión Positiva,63.42149306,3.02887158,2026,1
-Tamaulipas,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,Inversión Positiva,32.4938898,79.9099023,2026,1
-Tamaulipas,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,22.44745059,26.1923823,2026,1
-Tamaulipas,325,Industria química,Secundaria,Desinversión,-25.3092643,0.0,2026,1
-Tamaulipas,336,Fabricación de equipo de transporte,Secundaria,Desinversión,-3.47788499,36.29835346,2026,1
-Tamaulipas,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,54.16622841,1.74076302,2026,1
-Tamaulipas,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,Inversión Positiva,5.83056876,0.0,2026,1
-Tamaulipas,434,"Comercio al por mayor de materias primas agropecuarias y forestales, para la industria, y materiales de desecho",Terciaria,Desinversión,-4.48126115,0.0,2026,1
-Tlaxcala,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,35.9002669,28.08654582,2026,1
-Tlaxcala,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,10.79038573,0.0,2026,1
-Veracruz,331,Industrias metálicas básicas,Secundaria,Inversión Positiva,80.01629989,0.0,2026,1
-Veracruz,325,Industria química,Secundaria,Inversión Positiva,21.57444284,26.80442148,2026,1
-Veracruz,311,Industria alimentaria,Secundaria,Inversión Positiva,11.98323995,0.0,2026,1
-Veracruz,333,Fabricación de maquinaria y equipo,Secundaria,Desinversión,-9.58769496,0.0,2026,1
-Veracruz,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,93.8641216,0.0,2026,1
-Yucatán,315,Fabricación de prendas de vestir,Secundaria,Inversión Positiva,6.02377287,0.0,2026,1
-Yucatán,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,2.57926684,0.0,2026,1
-Yucatán,339,Otras industrias manufactureras,Secundaria,Inversión Positiva,0.36538668,0.12535655,2026,1
-Yucatán,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,57.01854977,0.0,2026,1
-Yucatán,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,12.31105035,14.18839207,2026,1
-Zacatecas,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,4.39874973,0.0,2026,1
-Zacatecas,212,"Minería de minerales metálicos y no metálicos, excepto petróleo y gas",Secundaria,Desinversión,-205.16247924,0.0,2026,1
-Zacatecas,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,23.65681223,0.0,2026,1
+Aguascalientes,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,341.41304586,346.38803947,2026,2
+Aguascalientes,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,Inversión Positiva,48.79099888,2.31689153,2026,2
+Aguascalientes,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,32.26426305,46.95802553,2026,2
+Aguascalientes,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,22.3172754,2.12908743,2026,2
+Aguascalientes,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Inversión Positiva,20.84102283,-19.08497373,2026,2
+Aguascalientes,541,"Servicios profesionales, científicos y técnicos",Terciaria,Inversión Positiva,7.91451438,8.24817143,2026,2
+Aguascalientes,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,Desinversión,-1.65690463,0.86777089,2026,2
+Aguascalientes,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-1.2029638,6.07534039,2026,2
+Baja California,111,Agricultura,Primaria,Inversión Positiva,5.11363477,0.10294641,2026,2
+Baja California,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,909.62672519,892.18064544,2026,2
+Baja California,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,Inversión Positiva,95.82876217,77.94801696,2026,2
+Baja California,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,Inversión Positiva,95.53567489,105.9728052,2026,2
+Baja California,221,"Generación, transmisión, distribución y comercialización de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final",Secundaria,Desinversión,-2.83000832,-17.79889054,2026,2
+Baja California,327,Fabricación de productos a base de minerales no metálicos,Secundaria,Desinversión,-0.05805668,16.31283546,2026,2
+Baja California,561,Servicios de apoyo a los negocios,Terciaria,Inversión Positiva,92.29220191,73.45261822,2026,2
+Baja California,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,92.17642255,74.78177976,2026,2
+Baja California,486,Transporte por ductos,Terciaria,Inversión Positiva,64.23611472,16.53028195,2026,2
+Baja California,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-5.24264469,34.48067864,2026,2
+Baja California,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Desinversión,-0.30543113,0.61039288,2026,2
+Baja California Sur,325,Industria química,Secundaria,Inversión Positiva,0.41253607,277.27507071,2026,2
+Baja California Sur,311,Industria alimentaria,Secundaria,Inversión Positiva,0.31101088,0.00118794,2026,2
+Baja California Sur,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,511.89831067,286.29048533,2026,2
+Baja California Sur,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,19.33020741,0.39658275,2026,2
+Baja California Sur,531,Servicios inmobiliarios,Terciaria,Inversión Positiva,4.88497812,-1.53444256,2026,2
+Baja California Sur,713,Servicios de entretenimiento en instalaciones recreativas y otros servicios recreativos,Terciaria,Desinversión,-2.04409543,0.0,2026,2
+Baja California Sur,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-1.43074143,6.6223931,2026,2
+Campeche,315,Fabricación de prendas de vestir,Secundaria,Inversión Positiva,0.14309368,0.06236735,2026,2
+Campeche,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,14.69081124,0.73976911,2026,2
+Campeche,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,1.39388068,0.0,2026,2
+Chiapas,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,15.33421102,-3.0229165,2026,2
+Chiapas,311,Industria alimentaria,Secundaria,Inversión Positiva,8.59149406,0.0,2026,2
+Chiapas,325,Industria química,Secundaria,Inversión Positiva,6.96079895,18.98797594,2026,2
+Chiapas,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,41.72547773,2.12443561,2026,2
+Chiapas,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,0.30046169,0.0,2026,2
+Chiapas,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,Inversión Positiva,0.18958672,0.61888845,2026,2
+Chihuahua,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,Inversión Positiva,326.3598465,94.30049194,2026,2
+Chihuahua,212,"Minería de minerales metálicos y no metálicos, excepto petróleo y gas",Secundaria,Inversión Positiva,75.96184998,107.8672183,2026,2
+Chihuahua,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,32.69481708,22.41466399,2026,2
+Chihuahua,336,Fabricación de equipo de transporte,Secundaria,Desinversión,-109.42697761,278.16629549,2026,2
+Chihuahua,315,Fabricación de prendas de vestir,Secundaria,Desinversión,-19.99026974,-3.02890861,2026,2
+Chihuahua,541,"Servicios profesionales, científicos y técnicos",Terciaria,Inversión Positiva,117.78509021,23.64831495,2026,2
+Chihuahua,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,74.9036114,5.63261706,2026,2
+Chihuahua,561,Servicios de apoyo a los negocios,Terciaria,Inversión Positiva,2.85428591,0.33549801,2026,2
+Chihuahua,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-2.26459199,5.195127,2026,2
+Chihuahua,533,"Servicios de alquiler de marcas registradas, patentes y franquicias",Terciaria,Desinversión,-1.05078578,0.0,2026,2
+Ciudad de México,115,Servicios relacionados con las actividades agropecuarias y forestales,Primaria,Inversión Positiva,27.590077,0.0,2026,2
+Ciudad de México,111,Agricultura,Primaria,Inversión Positiva,3.85522362,0.0,2026,2
+Ciudad de México,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,1645.11154172,1038.11579887,2026,2
+Ciudad de México,325,Industria química,Secundaria,Inversión Positiva,1346.64872129,653.59434865,2026,2
+Ciudad de México,212,"Minería de minerales metálicos y no metálicos, excepto petróleo y gas",Secundaria,Inversión Positiva,822.08978023,1829.53000388,2026,2
+Ciudad de México,315,Fabricación de prendas de vestir,Secundaria,Desinversión,-31.8551196,1.72894465,2026,2
+Ciudad de México,339,Otras industrias manufactureras,Secundaria,Desinversión,-25.8254632,48.93963166,2026,2
+Ciudad de México,323,Impresión e industrias conexas,Secundaria,Desinversión,-5.80278788,11.02160959,2026,2
+Ciudad de México,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,6015.19871634,6538.35084905,2026,2
+Ciudad de México,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,Inversión Positiva,1068.74416457,1615.95616191,2026,2
+Ciudad de México,486,Transporte por ductos,Terciaria,Inversión Positiva,996.80129172,27.64259816,2026,2
+Ciudad de México,435,"Comercio al por mayor de maquinaria, equipo y mobiliario para actividades agropecuarias, industriales, de servicios y comerciales, y de otra maquinaria y equipo de uso general",Terciaria,Desinversión,-421.92307988,178.8217303,2026,2
+Ciudad de México,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Desinversión,-261.53235099,31.24553099,2026,2
+Ciudad de México,434,"Comercio al por mayor de materias primas agropecuarias y forestales, para la industria, y materiales de desecho",Terciaria,Desinversión,-54.69184214,20.31701303,2026,2
+Coahuila,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,165.92470285,613.76551859,2026,2
+Coahuila,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,103.28552322,1.27018397,2026,2
+Coahuila,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,Inversión Positiva,22.79777841,19.70556057,2026,2
+Coahuila,312,Industria de las bebidas y del tabaco,Secundaria,Desinversión,-84.17074233,117.3593793,2026,2
+Coahuila,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,61.17399698,3.26577444,2026,2
+Coahuila,435,"Comercio al por mayor de maquinaria, equipo y mobiliario para actividades agropecuarias, industriales, de servicios y comerciales, y de otra maquinaria y equipo de uso general",Terciaria,Inversión Positiva,10.04606766,-0.79937183,2026,2
+Coahuila,541,"Servicios profesionales, científicos y técnicos",Terciaria,Inversión Positiva,5.67008616,1.16633479,2026,2
+Coahuila,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-1.95850403,10.24623738,2026,2
+Coahuila,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Desinversión,-0.2200065,1.6899354,2026,2
+Colima,325,Industria química,Secundaria,Inversión Positiva,0.15861673,0.59205209,2026,2
+Colima,311,Industria alimentaria,Secundaria,Desinversión,-0.5820316,-14.42677238,2026,2
+Colima,488,Servicios relacionados con el transporte,Terciaria,Inversión Positiva,50.88057289,36.52442891,2026,2
+Colima,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,17.69367691,0.91098458,2026,2
+Colima,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,4.05444089,0.0,2026,2
+Durango,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,24.93784359,-61.66178119,2026,2
+Durango,212,"Minería de minerales metálicos y no metálicos, excepto petróleo y gas",Secundaria,Inversión Positiva,21.12521279,13.39487323,2026,2
+Durango,325,Industria química,Secundaria,Inversión Positiva,0.60934708,1.15714611,2026,2
+Durango,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,21.69431206,0.62828939,2026,2
+México,237,Construcción de obras de ingeniería civil,Secundaria,Inversión Positiva,1234.81583816,0.0,2026,2
+México,325,Industria química,Secundaria,Inversión Positiva,284.45878051,374.75901674,2026,2
+México,311,Industria alimentaria,Secundaria,Inversión Positiva,130.3208227,59.19690131,2026,2
+México,336,Fabricación de equipo de transporte,Secundaria,Desinversión,-157.63986273,336.87254731,2026,2
+México,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,Desinversión,-73.40259982,100.14088588,2026,2
+México,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,Desinversión,-72.64449466,18.67917986,2026,2
+México,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,235.00695274,15.6017243,2026,2
+México,531,Servicios inmobiliarios,Terciaria,Inversión Positiva,44.76499121,36.14394223,2026,2
+México,433,"Comercio al por mayor de productos farmacéuticos, de perfumería, artículos para el esparcimiento, electrodomésticos menores y aparatos de línea blanca",Terciaria,Inversión Positiva,36.28077538,-25.29135908,2026,2
+México,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-99.77101635,33.29998816,2026,2
+México,435,"Comercio al por mayor de maquinaria, equipo y mobiliario para actividades agropecuarias, industriales, de servicios y comerciales, y de otra maquinaria y equipo de uso general",Terciaria,Desinversión,-15.22479952,3.87286318,2026,2
+México,541,"Servicios profesionales, científicos y técnicos",Terciaria,Desinversión,-2.22349534,2.99836048,2026,2
+Guanajuato,111,Agricultura,Primaria,Inversión Positiva,7.56281648,12.90826697,2026,2
+Guanajuato,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,79.65909756,15.84043583,2026,2
+Guanajuato,325,Industria química,Secundaria,Inversión Positiva,43.50447079,188.23346485,2026,2
+Guanajuato,326,Industria del plástico y del hule,Secundaria,Inversión Positiva,42.82732448,26.16139516,2026,2
+Guanajuato,336,Fabricación de equipo de transporte,Secundaria,Desinversión,-34.16178753,432.3150928,2026,2
+Guanajuato,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,105.6120404,34.58398346,2026,2
+Guanajuato,434,"Comercio al por mayor de materias primas agropecuarias y forestales, para la industria, y materiales de desecho",Terciaria,Inversión Positiva,48.29025261,39.67071038,2026,2
+Guanajuato,432,Comercio al por mayor de productos textiles y calzado,Terciaria,Inversión Positiva,2.86959812,-0.85248477,2026,2
+Guanajuato,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,Desinversión,-5.45249969,1.18623419,2026,2
+Guanajuato,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-3.20965736,16.42154036,2026,2
+Guanajuato,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Desinversión,-2.16588911,42.69676922,2026,2
+Guerrero,311,Industria alimentaria,Secundaria,Inversión Positiva,0.68501365,-0.0032989,2026,2
+Guerrero,325,Industria química,Secundaria,Inversión Positiva,0.28713233,6.29440579,2026,2
+Guerrero,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,30.69520852,1.17421998,2026,2
+Guerrero,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,23.46028043,29.45818158,2026,2
+Hidalgo,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,70.95980657,39.48608989,2026,2
+Hidalgo,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,9.76383787,6.94831083,2026,2
+Hidalgo,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,Inversión Positiva,7.63939178,18.88411012,2026,2
+Hidalgo,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,42.04885084,2.2730324,2026,2
+Hidalgo,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-2.21111531,5.95006556,2026,2
+Jalisco,111,Agricultura,Primaria,Inversión Positiva,45.14580348,57.92796992,2026,2
+Jalisco,312,Industria de las bebidas y del tabaco,Secundaria,Inversión Positiva,267.24504067,-33.71544109,2026,2
+Jalisco,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,141.36097599,49.23293523,2026,2
+Jalisco,311,Industria alimentaria,Secundaria,Inversión Positiva,128.44061795,198.0220848,2026,2
+Jalisco,331,Industrias metálicas básicas,Secundaria,Desinversión,-14.4982782,-10.04544032,2026,2
+Jalisco,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,230.93278543,21.4534953,2026,2
+Jalisco,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,76.1984093,49.01787443,2026,2
+Jalisco,513,"Edición de periódicos, revistas, libros, directorios, software y otros materiales",Terciaria,Inversión Positiva,37.46923822,0.0,2026,2
+Jalisco,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-4.66980689,22.9969157,2026,2
+Jalisco,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Desinversión,-4.24057915,-6.14621507,2026,2
+Jalisco,561,Servicios de apoyo a los negocios,Terciaria,Desinversión,-0.42657104,-0.68680979,2026,2
+Michoacán,111,Agricultura,Primaria,Inversión Positiva,37.85419383,25.21770532,2026,2
+Michoacán,311,Industria alimentaria,Secundaria,Inversión Positiva,4.25923091,-3.27136302,2026,2
+Michoacán,325,Industria química,Secundaria,Inversión Positiva,0.91692155,0.10264609,2026,2
+Michoacán,488,Servicios relacionados con el transporte,Terciaria,Inversión Positiva,216.50138035,85.14278135,2026,2
+Michoacán,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,74.08512737,5.28374006,2026,2
+Michoacán,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Inversión Positiva,2.88023273,-2.39591684,2026,2
+Michoacán,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-1.23189576,6.74135491,2026,2
+Morelos,327,Fabricación de productos a base de minerales no metálicos,Secundaria,Inversión Positiva,112.28049891,0.0,2026,2
+Morelos,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,14.52787046,91.89016618,2026,2
+Morelos,315,Fabricación de prendas de vestir,Secundaria,Inversión Positiva,2.33988337,0.0,2026,2
+Morelos,325,Industria química,Secundaria,Desinversión,-6.36052238,0.60459055,2026,2
+Morelos,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,28.16277087,1.62963508,2026,2
+Morelos,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-1.03358903,5.89976415,2026,2
+Nayarit,325,Industria química,Secundaria,Inversión Positiva,0.27609737,53.70930982,2026,2
+Nayarit,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,157.23147079,52.30359834,2026,2
+Nayarit,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,18.12930424,0.53443053,2026,2
+Nayarit,531,Servicios inmobiliarios,Terciaria,Inversión Positiva,1.46275481,0.0,2026,2
+Nuevo León,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,686.98941737,462.00005594,2026,2
+Nuevo León,331,Industrias metálicas básicas,Secundaria,Inversión Positiva,533.58851323,436.29523481,2026,2
+Nuevo León,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,299.78600343,-27.52418398,2026,2
+Nuevo León,312,Industria de las bebidas y del tabaco,Secundaria,Desinversión,-257.38357444,421.10993761,2026,2
+Nuevo León,436,"Comercio al por mayor de camiones y de partes y refacciones nuevas para automóviles, camionetas y camiones",Terciaria,Inversión Positiva,986.85595158,1032.96932489,2026,2
+Nuevo León,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,211.18829517,64.20109175,2026,2
+Nuevo León,434,"Comercio al por mayor de materias primas agropecuarias y forestales, para la industria, y materiales de desecho",Terciaria,Inversión Positiva,207.52750194,1.73752967,2026,2
+Nuevo León,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-13.46951148,17.47671477,2026,2
+Oaxaca,221,"Generación, transmisión, distribución y comercialización de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final",Secundaria,Inversión Positiva,1.3988455,21.26622002,2026,2
+Oaxaca,311,Industria alimentaria,Secundaria,Inversión Positiva,0.89160833,-0.01077696,2026,2
+Oaxaca,325,Industria química,Secundaria,Inversión Positiva,0.42697797,5.99887989,2026,2
+Oaxaca,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,31.58856496,0.90226554,2026,2
+Oaxaca,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,3.25131203,1.92898585,2026,2
+Oaxaca,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,Inversión Positiva,0.11549335,0.34603233,2026,2
+Puebla,111,Agricultura,Primaria,Inversión Positiva,9.7974313,0.0,2026,2
+Puebla,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,362.94811383,193.68661201,2026,2
+Puebla,331,Industrias metálicas básicas,Secundaria,Inversión Positiva,52.36976554,-19.4009919,2026,2
+Puebla,312,Industria de las bebidas y del tabaco,Secundaria,Inversión Positiva,23.15895041,0.0,2026,2
+Puebla,311,Industria alimentaria,Secundaria,Desinversión,-21.98055148,3.08569268,2026,2
+Puebla,339,Otras industrias manufactureras,Secundaria,Desinversión,-4.20189581,0.0,2026,2
+Puebla,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,84.46401964,-3.67490522,2026,2
+Puebla,432,Comercio al por mayor de productos textiles y calzado,Terciaria,Inversión Positiva,2.51137428,-0.31633359,2026,2
+Puebla,435,"Comercio al por mayor de maquinaria, equipo y mobiliario para actividades agropecuarias, industriales, de servicios y comerciales, y de otra maquinaria y equipo de uso general",Terciaria,Inversión Positiva,2.4672455,0.0,2026,2
+Puebla,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-1.93236649,7.64592235,2026,2
+Puebla,541,"Servicios profesionales, científicos y técnicos",Terciaria,Desinversión,-1.52867178,2.52340875,2026,2
+Querétaro,111,Agricultura,Primaria,Inversión Positiva,13.40851526,0.46776891,2026,2
+Querétaro,311,Industria alimentaria,Secundaria,Inversión Positiva,155.22898526,88.78445247,2026,2
+Querétaro,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,60.04218179,155.51866263,2026,2
+Querétaro,221,"Generación, transmisión, distribución y comercialización de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final",Secundaria,Inversión Positiva,50.1644867,7.56183591,2026,2
+Querétaro,322,Industria del papel,Secundaria,Desinversión,-80.99679126,-47.46099926,2026,2
+Querétaro,326,Industria del plástico y del hule,Secundaria,Desinversión,-47.43039686,246.30961242,2026,2
+Querétaro,332,Fabricación de productos metálicos,Secundaria,Desinversión,-2.10053525,9.66808644,2026,2
+Querétaro,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,295.24441023,-19.23791222,2026,2
+Querétaro,434,"Comercio al por mayor de materias primas agropecuarias y forestales, para la industria, y materiales de desecho",Terciaria,Inversión Positiva,17.97318939,16.1837881,2026,2
+Querétaro,433,"Comercio al por mayor de productos farmacéuticos, de perfumería, artículos para el esparcimiento, electrodomésticos menores y aparatos de línea blanca",Terciaria,Inversión Positiva,9.5663788,9.19310932,2026,2
+Querétaro,541,"Servicios profesionales, científicos y técnicos",Terciaria,Desinversión,-24.13734863,-1.26324026,2026,2
+Querétaro,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-2.12641864,8.07562032,2026,2
+Querétaro,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Desinversión,-1.49289142,-0.51433759,2026,2
+Quintana Roo,237,Construcción de obras de ingeniería civil,Secundaria,Inversión Positiva,4.54673799,0.0,2026,2
+Quintana Roo,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,1.65614667,0.03499115,2026,2
+Quintana Roo,311,Industria alimentaria,Secundaria,Inversión Positiva,0.6691979,0.0,2026,2
+Quintana Roo,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,349.12533045,386.24941786,2026,2
+Quintana Roo,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,44.82438969,1.96768504,2026,2
+Quintana Roo,531,Servicios inmobiliarios,Terciaria,Inversión Positiva,5.94110034,3.59788351,2026,2
+Quintana Roo,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-1.32027826,6.44869861,2026,2
+San Luis Potosí,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,386.02026179,62.11064239,2026,2
+San Luis Potosí,311,Industria alimentaria,Secundaria,Inversión Positiva,56.05603148,-11.86147238,2026,2
+San Luis Potosí,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,Inversión Positiva,47.71210719,0.0,2026,2
+San Luis Potosí,237,Construcción de obras de ingeniería civil,Secundaria,Desinversión,-0.78157213,0.07958267,2026,2
+San Luis Potosí,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,35.65016219,5.29291235,2026,2
+San Luis Potosí,434,"Comercio al por mayor de materias primas agropecuarias y forestales, para la industria, y materiales de desecho",Terciaria,Inversión Positiva,5.03818208,6.14774387,2026,2
+San Luis Potosí,561,Servicios de apoyo a los negocios,Terciaria,Inversión Positiva,3.0152681,0.02570757,2026,2
+San Luis Potosí,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-1.30344598,6.24281762,2026,2
+Sinaloa,111,Agricultura,Primaria,Inversión Positiva,3.62547809,-1.12919154,2026,2
+Sinaloa,115,Servicios relacionados con las actividades agropecuarias y forestales,Primaria,Desinversión,-11.65483017,0.0,2026,2
+Sinaloa,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,16.2202847,0.89460197,2026,2
+Sinaloa,325,Industria química,Secundaria,Inversión Positiva,1.92648338,5.12061313,2026,2
+Sinaloa,311,Industria alimentaria,Secundaria,Inversión Positiva,1.11619815,0.02718594,2026,2
+Sinaloa,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,53.72754825,7.96477518,2026,2
+Sinaloa,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,14.99477058,5.56571358,2026,2
+Sinaloa,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,Inversión Positiva,0.96782847,1.12275097,2026,2
+Sinaloa,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-1.3965591,5.50907147,2026,2
+Sonora,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,Inversión Positiva,39.67402156,4.40542926,2026,2
+Sonora,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,25.6629482,-10.18762958,2026,2
+Sonora,237,Construcción de obras de ingeniería civil,Secundaria,Inversión Positiva,17.55303553,3.71149077,2026,2
+Sonora,326,Industria del plástico y del hule,Secundaria,Desinversión,-5.06710717,-11.08775625,2026,2
+Sonora,221,"Generación, transmisión, distribución y comercialización de energía eléctrica, suministro de agua y de gas natural por ductos al consumidor final",Secundaria,Desinversión,-4.90499903,0.80418597,2026,2
+Sonora,212,"Minería de minerales metálicos y no metálicos, excepto petróleo y gas",Secundaria,Desinversión,-4.80124103,125.70491098,2026,2
+Sonora,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,56.35781574,3.3507435,2026,2
+Sonora,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,10.11931063,10.03774355,2026,2
+Sonora,433,"Comercio al por mayor de productos farmacéuticos, de perfumería, artículos para el esparcimiento, electrodomésticos menores y aparatos de línea blanca",Terciaria,Inversión Positiva,0.83027635,1.20615069,2026,2
+Sonora,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-1.62668307,6.78769864,2026,2
+Sonora,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Desinversión,-1.36588861,-0.08063237,2026,2
+Tabasco,237,Construcción de obras de ingeniería civil,Secundaria,Inversión Positiva,252.55296058,-36.90894027,2026,2
+Tabasco,325,Industria química,Secundaria,Inversión Positiva,3.66797487,1.29607636,2026,2
+Tabasco,311,Industria alimentaria,Secundaria,Inversión Positiva,0.72778289,0.03198045,2026,2
+Tabasco,211,Extracción de petróleo y gas,Secundaria,Desinversión,-46.79045186,0.0,2026,2
+Tabasco,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,34.31702447,1.9814588,2026,2
+Tabasco,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,1.17842584,0.95345944,2026,2
+Tabasco,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,Inversión Positiva,0.40381071,1.07513161,2026,2
+Tabasco,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-0.96518663,4.69683791,2026,2
+Tamaulipas,335,"Fabricación de accesorios, aparatos eléctricos y equipo de generación de energía eléctrica",Secundaria,Inversión Positiva,118.10386893,24.86966483,2026,2
+Tamaulipas,334,"Fabricación de equipo de computación, comunicación, medición y de otros equipos, componentes y accesorios electrónicos",Secundaria,Inversión Positiva,68.19825998,108.64494457,2026,2
+Tamaulipas,333,Fabricación de maquinaria y equipo,Secundaria,Inversión Positiva,20.47494573,38.37096571,2026,2
+Tamaulipas,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,60.2497997,3.56974968,2026,2
+Tamaulipas,488,Servicios relacionados con el transporte,Terciaria,Inversión Positiva,8.79664607,1.14839423,2026,2
+Tamaulipas,524,"Compañías de seguros, fianzas, y administración de fondos para el retiro",Terciaria,Inversión Positiva,6.55200029,8.93981035,2026,2
+Tamaulipas,434,"Comercio al por mayor de materias primas agropecuarias y forestales, para la industria, y materiales de desecho",Terciaria,Desinversión,-2.59229979,23.01827822,2026,2
+Tlaxcala,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,86.38580413,56.15943952,2026,2
+Tlaxcala,325,Industria química,Secundaria,Inversión Positiva,21.68438469,-0.06170813,2026,2
+Tlaxcala,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,11.62428983,0.37939456,2026,2
+Veracruz,325,Industria química,Secundaria,Inversión Positiva,98.98354881,29.25894706,2026,2
+Veracruz,312,Industria de las bebidas y del tabaco,Secundaria,Inversión Positiva,19.53584902,-3.89717799,2026,2
+Veracruz,311,Industria alimentaria,Secundaria,Inversión Positiva,14.40752343,9.5594673,2026,2
+Veracruz,331,Industrias metálicas básicas,Secundaria,Desinversión,-30.38942553,-194.53430838,2026,2
+Veracruz,333,Fabricación de maquinaria y equipo,Secundaria,Desinversión,-9.40723928,0.13097772,2026,2
+Veracruz,488,Servicios relacionados con el transporte,Terciaria,Inversión Positiva,142.49462345,125.72809231,2026,2
+Veracruz,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,104.09575745,5.61973933,2026,2
+Veracruz,561,Servicios de apoyo a los negocios,Terciaria,Inversión Positiva,1.92086773,3.69211164,2026,2
+Veracruz,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Desinversión,-62.36806805,-3.09234243,2026,2
+Veracruz,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-2.80652743,10.29219095,2026,2
+Yucatán,315,Fabricación de prendas de vestir,Secundaria,Inversión Positiva,6.24203964,2.76302042,2026,2
+Yucatán,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,5.01511723,7.9111383,2026,2
+Yucatán,339,Otras industrias manufactureras,Secundaria,Inversión Positiva,3.23197059,0.24968491,2026,2
+Yucatán,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,50.43069251,2.77909169,2026,2
+Yucatán,721,Servicios de alojamiento temporal,Terciaria,Inversión Positiva,34.24236675,15.26553714,2026,2
+Yucatán,541,"Servicios profesionales, científicos y técnicos",Terciaria,Inversión Positiva,30.51759389,-6.98783974,2026,2
+Yucatán,462,Comercio al por menor en tiendas de autoservicio y departamentales,Terciaria,Desinversión,-1.31950772,7.19789939,2026,2
+Yucatán,431,"Comercio al por mayor de abarrotes, alimentos, bebidas, hielo y tabaco",Terciaria,Desinversión,-0.22142906,0.86248645,2026,2
+Zacatecas,212,"Minería de minerales metálicos y no metálicos, excepto petróleo y gas",Secundaria,Inversión Positiva,306.51106035,119.24817781,2026,2
+Zacatecas,336,Fabricación de equipo de transporte,Secundaria,Inversión Positiva,10.17233015,5.61793443,2026,2
+Zacatecas,311,Industria alimentaria,Secundaria,Inversión Positiva,0.43275654,0.0,2026,2
+Zacatecas,522,Instituciones de intermediación crediticia y financiera no bursátil,Terciaria,Inversión Positiva,17.18230467,0.71997183,2026,2

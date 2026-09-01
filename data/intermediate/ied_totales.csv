@@ -1,131 +1,132 @@
 Estado,Sector,Inversion,Inversion_Anterior,Anio,Trimestre
-Aguascalientes,Primaria,0.0,0.0,2026,1
-Aguascalientes,Secundaria,235.06955442,112.9197221,2026,1
-Aguascalientes,Terciaria,55.00660991,-2.08845994,2026,1
-Aguascalientes,Total,342.05074875,109.85308059,2026,1
-Baja California,Primaria,0.0,0.0,2026,1
-Baja California,Secundaria,1065.0162714399999,735.1026164,2026,1
-Baja California,Terciaria,178.56072423,82.68084547000001,2026,1
-Baja California,Total,1394.45372825,857.12456016,2026,1
-Baja California Sur,Primaria,0.0,0.0,2026,1
-Baja California Sur,Secundaria,0.0,0.0,2026,1
-Baja California Sur,Terciaria,212.70729213,88.14103559,2026,1
-Baja California Sur,Total,222.09964833,83.73263897,2026,1
-"C: Cifra confidencial, no publicable por el principio de confidencialidad establecido en el Artículo 31 de la Ley de Inversión Extranjera.",Total,0.0,0.0,2026,1
-Campeche,Primaria,0.0,0.0,2026,1
-Campeche,Secundaria,0.0,0.0,2026,1
-Campeche,Terciaria,16.54182691,0.0,2026,1
-Campeche,Total,36.04612983,-2.87875536,2026,1
-Chiapas,Primaria,0.0,0.0,2026,1
-Chiapas,Secundaria,24.92372688,0.0,2026,1
-Chiapas,Terciaria,48.62409348,0.0,2026,1
-Chiapas,Total,84.16255693,1.99202691,2026,1
-Chihuahua,Primaria,0.0,0.0,2026,1
-Chihuahua,Secundaria,221.71238749,405.87783541,2026,1
-Chihuahua,Terciaria,140.33759842,2.81563319,2026,1
-Chihuahua,Total,406.44251261,440.47392008,2026,1
-Ciudad de México,Primaria,0.0,0.0,2026,1
-Ciudad de México,Secundaria,6961.38468011,2812.99440147,2026,1
-Ciudad de México,Terciaria,4551.83662009,6401.13103067,2026,1
-Ciudad de México,Total,11776.81617678,11805.77730826,2026,1
-Coahuila,Primaria,0.0,0.0,2026,1
-Coahuila,Secundaria,343.33733844,523.10129899,2026,1
-Coahuila,Terciaria,60.34561078,0.0,2026,1
-Coahuila,Total,449.86950671,538.40014202,2026,1
-Colima,Primaria,0.0,0.0,2026,1
-Colima,Secundaria,0.0,0.0,2026,1
-Colima,Terciaria,17.40220616,0.0,2026,1
-Colima,Total,82.22430183,3.93887043,2026,1
-Durango,Primaria,0.0,0.0,2026,1
-Durango,Secundaria,64.98144053,0.0,2026,1
-Durango,Terciaria,24.25997401,0.0,2026,1
-Durango,Total,100.12361874,-13.89017802,2026,1
-Fuente: Registro Nacional de Inversiones Extranjeras (RNIE). Secretaría de Economía.,Total,0.0,0.0,2026,1
-Guanajuato,Primaria,-17.83481684,0.0,2026,1
-Guanajuato,Secundaria,222.37767087,644.1138824999999,2026,1
-Guanajuato,Terciaria,124.89998675,40.95590116,2026,1
-Guanajuato,Total,420.15403798,700.46984564,2026,1
-Guerrero,Primaria,0.0,0.0,2026,1
-Guerrero,Secundaria,0.0,0.0,2026,1
-Guerrero,Terciaria,34.60958494,23.47751784,2026,1
-Guerrero,Total,-86.04644431,-15.55412347,2026,1
-Hidalgo,Primaria,0.0,0.0,2026,1
-Hidalgo,Secundaria,9.64332963,0.0,2026,1
-Hidalgo,Terciaria,48.1522823,0.0,2026,1
-Hidalgo,Total,135.15044409,68.94638141,2026,1
-Jalisco,Primaria,18.32187862,39.56705393,2026,1
-Jalisco,Secundaria,340.52796965,286.10450001,2026,1
-Jalisco,Terciaria,274.46826916000003,40.55484003,2026,1
-Jalisco,Total,722.95609968,606.87244112,2026,1
-Michoacán,Primaria,19.17427793,0.0,2026,1
-Michoacán,Secundaria,0.0,0.0,2026,1
-Michoacán,Terciaria,218.65892989000002,0.0,2026,1
-Michoacán,Total,278.64884027,106.33265801,2026,1
-Morelos,Primaria,0.0,0.0,2026,1
-Morelos,Secundaria,3.739566590000001,1.70409384,2026,1
-Morelos,Terciaria,29.07675643,0.0,2026,1
-Morelos,Total,47.47272804,5.36801689,2026,1
-México,Primaria,0.0,0.0,2026,1
-México,Secundaria,448.42719123999996,960.38569803,2026,1
-México,Terciaria,209.40846286000001,-33.93243474,2026,1
-México,Total,1983.19007759,1888.25829668,2026,1
-Nayarit,Primaria,0.0,0.0,2026,1
-Nayarit,Secundaria,0.0,0.0,2026,1
-Nayarit,Terciaria,124.43748271999999,23.38754106,2026,1
-Nayarit,Total,126.41800823,45.88752043,2026,1
-Nuevo León,Primaria,0.0,0.0,2026,1
-Nuevo León,Secundaria,1045.69560815,1346.78468993,2026,1
-Nuevo León,Terciaria,854.62960013,1229.7347106399998,2026,1
-Nuevo León,Total,1956.46703299,2674.17976803,2026,1
-Oaxaca,Primaria,0.0,0.0,2026,1
-Oaxaca,Secundaria,-0.69381749,0.0,2026,1
-Oaxaca,Terciaria,31.20241659,1.92898585,2026,1
-Oaxaca,Total,47.77587975,-0.62432353,2026,1
-Puebla,Primaria,0.0,0.0,2026,1
-Puebla,Secundaria,111.46875468,140.84912816000002,2026,1
-Puebla,Terciaria,107.69035435,2.47751118,2026,1
-Puebla,Total,663.83904145,384.44515216,2026,1
-Querétaro,Primaria,0.0,0.0,2026,1
-Querétaro,Secundaria,175.96329446,233.50386719,2026,1
-Querétaro,Terciaria,35.67852661,0.0,2026,1
-Querétaro,Total,456.29780838,302.01300133,2026,1
-Quintana Roo,Primaria,0.0,0.0,2026,1
-Quintana Roo,Secundaria,1.19856996,0.0,2026,1
-Quintana Roo,Terciaria,174.98993292999998,287.15460198,2026,1
-Quintana Roo,Total,196.54014571,289.57985487,2026,1
-San Luis Potosí,Primaria,0.0,0.0,2026,1
-San Luis Potosí,Secundaria,411.0383607,89.64125999,2026,1
-San Luis Potosí,Terciaria,44.678809400000006,0.0,2026,1
-San Luis Potosí,Total,493.95383314,125.71455536,2026,1
-Sinaloa,Primaria,3.58256764,0.0,2026,1
-Sinaloa,Secundaria,23.86475724,0.0,2026,1
-Sinaloa,Terciaria,58.12947311,6.78801989,2026,1
-Sinaloa,Total,125.82783548,17.37021174,2026,1
-Sonora,Primaria,0.0,0.0,2026,1
-Sonora,Secundaria,124.93949255,15.829657159999998,2026,1
-Sonora,Terciaria,65.55281328,8.03559138,2026,1
-Sonora,Total,246.04974552,3.92092439,2026,1
-Tabasco,Primaria,0.0,0.0,2026,1
-Tabasco,Secundaria,0.0,0.0,2026,1
-Tabasco,Terciaria,38.804589299999996,0.87159478,2026,1
-Tabasco,Total,162.85710176,-49.52822912,2026,1
-Tamaulipas,Primaria,0.0,0.0,2026,1
-Tamaulipas,Secundaria,113.360214,152.52290893,2026,1
-Tamaulipas,Terciaria,55.51553602,1.74076302,2026,1
-Tamaulipas,Total,222.7432958,232.25338836,2026,1
-Tlaxcala,Primaria,0.0,0.0,2026,1
-Tlaxcala,Secundaria,35.9002669,28.08654582,2026,1
-Tlaxcala,Terciaria,10.79038573,0.0,2026,1
-Tlaxcala,Total,90.36907519,34.24087735,2026,1
-Veracruz,Primaria,0.0,0.0,2026,1
-Veracruz,Secundaria,110.40810688,26.80442148,2026,1
-Veracruz,Terciaria,93.8641216,0.95483697,2026,1
-Veracruz,Total,456.99837057,99.88459649,2026,1
-Yucatán,Primaria,0.0,0.0,2026,1
-Yucatán,Secundaria,8.96842639,0.12535655,2026,1
-Yucatán,Terciaria,69.32960012,14.18839207,2026,1
-Yucatán,Total,120.35895224,16.49385413,2026,1
-Zacatecas,Primaria,0.0,0.0,2026,1
-Zacatecas,Secundaria,-200.76372951000002,0.0,2026,1
-Zacatecas,Terciaria,23.65681223,0.0,2026,1
-Zacatecas,Total,-171.68879232,12.1448226,2026,1
+Aguascalientes,Primaria,0.0,0.0,2026,2
+Aguascalientes,Secundaria,448.35412956,373.09527366000003,2026,2
+Aguascalientes,Terciaria,51.7051053,-2.854758420000003,2026,2
+Aguascalientes,Total,520.15503073,394.59218979,2026,2
+Baja California,Primaria,5.11363477,0.10294641,2026,2
+Baja California,Secundaria,1333.40595732,1264.38534298,2026,2
+Baja California,Terciaria,363.52911796,282.55408342000004,2026,2
+Baja California,Total,1743.25310896,1576.56110749,2026,2
+Baja California Sur,Primaria,0.0,-0.44124415,2026,2
+Baja California Sur,Secundaria,0.72354695,277.25162221000005,2026,2
+Baja California Sur,Terciaria,532.63865934,292.593677,2026,2
+Baja California Sur,Total,548.78186511,565.63445768,2026,2
+"C: Cifra confidencial, no publicable por el principio de confidencialidad establecido en el Artículo 31 de la Ley de Inversión Extranjera.",Total,0.0,0.0,2026,2
+Campeche,Primaria,0.0,0.0,2026,2
+Campeche,Secundaria,0.14309368,8.49988446,2026,2
+Campeche,Terciaria,16.08469192,0.9323526700000001,2026,2
+Campeche,Total,34.27068375,11.60899343,2026,2
+Chiapas,Primaria,0.0,0.0,2026,2
+Chiapas,Secundaria,30.88650403,16.152628789999998,2026,2
+Chiapas,Terciaria,42.21552614,2.64268867,2026,2
+Chiapas,Total,77.71692777,28.13094852,2026,2
+Chihuahua,Primaria,0.0,0.0,2026,2
+Chihuahua,Secundaria,394.41169103999994,801.94077828,2026,2
+Chihuahua,Terciaria,202.13632635000002,127.84704345,2026,2
+Chihuahua,Total,614.54154059,936.10246652,2026,2
+Ciudad de México,Primaria,31.44530062,0.0,2026,2
+Ciudad de México,Secundaria,7002.6666,7007.64486376,2026,2
+Ciudad de México,Terciaria,9820.181515530001,12331.3099044,2026,2
+Ciudad de México,Total,16861.98189335,19311.77539513,2026,2
+Coahuila,Primaria,0.0,0.0,2026,2
+Coahuila,Secundaria,281.82904658,778.00258497,2026,2
+Coahuila,Terciaria,84.55759033,16.37479385,2026,2
+Coahuila,Total,379.97705564,845.11520066,2026,2
+Colima,Primaria,0.0,0.0,2026,2
+Colima,Secundaria,-0.42341487,-11.380997569999998,2026,2
+Colima,Terciaria,72.66983181,37.60223608,2026,2
+Colima,Total,84.95588562,275.08904275,2026,2
+Durango,Primaria,0.0,0.0,2026,2
+Durango,Secundaria,47.02327755,-64.91752918,2026,2
+Durango,Terciaria,21.69431206,0.07065199000000005,2026,2
+Durango,Total,79.09617473,-58.56831313,2026,2
+Fecha de actualización: 30 de junio de 2026.,Total,0.0,0.0,2026,2
+Fuente: Registro Nacional de Inversiones Extranjeras (RNIE). Secretaría de Economía.,Total,0.0,0.0,2026,2
+Guanajuato,Primaria,7.56281648,12.90826697,2026,2
+Guanajuato,Secundaria,204.96762145000002,701.33648093,2026,2
+Guanajuato,Terciaria,146.55918617999998,139.74754969,2026,2
+Guanajuato,Total,411.1447958,870.65761986,2026,2
+Guerrero,Primaria,0.0,0.0,2026,2
+Guerrero,Secundaria,0.9721459800000001,5.72376099,2026,2
+Guerrero,Terciaria,54.155488950000006,30.997810970000003,2026,2
+Guerrero,Total,-118.04337225,37.04458035,2026,2
+Hidalgo,Primaria,0.0,0.0,2026,2
+Hidalgo,Secundaria,90.33078642,56.48237343,2026,2
+Hidalgo,Terciaria,39.83773553,-27.92526584,2026,2
+Hidalgo,Total,-61.12291128,73.6285694,2026,2
+Jalisco,Primaria,45.14580348,57.92796992,2026,2
+Jalisco,Secundaria,858.2382139499999,726.6739987999999,2026,2
+Jalisco,Terciaria,420.01887044,136.7151577,2026,2
+Jalisco,Total,1406.48288868,933.00511582,2026,2
+Michoacán,Primaria,37.85419383,25.21770532,2026,2
+Michoacán,Secundaria,5.17615246,40.572036729999994,2026,2
+Michoacán,Terciaria,293.20801613000003,96.66630746000001,2026,2
+Michoacán,Total,409.37242045,161.41036867,2026,2
+Morelos,Primaria,0.0,0.0,2026,2
+Morelos,Secundaria,124.36097138000001,92.92519653999999,2026,2
+Morelos,Terciaria,27.129181839999998,8.59257376,2026,2
+Morelos,Total,163.22649668,116.84925189,2026,2
+México,Primaria,0.0,0.0,2026,2
+México,Secundaria,1630.01407077,1152.352044,2026,2
+México,Terciaria,269.15549066,134.20425595999998,2026,2
+México,Total,2114.16655434,2248.79111085,2026,2
+Nayarit,Primaria,0.0,0.0,2026,2
+Nayarit,Secundaria,0.27609737,53.70930982,2026,2
+Nayarit,Terciaria,176.83671965,53.22802668,2026,2
+Nayarit,Total,179.21045768,129.63499762,2026,2
+Nuevo León,Primaria,0.0,0.0,2026,2
+Nuevo León,Secundaria,2175.0400593599998,1610.17472088,2026,2
+Nuevo León,Terciaria,1529.35676591,1362.17457752,2026,2
+Nuevo León,Total,3711.74039368,3032.24123962,2026,2
+Oaxaca,Primaria,0.0,0.0,2026,2
+Oaxaca,Secundaria,2.7174318,-10.76966062,2026,2
+Oaxaca,Terciaria,34.95537034,3.21126892,2026,2
+Oaxaca,Total,56.06510293,-14.10391189,2026,2
+Puebla,Primaria,9.7974313,0.0,2026,2
+Puebla,Secundaria,460.40746809,-2.13205966000001,2026,2
+Puebla,Terciaria,89.18757609000001,77.69857463999999,2026,2
+Puebla,Total,998.2749981,107.31765673,2026,2
+Querétaro,Primaria,13.40851526,0.73381902,2026,2
+Querétaro,Secundaria,298.99284758,728.21549542,2026,2
+Querétaro,Terciaria,307.89855140000003,186.48803569000003,2026,2
+Querétaro,Total,863.42277187,970.28402864,2026,2
+Quintana Roo,Primaria,0.0,0.0,2026,2
+Quintana Roo,Secundaria,7.29477982,101.32111282,2026,2
+Quintana Roo,Terciaria,405.13332508999997,401.0794456,2026,2
+Quintana Roo,Total,436.13589723,509.09972486,2026,2
+San Luis Potosí,Primaria,0.0,0.0,2026,2
+San Luis Potosí,Secundaria,625.8511266099999,157.4604578,2026,2
+San Luis Potosí,Terciaria,47.447763470000005,50.66126529,2026,2
+San Luis Potosí,Total,1375.19540578,223.0252366,2026,2
+Sinaloa,Primaria,-8.02935208,-1.12919154,2026,2
+Sinaloa,Secundaria,19.26296623,10.19669934,2026,2
+Sinaloa,Terciaria,69.05100698999999,20.32519022,2026,2
+Sinaloa,Total,120.05874602,34.34862888,2026,2
+Sonora,Primaria,0.0,0.0,2026,2
+Sonora,Secundaria,124.23018687,125.18994364,2026,2
+Sonora,Terciaria,65.43859502,23.23731232,2026,2
+Sonora,Total,227.39080248,162.04941003,2026,2
+Tabasco,Primaria,0.0,0.0,2026,2
+Tabasco,Secundaria,210.15826648,-31.99995004,2026,2
+Tabasco,Terciaria,35.16052157,8.58645154,2026,2
+Tabasco,Total,254.58648255,-69.2199715,2026,2
+Tamaulipas,Primaria,0.0,0.0,2026,2
+Tamaulipas,Secundaria,282.29287136,372.51298844,2026,2
+Tamaulipas,Terciaria,74.99963283999999,43.15322392,2026,2
+Tamaulipas,Total,411.69482544,457.20422028,2026,2
+Tlaxcala,Primaria,0.0,0.0,2026,2
+Tlaxcala,Secundaria,108.07018882,93.1966973,2026,2
+Tlaxcala,Terciaria,11.62428983,10.96251393,2026,2
+Tlaxcala,Total,182.84458071,105.90403247,2026,2
+Veracruz,Primaria,0.0,0.0,2026,2
+Veracruz,Secundaria,99.67471781,-148.85045036000002,2026,2
+Veracruz,Terciaria,184.49195109000001,234.12471180999998,2026,2
+Veracruz,Total,270.38068677,94.57989402,2026,2
+Yucatán,Primaria,0.0,0.0,2026,2
+Yucatán,Secundaria,16.21298279,32.51057997,2026,2
+Yucatán,Terciaria,115.35324769,19.96574058,2026,2
+Yucatán,Total,260.87092627,59.95263813,2026,2
+Zacatecas,Primaria,0.0,0.0,2026,2
+Zacatecas,Secundaria,317.37983600999996,125.16081214,2026,2
+Zacatecas,Terciaria,17.18230467,1.12237873,2026,2
+Zacatecas,Total,349.71752385,134.82153277,2026,2
