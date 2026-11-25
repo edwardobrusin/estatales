@@ -1,4 +1,5 @@
 import random
+from pathlib import Path
 import threading
 from tqdm.auto import tqdm
 import tkinter as tk
@@ -1030,10 +1031,133 @@ def procesar_imco():
         return f"❌ [IMCO] Error: {e}"
 
 # ==============================================================================
-# MÓDULO 9: SALARIOS IMSS (Selenium Visible - Descarga Atómica por Estado + Consolidación Batch)
+# MÓDULO 10: TRABAJADORES ASEGURADOS IMSS (Local)
 # ==============================================================================
+import re
+from pathlib import Path
+
+import pandas as pd
+
+_MESES = {
+    "jan": 1, "ene": 1, "feb": 2, "mar": 3, "apr": 4, "abr": 4, "may": 5,
+    "jun": 6, "jul": 7, "aug": 8, "ago": 8, "sep": 9, "oct": 10,
+    "nov": 11, "dec": 12, "dic": 12,
+}
+
+
+def _leer_tabla_imss(ruta):
+    """Lee el archivo del IMSS probando codificaciones y separadores.
+
+    El cubo del IMSS exporta texto tabulado en UTF-16 aunque la extensión sea .xls,
+    pero también se aceptan CSV en UTF-8/Latin-1 separados por coma o tabulador.
+    """
+    for encoding in ("utf-16", "utf-8-sig", "latin-1"):
+        try:
+            df = pd.read_csv(ruta, sep=None, engine="python", encoding=encoding, dtype=str)
+        except (UnicodeError, UnicodeDecodeError, pd.errors.ParserError):
+            continue
+        if df.shape[1] > 2:
+            return df
+    raise ValueError(f"No se pudo leer el archivo como CSV/TSV: {ruta}")
+
+
+def transformar_asegurados_imss(ruta_entrada, ruta_salida=None, incluir_nacional=True):
+    """Convierte el archivo de Trabajadores Asegurados al IMSS por Entidad Federativa
+    a un CSV con el tiempo en filas y los estados en columnas.
+
+    Parámetros
+    ----------
+    ruta_entrada : str | Path
+        Archivo descargado del IMSS (columnas: Periodo, <mes>, Total, Aguascalientes, ...).
+    ruta_salida : str | Path, opcional
+        Ruta del CSV de salida. Por defecto, el mismo nombre con extensión .csv.
+    incluir_nacional : bool
+        Si True, conserva la columna 'Total' renombrada como 'Nacional'.
+
+    Regresa
+    -------
+    pd.DataFrame con índice 'Fecha' (primer día de cada mes), ordenado de la más antigua
+    a la más reciente, y una columna por entidad.
+    """
+    ruta_entrada = Path(ruta_entrada)
+    ruta_salida = Path(ruta_salida) if ruta_salida else ruta_entrada.with_suffix(".csv")
+
+    df = _leer_tabla_imss(ruta_entrada)
+    df.columns = [str(c).strip() for c in df.columns]
+
+    # La columna con el periodo mensual ("2026/Jan") es la que no tiene encabezado
+    # (o, en su defecto, la segunda). La primera ("Periodo") solo trae el año.
+    col_periodo = next((c for c in df.columns if c.startswith("Unnamed")), df.columns[1])
+    col_anio = df.columns[0]
+
+    # Quitar renglones de "Promedio" y vacíos
+    periodo = df[col_periodo].astype(str).str.strip()
+    df = df[periodo.str.match(r"^\d{4}\s*/\s*[A-Za-z]{3}", na=False)].copy()
+
+    def _a_fecha(txt):
+        m = re.match(r"^(\d{4})\s*/\s*([A-Za-z]{3})", txt.strip())
+        anio, mes = int(m.group(1)), _MESES[m.group(2).lower()]
+        return pd.Timestamp(year=anio, month=mes, day=1)
+
+    df["Fecha"] = df[col_periodo].map(_a_fecha)
+    df = df.drop(columns=[col_anio, col_periodo])
+
+    if "Total" in df.columns:
+        if incluir_nacional:
+            df = df.rename(columns={"Total": "Nacional"})
+        else:
+            df = df.drop(columns="Total")
+
+    # Valores numéricos (por si vienen con separador de miles)
+    estados = [c for c in df.columns if c != "Fecha"]
+    for c in estados:
+        df[c] = pd.to_numeric(df[c].str.replace(",", "", regex=False).str.strip(), errors="coerce")
+
+    df = (df.drop_duplicates(subset="Fecha", keep="last")
+            .sort_values("Fecha")
+            .set_index("Fecha"))
+    if incluir_nacional and "Nacional" in df.columns:
+        df = df[["Nacional"] + [c for c in df.columns if c != "Nacional"]]
+
+    # Columnas de Año y Mes (nombre en español) en lugar de la Fecha
+    nombres_mes = {1: "Enero", 2: "Febrero", 3: "Marzo", 4: "Abril", 5: "Mayo", 6: "Junio",
+                   7: "Julio", 8: "Agosto", 9: "Septiembre", 10: "Octubre",
+                   11: "Noviembre", 12: "Diciembre"}
+    salida = df.reset_index()
+    salida.insert(0, "Año", salida["Fecha"].dt.year)
+    salida.insert(1, "Mes", salida["Fecha"].dt.month.map(nombres_mes))
+    salida = salida.drop(columns="Fecha")
+
+    ruta_salida.parent.mkdir(parents=True, exist_ok=True)
+    # utf-8-sig para que Excel muestre bien los acentos (Ciudad de México, Estado de México)
+    salida.to_csv(ruta_salida, index=False, encoding="utf-8-sig")
+
+    print(f"✅ Asegurados IMSS: {len(df)} meses "
+          f"({df.index.min():%Y-%m} a {df.index.max():%Y-%m}), "
+          f"{len(df.columns)} columnas → {ruta_salida}")
+    return df
+
+
+# ------------------------------------------------------------------------------
+# Rutas: se calculan a partir de la ubicación de este archivo (scripts/main.py),
+# así funcionan igual si corres `python scripts/main.py` desde la raíz
+# o `python main.py` desde scripts/.
+# ------------------------------------------------------------------------------
+RAIZ = Path(__file__).resolve().parent.parent
+RUTA_IMSS_RAW = RAIZ / "data" / "raw" / "asegurados_imss.xls"
+RUTA_IMSS_SALIDA = RAIZ / "data" / "intermediate" / "asegurados_imss_entidad.csv"
+
+
+def procesar_asegurados_imss():
+    """Tarea del menú: toma el archivo del IMSS de data/raw/ y deja el CSV en data/intermediate/."""
+    if not RUTA_IMSS_RAW.exists():
+        print(f"⚠️ No se encontró {RUTA_IMSS_RAW}. Descárgalo del IMSS y guárdalo con ese nombre.")
+        return None
+    return transformar_asegurados_imss(RUTA_IMSS_RAW, RUTA_IMSS_SALIDA)
+
+
 def esperar_tableau_listo(driver, timeout=8):
-    """Espera a que el telón de carga translúcido de Tableau (loadingGlassPane) desaparezca."""
+    #Espera a que el telón de carga translúcido de Tableau (loadingGlassPane) desaparezca.
     try:
         WebDriverWait(driver, timeout).until(
             EC.invisibility_of_element_located((By.ID, "loadingGlassPane"))
@@ -1041,6 +1165,135 @@ def esperar_tableau_listo(driver, timeout=8):
     except Exception:
         pass
     time.sleep(0.5)
+
+
+# ==============================================================================
+# MÓDULO 9: SALARIOS IMSS (Local, sin Selenium)
+# Toma el salarios_imss.csv que ya existe en data/intermediate/ (sin modificarlo)
+# y genera salarios_imss_ficha.csv en el formato que espera ficha_v4.py:
+#     Fecha,Aguascalientes,Baja California,...
+#     julio 1997,123.45,150.10,...
+# Requiere (ya definidos en main.py): os, re, pd, tqdm, INTERMEDIATE_DIR
+# ==============================================================================
+
+_MESES_NUM = {
+    'enero': 1, 'febrero': 2, 'marzo': 3, 'abril': 4, 'mayo': 5, 'junio': 6,
+    'julio': 7, 'agosto': 8, 'septiembre': 9, 'setiembre': 9, 'octubre': 10,
+    'noviembre': 11, 'diciembre': 12,
+    'ene': 1, 'feb': 2, 'mar': 3, 'abr': 4, 'may': 5, 'jun': 6, 'jul': 7,
+    'ago': 8, 'sep': 9, 'sept': 9, 'set': 9, 'oct': 10, 'nov': 11, 'dic': 12,
+    # por si Excel o Tableau lo dejaron en inglés
+    'jan': 1, 'apr': 4, 'aug': 8, 'dec': 12,
+}
+_MESES_NOMBRE = {1: 'enero', 2: 'febrero', 3: 'marzo', 4: 'abril', 5: 'mayo', 6: 'junio',
+                 7: 'julio', 8: 'agosto', 9: 'septiembre', 10: 'octubre',
+                 11: 'noviembre', 12: 'diciembre'}
+
+
+def _anio_4_digitos(a):
+    a = int(a)
+    if a < 100:
+        a += 2000 if a < 50 else 1900
+    return a
+
+
+def _parsear_fecha_salario(valor):
+    """Convierte cualquier variante de fecha a pd.Timestamp (primer día del mes).
+
+    Acepta: 'julio 1997', 'Julio de 1997', 'jul-97', 'jul. 1997', '1997-07-01',
+    '01/07/1997', '07/1997', '07-1997'. Regresa NaT si no la reconoce.
+    """
+    s = str(valor).strip().lower().replace('.', '')
+    if not s or s in ('nan', 'none'):
+        return pd.NaT
+
+    # 1) Mes con letra + año:  "julio 1997", "julio de 1997", "jul-97", "jul/1997"
+    m = re.match(r'^([a-záéíóú]+)\s*(?:de\s+)?[\s\-/]*(\d{2}|\d{4})$', s)
+    if m and m.group(1) in _MESES_NUM:
+        return pd.Timestamp(year=_anio_4_digitos(m.group(2)), month=_MESES_NUM[m.group(1)], day=1)
+
+    # 2) Año-mes(-día) ISO:  "1997-07-01", "1997-07"
+    m = re.match(r'^(\d{4})[\-/](\d{1,2})(?:[\-/]\d{1,2})?(?:\s.*)?$', s)
+    if m:
+        return pd.Timestamp(year=int(m.group(1)), month=int(m.group(2)), day=1)
+
+    # 3) Día/mes/año:  "01/07/1997"
+    m = re.match(r'^\d{1,2}[\-/](\d{1,2})[\-/](\d{2}|\d{4})$', s)
+    if m:
+        return pd.Timestamp(year=_anio_4_digitos(m.group(2)), month=int(m.group(1)), day=1)
+
+    # 4) Mes/año:  "07/1997", "07-97"
+    m = re.match(r'^(\d{1,2})[\-/](\d{2}|\d{4})$', s)
+    if m:
+        return pd.Timestamp(year=_anio_4_digitos(m.group(2)), month=int(m.group(1)), day=1)
+
+    return pd.NaT
+
+
+def procesar_salarios_imss_2():
+    tqdm.write("⏳ [Salarios IMSS] Reformateando salarios_imss.csv existente (sin Selenium)...")
+
+    ruta = os.path.join(INTERMEDIATE_DIR, "salarios_imss.csv")
+    if not os.path.exists(ruta):
+        return f"❌ [Salarios IMSS] No existe {ruta}."
+
+    try:
+        df = pd.read_csv(ruta, encoding='utf-8-sig')
+    except UnicodeDecodeError:
+        df = pd.read_csv(ruta, encoding='latin-1')
+
+    df.columns = [str(c).strip() for c in df.columns]
+    df = df.loc[:, ~df.columns.str.startswith('Unnamed')]
+
+    # Restos de merges anteriores (Estado_x / Estado_y)
+    cols_xy = [c for c in df.columns if c.endswith('_x') or c.endswith('_y')]
+    if cols_xy:
+        df = df.drop(columns=cols_xy)
+
+    # Ubicar la columna de fecha (normalmente 'Fecha'; si no, la primera)
+    col_fecha = next((c for c in df.columns if c.lower() in ('fecha', 'periodo', 'mes')), df.columns[0])
+    df = df.rename(columns={col_fecha: 'Fecha'})
+    estados = [c for c in df.columns if c != 'Fecha']
+
+    # Valores a número (quita $, comas y espacios)
+    for c in estados:
+        df[c] = pd.to_numeric(
+            df[c].astype(str).str.replace(r'[\$,\s]', '', regex=True), errors='coerce')
+
+    # Candado: el salario diario ronda cientos de pesos. Si los valores son de miles,
+    # el archivo trae otra cosa (p. ej. asegurados) y no se debe "arreglar".
+    mediana = df[estados].stack().median()
+    if 'Nacional' in estados or (pd.notna(mediana) and mediana > 5000):
+        return ("❌ [Salarios IMSS] salarios_imss.csv no parece contener salarios "
+                f"(mediana {mediana:,.0f}). Restáuralo con: "
+                "git checkout -- data/intermediate/salarios_imss.csv")
+
+    # Fechas
+    fechas = df['Fecha'].map(_parsear_fecha_salario)
+    no_reconocidas = df.loc[fechas.isna(), 'Fecha'].dropna().unique()
+    if len(no_reconocidas):
+        tqdm.write(f"⚠️ [Salarios IMSS] Fechas no reconocidas (se omiten): {list(no_reconocidas)[:10]}")
+    df['Fecha'] = fechas
+    df = (df.dropna(subset=['Fecha'])
+            .groupby('Fecha', as_index=False).first()   # un renglón por mes
+            .sort_values('Fecha')
+            .reset_index(drop=True))
+
+    if df.empty:
+        return "⚠️ [Salarios IMSS] No quedó ningún renglón válido; no se modificó el archivo."
+
+    # Formato final esperado por ficha_v4.py: "mes AAAA" (ej. "julio 1997")
+    df['Fecha'] = df['Fecha'].dt.month.map(_MESES_NOMBRE) + ' ' + df['Fecha'].dt.year.astype(str)
+
+    # Se escribe en un archivo NUEVO; salarios_imss.csv queda intacto
+    ruta_salida = os.path.join(INTERMEDIATE_DIR, "salarios_imss_ficha.csv")
+    df.to_csv(ruta_salida, index=False, encoding='utf-8-sig')
+
+    return (f"✅ [Salarios IMSS] {len(df)} meses ({df['Fecha'].iloc[0]} a {df['Fecha'].iloc[-1]}), "
+            f"{len(estados)} estados → {ruta_salida}")
+
+
+#Procesar Salario Selenuim
 
 def procesar_salarios_imss():
     tqdm.write("⏳ [Salarios IMSS] Iniciando extracción de 32 estados con Selenium...")
@@ -1377,6 +1630,8 @@ def procesar_salarios_imss():
                 try: driver.quit()
                 except Exception: pass
 
+
+"""
 # ==============================================================================
 # MÓDULO 10: PUESTOS IMSS (Selenium Visible con Anti-Colisión y Temp Aislado)
 # ==============================================================================
@@ -1468,6 +1723,8 @@ def procesar_puestos_imss():
             if driver:
                 try: driver.quit()
                 except Exception: pass
+
+"""
 
 # ==============================================================================
 # MÓDULO 11: REMESAS (Banxico API con Determinismo y Sin Trimestres Futuros Vacíos)
@@ -1621,8 +1878,8 @@ def main():
         "IED (Estructura)": procesar_ied,
         "SAIC (Productividad)": procesar_saic,
         "IMCO (Competitividad)": procesar_imco,
-        "Salarios IMSS (Selenium)": procesar_salarios_imss,
-        "Puestos IMSS (Selenium)": procesar_puestos_imss,
+        "Salarios IMSS (Selenium)": procesar_salarios_imss_2,
+        "Puestos IMSS (Selenium)": procesar_asegurados_imss,
         "Remesas (Banxico)": procesar_remesas_banxico
     }
     
